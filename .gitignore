@@ -3,7 +3,19 @@ tools/ai/config.local.json
 .env
 .env.*
 
-# Python cache
+# Godot 4+ specific ignores
+.godot/
+*.tmp
+
+# Python
 __pycache__/
+*.pyc
 *.py[cod]
 
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
