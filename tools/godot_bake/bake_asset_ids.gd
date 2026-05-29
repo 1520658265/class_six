@@ -15,7 +15,7 @@ static func bake(manifest: Dictionary, output_path: String) -> Dictionary:
     lines.append("")
 
     var sprites: Dictionary = manifest.get("sprites", {})
-    lines.append("class Sprites:")
+    lines.append("class Char:")
     if sprites.is_empty():
         lines.append("    pass")
     else:
@@ -24,7 +24,7 @@ static func bake(manifest: Dictionary, output_path: String) -> Dictionary:
     lines.append("")
 
     var portraits: Dictionary = manifest.get("portraits", {})
-    lines.append("class Portraits:")
+    lines.append("class Portrait:")
     if portraits.is_empty():
         lines.append("    pass")
     else:
@@ -48,7 +48,7 @@ static func bake(manifest: Dictionary, output_path: String) -> Dictionary:
     lines.append("")
 
     var atlas_section: Dictionary = manifest.get("atlas", {})
-    lines.append("class Atlas:")
+    lines.append("class Item:")
     if atlas_section.is_empty():
         lines.append("    pass")
     else:

@@ -40,8 +40,8 @@
 业务代码用名字调用，但名字来自烤点生成的 `AssetIds`，IDE 自动补全 + 拼错红线：
 
 ```gdscript
-$Sprite.sprite_frames = Sprites.walk_frames(AssetIds.Sprites.YUANSHENG)
-$Portrait.texture = Portraits.get_expression(AssetIds.Sprites.YUANSHENG, AssetIds.Portraits.Yuansheng.SMILE)
+$Sprite.sprite_frames = Sprites.walk_frames(AssetIds.Char.YUANSHENG)
+$Portrait.texture = Portraits.get_expression(AssetIds.Char.YUANSHENG, AssetIds.Portrait.Yuansheng.SMILE)
 ```
 
 ### 2.3 拼错就崩，不做 fallback
@@ -526,10 +526,10 @@ class Atlas:
 调用方式：
 
 ```gdscript
-$AnimSprite.sprite_frames = Sprites.walk_frames(AssetIds.Sprites.YUANSHENG)
-$Portrait.texture = Portraits.get_expression(AssetIds.Sprites.YUANSHENG, AssetIds.Portraits.Yuansheng.SMILE)
+$AnimSprite.sprite_frames = Sprites.walk_frames(AssetIds.Char.YUANSHENG)
+$Portrait.texture = Portraits.get_expression(AssetIds.Char.YUANSHENG, AssetIds.Portrait.Yuansheng.SMILE)
 VFX.spawn(AssetIds.Vfx.PUSH_DUST, position)
-$Icon.texture = Atlas.get_item("props_p0", AssetIds.Atlas.PropsP0.LUNCHBOX)
+$Icon.texture = Atlas.get_item("props_p0", AssetIds.Item.PropsP0.LUNCHBOX)
 ```
 
 拼错 → IDE 红线 + 编辑器加载失败。
@@ -559,7 +559,7 @@ func walk_frames(character_id: String) -> SpriteFrames:
     return res
 ```
 
-调用：`Sprites.walk_frames(AssetIds.Sprites.YUANSHENG)`
+调用：`Sprites.walk_frames(AssetIds.Char.YUANSHENG)`
 
 后续角色加 battle 动画时，同一个 `.tres` 里多挂 `battle_idle` / `battle_punch` 等 animation 即可。`AnimatedSprite2D.play("battle_idle")` 直接切，不需要 helper 新方法。
 
@@ -648,7 +648,9 @@ func get_item(category: String, item_name: String) -> Texture2D:
 
 ### 7.5 AssetIds
 
-`AssetIds` 不是 autoload singleton，而是烤点生成的纯常量类：`class_name AssetIds extends RefCounted`。Godot 的 autoload 更适合 `Node` 脚本；把 `AssetIds` 注册成 autoload 会引入不必要的实例语义，也可能和 `extends Object` 不匹配。业务代码直接通过全局类名访问 `AssetIds.Sprites.YUANSHENG`。
+`AssetIds` 不是 autoload singleton，而是烤点生成的纯常量类：`class_name AssetIds extends RefCounted`。Godot 的 autoload 更适合 `Node` 脚本；把 `AssetIds` 注册成 autoload 会引入不必要的实例语义，也可能和 `extends Object` 不匹配。业务代码直接通过全局类名访问 `AssetIds.Char.YUANSHENG`。
+
+**内部类命名（避免与 autoload 名冲突）**：autoload 用 `Sprites/Portraits/VFX/Atlas`，AssetIds 内部嵌套类用单数 `Char/Portrait/Vfx/Item`。这是 GDScript 限制——同名 `class_name`-嵌套类与 autoload singleton 撞名会触发 "Class X hides an autoload singleton" parse error。
 
 ### 7.6 helper 设计原则
 
@@ -687,7 +689,7 @@ func get_item(category: String, item_name: String) -> Texture2D:
 4. git add → commit → push
        .tres 和 asset_ids.gd 一并进 git
 
-5. 业务代码：Sprites.walk_frames(AssetIds.Sprites.BAOXIANJIN)  ← 直接可用
+5. 业务代码：Sprites.walk_frames(AssetIds.Char.BAOXIANJIN)  ← 直接可用
 ```
 
 第 3 步以后**不再修改任何代码**。
