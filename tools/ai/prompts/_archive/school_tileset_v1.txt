@@ -1,0 +1,111 @@
+A single pixel-art TILESET SHEET for a 1990s rural Chinese village elementary school RPG map.
+
+CANVAS LAYOUT (very important):
+- One large square canvas divided into an 8 columns x 8 rows grid = 64 cells.
+- Every cell is the same size and perfectly aligned to the grid. No cell extends into another cell.
+- Each cell contains exactly ONE asset, centered, drawn so it would tile/scale down cleanly to a 32x32 pixel sprite.
+- Solid magenta #FF00FF fills:
+    a) all space between cells (treat as 1-cell-equivalent gutter — but actually NO gutter, cells are flush; magenta fills any in-cell area not covered by the asset itself).
+    b) all transparent / empty regions inside each cell (so chroma-key can later extract each tile).
+- Do NOT draw cell numbers, grid lines, captions, frames, borders, watermarks, or any text labels in or around the cells. The grid is implicit through the layout of the assets.
+
+CELL CONTENTS (row, col — row 1 is the top row, col 1 is the leftmost):
+
+Row 1 — GROUND TILES (seamlessly tileable on all 4 edges, top-down view, fills entire cell, no magenta inside cell):
+  1,1: grass — muted olive/sage, with subtle darker tufts
+  1,2: dirt road — warm yellow-brown ochre, subtle wheel ruts
+  1,3: playground sand/dirt — pale sandy tan, slightly grey, scuffed
+  1,4: concrete path — light grey, faint cracks
+  1,5: mud patch — darker wet ochre brown
+  1,6: stone path — irregular grey flagstones with mortar
+  1,7: weeds/tall grass patch — mixed olive and yellow blades
+  1,8: water — dusty muted teal, slight ripple dithering
+
+Row 2 — TEACHING BUILDING ROOF & PARAPET (top-down view, flat concrete roof of a 2-story school):
+  2,1: flat concrete roof field — weathered grey, subtle texture, seamlessly tileable
+  2,2: parapet edge NORTH (top-down: a 1-tile-tall strip of water-cement parapet wall along the north edge of a roof; magenta below, parapet on top half of cell)
+  2,3: parapet edge SOUTH (mirror of 2,2: parapet on bottom half, magenta on top)
+  2,4: parapet corner NORTHWEST (L-shape, parapet along top + left of cell, magenta in bottom-right)
+  2,5: parapet corner NORTHEAST (L-shape, parapet along top + right, magenta in bottom-left)
+  2,6: parapet corner SOUTHWEST
+  2,7: parapet corner SOUTHEAST
+  2,8: rooftop water tank — small grey cylindrical tank centered on a patch of roof
+
+Row 3 — TEACHING BUILDING FACADE (front-facing view, ceramic tile wall: ochre/sandy-tan rectangular tiles with light grey cement grout lines):
+  3,1: ceramic tile wall blank — 32x32 pattern of ochre tiles + grout, seamlessly tileable
+  3,2: ceramic tile wall with window — same wall, white-framed window with light blue glass centered
+  3,3: ceramic tile wall with wooden door — plain wooden double-door centered, ochre tiles around
+  3,4: vertical sign tile with red Chinese character "丁" painted on ochre ceramic-tile background
+  3,5: vertical sign tile with red Chinese character "埠" on same background
+  3,6: vertical sign tile with red Chinese character "小" on same background
+  3,7: vertical sign tile with red Chinese character "学" on same background
+  3,8: ceramic tile wall corner — visible vertical edge where wall meets adjacent surface
+
+Row 4 — OTHER BUILDINGS (sloped grey-tile roof + terracotta brick wall, for dormitory / shop / canteen / toilet):
+  4,1: sloped grey roof field (top-down with horizontal 1-pixel dark ridge stripes), seamlessly tileable
+  4,2: sloped roof ridge — horizontal ridge cap centered, roof above and below
+  4,3: sloped roof eave (front edge with overhang shadow at bottom of cell)
+  4,4: terracotta brick wall blank — warm red brick + darker mortar, seamlessly tileable
+  4,5: brick wall with small square window (wood frame, white panes)
+  4,6: brick wall with wooden door (single panel, aged tan wood)
+  4,7: brick wall corner (visible vertical edge)
+  4,8: chimney — small brick chimney protruding from a roof patch
+
+Row 5 — NATURE (top-down or 3/4 view, asset centered, magenta fills rest of cell):
+  5,1: pine tree small — deep pine green with hint of teal, dark trunk hint at base
+  5,2: pine tree large — bigger crown, fills most of cell
+  5,3: camphor tree (round broad crown, slightly lighter green than pine)
+  5,4: bush — small rounded shrub
+  5,5: rock small — grey boulder
+  5,6: rock large — bigger grey boulder
+  5,7: flower patch red — small red blossoms in green tuft
+  5,8: flower patch yellow — small yellow blossoms in green tuft
+
+Row 6 — PLAYGROUND & SCHOOL DECORATIONS (3/4 or front view, centered, magenta fills rest):
+  6,1: ping-pong table — green-painted concrete table with white centerline, slight 3/4 angle
+  6,2: wooden basketball hoop — weathered wooden backboard on a wooden post, hoop visible, slightly tilted/broken
+  6,3: retaining wall front — 1-meter-tall stone retaining wall (cross-section, top half wall, bottom half magenta)
+  6,4: retaining wall steps — short stone staircase climbing up the retaining wall
+  6,5: wooden bench — long aged-pine bench, front view
+  6,6: trash barrel — old metal/wood barrel, slightly rusted
+  6,7: flagpole — tall thin metal pole with small red flag at top, concrete base
+  6,8: chalkboard outdoor — wooden-framed blackboard mounted on two posts (for outdoor announcements)
+
+Row 7 — FENCING, GATES, FURNITURE:
+  7,1: wooden fence post — single vertical post
+  7,2: wooden fence horizontal — two horizontal rails between two posts
+  7,3: school gate pillar — brick pillar with small concrete cap (gate entrance)
+  7,4: school gate (open wooden double-gate between two pillars, 3/4 view scaled into cell)
+  7,5: wooden chair — small student chair, front view
+  7,6: wooden desk — small student desk
+  7,7: lamppost — concrete pole with small lamp on top
+  7,8: signpost — wooden post with small wooden sign nailed near top (no readable text)
+
+Row 8 — WATER, MISC, SMALL DETAILS:
+  8,1: pond/rice pool tile — dusty muted teal water with hint of green algae, seamlessly tileable
+  8,2: pond edge with grass (top half water, bottom half grass blending)
+  8,3: dirt patch dark — darker ochre, mottled
+  8,4: puddle — small reflective water spot on ground
+  8,5: leaves pile — small autumn leaves heap (warm yellow/brown)
+  8,6: tree stump — round cut stump with rings
+  8,7: well — circular stone well with wooden cover
+  8,8: rock pile — small loose stones grouped together
+
+GLOBAL STYLE (applies to every cell):
+- 16-bit JRPG era pixel art (FF6, Chrono Trigger, EarthBound, Eastward).
+- Readable chunky pixels — render so each cell visibly corresponds to a 32x32 pixel sprite scaled up (i.e. clearly blocky pixels, not smooth painting).
+- Clean 1-pixel dark outlines on standalone objects (trees, benches, etc.). No outline on seamless ground tiles.
+- Flat colors with subtle dithered shading. NO anti-aliasing. NO smooth gradients.
+- Cohesive color palette across the whole sheet:
+    grass green = muted olive/sage; foliage = deep pine green with hint of teal;
+    dirt/road = warm yellow-brown ochre; sand = pale sandy tan;
+    brick = warm terracotta red with darker mortar;
+    roof tile = cool weathered grey with hint of blue-green;
+    ceramic facade tile = ochre/sandy tan with light grey grout;
+    water = dusty muted teal;
+    wood = warm light tan / aged pine;
+    accent = faded cobalt blue, painted-sign red.
+- Consistent lighting direction across all cells (top-left light source) for assets that have shading.
+- All Chinese characters in row 3 (丁, 埠, 小, 学) must be correctly written, bold, clearly legible, painted red on the ochre ceramic-tile facade background.
+- No people, no animals, no UI elements, no text other than the four required Chinese characters.
+- Background outside any asset within each cell is solid magenta #FF00FF (chroma-key alpha).

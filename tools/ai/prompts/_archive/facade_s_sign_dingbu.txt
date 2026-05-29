@@ -1,0 +1,15 @@
+A vertical facade section of a 1990s rural Chinese school building with the school name sign.
+
+The facade should show:
+- Two-story height (approximately 64 pixels tall)
+- Ceramic tile wall pattern: rectangular tiles (ochre/sandy tan) with visible cement grout lines (light grey)
+- Vertical Chinese characters reading "丁埠小学" (Dingbu Elementary School) painted in red or dark blue, centered on the facade
+- Characters should be bold, clear, and vertically arranged from top to bottom
+- Slight weathering: faded paint, minor stains, aged appearance
+- Width: approximately 32-48 pixels (enough to frame the text)
+
+Technical requirements:
+- Vertical orientation (taller than wide)
+- Front-facing perspective (no 3D angle)
+- Characters must be legible and correctly written: 丁 (top), 埠 (second), 小 (third), 学 (bottom)
+- Background: solid magenta #FF00FF for chroma-key removal

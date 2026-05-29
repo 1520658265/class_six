@@ -1,0 +1,40 @@
+Create an original 2D RPG pixel-art tileset atlas for a nostalgic 1990s Chinese rural primary school called Dingbu Primary School.
+
+The school is built on a flat clearing carved out of a mountain. There is no wall. The outer border is naturally enclosed by dense trees, rocks, soil slopes, weeds, and mountain forest. The scene should feel like an old countryside school from childhood memory: warm daylight, humble, slightly worn, detailed, beautiful, grounded, not fantasy, not modern.
+
+Art style:
+top-down 2D RPG tileset, slight 3/4 front view for buildings, pixel-art / hand-painted tile style, readable at 32x32 tiles, suitable for Godot TileMap. Natural warm palette. Consistent scale, consistent light direction, clean silhouettes, detailed but not noisy.
+
+Output:
+one square sprite sheet atlas, 8 columns x 8 rows, perfectly aligned cells, each tile designed as a 32x32 RPG map tile. No visible grid lines. No text, no labels, no numbers, no watermark, no characters, no UI.
+
+Important:
+Do not make it medieval European fantasy. Do not make it a modern city school. Avoid plastic running tracks, glass buildings, metal fences, modern street lamps, cars, or urban sidewalks. Use Chinese rural school materials: whitewashed walls, grey tiled roofs, muted red roof tiles, red brick details, wooden doors, green or blue window frames, muddy roads, sandy playground, handmade stone or cement water pond.
+
+Tile atlas layout:
+
+Row 1 - grass base:
+plain yellow-green grass, darker grass, sparse weeds, trampled grass, grass with dirt specks, grass with tiny flowers, grass shadow, grass-to-dirt blend.
+
+Row 2 - muddy road:
+mud road center, horizontal mud road, vertical mud road, corner road, T-junction, crossroad, muddy edge blending into grass, mud with puddle and footprints.
+
+Row 3 - sandy playground:
+plain sand, compacted sand, worn sand with footprints, sand with light chalk line, sand-to-grass edge, sand corner edge, darker damp sand, scuffed playground detail.
+
+Row 4 - mountain forest border:
+leafy tree top, pine tree top, tree trunk base, bush and weeds, grey rock, mossy rock, mixed tree-rock tile, dark forest shadow / soil slope tile.
+
+Row 5 - rice-washing pond and wet details:
+blue water center, water ripple, stone/cement pond north edge, south edge, east edge, west edge, corner pond edge, wet mud with bucket and wash basin.
+
+Row 6 - teaching building modules:
+white rural school wall, grey/red tiled roof left, roof center, roof right, wall with classroom windows, main door with small steps, side wall, base shadow. Looks like a simple countryside teaching building assembled into a 10x3 tile building.
+
+Row 7 - dormitory, shop, canteen modules:
+simple dorm wall with small windows, dorm roof, small shop front with blank wooden sign and awning, shop counter window, canteen wall, canteen door, small chimney or steam detail, concrete step/base shadow. No readable text.
+
+Row 8 - toilet and decorations:
+small old toilet roof, toilet wall, toilet door without symbols, red brick wall tile, stone pile, bucket, wooden bench, weeds beside path, small rural clutter tile.
+
+Make every tile useful for assembling a full static RPG school map. The result should be detailed, charming, and coherent as a professional game tileset.

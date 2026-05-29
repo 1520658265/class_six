@@ -1,0 +1,18 @@
+STYLE: 32-bit JRPG era pixel art, in the spirit of PS1 / GBA-to-DS RPGs (Final Fantasy Tactics, Breath of Fire IV, Mother 3) and modern cozy indies like Eastward — readable chunky pixels, clean 1-pixel black or dark-brown outlines, no anti-aliasing, richer color depth than 16-bit with smooth palette ramps, subtle dithered shading and soft color transitions where needed.
+
+THEME: 1990s rural Chinese village elementary school. Warm, nostalgic, slightly sun-bleached. Color palette is intentionally limited and cohesive across the whole tileset:
+  - grass green: muted olive/sage, NOT vivid neon green
+  - foliage: deep pine green with a hint of teal
+  - dirt / mud / road: warm yellow-brown ochre
+  - playground sand: pale sandy tan, slightly grey
+  - brick wall: warm terracotta red, weathered, with darker mortar lines
+  - roof tile: cool weathered grey with a hint of blue-green
+  - water: dusty muted teal, NOT bright cyan
+  - wood: warm light tan / aged pine
+  - accent for shop sign: faded cobalt blue
+
+OUTPUT FORMAT:
+  - Single asset, centered, no UI, no text, no labels, no border, no watermark, no signature, no shadow on the background.
+  - Pure magenta #FF00FF flat solid background (used as a chroma-key for alpha).
+  - Render so the visible pixel grid corresponds to a 32x32-pixel asset scaled up — i.e. clearly chunky pixels, not a smooth painting.
+  - Strict top-down view unless the asset is a building (see per-asset notes).

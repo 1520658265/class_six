@@ -1,0 +1,20 @@
+{
+  "services": {
+    "gemini_image": {
+      "api_host": "bobdong.cn",
+      "api_key": "put-your-gemini-proxy-key-here",
+      "model": "gemini-3.1-flash-image-preview"
+    },
+    "gpt_image": {
+      "api_host": "bobdong.cn",
+      "api_key": "put-your-openai-compatible-image-key-here",
+      "model": "gpt-image-2-pro"
+    },
+    "road_tileset": {
+      "api_host": "bobdong.cn",
+      "api_key": "put-your-openai-compatible-image-key-here",
+      "model": "gpt-image-2"
+    }
+  }
+}
+

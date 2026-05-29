@@ -1,0 +1,9 @@
+# Local secrets and machine-specific config
+tools/ai/config.local.json
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+

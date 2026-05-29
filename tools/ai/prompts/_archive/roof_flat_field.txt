@@ -1,0 +1,14 @@
+A single flat concrete roof tile for a 1990s rural Chinese school building.
+
+The tile should be:
+- Weathered grey concrete surface with subtle texture
+- Slight variations in tone (lighter patches where sun-bleached, darker where water-stained)
+- Faint cracks or wear marks typical of aged concrete
+- Seamlessly tileable on all four edges (no borders or frames)
+- Flat perspective (top-down view, no 3D depth)
+
+Technical requirements:
+- 32×32 pixels
+- Tileable pattern (edges must connect seamlessly when repeated)
+- No shadows or highlights that would break tiling
+- Uniform lighting across the entire tile

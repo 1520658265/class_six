@@ -1,0 +1,38 @@
+A single pixel-art GROUND TILESET SHEET for a 1990s rural Chinese village elementary school RPG map.
+
+CANVAS LAYOUT (very important):
+- The square canvas is divided into 4 columns x 2 rows = 8 cells in the TOP HALF of the canvas.
+- All 8 cells are exactly the same size, perfectly square, flush to each other, no gutters, perfectly aligned to a clean grid.
+- The BOTTOM HALF of the canvas is completely solid magenta #FF00FF (no content there).
+- Each cell completely fills with one seamless ground texture — top-down view, the texture occupies the entire cell, edges flow continuously to neighboring cells of the same type so the tile would be seamlessly tileable on all 4 edges when repeated.
+- NO cell numbers, NO grid lines, NO captions, NO frames, NO borders, NO labels, NO outlines around cells. The 4x2 grid is implicit through the layout of the textures — adjacent cells are visually distinguishable only because they contain different ground textures.
+
+CELL CONTENTS (top row left-to-right, then bottom row left-to-right):
+
+TOP ROW:
+  cell 1 (top-left):     GRASS — muted olive/sage green field, with subtle darker tufts of grass blades scattered evenly. Slight dithered shading. Seamlessly tileable.
+  cell 2:                DIRT ROAD — warm yellow-brown ochre packed dirt, faint horizontal wheel ruts, small pebbles. Seamlessly tileable.
+  cell 3:                PLAYGROUND SAND/DIRT — pale sandy tan, slightly grey, scuffed surface, very fine grain texture. Seamlessly tileable.
+  cell 4 (top-right):    CONCRETE PATH — light cool grey concrete with faint cracks and very subtle tone variation. Seamlessly tileable.
+
+BOTTOM ROW:
+  cell 5 (bottom-left):  MUD PATCH — darker wet ochre brown, glossy hint, irregular wet spots. Seamlessly tileable.
+  cell 6:                STONE PATH — irregular flat grey flagstones with darker mortar/dirt between them. Seamlessly tileable.
+  cell 7:                WEEDS / TALL GRASS — base muted olive ground with mixed olive and yellow upright grass blades. Seamlessly tileable.
+  cell 8 (bottom-right): WATER — dusty muted teal, NOT bright cyan, with subtle 1-pixel ripple dithering. Seamlessly tileable.
+
+GLOBAL STYLE (apply to every cell):
+- 16-bit JRPG era pixel art style, in the spirit of late-SNES / early-GBA RPGs (Final Fantasy VI, Chrono Trigger, EarthBound) and modern cozy indies like Eastward.
+- Readable chunky pixels — render so each cell visibly corresponds to a 32x32-pixel tile scaled up. Each "logical pixel" should be a clearly visible flat-color block, not a smooth painting.
+- NO anti-aliasing. NO smooth gradients. Only flat colors with subtle dithered shading where needed.
+- NO 1-pixel black outline around cells (these are seamless ground tiles, not framed objects).
+- Consistent muted, slightly sun-bleached color palette across all 8 cells:
+    grass green = muted olive/sage (NOT vivid neon green)
+    dirt/road = warm yellow-brown ochre
+    sand = pale sandy tan, slightly grey
+    concrete = light cool grey
+    mud = darker wet ochre brown
+    stone = grey with cool undertone
+    water = dusty muted teal (NOT bright cyan)
+- No people, no animals, no buildings, no plants beyond the weed/grass blades described, no shadows that would break tiling, no text, no labels, no UI, no watermark, no signature.
+- Every pixel of the canvas outside the 8 cells (i.e. the entire bottom half) is solid magenta #FF00FF for chroma-key alpha extraction.

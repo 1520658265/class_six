@@ -1,0 +1,5 @@
+Asset: a long single-story rural Chinese elementary-school classroom block, JRPG pixel-art style, viewed from above with a small oblique tilt — the audience sees the full grey-tile sloped roof from above (ridge runs east-west, two slopes facing north and south) AND a thin sliver of the south facade showing a row of evenly-spaced wooden-framed white-paned windows and a single plain wooden door near the center.
+
+Roof is cool weathered grey with visible horizontal tile-ridge lines as 1-pixel dark stripes. Walls are warm terracotta red brick with subtle darker mortar pixels.
+
+Aspect ratio approximately 10:3 (very wide, like 320 wide x 96 tall). Building centered in the canvas. Pure magenta #FF00FF background everywhere outside the building silhouette. NO people, NO trees, NO ground texture.
