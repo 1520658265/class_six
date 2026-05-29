@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "sprites": {
+    "test_char": {
+      "sheet": "res://tests/fixtures/sheets/grid_4x4_32px.png",
+      "tile_w": 32, "tile_h": 32,
+      "rows": 4, "cols": 4,
+      "animations": {
+        "walk_down":  { "row": 0, "frames": [0, 1, 2, 3], "fps": 6, "loop": true, "idle_frame": 0 },
+        "walk_left":  { "row": 1, "frames": [0, 1, 2, 3], "fps": 6, "loop": true, "idle_frame": 0 },
+        "walk_right": { "row": 2, "frames": [0, 1, 2, 3], "fps": 6, "loop": true, "idle_frame": 0 },
+        "walk_up":    { "row": 3, "frames": [0, 1, 2, 3], "fps": 6, "loop": true, "idle_frame": 0 }
+      }
+    }
+  },
+  "portraits": {
+    "test_char": {
+      "sheet": "res://tests/fixtures/sheets/regions_1264x848.png",
+      "slice_mode": "regions",
+      "regions": {
+        "neutral_rect": [0, 0, 421, 424],
+        "smile_rect":   [421, 0, 421, 424],
+        "tense_rect":   [842, 0, 422, 424]
+      },
+      "expressions": {
+        "neutral": { "region": "neutral_rect" },
+        "smile":   { "region": "smile_rect" },
+        "tense":   { "region": "tense_rect" }
+      }
+    }
+  },
+  "vfx": {
+    "test_dust": {
+      "sheet": "res://tests/fixtures/sheets/single_96px.png",
+      "rows": 1, "cols": 1,
+      "tile_w": 96, "tile_h": 96,
+      "frames": [0],
+      "preset": {
+        "scale_from": [0.3, 0.3], "scale_to": [1.2, 1.0], "scale_dur": 0.15,
+        "alpha_from": 0.9, "alpha_to": 0.0, "alpha_dur": 0.35,
+        "offset": [8, -4]
+      }
+    }
+  },
+  "atlas": {
+    "test_props": {
+      "sheet": "res://tests/fixtures/sheets/grid_4x4_32px.png",
+      "tile_w": 32, "tile_h": 32,
+      "rows": 4, "cols": 4,
+      "items": {
+        "alpha":   { "row": 0, "col": 0 },
+        "beta":    { "row": 0, "col": 1 },
+        "gamma":   { "row": 1, "col": 0 }
+      }
+    }
+  }
+}

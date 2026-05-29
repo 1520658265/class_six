@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "sprites": {
+    "yuansheng": {
+      "sheet": "res://assets/art/characters/yuansheng/walk/char_yuansheng_walksheet.png",
+      "tile_w": 256,
+      "tile_h": 256,
+      "rows": 4,
+      "cols": 4,
+      "animations": {
+        "walk_down":  { "row": 0, "frames": [0, 1, 2, 3], "fps": 6, "loop": true, "idle_frame": 0 },
+        "walk_left":  { "row": 1, "frames": [0, 1, 2, 3], "fps": 6, "loop": true, "idle_frame": 0 },
+        "walk_right": { "row": 2, "frames": [0, 1, 2, 3], "fps": 6, "loop": true, "idle_frame": 0 },
+        "walk_up":    { "row": 3, "frames": [0, 1, 2, 3], "fps": 6, "loop": true, "idle_frame": 0 }
+      }
+    }
+  },
+  "portraits": {},
+  "vfx": {},
+  "atlas": {}
+}

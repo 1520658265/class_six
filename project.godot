@@ -6,6 +6,12 @@ config/name="元生的六年级"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+Sprites="*res://scripts/autoload/sprites.gd"
+Portraits="*res://scripts/autoload/portraits.gd"
+VFX="*res://scripts/autoload/vfx.gd"
+Atlas="*res://scripts/autoload/atlas.gd"
+
 [rendering]
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
