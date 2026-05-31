@@ -19,3 +19,9 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# === Claude Code Game Studios (template) ===
+.claude/settings.local.json
+CLAUDE.local.md
+production/session-logs/
+docs/consistency-failures.md

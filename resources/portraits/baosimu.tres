@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="PortraitSet" load_steps=13 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/art/characters/baosimu/portrait/char_baosimu_portrait_sheet_source.png" id="1_n1fjg"]
+[ext_resource type="Script" path="res://scripts/shared/portrait_set.gd" id="2_boqcj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbyr2"]
+atlas = ExtResource("1_n1fjg")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cloxs"]
+atlas = ExtResource("1_n1fjg")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viqp4"]
+atlas = ExtResource("1_n1fjg")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoqbb"]
+atlas = ExtResource("1_n1fjg")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4snq"]
+atlas = ExtResource("1_n1fjg")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq6qb"]
+atlas = ExtResource("1_n1fjg")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckhgf"]
+atlas = ExtResource("1_n1fjg")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48y11"]
+atlas = ExtResource("1_n1fjg")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjmc8"]
+atlas = ExtResource("1_n1fjg")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73f0w"]
+atlas = ExtResource("1_n1fjg")
+region = Rect2(0, 0, 512, 512)
+
+[resource]
+script = ExtResource("2_boqcj")
+character_id = "baosimu"
+expressions = {
+"angry": SubResource("AtlasTexture_dq6qb"),
+"neutral": SubResource("AtlasTexture_tbyr2"),
+"sad": SubResource("AtlasTexture_h4snq"),
+"scared": SubResource("AtlasTexture_pjmc8"),
+"shy": SubResource("AtlasTexture_73f0w"),
+"smile": SubResource("AtlasTexture_cloxs"),
+"smirk": SubResource("AtlasTexture_48y11"),
+"stern": SubResource("AtlasTexture_ckhgf"),
+"thoughtful": SubResource("AtlasTexture_viqp4"),
+"worry": SubResource("AtlasTexture_hoqbb")
+}

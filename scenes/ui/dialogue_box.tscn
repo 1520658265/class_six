@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://b9dialoguebox001"]
+
+[ext_resource type="Script" path="res://scripts/ui/dialogue_box.gd" id="1_dlg"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_dlg")
+
+[node name="TypingTimer" type="Timer" parent="."]
+one_shot = false
+wait_time = 0.025
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Frame" type="Panel" parent="Root"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -220.0
+offset_left = 24.0
+offset_right = -24.0
+offset_bottom = -16.0
+mouse_filter = 2
+
+[node name="HBox" type="HBoxContainer" parent="Root/Frame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+theme_override_constants/separation = 16
+mouse_filter = 2
+
+[node name="Portrait" type="TextureRect" parent="Root/Frame/HBox"]
+custom_minimum_size = Vector2(160, 192)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+mouse_filter = 2
+
+[node name="RightCol" type="VBoxContainer" parent="Root/Frame/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+mouse_filter = 2
+
+[node name="NameBar" type="PanelContainer" parent="Root/Frame/HBox/RightCol"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NameLabel" type="Label" parent="Root/Frame/HBox/RightCol/NameBar"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = ""
+
+[node name="TextPanel" type="PanelContainer" parent="Root/Frame/HBox/RightCol"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TextLabel" type="RichTextLabel" parent="Root/Frame/HBox/RightCol/TextPanel"]
+layout_mode = 2
+fit_content = true
+scroll_active = false
+bbcode_enabled = true
+text = ""
+
+[node name="Choices" type="VBoxContainer" parent="Root/Frame/HBox/RightCol"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 4

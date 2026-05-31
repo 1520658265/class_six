@@ -1,0 +1,401 @@
+{
+  "version": 1,
+  "chapter_id": "prologue",
+  "title": "序章 · 二楼的窗",
+  "lines": {
+    "prologue/01_father_send_off/01": {
+      "id": "prologue/01_father_send_off/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "2008 年 8 月底。奥运闭幕一周。父亲在堂屋抽烟看电视，重播开幕式。",
+      "next": "prologue/01_father_send_off/02"
+    },
+    "prologue/01_father_send_off/02": {
+      "id": "prologue/01_father_send_off/02",
+      "speaker": "母亲",
+      "speaker_id": "muqin",
+      "expression": "neutral",
+      "text": "饭盒装好了，米也包好了。豆角罐子放最底下，别压坏了。",
+      "next": "prologue/01_father_send_off/03"
+    },
+    "prologue/01_father_send_off/03": {
+      "id": "prologue/01_father_send_off/03",
+      "speaker": "母亲",
+      "speaker_id": "muqin",
+      "expression": "neutral",
+      "text": "你姐捎来的信压在桌上，你自己装好。她说让你六年级好好读。",
+      "next": "prologue/01_father_send_off/04"
+    },
+    "prologue/01_father_send_off/04": {
+      "id": "prologue/01_father_send_off/04",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（姐姐的信。她在外面读书，寒假才回来。）",
+      "next": "prologue/01_father_send_off/05"
+    },
+    "prologue/01_father_send_off/05": {
+      "id": "prologue/01_father_send_off/05",
+      "speaker": "母亲",
+      "speaker_id": "muqin",
+      "expression": "worry",
+      "text": "周一早上你爸送你去丁埠，路上跟住，别走神。",
+      "choices": [
+        {
+          "label": "嗯，我会自己回来。",
+          "next": "prologue/01_father_send_off/06_active",
+          "postconditions": {
+            "affinity": {"muqin": 1}
+          }
+        },
+        {
+          "label": "（点头不说话）",
+          "next": "prologue/01_father_send_off/06_silent"
+        }
+      ]
+    },
+    "prologue/01_father_send_off/06_active": {
+      "id": "prologue/01_father_send_off/06_active",
+      "speaker": "母亲",
+      "speaker_id": "muqin",
+      "expression": "smile",
+      "text": "嗯。读六年级了，是该学着自己来回。",
+      "next": "prologue/01_father_send_off/07"
+    },
+    "prologue/01_father_send_off/06_silent": {
+      "id": "prologue/01_father_send_off/06_silent",
+      "speaker": "母亲",
+      "speaker_id": "muqin",
+      "expression": "neutral",
+      "text": "（看了元生一眼，没再说什么。）",
+      "next": "prologue/01_father_send_off/07"
+    },
+    "prologue/01_father_send_off/07": {
+      "id": "prologue/01_father_send_off/07",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "周一一早，父亲把蛇皮袋甩上肩，朝山路口走。元生跟在后头。",
+      "next": "prologue/01_father_send_off/08",
+      "postconditions": {
+        "trigger": ["prologue/01_father_send_off"]
+      }
+    },
+    "prologue/01_father_send_off/08": {
+      "id": "prologue/01_father_send_off/08",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "山路场景：父亲送到岔路口，把袋子卸到元生背上。",
+      "next": "prologue/01_father_send_off/09"
+    },
+    "prologue/01_father_send_off/09": {
+      "id": "prologue/01_father_send_off/09",
+      "speaker": "父亲",
+      "speaker_id": "fuqin",
+      "expression": "neutral",
+      "text": "周五自己回。",
+      "next": "prologue/01_father_send_off/10"
+    },
+    "prologue/01_father_send_off/10": {
+      "id": "prologue/01_father_send_off/10",
+      "speaker": "元生",
+      "speaker_id": "yuansheng",
+      "expression": "neutral",
+      "choices": [
+        {
+          "label": "嗯，我自己走。",
+          "next": "prologue/01_father_send_off/11",
+          "postconditions": {
+            "affinity": {"fuqin": 1}
+          }
+        },
+        {
+          "label": "（小声答了一声）",
+          "next": "prologue/01_father_send_off/11"
+        }
+      ],
+      "text": "..."
+    },
+    "prologue/01_father_send_off/11": {
+      "id": "prologue/01_father_send_off/11",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "父亲点头，转身往回走。元生站在原地看了一会儿，背好袋子继续往丁埠方向走。",
+      "next": null
+    },
+
+    "prologue/03_corridor_overhear/01": {
+      "id": "prologue/03_corridor_overhear/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "丁埠小学一楼走廊。两位老师在办公室门口聊天，没注意到路过的元生。",
+      "next": "prologue/03_corridor_overhear/02"
+    },
+    "prologue/03_corridor_overhear/02": {
+      "id": "prologue/03_corridor_overhear/02",
+      "speaker": "老师 A",
+      "speaker_id": "",
+      "text": "听说咱们这届读完，明年六年级就都到中心小学了。",
+      "next": "prologue/03_corridor_overhear/03"
+    },
+    "prologue/03_corridor_overhear/03": {
+      "id": "prologue/03_corridor_overhear/03",
+      "speaker": "老师 B",
+      "speaker_id": "",
+      "text": "对，丁埠这是最后一届。",
+      "next": "prologue/03_corridor_overhear/04"
+    },
+    "prologue/03_corridor_overhear/04": {
+      "id": "prologue/03_corridor_overhear/04",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（最后一届。）",
+      "next": null,
+      "postconditions": {
+        "var": {"kaguodu_xinli": 1},
+        "trigger": ["prologue/03_corridor_overhear"]
+      }
+    },
+
+    "prologue/02_classroom_arrival/01": {
+      "id": "prologue/02_classroom_arrival/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "二楼，二班教室。元生坐到靠窗第三排。",
+      "next": "prologue/02_classroom_arrival/02"
+    },
+    "prologue/02_classroom_arrival/02": {
+      "id": "prologue/02_classroom_arrival/02",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "楼下传来一班的声音：'胡晓东，你这次又考第一吧？'",
+      "next": "prologue/02_classroom_arrival/03"
+    },
+    "prologue/02_classroom_arrival/03": {
+      "id": "prologue/02_classroom_arrival/03",
+      "speaker": "鲍先进",
+      "speaker_id": "baoxianjin",
+      "expression": "stern",
+      "text": "都坐好。开学第一天，先把班长定了。",
+      "next": "prologue/02_classroom_arrival/04"
+    },
+    "prologue/02_classroom_arrival/04": {
+      "id": "prologue/02_classroom_arrival/04",
+      "speaker": "鲍先进",
+      "speaker_id": "baoxianjin",
+      "expression": "stern",
+      "text": "曾建明，你来。",
+      "next": "prologue/02_classroom_arrival/05"
+    },
+    "prologue/02_classroom_arrival/05": {
+      "id": "prologue/02_classroom_arrival/05",
+      "speaker": "曾建明",
+      "speaker_id": "zengjianming",
+      "expression": "neutral",
+      "text": "同学们好，我叫曾建明。",
+      "next": "prologue/02_classroom_arrival/06"
+    },
+    "prologue/02_classroom_arrival/06": {
+      "id": "prologue/02_classroom_arrival/06",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（两秒钟就坐下了。没拿腔。）",
+      "next": "prologue/02_classroom_arrival/07"
+    },
+    "prologue/02_classroom_arrival/07": {
+      "id": "prologue/02_classroom_arrival/07",
+      "speaker": "鲍先进",
+      "speaker_id": "baoxianjin",
+      "expression": "stern",
+      "text": "你们这一届，到时候哪个考不上初中，我亲自送你回家。",
+      "next": "prologue/02_classroom_arrival/08"
+    },
+    "prologue/02_classroom_arrival/08": {
+      "id": "prologue/02_classroom_arrival/08",
+      "speaker": "鲍先进",
+      "speaker_id": "baoxianjin",
+      "expression": "neutral",
+      "text": "新来的，自我介绍一下。叫什么名字？哪个村的？",
+      "choices": [
+        {
+          "label": "我叫元生，七岭村五堂组的。",
+          "next": "prologue/02_classroom_arrival/09_full",
+          "postconditions": {
+            "stat": {"koucai": 1},
+            "affinity": {"baoxianjin": 1}
+          }
+        },
+        {
+          "label": "（小声）...元生。",
+          "next": "prologue/02_classroom_arrival/09_quiet"
+        }
+      ]
+    },
+    "prologue/02_classroom_arrival/09_full": {
+      "id": "prologue/02_classroom_arrival/09_full",
+      "speaker": "鲍先进",
+      "speaker_id": "baoxianjin",
+      "expression": "neutral",
+      "text": "嗯，七岭的。坐下。",
+      "next": "prologue/02_classroom_arrival/10"
+    },
+    "prologue/02_classroom_arrival/09_quiet": {
+      "id": "prologue/02_classroom_arrival/09_quiet",
+      "speaker": "鲍先进",
+      "speaker_id": "baoxianjin",
+      "expression": "stern",
+      "text": "声音大点。坐下。",
+      "next": "prologue/02_classroom_arrival/10"
+    },
+    "prologue/02_classroom_arrival/10": {
+      "id": "prologue/02_classroom_arrival/10",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "班会结束。元生在靠窗第三排坐下，看了一眼窗外的山。",
+      "next": null,
+      "postconditions": {
+        "trigger": ["prologue/02_classroom_arrival"],
+        "era_marker": ["kaixue"]
+      }
+    },
+
+    "prologue/04_xiaomaibu_first_pass/01": {
+      "id": "prologue/04_xiaomaibu_first_pass/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "宿舍门外右拐，鲍师母的小卖部。柜台上一排玻璃罐：唐僧肉、辣条、跳跳糖。",
+      "next": "prologue/04_xiaomaibu_first_pass/02"
+    },
+    "prologue/04_xiaomaibu_first_pass/02": {
+      "id": "prologue/04_xiaomaibu_first_pass/02",
+      "speaker": "鲍师母",
+      "speaker_id": "baosimu",
+      "expression": "smile",
+      "text": "新来的？是哪个村的？",
+      "next": "prologue/04_xiaomaibu_first_pass/03"
+    },
+    "prologue/04_xiaomaibu_first_pass/03": {
+      "id": "prologue/04_xiaomaibu_first_pass/03",
+      "speaker": "元生",
+      "speaker_id": "yuansheng",
+      "expression": "shy",
+      "text": "...七岭的。",
+      "next": "prologue/04_xiaomaibu_first_pass/04"
+    },
+    "prologue/04_xiaomaibu_first_pass/04": {
+      "id": "prologue/04_xiaomaibu_first_pass/04",
+      "speaker": "鲍师母",
+      "speaker_id": "baosimu",
+      "expression": "smile",
+      "text": "嗯，七岭的。",
+      "next": "prologue/04_xiaomaibu_first_pass/05"
+    },
+    "prologue/04_xiaomaibu_first_pass/05": {
+      "id": "prologue/04_xiaomaibu_first_pass/05",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "smile",
+      "text": "师母，给我一根辣条。",
+      "next": "prologue/04_xiaomaibu_first_pass/06"
+    },
+    "prologue/04_xiaomaibu_first_pass/06": {
+      "id": "prologue/04_xiaomaibu_first_pass/06",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "王炎掏出 5 毛递过去，撕开包装就咬。元生摸了摸口袋。",
+      "next": "prologue/04_xiaomaibu_first_pass/07"
+    },
+    "prologue/04_xiaomaibu_first_pass/07": {
+      "id": "prologue/04_xiaomaibu_first_pass/07",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（口袋里 5 毛都没有。）",
+      "next": "prologue/04_xiaomaibu_first_pass/08",
+      "postconditions": {
+        "var": {"qianbao_xiuchi": 1},
+        "trigger": ["prologue/04_xiaomaibu_first_pass"]
+      }
+    },
+    "prologue/04_xiaomaibu_first_pass/08": {
+      "id": "prologue/04_xiaomaibu_first_pass/08",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "元生没进店，跟王炎一起往宿舍走。",
+      "next": null
+    },
+
+    "prologue/05_dorm_assigned/01": {
+      "id": "prologue/05_dorm_assigned/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "男生宿舍。鲍先进按身高分铺：元生上铺，王炎下铺；斜对面上铺曾建明，下铺曹正东。",
+      "next": "prologue/05_dorm_assigned/02"
+    },
+    "prologue/05_dorm_assigned/02": {
+      "id": "prologue/05_dorm_assigned/02",
+      "speaker": "曹正东",
+      "speaker_id": "caozhengdong",
+      "expression": "smirk",
+      "text": "（瞥了元生一眼，没说话。）",
+      "next": "prologue/05_dorm_assigned/03"
+    },
+    "prologue/05_dorm_assigned/03": {
+      "id": "prologue/05_dorm_assigned/03",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "smile",
+      "text": "嘿，新来的。我是王炎。",
+      "choices": [
+        {
+          "label": "我叫元生，七岭的。",
+          "next": "prologue/05_dorm_assigned/04_active",
+          "postconditions": {
+            "stat": {"koucai": 1},
+            "affinity": {"wangyan": 1}
+          }
+        },
+        {
+          "label": "（嗯了一声）",
+          "next": "prologue/05_dorm_assigned/04_silent"
+        }
+      ]
+    },
+    "prologue/05_dorm_assigned/04_active": {
+      "id": "prologue/05_dorm_assigned/04_active",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "smile",
+      "text": "七岭的我知道。我家在跟你那边隔一座山。",
+      "next": "prologue/05_dorm_assigned/05"
+    },
+    "prologue/05_dorm_assigned/04_silent": {
+      "id": "prologue/05_dorm_assigned/04_silent",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "neutral",
+      "text": "...好吧。我下铺。",
+      "next": "prologue/05_dorm_assigned/05"
+    },
+    "prologue/05_dorm_assigned/05": {
+      "id": "prologue/05_dorm_assigned/05",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "元生爬上铺把蛇皮袋塞进床头。从袋子里摸出一封信和一个铝饭盒。",
+      "next": "prologue/05_dorm_assigned/06"
+    },
+    "prologue/05_dorm_assigned/06": {
+      "id": "prologue/05_dorm_assigned/06",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（饭盒上要贴名字条。明天早上自己去食堂淘米。）",
+      "next": null,
+      "postconditions": {
+        "trigger": ["prologue/05_dorm_assigned"],
+        "set_chapter": "ch1"
+      }
+    }
+  }
+}

@@ -1,0 +1,153 @@
+[gd_scene load_steps=20 format=3 uid="uid://b1lvl_corridor_stairs"]
+
+[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="level_script"]
+[ext_resource type="Texture2D" path="res://assets/art/scenes/p0/scene_p0_corridor_stairs_interior_source.png" id="bg_tex"]
+[ext_resource type="Script" path="res://scripts/level/scene_door.gd" id="door_script"]
+[ext_resource type="PackedScene" path="res://scenes/characters/npc.tscn" id="npc_scene"]
+
+[sub_resource type="RectangleShape2D" id="WallH"]
+size = Vector2(1376, 32)
+
+[sub_resource type="RectangleShape2D" id="WallV"]
+size = Vector2(32, 768)
+
+[sub_resource type="RectangleShape2D" id="DoorShape_0"]
+size = Vector2(24, 96)
+[sub_resource type="RectangleShape2D" id="DoorShape_1"]
+size = Vector2(24, 96)
+[sub_resource type="RectangleShape2D" id="DoorShape_2"]
+size = Vector2(96, 24)
+[sub_resource type="RectangleShape2D" id="DoorShape_3"]
+size = Vector2(96, 24)
+[sub_resource type="RectangleShape2D" id="DoorShape_4"]
+size = Vector2(96, 24)
+
+[node name="Level" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("level_script")
+scene_id = "corridor_stairs"
+level_size = Vector2i(1376, 768)
+first_visit_event = "prologue/03_corridor_overhear"
+ch1_events = PackedStringArray("ch1/12_yuekao_ranking", "ch1/14_caozhengdong_robbery")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("bg_tex")
+centered = false
+position = Vector2(0, 0)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="WN" type="CollisionShape2D" parent="Walls"]
+position = Vector2(688.0, -16)
+shape = SubResource("WallH")
+
+[node name="WS" type="CollisionShape2D" parent="Walls"]
+position = Vector2(688.0, 784)
+shape = SubResource("WallH")
+
+[node name="WE" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1392, 384.0)
+shape = SubResource("WallV")
+
+[node name="WW" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-16, 384.0)
+shape = SubResource("WallV")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="default" type="Node2D" parent="SpawnPoints"]
+position = Vector2(300, 380)
+metadata/facing = "right"
+
+[node name="from_gate" type="Node2D" parent="SpawnPoints"]
+position = Vector2(300, 380)
+metadata/facing = "right"
+
+[node name="from_classroom" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1080, 380)
+metadata/facing = "left"
+
+[node name="from_xiaomaibu" type="Node2D" parent="SpawnPoints"]
+position = Vector2(700, 600)
+metadata/facing = "up"
+
+[node name="from_dorm" type="Node2D" parent="SpawnPoints"]
+position = Vector2(300, 600)
+metadata/facing = "up"
+
+[node name="from_cafeteria" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1100, 600)
+metadata/facing = "up"
+
+
+[node name="Door_school_gate" type="Area2D" parent="."]
+position = Vector2(40, 380)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("door_script")
+target_scene_id = "school_gate"
+target_spawn_point = "from_corridor"
+
+[node name="Shape" type="CollisionShape2D" parent="Door_school_gate"]
+shape = SubResource("DoorShape_0")
+
+[node name="Door_classroom_2b" type="Area2D" parent="."]
+position = Vector2(1336, 380)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("door_script")
+target_scene_id = "classroom_2b"
+target_spawn_point = "from_corridor"
+
+[node name="Shape" type="CollisionShape2D" parent="Door_classroom_2b"]
+shape = SubResource("DoorShape_1")
+
+[node name="Door_xiaomaibu" type="Area2D" parent="."]
+position = Vector2(700, 750)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("door_script")
+target_scene_id = "xiaomaibu"
+target_spawn_point = "from_corridor"
+
+[node name="Shape" type="CollisionShape2D" parent="Door_xiaomaibu"]
+shape = SubResource("DoorShape_2")
+
+[node name="Door_dorm" type="Area2D" parent="."]
+position = Vector2(300, 750)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("door_script")
+target_scene_id = "dorm"
+target_spawn_point = "from_corridor"
+
+[node name="Shape" type="CollisionShape2D" parent="Door_dorm"]
+shape = SubResource("DoorShape_3")
+
+[node name="Door_cafeteria_steam" type="Area2D" parent="."]
+position = Vector2(1100, 750)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("door_script")
+target_scene_id = "cafeteria_steam"
+target_spawn_point = "from_corridor"
+
+[node name="Shape" type="CollisionShape2D" parent="Door_cafeteria_steam"]
+shape = SubResource("DoorShape_4")
+
+[node name="Huxiaodong" parent="." instance=ExtResource("npc_scene")]
+position = Vector2(520, 380)
+character_id = "huxiaodong"
+dialogue_line_id = ""
+
+[node name="Zhanglei" parent="." instance=ExtResource("npc_scene")]
+position = Vector2(600, 380)
+character_id = "zhanglei"
+dialogue_line_id = ""
+
+[node name="Lijing" parent="." instance=ExtResource("npc_scene")]
+position = Vector2(680, 380)
+character_id = "lijing"
+dialogue_line_id = ""

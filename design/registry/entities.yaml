@@ -1,0 +1,428 @@
+# Game World Entity Registry
+#
+# PURPOSE: Single source of truth for all named game-world facts that appear
+# in more than one document. Skills check this before writing new content to
+# detect cross-doc inconsistencies at authoring time.
+#
+# RULES:
+#   - Only register facts that cross system boundaries. Internal-only facts
+#     (a formula used in one GDD only) do NOT need to be registered.
+#   - Never delete entries — set status: deprecated instead.
+#   - When a value changes: update the value, set revised: to today's date,
+#     and add a comment with the old value and which GDD changed it.
+#   - source: is the authoritative GDD — the one that "owns" this fact.
+#     Other GDDs that reference it list themselves in referenced_by.
+#   - When a new GDD references an existing entry, append its path to
+#     referenced_by. Do not create a duplicate entry.
+#
+# WRITTEN BY: /design-system (Phase 5 — after GDD sections are approved)
+#             /consistency-check (when resolving conflicts)
+# READ BY:    /design-system (Phase 2 — before authoring begins, and after
+#               Section C/D writes to conflict-check new entities/formulas)
+#             /consistency-check (primary input — grep-first, GDD-second)
+#             /review-all-gdds (Phase 1 — baseline for Phase 2 checks)
+#             /architecture-review (data structure and interface validation)
+#
+# SEARCH PATTERNS (for skills using Grep):
+#   All entity names:        Grep pattern="^  - name:" path="design/registry/entities.yaml"
+#   Specific entity:         Grep pattern="  - name: goblin" path="design/registry/entities.yaml"
+#   All items:               Grep pattern="^  - name:" path="design/registry/entities.yaml" (items section)
+#   What combat.md owns:     Grep pattern="source: design/gdd/combat.md"
+#   What inventory.md uses:  Grep pattern="referenced_by.*inventory"
+#   All gold values:          Grep pattern="value_gold:"
+#   Deprecated entries:      Grep pattern="status: deprecated"
+#
+# FORMAT: YAML. Consistent indentation is critical for grep reliability.
+#   Sections: entities | items | formulas | constants
+#   Each entry: name, status, source, referenced_by[], attributes{}, added, revised
+
+version: 1
+last_updated: "2026-05-31"
+
+# ─── ENTITIES ────────────────────────────────────────────────────────────────
+# Named game-world objects: enemies, NPCs, characters, factions, bosses.
+# Register an entity here when it appears in more than one GDD — e.g., an
+# enemy defined in combat.md that also drops items listed in inventory.md.
+#
+# Required fields: name, status, source, referenced_by, added
+# Attribute fields: any key stats that could appear in another GDD
+#   (health, damage, drops, faction, etc.)
+#
+# 12 demo NPCs — affinity_init owned by stat-system.md (C.4 table).
+# NPC System GDD will add behavior / dialogue / appearance attributes.
+
+entities:
+  - name: baoxianjin
+    role: npc
+    label_zh: 鲍先进（班主任）
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 0
+    added: 2026-05-31
+    revised: ""
+
+  - name: baosimu
+    role: npc
+    label_zh: 鲍师母
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 1
+    added: 2026-05-31
+    revised: ""
+
+  - name: wangyan
+    role: npc
+    label_zh: 王炎
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 1
+    added: 2026-05-31
+    revised: ""
+
+  - name: zengjianming
+    role: npc
+    label_zh: 曾建明
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 1
+    added: 2026-05-31
+    revised: ""
+
+  - name: caozhengdong
+    role: npc
+    label_zh: 曹正东（demo BOSS 雏形）
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: -3
+    added: 2026-05-31
+    revised: ""
+
+  - name: huxiaodong
+    role: npc
+    label_zh: 胡晓东
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 0
+    added: 2026-05-31
+    revised: ""
+
+  - name: zhanglei
+    role: npc
+    label_zh: 张磊
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 0
+    added: 2026-05-31
+    revised: ""
+
+  - name: lijing
+    role: npc
+    label_zh: 李静
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 0
+    added: 2026-05-31
+    revised: ""
+
+  - name: menwei_daye
+    role: npc
+    label_zh: 门卫大爷
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 0
+    added: 2026-05-31
+    revised: ""
+
+  - name: fuqin
+    role: npc
+    label_zh: 父亲
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 5
+    added: 2026-05-31
+    revised: ""
+
+  - name: muqin
+    role: npc
+    label_zh: 母亲
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 5
+    added: 2026-05-31
+    revised: ""
+
+  - name: jiejie
+    role: npc
+    label_zh: 姐姐
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    affinity_init: 8
+    added: 2026-05-31
+    revised: ""
+
+
+# ─── ITEMS ───────────────────────────────────────────────────────────────────
+# Named collectables, equipment, consumables, crafting materials, currency.
+# Register an item when its name or value appears in more than one GDD.
+
+items: []
+
+
+# ─── FORMULAS ────────────────────────────────────────────────────────────────
+# Named calculations with defined variables and output ranges.
+# Register a formula when its output feeds into another system's input,
+# or when another GDD references it by name.
+
+formulas:
+  - name: stat_clamp
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    variables:
+      - current_value
+      - delta
+      - min
+      - max
+    output_range: [0, 20]   # union of all stat & var ranges (显性 0–10, xinjie/qianbao 0–20)
+    expression: "clamp(current_value + delta, min, max)"
+    notes: "Used for both _stats (4 显性, 0–10) and _vars (3 隐性). _chapter and _triggered/_era_markers do NOT use this formula. Output = new_value, written back to dict."
+    added: 2026-05-31
+    revised: ""
+
+  - name: affinity_clamp
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    variables:
+      - current
+      - delta
+      - AFFINITY_MIN
+      - AFFINITY_MAX
+    output_range: [-10, 10]
+    expression: "clamp(current + delta, AFFINITY_MIN, AFFINITY_MAX)"
+    notes: "Same shape as stat_clamp but dedicated globals (-10 to +10). All 12 demo NPCs share the same min/max."
+    added: 2026-05-31
+    revised: ""
+
+  - name: delta_broadcast_predicate
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    variables:
+      - current_value
+      - new_value
+    output_range: [0, 1]   # bool
+    expression: "new_value != current_value"
+    notes: "Decides whether stat_changed / var_changed / affinity_changed signals fire. Reset and from_dict paths bypass this predicate (always silent)."
+    added: 2026-05-31
+    revised: ""
+
+
+# ─── CONSTANTS ───────────────────────────────────────────────────────────────
+# Named numerical values referenced across multiple systems.
+
+constants:
+  # ── 4 显性属性 init / min / max ────────────────────────────────
+  - name: xuexi_init
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 3
+    unit: stat_points
+    added: 2026-05-31
+    revised: ""
+
+  - name: xuexi_min
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 0
+    unit: stat_points
+    added: 2026-05-31
+    revised: ""
+
+  - name: xuexi_max
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 10
+    unit: stat_points
+    added: 2026-05-31
+    revised: ""
+
+  - name: danliang_init
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 1
+    unit: stat_points
+    added: 2026-05-31
+    revised: ""
+
+  - name: danliang_min
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 0
+    unit: stat_points
+    added: 2026-05-31
+    revised: ""
+
+  - name: danliang_max
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 10
+    unit: stat_points
+    notes: "Critical: combat / skill-tree GDDs hardcode milestones (≥3 推开他, ≥4 顶回去, ≥5 爆发, ≥6 第八章 C 路线)."
+    added: 2026-05-31
+    revised: ""
+
+  - name: koucai_init
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 1
+    unit: stat_points
+    added: 2026-05-31
+    revised: ""
+
+  - name: koucai_min
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 0
+    unit: stat_points
+    added: 2026-05-31
+    revised: ""
+
+  - name: koucai_max
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 10
+    unit: stat_points
+    notes: "skill-tree '那你来啊' requires koucai ≥ 4; ch8 D 路线 requires ≥ 5."
+    added: 2026-05-31
+    revised: ""
+
+  - name: tili_init
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 3
+    unit: stat_points
+    added: 2026-05-31
+    revised: ""
+
+  - name: tili_min
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 0
+    unit: stat_points
+    added: 2026-05-31
+    revised: ""
+
+  - name: tili_max
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 10
+    unit: stat_points
+    added: 2026-05-31
+    revised: ""
+
+  # ── 3 隐性变量 max（init 全 0，下限 0）─────────────────────────
+  - name: xinjie_max
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 20
+    unit: hidden_var_points
+    notes: "Caps the '心结' hidden variable. Final-act monologue branch reads this value; freezing now constrains future ending formula."
+    added: 2026-05-31
+    revised: ""
+
+  - name: kaguodu_xinli_max
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 10
+    unit: hidden_var_points
+    added: 2026-05-31
+    revised: ""
+
+  - name: qianbao_xiuchi_max
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 20
+    unit: hidden_var_points
+    added: 2026-05-31
+    revised: ""
+
+  # ── NPC affinity 全局上下限 ─────────────────────────────────────
+  - name: affinity_min
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: -10
+    unit: affinity_points
+    notes: "Shared across all 12 demo NPCs. Defines the floor of NPC sentiment."
+    added: 2026-05-31
+    revised: ""
+
+  - name: affinity_max
+    status: active
+    source: design/gdd/stat-system.md
+    referenced_by:
+      - design/gdd/stat-system.md
+    value: 10
+    unit: affinity_points
+    notes: "Shared across all 12 demo NPCs. Defines the ceiling of NPC sentiment."
+    added: 2026-05-31
+    revised: ""

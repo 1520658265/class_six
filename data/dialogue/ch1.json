@@ -1,0 +1,600 @@
+{
+  "version": 1,
+  "chapter_id": "ch1",
+  "title": "第一章 · 蒸饭盒里的秋天",
+  "lines": {
+    "ch1/11_zhengfanhe_help/01": {
+      "id": "ch1/11_zhengfanhe_help/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "食堂蒸饭间。中午的蒸笼掀开，一股白雾。元生站在笼边盯着看。",
+      "next": "ch1/11_zhengfanhe_help/02"
+    },
+    "ch1/11_zhengfanhe_help/02": {
+      "id": "ch1/11_zhengfanhe_help/02",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（饭盒长得都一样。我的呢？）",
+      "next": "ch1/11_zhengfanhe_help/03"
+    },
+    "ch1/11_zhengfanhe_help/03": {
+      "id": "ch1/11_zhengfanhe_help/03",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "smile",
+      "text": "你贴名字条没？我看看。",
+      "next": "ch1/11_zhengfanhe_help/04"
+    },
+    "ch1/11_zhengfanhe_help/04": {
+      "id": "ch1/11_zhengfanhe_help/04",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "王炎从蒸笼里抽出三只饭盒翻看，第二只上头粘着歪歪扭扭的'元生'两个字。",
+      "next": "ch1/11_zhengfanhe_help/05"
+    },
+    "ch1/11_zhengfanhe_help/05": {
+      "id": "ch1/11_zhengfanhe_help/05",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "smile",
+      "text": "诺，这个。",
+      "choices": [
+        {
+          "label": "谢谢。",
+          "next": "ch1/11_zhengfanhe_help/06_thanks",
+          "postconditions": {
+            "stat": {"koucai": 1},
+            "affinity": {"wangyan": 1}
+          }
+        },
+        {
+          "label": "（接过来点头）",
+          "next": "ch1/11_zhengfanhe_help/06_silent"
+        }
+      ]
+    },
+    "ch1/11_zhengfanhe_help/06_thanks": {
+      "id": "ch1/11_zhengfanhe_help/06_thanks",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "smile",
+      "text": "客气啥。下次自己写字大点。",
+      "next": "ch1/11_zhengfanhe_help/07"
+    },
+    "ch1/11_zhengfanhe_help/06_silent": {
+      "id": "ch1/11_zhengfanhe_help/06_silent",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "neutral",
+      "text": "下次自己写字大点。",
+      "next": "ch1/11_zhengfanhe_help/07"
+    },
+    "ch1/11_zhengfanhe_help/07": {
+      "id": "ch1/11_zhengfanhe_help/07",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "元生端着饭盒坐到角落，扒了一口饭。咸菜是母亲腌的豆角。",
+      "next": null,
+      "postconditions": {
+        "trigger": ["ch1/11_zhengfanhe_help"]
+      }
+    },
+
+    "ch1/12_yuekao_ranking/01": {
+      "id": "ch1/12_yuekao_ranking/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "十月的某天下午。第一次月考成绩出来。鲍先进站在二班讲台上。",
+      "next": "ch1/12_yuekao_ranking/02"
+    },
+    "ch1/12_yuekao_ranking/02": {
+      "id": "ch1/12_yuekao_ranking/02",
+      "speaker": "鲍先进",
+      "speaker_id": "baoxianjin",
+      "expression": "stern",
+      "text": "一班二班合并排，名次贴一楼走廊。听好。",
+      "next": "ch1/12_yuekao_ranking/03"
+    },
+    "ch1/12_yuekao_ranking/03": {
+      "id": "ch1/12_yuekao_ranking/03",
+      "speaker": "鲍先进",
+      "speaker_id": "baoxianjin",
+      "expression": "stern",
+      "text": "第一名 胡晓东。第二名 张磊。第三名 李静。第四名 曾建明。",
+      "next": "ch1/12_yuekao_ranking/04"
+    },
+    "ch1/12_yuekao_ranking/04": {
+      "id": "ch1/12_yuekao_ranking/04",
+      "speaker": "鲍先进",
+      "speaker_id": "baoxianjin",
+      "expression": "neutral",
+      "text": "中间的不念了。倒数三个，等下来办公室。",
+      "next": "ch1/12_yuekao_ranking/05"
+    },
+    "ch1/12_yuekao_ranking/05": {
+      "id": "ch1/12_yuekao_ranking/05",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "neutral",
+      "text": "（中间。我在中间。）",
+      "next": "ch1/12_yuekao_ranking/06",
+      "postconditions": {
+        "stat": {"xuexi": 1}
+      }
+    },
+    "ch1/12_yuekao_ranking/06": {
+      "id": "ch1/12_yuekao_ranking/06",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "下课。元生路过一楼走廊，看见胡晓东、张磊、李静围着排名表笑闹。",
+      "next": "ch1/12_yuekao_ranking/07"
+    },
+    "ch1/12_yuekao_ranking/07": {
+      "id": "ch1/12_yuekao_ranking/07",
+      "speaker": "胡晓东",
+      "speaker_id": "huxiaodong",
+      "expression": "neutral",
+      "text": "你这次比上学期掉了俩。",
+      "next": "ch1/12_yuekao_ranking/08"
+    },
+    "ch1/12_yuekao_ranking/08": {
+      "id": "ch1/12_yuekao_ranking/08",
+      "speaker": "张磊",
+      "speaker_id": "zhanglei",
+      "expression": "neutral",
+      "text": "你前面就一个李静。",
+      "next": "ch1/12_yuekao_ranking/09"
+    },
+    "ch1/12_yuekao_ranking/09": {
+      "id": "ch1/12_yuekao_ranking/09",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "曾建明从二楼下来，手里夹着两本作业本。",
+      "next": "ch1/12_yuekao_ranking/10"
+    },
+    "ch1/12_yuekao_ranking/10": {
+      "id": "ch1/12_yuekao_ranking/10",
+      "speaker": "曾建明",
+      "speaker_id": "zengjianming",
+      "expression": "neutral",
+      "text": "胡晓东，你那本数学报借我抄一道题。",
+      "next": "ch1/12_yuekao_ranking/11"
+    },
+    "ch1/12_yuekao_ranking/11": {
+      "id": "ch1/12_yuekao_ranking/11",
+      "speaker": "胡晓东",
+      "speaker_id": "huxiaodong",
+      "expression": "neutral",
+      "text": "晚自习给你。",
+      "next": "ch1/12_yuekao_ranking/12"
+    },
+    "ch1/12_yuekao_ranking/12": {
+      "id": "ch1/12_yuekao_ranking/12",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "曾建明点点头，转身上楼。三个人继续看排名。元生在两米外站了一会儿，没过去。",
+      "next": "ch1/12_yuekao_ranking/13"
+    },
+    "ch1/12_yuekao_ranking/13": {
+      "id": "ch1/12_yuekao_ranking/13",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（他们之间是平的。）",
+      "next": null,
+      "postconditions": {
+        "var": {"xinjie": 1},
+        "trigger": ["ch1/12_yuekao_ranking"]
+      }
+    },
+
+    "ch1/13_xiaomaibu_first_buy/01": {
+      "id": "ch1/13_xiaomaibu_first_buy/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "放学。王炎拉着元生进了小卖部。鲍师母在柜台后头算账。",
+      "next": "ch1/13_xiaomaibu_first_buy/02"
+    },
+    "ch1/13_xiaomaibu_first_buy/02": {
+      "id": "ch1/13_xiaomaibu_first_buy/02",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "smile",
+      "text": "元生你买不买？我请你不行。",
+      "next": "ch1/13_xiaomaibu_first_buy/03"
+    },
+    "ch1/13_xiaomaibu_first_buy/03": {
+      "id": "ch1/13_xiaomaibu_first_buy/03",
+      "speaker": "鲍师母",
+      "speaker_id": "baosimu",
+      "expression": "smile",
+      "text": "想吃啥？阿姨这儿可以记账。",
+      "choices": [
+        {
+          "label": "（摇头）不要了，谢谢师母。",
+          "next": "ch1/13_xiaomaibu_first_buy/04_a",
+          "postconditions": {
+            "var": {"qianbao_xiuchi": 1}
+          }
+        },
+        {
+          "label": "那...给我记一根 5 毛辣条。",
+          "next": "ch1/13_xiaomaibu_first_buy/04_b",
+          "postconditions": {
+            "var": {"xinjie": 1}
+          }
+        },
+        {
+          "label": "我有 2 毛，给我跳跳糖吧。",
+          "next": "ch1/13_xiaomaibu_first_buy/04_c",
+          "postconditions": {
+            "stat": {"koucai": 1},
+            "affinity": {"baosimu": 1}
+          }
+        }
+      ],
+      "text": "..."
+    },
+    "ch1/13_xiaomaibu_first_buy/04_a": {
+      "id": "ch1/13_xiaomaibu_first_buy/04_a",
+      "speaker": "鲍师母",
+      "speaker_id": "baosimu",
+      "expression": "smile",
+      "text": "嗯，没事，下次再来。",
+      "next": "ch1/13_xiaomaibu_first_buy/end"
+    },
+    "ch1/13_xiaomaibu_first_buy/04_b": {
+      "id": "ch1/13_xiaomaibu_first_buy/04_b",
+      "speaker": "鲍师母",
+      "speaker_id": "baosimu",
+      "expression": "neutral",
+      "text": "（在赊账本上写下名字）行。元生，七岭的，5 毛。",
+      "next": "ch1/13_xiaomaibu_first_buy/end"
+    },
+    "ch1/13_xiaomaibu_first_buy/04_c": {
+      "id": "ch1/13_xiaomaibu_first_buy/04_c",
+      "speaker": "鲍师母",
+      "speaker_id": "baosimu",
+      "expression": "smile",
+      "text": "（接过 2 毛递了一包跳跳糖）...嗯，下次想吃别的也行。",
+      "next": "ch1/13_xiaomaibu_first_buy/end"
+    },
+    "ch1/13_xiaomaibu_first_buy/end": {
+      "id": "ch1/13_xiaomaibu_first_buy/end",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "王炎咬着辣条，元生跟在后面出店。",
+      "next": null,
+      "postconditions": {
+        "trigger": ["ch1/13_xiaomaibu_first_buy"]
+      }
+    },
+
+    "ch1/14_caozhengdong_robbery/01": {
+      "id": "ch1/14_caozhengdong_robbery/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "课间。一楼水房接水回来，楼梯口被曹正东拦住。",
+      "next": "ch1/14_caozhengdong_robbery/02"
+    },
+    "ch1/14_caozhengdong_robbery/02": {
+      "id": "ch1/14_caozhengdong_robbery/02",
+      "speaker": "曹正东",
+      "speaker_id": "caozhengdong",
+      "expression": "smirk",
+      "text": "新来的，口袋里有啥？掏出来。",
+      "next": "ch1/14_caozhengdong_robbery/03"
+    },
+    "ch1/14_caozhengdong_robbery/03": {
+      "id": "ch1/14_caozhengdong_robbery/03",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "scared",
+      "text": "（5 毛。攥了一周准备还师母上次赊的账。）",
+      "choices": [
+        {
+          "label": "（不吭声，把 5 毛掏出来递过去）",
+          "next": "ch1/14_caozhengdong_robbery/04_a",
+          "postconditions": {
+            "stat": {"danliang": -1},
+            "affinity": {"caozhengdong": -1},
+            "var": {"xinjie": 2, "qianbao_xiuchi": 2}
+          }
+        },
+        {
+          "label": "我喊老师了！",
+          "next": "ch1/14_caozhengdong_robbery/04_b",
+          "postconditions": {
+            "stat": {"danliang": 1},
+            "affinity": {"baoxianjin": 1, "caozhengdong": -2},
+            "var": {"xinjie": 1}
+          }
+        },
+        {
+          "label": "（推回去）你滚开！",
+          "next": "ch1/14_caozhengdong_robbery/04_c",
+          "preconditions": {
+            "stat": {"danliang": {"min": 3}}
+          },
+          "postconditions": {
+            "stat": {"danliang": 2},
+            "affinity": {"caozhengdong": -3},
+            "trigger": ["ch1/14_caozhengdong_robbery/hardline"]
+          }
+        }
+      ],
+      "text": "..."
+    },
+    "ch1/14_caozhengdong_robbery/04_a": {
+      "id": "ch1/14_caozhengdong_robbery/04_a",
+      "speaker": "曹正东",
+      "speaker_id": "caozhengdong",
+      "expression": "smirk",
+      "text": "聪明。下次再见。",
+      "next": "ch1/14_caozhengdong_robbery/end"
+    },
+    "ch1/14_caozhengdong_robbery/04_b": {
+      "id": "ch1/14_caozhengdong_robbery/04_b",
+      "speaker": "曹正东",
+      "speaker_id": "caozhengdong",
+      "expression": "smirk",
+      "text": "嘁，告状精。我先走，记着这事儿。",
+      "next": "ch1/14_caozhengdong_robbery/end"
+    },
+    "ch1/14_caozhengdong_robbery/04_c": {
+      "id": "ch1/14_caozhengdong_robbery/04_c",
+      "speaker": "曹正东",
+      "speaker_id": "caozhengdong",
+      "expression": "angry",
+      "text": "（被推了一个趔趄）...你他妈给我等着。",
+      "next": "ch1/14_caozhengdong_robbery/end"
+    },
+    "ch1/14_caozhengdong_robbery/end": {
+      "id": "ch1/14_caozhengdong_robbery/end",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "曹正东走了。元生站在楼梯口缓了一会儿。",
+      "next": null,
+      "postconditions": {
+        "trigger": ["ch1/14_caozhengdong_robbery"]
+      }
+    },
+
+    "ch1/15_shenzhou7_evening/01": {
+      "id": "ch1/15_shenzhou7_evening/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "9 月 27 日晚自习。鲍先进破例打开教室那台老电视。全班抬头看翟志刚出舱。",
+      "next": "ch1/15_shenzhou7_evening/02"
+    },
+    "ch1/15_shenzhou7_evening/02": {
+      "id": "ch1/15_shenzhou7_evening/02",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "smile",
+      "text": "（小声）元生，你以后想干啥？",
+      "next": "ch1/15_shenzhou7_evening/03"
+    },
+    "ch1/15_shenzhou7_evening/03": {
+      "id": "ch1/15_shenzhou7_evening/03",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（想干啥...）",
+      "next": "ch1/15_shenzhou7_evening/04"
+    },
+    "ch1/15_shenzhou7_evening/04": {
+      "id": "ch1/15_shenzhou7_evening/04",
+      "speaker": "曾建明",
+      "speaker_id": "zengjianming",
+      "expression": "neutral",
+      "text": "（前排回过头）我爸说，我们这一辈子能看到中国人在天上走，已经够本了。",
+      "next": "ch1/15_shenzhou7_evening/05"
+    },
+    "ch1/15_shenzhou7_evening/05": {
+      "id": "ch1/15_shenzhou7_evening/05",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "说完曾建明又转回去，跟没说过一样。",
+      "next": "ch1/15_shenzhou7_evening/06"
+    },
+    "ch1/15_shenzhou7_evening/06": {
+      "id": "ch1/15_shenzhou7_evening/06",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "choices": [
+        {
+          "label": "（轻轻'嗯'了一声）",
+          "next": "ch1/15_shenzhou7_evening/end",
+          "postconditions": {
+            "affinity": {"zengjianming": 1}
+          }
+        },
+        {
+          "label": "（没出声）",
+          "next": "ch1/15_shenzhou7_evening/end"
+        }
+      ],
+      "text": "（这话不像 11 岁的小学生说的。）"
+    },
+    "ch1/15_shenzhou7_evening/end": {
+      "id": "ch1/15_shenzhou7_evening/end",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "电视里画面闪了一下。下课铃响了。",
+      "next": null,
+      "postconditions": {
+        "trigger": ["ch1/15_shenzhou7_evening"],
+        "era_marker": ["shenzhou7"]
+      }
+    },
+
+    "ch1/16_sanlu_classmeeting/01": {
+      "id": "ch1/16_sanlu_classmeeting/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "另一天班会。鲍先进站在讲台上。",
+      "next": "ch1/16_sanlu_classmeeting/02"
+    },
+    "ch1/16_sanlu_classmeeting/02": {
+      "id": "ch1/16_sanlu_classmeeting/02",
+      "speaker": "鲍先进",
+      "speaker_id": "baoxianjin",
+      "expression": "neutral",
+      "text": "最近有个事儿，国家通报的——某品牌奶粉有问题，你们家里有的回去看一眼，没事就好。",
+      "next": "ch1/16_sanlu_classmeeting/03"
+    },
+    "ch1/16_sanlu_classmeeting/03": {
+      "id": "ch1/16_sanlu_classmeeting/03",
+      "speaker": "王炎",
+      "speaker_id": "wangyan",
+      "expression": "neutral",
+      "text": "（小声）反正我家也没那玩意儿。",
+      "next": "ch1/16_sanlu_classmeeting/04"
+    },
+    "ch1/16_sanlu_classmeeting/04": {
+      "id": "ch1/16_sanlu_classmeeting/04",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "教室里没什么反应。班会散了。晚自习后元生路过校门。",
+      "next": "ch1/16_sanlu_classmeeting/05"
+    },
+    "ch1/16_sanlu_classmeeting/05": {
+      "id": "ch1/16_sanlu_classmeeting/05",
+      "speaker": "门卫大爷",
+      "speaker_id": "menwei_daye",
+      "expression": "neutral",
+      "text": "（跟来送米的家长聊）城里出大事了，我侄女在上海，吓得把娃送回老家了……",
+      "choices": [
+        {
+          "label": "（停下来听一会儿）",
+          "next": "ch1/16_sanlu_classmeeting/06_listen",
+          "postconditions": {
+            "affinity": {"menwei_daye": 1}
+          }
+        },
+        {
+          "label": "（直接走过去）",
+          "next": "ch1/16_sanlu_classmeeting/06_pass"
+        }
+      ]
+    },
+    "ch1/16_sanlu_classmeeting/06_listen": {
+      "id": "ch1/16_sanlu_classmeeting/06_listen",
+      "speaker": "门卫大爷",
+      "speaker_id": "menwei_daye",
+      "expression": "neutral",
+      "text": "（看到元生）你听啥？回宿舍睡觉。",
+      "next": "ch1/16_sanlu_classmeeting/end"
+    },
+    "ch1/16_sanlu_classmeeting/06_pass": {
+      "id": "ch1/16_sanlu_classmeeting/06_pass",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（城里。）",
+      "next": "ch1/16_sanlu_classmeeting/end"
+    },
+    "ch1/16_sanlu_classmeeting/end": {
+      "id": "ch1/16_sanlu_classmeeting/end",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "元生回宿舍。窗外山风一阵紧。",
+      "next": null,
+      "postconditions": {
+        "trigger": ["ch1/16_sanlu_classmeeting"],
+        "era_marker": ["sanlu"]
+      }
+    },
+
+    "ch1/sub_jiejie_letter/01": {
+      "id": "ch1/sub_jiejie_letter/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "宿舍。元生从课本里抽出姐姐的信。",
+      "next": "ch1/sub_jiejie_letter/02"
+    },
+    "ch1/sub_jiejie_letter/02": {
+      "id": "ch1/sub_jiejie_letter/02",
+      "speaker": "姐姐（信中）",
+      "speaker_id": "jiejie",
+      "expression": "neutral",
+      "text": "元生，六年级了。学校远，路远，自己照顾自己。我寒假回来给你带正方形的尺子。",
+      "next": "ch1/sub_jiejie_letter/03"
+    },
+    "ch1/sub_jiejie_letter/03": {
+      "id": "ch1/sub_jiejie_letter/03",
+      "speaker": "姐姐（信中）",
+      "speaker_id": "jiejie",
+      "expression": "neutral",
+      "text": "鲍先生凶是凶，肚子里没坏。我在外面挺好。",
+      "next": "ch1/sub_jiejie_letter/04"
+    },
+    "ch1/sub_jiejie_letter/04": {
+      "id": "ch1/sub_jiejie_letter/04",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（看了三遍。叠回去，压回课本。）",
+      "next": null
+    },
+
+    "ch1/sub_zengjianming_eraser/01": {
+      "id": "ch1/sub_zengjianming_eraser/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "数学课。元生橡皮掉地上滚到曾建明脚边。曾建明伸长腿用脚把橡皮够回来，没回头，递过来。",
+      "next": "ch1/sub_zengjianming_eraser/02"
+    },
+    "ch1/sub_zengjianming_eraser/02": {
+      "id": "ch1/sub_zengjianming_eraser/02",
+      "speaker": "元生",
+      "speaker_id": "yuansheng",
+      "expression": "shy",
+      "text": "...谢谢。",
+      "next": "ch1/sub_zengjianming_eraser/03",
+      "postconditions": {
+        "affinity": {"zengjianming": 1}
+      }
+    },
+    "ch1/sub_zengjianming_eraser/03": {
+      "id": "ch1/sub_zengjianming_eraser/03",
+      "speaker": "曾建明",
+      "speaker_id": "zengjianming",
+      "expression": "neutral",
+      "text": "嗯。",
+      "next": null
+    },
+
+    "ch1/_demo_end/01": {
+      "id": "ch1/_demo_end/01",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "元生坐回二班靠窗第三排。望了一眼窗外的山。",
+      "next": "ch1/_demo_end/02"
+    },
+    "ch1/_demo_end/02": {
+      "id": "ch1/_demo_end/02",
+      "speaker": "元生（内心）",
+      "speaker_id": "yuansheng",
+      "expression": "thoughtful",
+      "text": "（这是丁埠最后一届六年级。听见的，遇见的，记得的，都是这一年。）",
+      "next": "ch1/_demo_end/03",
+      "postconditions": {
+        "set_chapter": "ch1_done"
+      }
+    },
+    "ch1/_demo_end/03": {
+      "id": "ch1/_demo_end/03",
+      "speaker": "",
+      "speaker_id": "",
+      "text": "Demo · 序章 + 第一章 完结。",
+      "next": null,
+      "postconditions": {
+        "trigger": ["ch1/_demo_end"]
+      }
+    }
+  }
+}

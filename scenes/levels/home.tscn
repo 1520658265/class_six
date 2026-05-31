@@ -1,0 +1,75 @@
+[gd_scene load_steps=20 format=3 uid="uid://b1lvl_home"]
+
+[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="level_script"]
+[ext_resource type="Texture2D" path="res://assets/art/scenes/p0/scene_p0_yuansheng_home_main_room_source.png" id="bg_tex"]
+[ext_resource type="Script" path="res://scripts/level/scene_door.gd" id="door_script"]
+[ext_resource type="PackedScene" path="res://scenes/characters/npc.tscn" id="npc_scene"]
+
+[sub_resource type="RectangleShape2D" id="WallH"]
+size = Vector2(512, 32)
+
+[sub_resource type="RectangleShape2D" id="WallV"]
+size = Vector2(32, 512)
+
+[sub_resource type="RectangleShape2D" id="DoorShape_0"]
+size = Vector2(96, 24)
+
+[node name="Level" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("level_script")
+scene_id = "home"
+level_size = Vector2i(512, 512)
+first_visit_event = "prologue/01_father_send_off"
+ch1_events = PackedStringArray()
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("bg_tex")
+centered = false
+position = Vector2(0, 0)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="WN" type="CollisionShape2D" parent="Walls"]
+position = Vector2(256.0, -16)
+shape = SubResource("WallH")
+
+[node name="WS" type="CollisionShape2D" parent="Walls"]
+position = Vector2(256.0, 528)
+shape = SubResource("WallH")
+
+[node name="WE" type="CollisionShape2D" parent="Walls"]
+position = Vector2(528, 256.0)
+shape = SubResource("WallV")
+
+[node name="WW" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-16, 256.0)
+shape = SubResource("WallV")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="default" type="Node2D" parent="SpawnPoints"]
+position = Vector2(256, 256)
+metadata/facing = "down"
+
+[node name="from_mountain" type="Node2D" parent="SpawnPoints"]
+position = Vector2(256, 256)
+metadata/facing = "down"
+
+
+[node name="Door_mountain_road_autumn" type="Area2D" parent="."]
+position = Vector2(256, 470)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("door_script")
+target_scene_id = "mountain_road_autumn"
+target_spawn_point = "from_home"
+
+[node name="Shape" type="CollisionShape2D" parent="Door_mountain_road_autumn"]
+shape = SubResource("DoorShape_0")
+
+[node name="Muqin" parent="." instance=ExtResource("npc_scene")]
+position = Vector2(180, 320)
+character_id = "muqin"
+dialogue_line_id = ""

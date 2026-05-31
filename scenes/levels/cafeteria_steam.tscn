@@ -1,0 +1,75 @@
+[gd_scene load_steps=20 format=3 uid="uid://b1lvl_cafeteria_steam"]
+
+[ext_resource type="Script" path="res://scripts/level/level_base.gd" id="level_script"]
+[ext_resource type="Texture2D" path="res://assets/art/scenes/p0/scene_p0_canteen_steam_room_interior_source.png" id="bg_tex"]
+[ext_resource type="Script" path="res://scripts/level/scene_door.gd" id="door_script"]
+[ext_resource type="PackedScene" path="res://scenes/characters/npc.tscn" id="npc_scene"]
+
+[sub_resource type="RectangleShape2D" id="WallH"]
+size = Vector2(1376, 32)
+
+[sub_resource type="RectangleShape2D" id="WallV"]
+size = Vector2(32, 768)
+
+[sub_resource type="RectangleShape2D" id="DoorShape_0"]
+size = Vector2(96, 24)
+
+[node name="Level" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("level_script")
+scene_id = "cafeteria_steam"
+level_size = Vector2i(1376, 768)
+first_visit_event = "ch1/11_zhengfanhe_help"
+ch1_events = PackedStringArray()
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("bg_tex")
+centered = false
+position = Vector2(0, 0)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="WN" type="CollisionShape2D" parent="Walls"]
+position = Vector2(688.0, -16)
+shape = SubResource("WallH")
+
+[node name="WS" type="CollisionShape2D" parent="Walls"]
+position = Vector2(688.0, 784)
+shape = SubResource("WallH")
+
+[node name="WE" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1392, 384.0)
+shape = SubResource("WallV")
+
+[node name="WW" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-16, 384.0)
+shape = SubResource("WallV")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="default" type="Node2D" parent="SpawnPoints"]
+position = Vector2(700, 600)
+metadata/facing = "up"
+
+[node name="from_corridor" type="Node2D" parent="SpawnPoints"]
+position = Vector2(700, 600)
+metadata/facing = "up"
+
+
+[node name="Door_corridor_stairs" type="Area2D" parent="."]
+position = Vector2(700, 750)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("door_script")
+target_scene_id = "corridor_stairs"
+target_spawn_point = "from_cafeteria"
+
+[node name="Shape" type="CollisionShape2D" parent="Door_corridor_stairs"]
+shape = SubResource("DoorShape_0")
+
+[node name="Wangyan_Cafe" parent="." instance=ExtResource("npc_scene")]
+position = Vector2(700, 360)
+character_id = "wangyan"
+dialogue_line_id = "ch1/11_zhengfanhe_help/01"
