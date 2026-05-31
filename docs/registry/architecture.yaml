@@ -30,7 +30,7 @@
 #   Superseded entries:     Grep pattern="status: superseded"
 
 version: 1
-last_updated: ""
+last_updated: "2026-05-31"
 
 # ─── STATE OWNERSHIP ─────────────────────────────────────────────────────────
 # Who is the authoritative owner of each piece of shared game state.
@@ -43,7 +43,78 @@ last_updated: ""
 # interface: how other systems access this state (read-only property, method call,
 #   signal, shared resource, etc.) — this is the contract other ADRs depend on.
 
-state_ownership: []
+state_ownership:
+  - state: stats_4_explicit
+    status: active
+    owner_system: stat-system
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    interface: "GlobalState.get_stat(id: String) -> int (read-only); GlobalState.change_stat(id: String, delta: int) -> void (sole writer)"
+    write_access: stat-system-only
+    notes: "4 项显性属性 xuexi/danliang/koucai/tili，0–10 范围。禁止 set_stat 绝对赋值；越界自动 clamp 静默吞掉；变化通过 stat_changed 4 元组 signal 广播"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - state: vars_3_implicit
+    status: active
+    owner_system: stat-system
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    interface: "GlobalState.get_var(id: String) -> int; GlobalState.change_var(id: String, delta: int) -> void"
+    write_access: stat-system-only
+    notes: "3 项隐性变量 xinjie/kaguodu_xinli/qianbao_xiuchi。xinjie/qianbao max=20 是 PROVISIONAL，下游禁止 hardcode（必须从 VARS_CONFIG[id].max 读）"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - state: affinity_12_npcs
+    status: active
+    owner_system: stat-system
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    interface: "GlobalState.get_affinity(npc_id: String) -> int; GlobalState.change_affinity(npc_id: String, delta: int) -> void"
+    write_access: stat-system-only
+    notes: "12 个 demo NPC 好感度，per-NPC AFFINITY_CONFIG[npc_id] = {init, min, max} schema。jiejie.max=15、caozhengdong.min=-15 留 pillar 头室。新 NPC 必须先在 AFFINITY_CONFIG 注册才能调 change_affinity"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - state: triggered_events_set
+    status: active
+    owner_system: stat-system
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    interface: "GlobalState.has_triggered(event_id: String) -> bool; GlobalState.mark_triggered(event_id: String) -> void"
+    write_access: stat-system-only
+    notes: "已触发事件 ID 集合（Dictionary[String, bool] as Set，value 恒 true）。重复 mark 静默忽略。to_dict 序列化为 sorted Array"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - state: era_markers_set
+    status: active
+    owner_system: stat-system
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    interface: "GlobalState.has_era_marker(marker_id: String) -> bool; GlobalState.mark_era_marker(marker_id: String) -> void"
+    write_access: stat-system-only
+    notes: "已点亮的时代切片 ID 集合。终章独白根据集合大小分流（Era Marker GDD 处理）"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - state: chapter_state
+    status: active
+    owner_system: stat-system
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    interface: "GlobalState.get_chapter() -> String; GlobalState.set_chapter(chapter_id: String) -> void"
+    write_access: stat-system-only
+    notes: "当前章节 ID。Demo 范围合法值 prologue/ch1/ch1_done。回退方向（如 ch1 → prologue）只允许通过 from_dict，业务代码不得调 set_chapter 回退"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
 
 # Example:
 #
@@ -71,7 +142,111 @@ state_ownership: []
 #
 # pattern options: signal | direct_call | event_bus | shared_resource | rpc | none
 
-interfaces: []
+interfaces:
+  - contract: stat_changed_broadcast
+    status: active
+    pattern: signal
+    producer: stat-system
+    consumers:
+      - stat-panel-ui
+      - combat-core
+      - emotion-state
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    signal_signature: "stat_changed(stat_id: String, old_value: int, new_value: int, requested_delta: int)"
+    notes: "4 元组 payload：old/new 让订阅者计算 effective_delta = new - old；requested 保留调用方原始意图，UI 在 effective ≠ requested 时降级显示。底/顶完全吞掉时不广播。订阅必须用 Object.CONNECT_DEFERRED"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - contract: var_changed_broadcast
+    status: active
+    pattern: signal
+    producer: stat-system
+    consumers:
+      - emotion-state
+      - combat-core
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    signal_signature: "var_changed(var_id: String, old_value: int, new_value: int, requested_delta: int)"
+    notes: "隐性变量变化广播。UI 不订阅（设计上不可见）。订阅必须用 CONNECT_DEFERRED"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - contract: affinity_changed_broadcast
+    status: active
+    pattern: signal
+    producer: stat-system
+    consumers:
+      - npc-system
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    signal_signature: "affinity_changed(npc_id: String, old_value: int, new_value: int, requested_delta: int)"
+    notes: "好感度变化广播，per-NPC clamp。订阅必须用 CONNECT_DEFERRED"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - contract: event_triggered_broadcast
+    status: active
+    pattern: signal
+    producer: stat-system
+    consumers:
+      - cutscene-runner
+      - event-flow
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    signal_signature: "event_triggered(event_id: String)"
+    notes: "事件首次 mark 时广播；重复 mark 静默忽略"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - contract: era_marker_added_broadcast
+    status: active
+    pattern: signal
+    producer: stat-system
+    consumers:
+      - chapter-title
+      - era-marker
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    signal_signature: "era_marker_added(marker_id: String)"
+    notes: "时代切片首次点亮时广播 toast 触发"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - contract: chapter_changed_broadcast
+    status: active
+    pattern: signal
+    producer: stat-system
+    consumers:
+      - chapter-title
+      - ui-root
+      - era-marker
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    signal_signature: "chapter_changed(old_chapter: String, new_chapter: String)"
+    notes: "2 元组 payload，与 stat/var/affinity 信号在 old/new 字段上对称。from_dict 路径不发该信号。订阅必须用 CONNECT_DEFERRED"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - contract: state_serialization
+    status: active
+    pattern: direct_call
+    producer: stat-system
+    consumers:
+      - save-load
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    signal_signature: "GlobalState.to_dict() -> Dictionary; GlobalState.from_dict(data: Dictionary) -> void; GlobalState.reset_to_initial() -> void"
+    notes: "to_dict 内部对 _triggered/_era_markers keys 排序，保证字面级稳定；from_dict 自愈式（cast int + clampi + push_warning），不广播 *_changed 信号；UI 在 SaveManager.load_finished 后主动 re-read"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
 
 # Example:
 #
@@ -100,7 +275,24 @@ interfaces: []
 # Register a budget when an ADR explicitly claims a frame time allocation.
 # The registry lets /architecture-review verify the total doesn't exceed the target.
 
-performance_budgets: []
+performance_budgets:
+  - target_fps: 60
+    total_frame_budget_ms: 16.6
+    platform: PC
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    notes: "源自 .claude/docs/technical-preferences.md → Performance Budgets。后续 ADR 在不超过 16.6ms 的前提下分配各系统预算"
+    added: 2026-05-31
+    revised: ""
+
+  - system: stat-system
+    status: active
+    budget_ms: 0.05
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    notes: "100 次 change_stat + 1 mock subscriber 单次 < 5ms（headless release，重复 3 次取最差，H.12 AC）；摊到每帧远 < 0.05ms。Foundation 层零热路径"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
 
 # Example:
 #
@@ -131,7 +323,62 @@ performance_budgets: []
 # Register an API decision when the choice is non-obvious and other ADRs might
 # make a different choice for the same purpose without knowing this was decided.
 
-api_decisions: []
+api_decisions:
+  - purpose: int_clamp
+    status: active
+    api: clampi(value, min, max)
+    not: clamp(value, min, max)
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    reason: "clampi 强制 int 返回类型；clamp 在 from_dict 路径接到 JSON 浮点时会污染返回类型，破坏 Dictionary[String, int] 类型化保证"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - purpose: typed_dictionary
+    status: active
+    api: "Dictionary[String, int] / Dictionary[String, bool] / Dictionary[String, Dictionary]"
+    not: "Dictionary（无 K/V 类型声明）"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    reason: "Godot 4.4+ typed Dictionary 在 4.6 完全可用（已通过 Web/Context7 文档复核，stat-system §I.4 archive）；下游静态类型访问 GlobalState 字段时受益"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - purpose: signal_subscription_mode
+    status: active
+    api: "connect(handler, Object.CONNECT_DEFERRED)"
+    not: "connect(handler) 默认同步模式（在订阅 stat/var/affinity/event/era/chapter 信号时禁用）"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    reason: "搭配实装侧 _emit_depth 守卫的双重保险——CONNECT_DEFERRED 把 handler 调度到下一帧，handler 内即使调用 change_* 也已经在新栈帧上运行，不会触发再入"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - purpose: autoload_load_order
+    status: active
+    api: "[autoload] 节按声明顺序（top-to-bottom）：GlobalState → Sprites → Portraits → VFX → Atlas → SaveManager → SceneRouter → Dialogue → UIRoot"
+    not: "依赖字母序前缀（如 AGlobalState）/ 编辑器 GUI 自动重排"
+    adr: docs/architecture/adr-0002-autoload-contract.md
+    reason: "Godot 4.x 官方文档（singletons_autoload.md）明确 autoload 按 [autoload] 节声明顺序初始化，与名字字母序无关。GlobalState 必须最前以保证 SaveManager/UIRoot/Dialogue _ready 时它已初始化"
+    referenced_by:
+      - docs/architecture/adr-0002-autoload-contract.md
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+    revised: ""
+
+  - purpose: dialogue_script_format
+    status: active
+    api: "data/dialogue/<chapter_id>.json (自家 JSON 格式)"
+    not: "Ink / Yarn / Dialogic 第三方对白引擎"
+    adr: docs/architecture/adr-0002-autoload-contract.md
+    reason: "Demo 阶段对白量小、条件查询通过 GlobalState 直读即可，引入第三方引擎成本高于收益。已在用户决策中确定（见 memory/project_decision_dialogue_format.md）"
+    referenced_by:
+      - docs/architecture/adr-0002-autoload-contract.md
+    added: 2026-05-31
+    revised: ""
 
 # Example:
 #
@@ -157,7 +404,69 @@ api_decisions: []
 # Register a pattern when an ADR explicitly bans it AND other ADRs might
 # unknowingly use it (i.e., it's a tempting but wrong approach for this project).
 
-forbidden_patterns: []
+forbidden_patterns:
+  - pattern: globalstate_set_absolute
+    status: active
+    description: "禁止在 GlobalState 上提供 set_stat / set_var / set_affinity 等绝对赋值接口。所有变更必须经 change_*(id, delta)，确保 stat_changed 4 元组 signal 携带正确的 old/new/requested。如需注入完整状态（cheat / 测试），用 from_dict(...) 而非 set_*"
+    why: "绝对赋值会绕过 effective_delta 与 requested_delta 的对偶设计，让 UI 在边界场景无法识别真变化。stat-system H.16 AC 验证 has_method('set_stat') == false"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+
+  - pattern: globalstate_private_field_write
+    status: active
+    description: "禁止任何系统绕过 change_* 接口直接写 _stats / _vars / _affinity / _triggered / _era_markers / _chapter 私有字段"
+    why: "直接写会跳过 clamp、跳过 _emit_depth 守卫、跳过 signal 广播。下游订阅者会与实际数据状态不一致"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+
+  - pattern: reentrant_change_in_signal_handler
+    status: active
+    description: "禁止在 stat_changed / var_changed / affinity_changed / event_triggered / era_marker_added / chapter_changed 信号 handler 里同步调用 change_* / mark_* / set_chapter。如必须，用 call_deferred 或在订阅时声明 Object.CONNECT_DEFERRED"
+    why: "防信号风暴 / 栈溢出。实装侧 _emit_depth 守卫会 push_error 拦下违规，但订阅方不应依赖兜底机制"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+
+  - pattern: hardcode_stat_var_affinity_bounds
+    status: active
+    description: "禁止下游 GDD / 代码 / 测试 hardcode min/max/init 数值（例如禁止 if get_var('xinjie') >= 20）。必须从 STATS_CONFIG[id].max / VARS_CONFIG[id].max / AFFINITY_CONFIG[npc_id].max 读取"
+    why: "xinjie/qianbao max=20 等是 PROVISIONAL 数值（终章场景未设计前不冻结），下游 hardcode 会在调整时静默失效。同样适用于 init 值与 min 边界"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+
+  - pattern: dialogue_direct_change_stat
+    status: active
+    description: "禁止 Dialogue 系统直接调 GlobalState.change_stat / change_var / change_affinity。属性变更必须由 Cutscene Runner 执行（Dialogue 节点的 effect 字段委派给 Cutscene Runner）"
+    why: "保证 cutscene 是属性变更的行为权威；Dialogue 只负责 condition 查询。两者职责分离，便于 cutscene runner 写 lookup table 与回放"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+
+  - pattern: stat_panel_juice_effects
+    status: active
+    description: "stat-panel-ui 渲染 stat_changed 飘字时，禁止 SFX、彩色变换、缩放/抖动等奖励感特效。必须是单色无音效整数飘字"
+    why: "stat-system Player Fantasy 是 acknowledgment fantasy（被看见 / 被记住 / 被允许），juice 反馈会变成奖励感，与 pillar 矛盾"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+
+  - pattern: chapter_set_backwards_in_business_code
+    status: active
+    description: "Cutscene Runner / Dialogue / 任何 gameplay 系统禁止调 set_chapter 让章节回退（如 ch1 → prologue）。章节回退仅允许通过 from_dict 路径"
+    why: "防止业务代码意外重置剧情进度。前进方向（prologue → ch1 → ch1_done）是 Event Flow 的正常职责；后退是存档读档语义"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+
+  - pattern: affinity_event_without_idempotent_gate
+    status: active
+    description: "event-flow / npc-system / cutscene-runner / dialogue 在设计任何改 affinity 的事件时，事件实装必须 gate on has_triggered(event_id)：若已触发则跳过该 affinity delta（仅显示对白）"
+    why: "防止反复进出小卖部跟鲍师母讲同一段对话刷 affinity 的退化策略。例外：礼物系统等真正可重复事件必须在事件 spec 显式声明 repeatable: true"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-05-31
+
+  - pattern: register_asset_ids_as_autoload
+    status: active
+    description: "禁止把 asset_ids.gd 注册为 autoload。它是纯 const 资源 ID 表，应通过 preload 引用：const AssetIds = preload('res://scripts/autoload/asset_ids.gd')"
+    why: "asset_ids.gd 无 _ready / 无状态 / 无信号；注册成 autoload 浪费 SceneTree slot 且引入 ambiguity。autoload 应保留给有状态/有 _ready/提供信号的单例"
+    adr: docs/architecture/adr-0002-autoload-contract.md
+    added: 2026-05-31
 
 # Example:
 #

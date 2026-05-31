@@ -17,10 +17,15 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+GlobalState="*res://scripts/autoload/global_state.gd"
 Sprites="*res://scripts/autoload/sprites.gd"
 Portraits="*res://scripts/autoload/portraits.gd"
 VFX="*res://scripts/autoload/vfx.gd"
 Atlas="*res://scripts/autoload/atlas.gd"
+SaveManager="*res://scripts/autoload/save_manager.gd"
+SceneRouter="*res://scripts/autoload/scene_router.gd"
+Dialogue="*res://scripts/autoload/dialogue.gd"
+UIRoot="*res://scripts/autoload/ui_root.gd"
 
 [rendering]
 
