@@ -57,7 +57,10 @@ func _maybe_play_prologue_event() -> void:
 		return
 	if GlobalState.has_triggered(first_visit_event):
 		return
-	var steps: Array = [{"type": "dialogue", "line_id": first_visit_event + "/01"}]
+	var steps: Array = PrologueCutscenes.get_cutscene(first_visit_event)
+	if steps.is_empty():
+		# 未编排的 event 退化为单 dialogue，保持向后兼容
+		steps = [{"type": "dialogue", "line_id": first_visit_event + "/01"}]
 	var runner := CutsceneRunner.new()
 	await runner.run(self, steps)
 
@@ -65,7 +68,13 @@ func _maybe_play_ch1_events() -> void:
 	for ev in ch1_events:
 		if GlobalState.has_triggered(ev):
 			continue
-		var steps: Array = [{"type": "dialogue", "line_id": ev + "/01"}]
+		var steps: Array = Ch1Cutscenes.get_cutscene(ev, self)
+		if steps.is_empty():
+			# 未编排的 event 退化为单 dialogue + trigger，保持向后兼容
+			steps = [
+				{"type": "dialogue", "line_id": ev + "/01"},
+				{"type": "trigger_event", "event_id": ev},
+			]
 		var runner := CutsceneRunner.new()
 		await runner.run(self, steps)
 

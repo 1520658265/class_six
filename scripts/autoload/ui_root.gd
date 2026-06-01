@@ -29,14 +29,14 @@ func show_chapter_title(text: String) -> void:
 	if chapter_title.has_method("show_title"):
 		chapter_title.show_title(text)
 
-func _on_chapter_changed(chapter_id: String) -> void:
+func _on_chapter_changed(_old_chapter: String, new_chapter: String) -> void:
 	var titles := {
 		"prologue": "序章 · 二楼的窗",
 		"ch1": "第一章 · 蒸饭盒里的秋天",
 		"ch1_done": "Demo · 序章 + 第一章 完结",
 	}
-	if titles.has(chapter_id):
-		show_chapter_title(titles[chapter_id])
+	if titles.has(new_chapter):
+		show_chapter_title(titles[new_chapter])
 
 func _on_era_marker(marker_id: String) -> void:
 	if era_marker_toast.has_method("show_marker"):

@@ -233,8 +233,7 @@
             "affinity": {"baosimu": 1}
           }
         }
-      ],
-      "text": "..."
+      ]
     },
     "ch1/13_xiaomaibu_first_buy/04_a": {
       "id": "ch1/13_xiaomaibu_first_buy/04_a",
@@ -323,8 +322,7 @@
             "trigger": ["ch1/14_caozhengdong_robbery/hardline"]
           }
         }
-      ],
-      "text": "..."
+      ]
     },
     "ch1/14_caozhengdong_robbery/04_a": {
       "id": "ch1/14_caozhengdong_robbery/04_a",

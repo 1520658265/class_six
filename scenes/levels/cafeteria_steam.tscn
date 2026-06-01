@@ -19,8 +19,8 @@ y_sort_enabled = true
 script = ExtResource("level_script")
 scene_id = "cafeteria_steam"
 level_size = Vector2i(1376, 768)
-first_visit_event = "ch1/11_zhengfanhe_help"
-ch1_events = PackedStringArray()
+first_visit_event = ""
+ch1_events = PackedStringArray("ch1/11_zhengfanhe_help")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("bg_tex")

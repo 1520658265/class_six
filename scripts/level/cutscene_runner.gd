@@ -24,6 +24,7 @@ signal step_started(index: int, step: Dictionary)
 signal cutscene_finished()
 
 var _scene_root: Node = null
+var _tree: SceneTree = null
 var _running: bool = false
 
 func run(scene_root: Node, steps: Array) -> void:
@@ -31,6 +32,7 @@ func run(scene_root: Node, steps: Array) -> void:
 		push_error("[Cutscene] already running")
 		return
 	_scene_root = scene_root
+	_tree = scene_root.get_tree()
 	_running = true
 	for i in range(steps.size()):
 		var step = steps[i]
@@ -47,7 +49,7 @@ func _run_step(step: Dictionary) -> void:
 			while Dialogue.is_playing():
 				await Dialogue.dialogue_finished
 		"wait":
-			await _scene_root.get_tree().create_timer(float(step.get("seconds", 0.0))).timeout
+			await _tree.create_timer(float(step.get("seconds", 0.0))).timeout
 		"walk_to":
 			var node: Node2D = _resolve_node(step["node_path"])
 			if node == null:
@@ -99,7 +101,8 @@ func _run_step(step: Dictionary) -> void:
 			GlobalState.set_chapter(step["chapter_id"])
 		"change_scene":
 			await SceneRouter.change_scene(step["scene_id"], step.get("spawn_point", "default"))
-			_scene_root = _scene_root.get_tree().current_scene
+			# 老 _scene_root 已被 change_scene_to_file 释放；用 SceneTree 拿新的 current_scene。
+			_scene_root = _tree.current_scene
 		"callable":
 			var cb: Callable = step["callable"]
 			var ret = cb.call()

@@ -13,6 +13,8 @@ size = Vector2(32, 768)
 
 [sub_resource type="RectangleShape2D" id="DoorShape_0"]
 size = Vector2(96, 24)
+[sub_resource type="RectangleShape2D" id="DoorShape_1"]
+size = Vector2(24, 96)
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
@@ -57,6 +59,10 @@ metadata/facing = "up"
 position = Vector2(700, 600)
 metadata/facing = "up"
 
+[node name="from_xiaomaibu" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1260, 400)
+metadata/facing = "left"
+
 [node name="yuansheng_bed" type="Node2D" parent="SpawnPoints"]
 position = Vector2(300, 400)
 metadata/facing = "down"
@@ -73,7 +79,28 @@ target_spawn_point = "from_dorm"
 [node name="Shape" type="CollisionShape2D" parent="Door_corridor_stairs"]
 shape = SubResource("DoorShape_0")
 
+[node name="Door_xiaomaibu" type="Area2D" parent="."]
+position = Vector2(1336, 400)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("door_script")
+target_scene_id = "xiaomaibu"
+target_spawn_point = "from_dorm"
+
+[node name="Shape" type="CollisionShape2D" parent="Door_xiaomaibu"]
+shape = SubResource("DoorShape_1")
+
 [node name="Wangyan_Dorm" parent="." instance=ExtResource("npc_scene")]
 position = Vector2(300, 460)
 character_id = "wangyan"
 dialogue_line_id = "ch1/sub_jiejie_letter/01"
+
+[node name="Zengjianming_Dorm" parent="." instance=ExtResource("npc_scene")]
+position = Vector2(560, 380)
+character_id = "zengjianming"
+dialogue_line_id = ""
+
+[node name="Caozhengdong_Dorm" parent="." instance=ExtResource("npc_scene")]
+position = Vector2(560, 480)
+character_id = "caozhengdong"
+dialogue_line_id = ""

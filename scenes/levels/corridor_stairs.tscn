@@ -151,3 +151,8 @@ dialogue_line_id = ""
 position = Vector2(680, 380)
 character_id = "lijing"
 dialogue_line_id = ""
+
+[node name="Caozhengdong" parent="." instance=ExtResource("npc_scene")]
+position = Vector2(420, 600)
+character_id = "caozhengdong"
+dialogue_line_id = ""
