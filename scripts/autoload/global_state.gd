@@ -1,4 +1,3 @@
-class_name GlobalState
 extends Node
 
 # ============================================================================
@@ -6,6 +5,14 @@ extends Node
 # ----------------------------------------------------------------------------
 # 实装契约由 docs/architecture/adr-0001-stat-system-contract.md 锁定，
 # 设计契约见 design/gdd/stat-system.md §C / §D / §E / §F.5 / §H。
+#
+# 注意：本文件**不**写 `class_name GlobalState`。Godot 4.x 规定 class_name 不能
+# 与同名 autoload singleton 共存，否则报 "Class GlobalState hides an autoload
+# singleton" parse error，并连带让 12+ 处 `GlobalState.*` 调用全部解析为
+# 静态调用而失败。autoload 名 `GlobalState`（在 project.godot 注册）已足以让
+# 调用方以 `GlobalState.foo()` 直接访问单例实例，类型注解场景由调用方用
+# `Node` 或 `get_node("/root/GlobalState")` 兜底。ADR-0001 §I.4 item 1 在
+# Godot 4.6 下与 autoload 注册冲突，此处工程实现选择 autoload 优先。
 # ============================================================================
 
 # ---- 信号（4 元 / 2 元 payload，§C.6） ----
