@@ -30,7 +30,7 @@
 #   Superseded entries:     Grep pattern="status: superseded"
 
 version: 1
-last_updated: ""
+last_updated: "2026-06-01"
 
 # ─── STATE OWNERSHIP ─────────────────────────────────────────────────────────
 # Who is the authoritative owner of each piece of shared game state.
@@ -43,7 +43,23 @@ last_updated: ""
 # interface: how other systems access this state (read-only property, method call,
 #   signal, shared resource, etc.) — this is the contract other ADRs depend on.
 
-state_ownership: []
+state_ownership:
+  - state: global_game_state
+    status: active
+    owner_system: stat-system
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    interface: |
+      GlobalState (autoload, class_name GlobalState).
+      Read: get_stat / get_var / get_affinity / has_triggered / has_era_marker / get_chapter
+      Write: change_stat / change_var / change_affinity / mark_triggered / mark_era_marker / set_chapter
+      Serialize: to_dict / from_dict / reset_to_initial
+      Internal containers (Dictionary[String,int]/[String,bool]):
+        _stats / _vars / _affinity / _triggered / _era_markers / _chapter
+    write_access: stat-system-only
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-06-01
+    revised: ""
 
 # Example:
 #
@@ -71,7 +87,37 @@ state_ownership: []
 #
 # pattern options: signal | direct_call | event_bus | shared_resource | rpc | none
 
-interfaces: []
+interfaces:
+  - contract: stat_state_signals
+    status: active
+    pattern: signal
+    producer: stat-system
+    consumers:
+      - stat-panel-ui
+      - combat-core
+      - npc-system
+      - era-marker
+      - chapter-title
+      - cutscene-runner
+      - save-load
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    signal_signatures:
+      stat_changed: "stat_changed(stat_id: String, old_value: int, new_value: int, requested_delta: int)"
+      var_changed: "var_changed(var_id: String, old_value: int, new_value: int, requested_delta: int)"
+      affinity_changed: "affinity_changed(npc_id: String, old_value: int, new_value: int, requested_delta: int)"
+      event_triggered: "event_triggered(event_id: String)"
+      era_marker_added: "era_marker_added(marker_id: String)"
+      chapter_changed: "chapter_changed(old_chapter: String, new_chapter: String)"
+    broadcast_rules: |
+      stat_/var_/affinity_changed: 仅在 new_value != old_value 时广播；
+      requested_delta 字段是调用方传入的原始 delta（未经 clamp），允许订阅者识别"半吃掉"边界。
+      event_triggered/era_marker_added: 仅在 ID 首次进入集合时广播。
+      chapter_changed: 仅在 new != old 时广播。
+      reset_to_initial / from_dict: 不广播（load 路径静默契约）。
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-06-01
+    revised: ""
 
 # Example:
 #
@@ -131,7 +177,63 @@ performance_budgets: []
 # Register an API decision when the choice is non-obvious and other ADRs might
 # make a different choice for the same purpose without knowing this was decided.
 
-api_decisions: []
+api_decisions:
+  - purpose: integer_clamp_in_state_mutations
+    status: active
+    api: "clampi(value, min, max)"
+    not: "clamp(value, min, max)"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    reason: "from_dict 路径加载 JSON 浮点时，clamp 会污染返回为 float；clampi 强制 int 返回。"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-06-01
+    revised: ""
+
+  - purpose: stat_state_dict_typing
+    status: active
+    api: "Dictionary[String, int]  /  Dictionary[String, bool]"
+    not: "untyped Dictionary"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    reason: "Godot 4.4+ 类型化 Dictionary 让 KeyError 在 parse 期暴露，配合 GDScript 静态分析提示。"
+    engine_compat: "Godot 4.4+, 4.6 stable"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-06-01
+    revised: ""
+
+  - purpose: stat_signal_subscriber_connection
+    status: active
+    api: "signal.connect(handler, Object.CONNECT_DEFERRED)"
+    not: "signal.connect(handler)  /  string-based connect()"
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    reason: |
+      配合 _emit_depth 再入守卫；handler 内即使同步调用 change_* 也不立即递归，
+      由 deferred flag 调度到下一帧 idle。string-based connect 已 deprecated（Godot 4.0）。
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+    added: 2026-06-01
+    revised: ""
+
+  - purpose: project_autoload_registration_order
+    status: active
+    api: |
+      project.godot [autoload] 按声明顺序（top-to-bottom）注册 9 行：
+        GlobalState → Sprites → Portraits → Atlas → VFX
+        → SaveManager → SceneRouter → Dialogue → UIRoot
+    not: |
+      字母序 / deferred-load / RefCounted DI；
+      AssetIds 不在该节（class_name AssetIds extends RefCounted 静态访问）
+    adr: docs/architecture/adr-0002-autoload-contract.md
+    reason: |
+      Godot 4.x 官方文档：[autoload] 按声明顺序 top-to-bottom 初始化。
+      by-feature 顺序确保 GlobalState 在 SaveManager / SceneRouter 之前 _ready，
+      从而 ADR-0001 §10 启动 config 校验在最早可能时机 fail-fast。
+    engine_compat: "Godot 4.0+ stable; 4.6 verified"
+    referenced_by:
+      - docs/architecture/adr-0001-stat-system-contract.md
+      - docs/architecture/adr-0002-autoload-contract.md
+    added: 2026-06-01
+    revised: ""
 
 # Example:
 #
@@ -157,7 +259,68 @@ api_decisions: []
 # Register a pattern when an ADR explicitly bans it AND other ADRs might
 # unknowingly use it (i.e., it's a tempting but wrong approach for this project).
 
-forbidden_patterns: []
+forbidden_patterns:
+  - pattern: stat_state_absolute_assignment
+    status: active
+    description: |
+      任何 set_stat / set_var / set_affinity 类绝对赋值方法不得添加到 GlobalState。
+      所有变更必须经 change_*(id, delta) 接口。
+    why: |
+      绕过 change_* 会跳过 4 元 signal 的 old_value 与 requested_delta payload，
+      让 Stat Panel UI 飘字与实际状态不匹配。任何"绝对赋值"需求必须经 from_dict(...) 注入完整状态。
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    enforced_by: "ADR-0001 §H.16 AC（has_method 反射测试）+ PR review"
+    added: 2026-06-01
+
+  - pattern: synchronous_change_in_stat_signal_handler
+    status: active
+    description: |
+      在 stat_changed / var_changed / affinity_changed / event_triggered / era_marker_added /
+      chapter_changed 信号 handler 内不得同步调用 change_* / mark_* / set_chapter。
+      必须用 call_deferred(...) 或订阅时声明 CONNECT_DEFERRED。
+    why: |
+      会触发 _emit_depth 再入守卫的 push_error 并 return（不修改集合、不发新信号）。
+      实装侧守卫只是兜底，订阅 GDD 必须用 CONNECT_DEFERRED 作为预防性"零成本正确"。
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    enforced_by: "ADR-0001 §9 实装侧 _emit_depth 守卫 + §F.5 invariant 跨 GDD 声明"
+    added: 2026-06-01
+
+  - pattern: unregistered_npc_affinity_change
+    status: active
+    description: |
+      change_affinity(npc_id, delta) 调用前，npc_id 必须已在 AFFINITY_CONFIG 中声明 {init, min, max}。
+      未注册 NPC 不允许通过任何路径写入 _affinity（包括 from_dict 也会跳过 + push_warning）。
+    why: |
+      避免拼写错误 typo 静默累积、避免存档因不规范 NPC ID 持久化污染。
+      Demo 范围仅 12 位 NPC（已枚举）；后续章节扩展必须先修订 stat-system GDD §C.4 表 + 本 registry。
+    adr: docs/architecture/adr-0001-stat-system-contract.md
+    enforced_by: "ADR-0001 §6 AFFINITY_CONFIG schema + ADR-0001 §H.13 / H.17 AC"
+    added: 2026-06-01
+
+  - pattern: register_assetids_as_autoload
+    status: active
+    description: |
+      AssetIds (scripts/autoload/asset_ids.gd) 不得注册到 project.godot [autoload]。
+      它是 class_name AssetIds extends RefCounted 的静态常量集，
+      访问语义是 AssetIds.Char.YUANSHENG（class 级 const），不是 autoload 单例。
+    why: |
+      文件位于 scripts/autoload/ 目录会让人误以为应注册；但注册后会破坏 class 级 const 访问，
+      变成 autoload 节点引用，与现有调用点（12+ 处 AssetIds.Char.X）全部不兼容。
+    adr: docs/architecture/adr-0002-autoload-contract.md
+    enforced_by: "ADR-0002 §Decision 中显式排除 + Validation Criteria grep 检查"
+    added: 2026-06-01
+
+  - pattern: manual_autoload_reorder
+    status: active
+    description: |
+      在 PR 中手动重排 project.godot [autoload] 节顺序属于禁止行为。
+      添加 / 删除 / 重排 autoload 必须经新 ADR 修订 ADR-0002，并更新本 registry。
+    why: |
+      [autoload] 顺序直接决定 _ready 调度顺序；ADR-0001 §10 启动校验、
+      §F.5 load-path UI 契约都依赖该顺序成立。私自重排会让上述契约静默失效。
+    adr: docs/architecture/adr-0002-autoload-contract.md
+    enforced_by: "PR review 扫描 project.godot diff，触及 [autoload] 节必须引用 ADR-0002 修订"
+    added: 2026-06-01
 
 # Example:
 #
