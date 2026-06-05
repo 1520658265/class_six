@@ -1,0 +1,33 @@
+# 表情差分 Prompt 模板（Inpainting 模式）
+# 使用方式：以头像图为底图，蒙版圈住面部五官区域，仅重绘表情
+
+# === Inpainting 正向 Prompt ===
+{base-style.txt 内容},
+close-up face, portrait, {角色描述：发色/发型/肤色},
+{表情描述},
+pixel art face, detailed pixel eyes, HD-2D style,
+<lora:pixel_art_hd:0.9> <lora:char_{角色名}:0.8>
+
+# === 表情描述变量（6-8 种） ===
+# neutral:  calm expression, relaxed face, neutral mouth
+# happy:    smiling, bright eyes, open mouth smile
+# angry:    furrowed brows, gritted teeth, intense eyes
+# sad:      downcast eyes, slight frown, melancholy
+# surprised: wide eyes, open mouth, raised eyebrows
+# shy:      blushing cheeks, averted gaze, slight smile
+# hurt:     pained expression, one eye closed, sweat drop
+# eyes_closed: closed eyes, peaceful expression, sleeping
+
+# === Liblib Inpainting 参数 ===
+# 模式: Inpainting（局部重绘）
+# 蒙版区域: 仅面部五官（眉毛到下巴，不含发型和轮廓）
+# 重绘幅度: 0.5-0.65（太高会改变脸型）
+# 底模: 与原图一致
+# 尺寸: 与原图一致（256x256）
+# Seed: {角色固定 seed}
+# 步数: 25-30
+# CFG: 6
+
+# === 命名规范 ===
+# {角色}_expression_{表情名}.png
+# 例: hero01_expression_happy.png

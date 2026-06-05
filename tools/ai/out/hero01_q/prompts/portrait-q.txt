@@ -1,0 +1,38 @@
+You are given a reference image of a sixth-grade Chinese boy from 2008.
+
+Your task: redraw the SAME character as a vibrant, eye-catching Q-version pixel-art RPG hero.
+
+ART STYLE — PIXEL ART RPG (like LiblibAI-style anime pixel hero illustrations):
+- Anime-pixel art with crisp pixel edges and bold dark outlines around every shape
+- RICH MULTI-TONE SHADING on every clothing element: each color has at least 3 shades (highlight + midtone + shadow), no flat single-color blocks
+- HIGH-CONTRAST highlights: bright white/near-white pixel highlights on hair tips, fabric folds, metal accessories
+- Saturated, lively palette — push colors to vivid, NOT muted school-uniform gray-blue
+- Cel-shaded with hand-painted feeling, expressive and glossy, like a hero card art
+
+CHARACTER PROPORTIONS — Q-version chibi:
+- 2-to-2.5 head-tall body, big head, short stubby limbs
+- BIG round expressive anime eyes (~30% of face), small mouth, soft rounded cheeks, adorable
+
+PRESERVE from reference (so the character stays recognizable):
+- Shamate side-bangs hairstyle (long sweeping black bangs, stiff styled, 2008 look)
+- Skin tone
+- Overall vibe of an 11-12 year old Chinese boy
+
+OUTFIT — keep the school sportswear theme but UPGRADE it visually:
+- Blue-and-white school tracksuit jacket as the BASE, but with multi-tone shading and white piping/stripes down the sleeves
+- Bright RED scarf (red pioneer scarf / 红领巾) tied around neck — vivid red with white highlights and shadow folds, this is the main accent color
+- Inner T-shirt collar visible, bright contrast color (bright yellow or warm orange)
+- A small school backpack on his back (visible straps over both shoulders, navy with bright accent stripes)
+- White sneakers with red accent details
+
+POSE & FRAMING:
+- Standing front view, full body visible from head to toe, slight heroic confident stance
+- Arms relaxed at sides or one hand adjusting backpack strap
+- Friendly slight smile, eyes looking forward with a determined sparkle
+- Single character, centered horizontally and vertically, full body fits inside the frame with small margin
+
+BACKGROUND:
+- Solid flat magenta (exact hex #FF00FF), completely uniform, no gradient, no glow, no wisps, no atmospheric effects
+- The character itself has detailed shading and highlights, but the background is PURE FLAT MAGENTA with no decoration
+
+Final output: a single colorful, detailed Q-version chibi pixel-art hero portrait, 1024x1024, magenta background.

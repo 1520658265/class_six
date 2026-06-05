@@ -1,0 +1,24 @@
+A pixel art character portrait in the HD-2D style of Octopath Traveler and Triangle Strategy, depicting a young adult Asian man as a fantasy RPG adventurer.
+
+Character details:
+- Short straight black hair with bangs, neat clip cut
+- Fair skin, gentle Asian facial features, slight calm smile
+- Lean, athletic build, young adult (around 20 years old)
+
+Outfit:
+- Light brown leather armor over a cream-colored undershirt
+- Dark brown traveler cloak draped over the shoulders
+- Brown leather belt with small pouches
+- Standing in a relaxed 3/4 front-view pose, full body
+- Holding a longsword loosely in his right hand at his side
+
+Visual style requirements:
+- Detailed pixel art with crisp pixel edges, NOT blurry, NOT smooth
+- High-resolution pixel rendering (think Square Enix HD-2D, not retro NES)
+- Limited but rich color palette, cel-shaded with bold dark outlines
+- Painterly pixel highlights and shading on cloth and armor
+- Plain soft gradient background, no scenery
+- Character centered, full body visible from head to toe
+- Character design sheet style, neutral lighting
+
+Avoid: photorealism, 3D rendering, anime cel-shading, oil painting texture, blurry edges, retro 8-bit blockiness, NES/Gameboy aesthetic.

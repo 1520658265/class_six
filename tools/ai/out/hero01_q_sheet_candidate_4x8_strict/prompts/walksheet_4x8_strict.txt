@@ -1,0 +1,55 @@
+Create one strict 8-column by 4-row RPG walking sprite sheet.
+
+Input image roles:
+- Reference image 1 is the character identity and pixel-art style. Preserve this Q-version chibi boy: black hair, big eyes, blue-and-white school tracksuit, red scarf, backpack, white-red sneakers, clean dark outline, rich colorful cel-shaded pixel-art look.
+- Reference image 2 is only the layout template. Follow its exact wide 8x4 grid structure, but do not copy its text labels.
+
+Canvas and grid are mandatory:
+- Final canvas must be a wide 2:1 sprite sheet, 2048 pixels wide by 1024 pixels tall.
+- Exactly 8 columns and exactly 4 rows.
+- Exactly 32 cells total.
+- No fifth row. No extra row. No extra column. No title strip. No labels. No frame numbers.
+- Keep all 32 sprites inside their cells with generous padding.
+- Each cell contains exactly one full-body chibi RPG sprite.
+- Same character scale, same head size, same feet baseline, same camera distance, same outfit, same palette, same outline thickness in every cell.
+
+Rows:
+- Row 1: facing down/front, 8 smooth walk phases.
+- Row 2: facing left, 8 smooth walk phases.
+- Row 3: facing right, 8 smooth walk phases.
+- Row 4: facing up/back, 8 smooth walk phases.
+
+Column phases for every row:
+1. left foot contact / right arm forward
+2. slight down motion
+3. passing pose
+4. slight up motion
+5. right foot contact / left arm forward
+6. slight down motion
+7. passing pose
+8. slight up motion returning smoothly to phase 1
+
+Animation quality:
+- This is a calm RPG walk cycle, not running and not an action pose.
+- Changes between adjacent frames must be small and continuous.
+- Do not repeat the exact same idle pose across many columns.
+- The loop from frame 8 back to frame 1 must feel natural.
+- Body, head, backpack, scarf knot, and outfit details remain stable. Only arms, legs, scarf tips, and tiny body bob change.
+- Side rows must stay true side profiles. Front row stays front-facing. Back row stays back-facing.
+
+Style:
+- Q-version chibi RPG pixel art.
+- Clean dark outline, crisp sprite edges, colorful cel-shaded pixel rendering.
+- Plain solid white or plain solid magenta background is acceptable, with no shadows and no scene.
+
+Avoid:
+- No cropped sprites.
+- No extra characters.
+- No portraits or large busts.
+- No scene background.
+- No text, labels, frame numbers, signatures, or watermark.
+- No mixed directions within a row.
+- Do not create a square sheet.
+- Do not create a 4x4 sheet.
+
+Final output: one clean wide 2048x1024 image containing only the 8x4 RPG walking sprite sheet.

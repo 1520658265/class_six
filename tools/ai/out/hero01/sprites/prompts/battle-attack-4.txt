@@ -1,0 +1,22 @@
+You are given a reference image of a character — an 11-12 year old Chinese sixth-grade boy in 2008, drawn in HD-2D pixel art style with shamate side-bangs hairstyle and blue school sportswear.
+
+Your task: redraw EXACTLY THE SAME character, in a different battle pose.
+
+Keep IDENTICAL to the reference:
+- Face shape, eye shape, all facial features
+- Skin tone
+- Hairstyle (long sweeping side-bangs, stiff styled black hair)
+- Outfit (blue-and-white school tracksuit jacket, loose sport pants, canvas sneakers)
+- Body proportions (chibi-ish, 3-head-tall)
+- Art style (HD-2D pixel art, crisp pixel edges, limited palette, bold outlines, cel-shaded)
+
+CHANGE the pose to:
+- Side view, character facing right (RPG turn-based battle perspective like Final Fantasy / Octopath)
+- recovery: arm pulled back, returning to ready stance
+- Full body visible from head to toe
+- Single character sprite, centered in frame
+
+Background:
+- SOLID FLAT MAGENTA BACKGROUND (exact hex #FF00FF, pure magenta, no gradient, no shadows)
+
+Final output: a single battle-frame sprite of the same character as in the reference, on pure magenta background.

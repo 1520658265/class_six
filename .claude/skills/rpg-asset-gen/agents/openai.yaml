@@ -1,0 +1,4 @@
+interface:
+  display_name: "RPG Asset Gen"
+  short_description: "Gemini-only RPG asset pack workflow"
+  default_prompt: "Use $rpg-asset-gen with type=character and ask me for style, references, subject, and scope before generating."

@@ -1,0 +1,40 @@
+# ========================================
+# battle-skill.txt
+# ========================================
+
+## 正向 Prompt（可直接复制）
+
+masterpiece, best quality, pixel art, HD-2D style, high resolution pixel art,
+octopath traveler style, triangle strategy style,
+(limited color palette:1.2), (crisp pixel edges:1.3), cel shading, bold outline,
+detailed pixel shading, 16-bit detailed style,
+no anti-aliasing, sharp edges, clean pixel boundaries,
+solo, 1boy, short black hair, fair skin, lean build, young adult,
+light leather armor, brown cloak, belt with pouches,
+battle stance, casting spell, magic release,
+side view, facing right, rpg battle scene perspective,
+{帧描述},
+single character sprite, centered in frame, full body,
+(transparent background:1.3), (single frame:1.2),
+<lora:pixel_art_hd:0.9> <lora:char_hero01:0.8>
+
+## 负向 Prompt
+
+realistic, photorealistic, photo, 3d, octane, unreal engine, cgi,
+blurry, anti-aliasing, smooth shading, soft lighting, depth of field,
+nsfw, lowres, bad anatomy, bad hands, missing fingers, extra fingers,
+watermark, signature, text, logo, jpeg artifacts,
+multiple characters, duplicate, frame inconsistency,
+oil painting, watercolor, sketch, pencil drawing,
+low resolution pixels, retro 8-bit, NES style, gameboy style
+
+## Liblib 参数
+
+# 底模: SDXL 1.0 / Pony V6
+# 尺寸: 768x768（生成后裁切缩放至 256x256）
+# 采样器: DPM++ 2M Karras
+# 步数: 30
+# CFG: 6-7
+# Seed: 42
+# ControlNet: OpenPose, 权重 0.8
+#   - 模板图: controlnet/battle-skill-{帧号}.png

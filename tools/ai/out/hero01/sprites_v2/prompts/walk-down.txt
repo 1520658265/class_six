@@ -1,0 +1,26 @@
+You are given a reference image of a character — an 11-12 year old Chinese sixth-grade boy in 2008, drawn in HD-2D pixel art style with shamate side-bangs hairstyle and blue school sportswear.
+
+Your task: produce a SINGLE 1024x1024 image containing a 2x2 GRID of 4 walking-animation frames of EXACTLY THE SAME character.
+
+Grid layout (read left-to-right, top-to-bottom):
+- Top-left  (frame 1): neutral standing — both feet on the ground, arms relaxed at sides (rest pose)
+- Top-right (frame 2): LEFT FOOT stepping forward in mid-stride, right leg supporting, arms swinging naturally
+- Bot-left  (frame 3): neutral standing — both feet on the ground, arms relaxed at sides (same rest pose as frame 1)
+- Bot-right (frame 4): RIGHT FOOT stepping forward in mid-stride, left leg supporting, arms swinging naturally
+
+CRITICAL — across all 4 frames keep IDENTICAL:
+- Character size and proportions (each frame must show the character at the SAME scale)
+- Vertical position (feet at the same y-line; do not let the character float)
+- Camera angle and distance (top-down 45-degree RPG view, identical zoom)
+- Face, hair, outfit, art style (HD-2D pixel art, crisp pixel edges)
+- All 4 frames show the character FACING DOWNWARD (toward viewer); camera looks at the FRONT of the character
+
+The ONLY thing that changes between frames is the leg/arm pose described above.
+
+Layout rules:
+- Each frame is exactly 512x512 pixels, arranged in a 2x2 grid
+- Thin black 2-pixel borders separating the 4 frames are OK (will be cropped)
+- Solid flat magenta background (#FF00FF) inside every frame
+- Single character per frame, centered horizontally, full body visible
+
+Final output: ONE image, 1024x1024, four walking frames in 2x2 grid, magenta backgrounds.

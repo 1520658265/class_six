@@ -1,0 +1,36 @@
+# ========================================
+# expression.txt
+# ========================================
+
+## 正向 Prompt（可直接复制）
+
+masterpiece, best quality, pixel art, HD-2D style, high resolution pixel art,
+octopath traveler style, triangle strategy style,
+(limited color palette:1.2), (crisp pixel edges:1.3), cel shading, bold outline,
+detailed pixel shading, 16-bit detailed style,
+no anti-aliasing, sharp edges, clean pixel boundaries,
+close-up face, portrait, short black hair, fair skin, lean build, young adult,
+{表情描述},
+pixel art face, detailed pixel eyes, HD-2D style,
+<lora:pixel_art_hd:0.9> <lora:char_hero01:0.8>
+
+## 负向 Prompt
+
+realistic, photorealistic, photo, 3d, octane, unreal engine, cgi,
+blurry, anti-aliasing, smooth shading, soft lighting, depth of field,
+nsfw, lowres, bad anatomy, bad hands, missing fingers, extra fingers,
+watermark, signature, text, logo, jpeg artifacts,
+multiple characters, duplicate, frame inconsistency,
+oil painting, watercolor, sketch, pencil drawing,
+low resolution pixels, retro 8-bit, NES style, gameboy style
+
+## Liblib 参数
+
+# 模式: Inpainting（局部重绘）
+# 蒙版区域: 仅面部五官（眉毛到下巴，不含发型和轮廓）
+# 重绘幅度: 0.5-0.65（太高会改变脸型）
+# 底模: 与原图一致
+# 尺寸: 与原图一致（256x256）
+# Seed: 42
+# 步数: 25-30
+# CFG: 6
