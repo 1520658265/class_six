@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "prompt": "生成一个雪地营地，四周是松树，中间有篝火和三间木屋，安排巡逻 NPC。",
+  "seed": 20260607,
+  "theme": "snow_camp",
+  "map_size": [
+    64,
+    64
+  ],
+  "tile_size": [
+    32,
+    32
+  ],
+  "tileset_id": "default_rpg_32",
+  "elapsed_ms": 211,
+  "output_files": [
+    "map_spec.json",
+    "map_data.json",
+    "map.tiled.json",
+    "preview.png",
+    "validation_report.json",
+    "tiled_validation_report.json",
+    "generation_report.json",
+    "tilesets/default_rpg_32.png",
+    "preview_debug.png"
+  ],
+  "validation_passed": true,
+  "retries": []
+}

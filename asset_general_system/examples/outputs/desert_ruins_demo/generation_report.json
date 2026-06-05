@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "prompt": "生成一个沙漠遗迹，中间有废墟，右上角有神坛，周围有岩石和隐藏入口。",
+  "seed": 20260609,
+  "theme": "desert_ruins",
+  "map_size": [
+    64,
+    64
+  ],
+  "tile_size": [
+    32,
+    32
+  ],
+  "tileset_id": "default_rpg_32",
+  "elapsed_ms": 189,
+  "output_files": [
+    "map_spec.json",
+    "map_data.json",
+    "map.tiled.json",
+    "preview.png",
+    "validation_report.json",
+    "tiled_validation_report.json",
+    "generation_report.json",
+    "tilesets/default_rpg_32.png",
+    "preview_debug.png"
+  ],
+  "validation_passed": true,
+  "retries": []
+}

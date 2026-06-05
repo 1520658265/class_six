@@ -1,0 +1,53 @@
+{
+  "tiled_available": true,
+  "tiled_executable": "D:\\Soft\\Tiled\\tiled.exe",
+  "tiled_version": null,
+  "tmxrasterizer_available": true,
+  "tmxrasterizer_executable": "D:\\Soft\\Tiled\\tmxrasterizer.exe",
+  "tmxrasterizer_version": "TmxRasterizer 1.0",
+  "all_static_passed": true,
+  "all_runtime_passed": true,
+  "runtime_verification": "passed_tmxrasterizer",
+  "demos": [
+    {
+      "name": "autumn_village",
+      "map_path": "examples\\outputs\\autumn_village\\map.tiled.json",
+      "static_passed": true,
+      "runtime_status": "passed",
+      "runtime_message": "tmxrasterizer loaded and rendered the map successfully.",
+      "runtime_output_path": "tmp\\tiled_runtime_renders\\autumn_village.png"
+    },
+    {
+      "name": "dungeon_demo",
+      "map_path": "examples\\outputs\\dungeon_demo\\map.tiled.json",
+      "static_passed": true,
+      "runtime_status": "passed",
+      "runtime_message": "tmxrasterizer loaded and rendered the map successfully.",
+      "runtime_output_path": "tmp\\tiled_runtime_renders\\dungeon_demo.png"
+    },
+    {
+      "name": "snow_camp_demo",
+      "map_path": "examples\\outputs\\snow_camp_demo\\map.tiled.json",
+      "static_passed": true,
+      "runtime_status": "passed",
+      "runtime_message": "tmxrasterizer loaded and rendered the map successfully.",
+      "runtime_output_path": "tmp\\tiled_runtime_renders\\snow_camp_demo.png"
+    },
+    {
+      "name": "desert_ruins_demo",
+      "map_path": "examples\\outputs\\desert_ruins_demo\\map.tiled.json",
+      "static_passed": true,
+      "runtime_status": "passed",
+      "runtime_message": "tmxrasterizer loaded and rendered the map successfully.",
+      "runtime_output_path": "tmp\\tiled_runtime_renders\\desert_ruins_demo.png"
+    },
+    {
+      "name": "seaside_village_demo",
+      "map_path": "examples\\outputs\\seaside_village_demo\\map.tiled.json",
+      "static_passed": true,
+      "runtime_status": "passed",
+      "runtime_message": "tmxrasterizer loaded and rendered the map successfully.",
+      "runtime_output_path": "tmp\\tiled_runtime_renders\\seaside_village_demo.png"
+    }
+  ]
+}

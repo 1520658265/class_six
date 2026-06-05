@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "prompt": "把这里改成集市",
+  "seed": 303,
+  "operation": "market",
+  "selection": [
+    22,
+    22,
+    10,
+    10
+  ],
+  "changed_tiles": 127,
+  "skipped_locked_tiles": 16,
+  "locked_region_count": 1,
+  "validation_passed": true,
+  "tiled_validation_passed": true,
+  "metrics": {
+    "map_width": 64,
+    "map_height": 64
+  }
+}
