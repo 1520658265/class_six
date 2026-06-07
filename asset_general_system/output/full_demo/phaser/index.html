@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phaser Tilemap Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
+    <script src="DemoScene.js"></script>
+</head>
+<body>
+    <div id="game"></div>
+    <script>
+        const config = {
+            type: Phaser.AUTO,
+            parent: 'game',
+            width: 1024,
+            height: 768,
+            scene: [DemoScene],
+            pixelArt: true,
+        };
+        new Phaser.Game(config);
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+import json
+from pathlib import Path
+
+from generator.assets import load_asset_catalog
+
+
+def test_default_asset_catalog_loads_tiles():
+    catalog = load_asset_catalog()
+
+    assert catalog["tileset_id"] == "default_rpg_32"
+    names = {tile["name"] for tile in catalog["tiles"]}
+    assert {"grass", "water", "dirt_road", "tree", "door"} <= names
+
+
+def test_protocol_schema_files_exist_and_are_json():
+    root = Path(__file__).resolve().parents[1]
+
+    for filename in ["rpg_map_spec.schema.json", "tilemap_data.schema.json", "asset_catalog.schema.json", "editor_state.schema.json"]:
+        data = json.loads((root / "specs" / filename).read_text(encoding="utf-8"))
+        assert data["$schema"].startswith("https://json-schema.org/")
+        assert data["type"] == "object"
+        assert data["properties"]

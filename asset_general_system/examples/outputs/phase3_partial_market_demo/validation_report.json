@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "walkable_ratio": 0.9023,
+    "reachable_key_regions": 5,
+    "total_key_regions": 5,
+    "object_count": 9,
+    "event_count": 13
+  }
+}

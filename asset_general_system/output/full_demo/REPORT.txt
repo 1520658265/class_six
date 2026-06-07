@@ -1,0 +1,56 @@
+============================================================
+RPG 资源生成报告
+============================================================
+
+素材统计：
+  对象：20/20
+  角色：10/10
+  特效：10/10
+
+地图信息：
+  尺寸：64x64
+  区域数：6
+  对象数：15
+  事件数：13
+
+导出引擎：
+  Godot 4.x：godot/demo_map.tscn
+  Unity：unity/map.unity.json
+  Phaser 3：phaser/tilemap.json
+
+对象列表：
+  - tree_oak_5001
+  - tree_pine_5002
+  - tree_palm_5003
+  - tree_willow_5004
+  - tree_dead_5005
+  - rock_small_5006
+  - rock_large_5007
+  - crystal_5008
+  - chest_5009
+  - barrel_5010
+  ... 还有 10 个
+
+角色列表：
+  - villager_male_6001 (8 动画)
+  - villager_female_6002 (8 动画)
+  - merchant_6003 (8 动画)
+  - guard_6004 (8 动画)
+  - knight_6005 (8 动画)
+  - mage_6006 (8 动画)
+  - archer_6007 (8 动画)
+  - goblin_6008 (8 动画)
+  - skeleton_6009 (8 动画)
+  - hero_6010 (8 动画)
+
+VFX 列表：
+  - fireball_7001 (combat)
+  - slash_7002 (combat)
+  - explosion_7003 (combat)
+  - impact_7004 (combat)
+  - heal_7005 (magic)
+  - teleport_7006 (magic)
+  - sparkle_7007 (magic)
+  - rain_7008 (environment)
+  - snow_7009 (environment)
+  - leaves_7010 (environment)

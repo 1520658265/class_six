@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strict Gemini 4x8 Walksheet Candidate</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; background: #202124; color: #f4f6f8; }
+    main { width: min(1280px, calc(100vw - 32px)); margin: 0 auto; padding: 24px 0 32px; }
+    h1 { margin: 0 0 14px; font-size: 22px; }
+    .toolbar, .panel, .card { background: #2a2c31; border: 1px solid #454952; border-radius: 8px; padding: 14px; }
+    .toolbar { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+    label { display: inline-flex; align-items: center; gap: 8px; color: #b9c0ca; font-size: 14px; }
+    input[type="range"] { width: 150px; }
+    button { border: 1px solid #454952; background: #343741; color: #f4f6f8; border-radius: 6px; padding: 8px 12px; cursor: pointer; }
+    .note { color: #ffd166; line-height: 1.55; margin-bottom: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 16px; }
+    .card h2 { margin: 0 0 10px; font-size: 16px; }
+    .stage {
+      display: grid;
+      place-items: center;
+      min-height: 420px;
+      border: 1px solid #3e424b;
+      border-radius: 6px;
+      overflow: hidden;
+      background:
+        linear-gradient(45deg, #3a3d43 25%, transparent 25%),
+        linear-gradient(-45deg, #3a3d43 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #3a3d43 75%),
+        linear-gradient(-45deg, transparent 75%, #3a3d43 75%);
+      background-color: #2b2e34;
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+    }
+    canvas { image-rendering: pixelated; image-rendering: crisp-edges; max-width: 100%; }
+    .meta { margin-top: 10px; color: #b9c0ca; font-size: 13px; display: flex; justify-content: space-between; gap: 12px; }
+    .sheet { margin-top: 16px; }
+    .sheet img { max-width: 100%; width: 900px; display: block; border: 1px solid #454952; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Strict Gemini 4x8 Walksheet Candidate</h1>
+  <div class="toolbar">
+    <button id="toggle">Pause</button>
+    <label>Frame time <input id="speed" type="range" min="60" max="260" step="10" value="105"><span id="speedText">105ms</span></label>
+    <label>Scale <input id="scale" type="range" min="0.5" max="1.5" step="0.25" value="0.75"><span id="scaleText">0.75x</span></label>
+  </div>
+  <div class="panel note">
+    Requested: 2048x1024, 8 columns x 4 rows. Actual: 2048x2048, 8 columns x 4 rows, 256x512 cells. This preview is for motion review only and is not a final import layout.
+  </div>
+  <section class="grid" id="cards"></section>
+  <section class="panel sheet">
+    <h2>Generated Sheet</h2>
+    <img src="raw/walksheet_4x8_strict.png" alt="generated strict 4x8 walksheet candidate">
+  </section>
+</main>
+<script>
+  const image = new Image();
+  image.src = "raw/walksheet_4x8_strict.png";
+  const cols = 8;
+  const rows = 4;
+  const sourceW = 2048;
+  const sourceH = 2048;
+  const cellW = sourceW / cols;
+  const cellH = sourceH / rows;
+  const labels = [
+    "Row 1 Down / Front",
+    "Row 2 Left",
+    "Row 3 Right",
+    "Row 4 Up / Back"
+  ];
+  const cards = document.getElementById("cards");
+  const speed = document.getElementById("speed");
+  const speedText = document.getElementById("speedText");
+  const scale = document.getElementById("scale");
+  const scaleText = document.getElementById("scaleText");
+  const toggle = document.getElementById("toggle");
+  const canvases = [];
+  let frame = 0;
+  let last = 0;
+  let playing = true;
+
+  for (let row = 0; row < rows; row++) {
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = `
+      <h2>${labels[row]}</h2>
+      <div class="stage"><canvas width="${cellW}" height="${cellH}"></canvas></div>
+      <div class="meta"><span>row ${row + 1}</span><span class="frameLabel">frame 1 / 8</span></div>
+    `;
+    cards.appendChild(card);
+    canvases.push({ row, canvas: card.querySelector("canvas"), label: card.querySelector(".frameLabel") });
+  }
+
+  function resizeCanvases() {
+    const s = Number(scale.value);
+    scaleText.textContent = `${s}x`;
+    for (const item of canvases) {
+      item.canvas.style.width = `${cellW * s}px`;
+      item.canvas.style.height = `${cellH * s}px`;
+    }
+  }
+
+  function draw() {
+    for (const item of canvases) {
+      const ctx = item.canvas.getContext("2d");
+      ctx.clearRect(0, 0, cellW, cellH);
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(image, frame * cellW, item.row * cellH, cellW, cellH, 0, 0, cellW, cellH);
+      item.label.textContent = `frame ${frame + 1} / 8`;
+    }
+  }
+
+  function tick(now) {
+    if (playing && now - last >= Number(speed.value)) {
+      frame = (frame + 1) % cols;
+      last = now;
+      draw();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  speed.addEventListener("input", () => speedText.textContent = `${speed.value}ms`);
+  scale.addEventListener("input", resizeCanvases);
+  toggle.addEventListener("click", () => {
+    playing = !playing;
+    toggle.textContent = playing ? "Pause" : "Play";
+  });
+  image.onload = () => {
+    resizeCanvases();
+    draw();
+    requestAnimationFrame(tick);
+  };
+</script>
+</body>
+</html>

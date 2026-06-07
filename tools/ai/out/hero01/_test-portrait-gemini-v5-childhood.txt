@@ -1,0 +1,47 @@
+You are given a reference photo of a real young man (around 20 years old). Your task is to redraw him as he might have looked when he was an 11-12 year old Chinese sixth-grade boy in 2008, in HD-2D pixel art style (think Octopath Traveler, Triangle Strategy, Square Enix HD-2D).
+
+This is the CHILDHOOD VERSION of the person in the reference. He should look like a believable 11-12 year old boy, NOT a young adult. Children's faces are naturally rounder, with bigger eyes relative to the face, softer features, and not yet developed adult bone structure. Embrace this — he should clearly look like a kid.
+
+What to preserve from the reference photo (subtle but recognizable):
+- The general eyebrow shape (calm, slightly straight)
+- The general eye shape and gentle expression
+- The fair skin tone
+- The overall calm, somewhat introverted vibe
+- Subtle hints of his future adult face, but in a child's body and proportions
+
+What to redesign completely:
+
+Body and age:
+- He is 11-12 years old, smaller and shorter
+- Slim, slightly skinny build typical of a rural Chinese kid in 2008
+- Childish proportions: head slightly larger relative to body, no adult musculature
+- Standing height should clearly read as "elementary school kid", not teenager or adult
+
+Hairstyle (the iconic Chinese "shamate" / non-mainstream style of 2007-2010, child version):
+- Long swept side-bangs (斜刘海) covering one eyebrow, possibly partly covering one eye
+- Hair is blow-dried and styled with cheap hair gel into a stiff, smooth shape — NOT messy, NOT natural-falling
+- Hair color is jet black
+- The stiffness and styling looks slightly comical because he's a kid trying to imitate older teenagers
+- This is the "rural elementary kid trying to look cool" 2008 vibe
+
+Outfit (typical 2008 rural Chinese elementary student):
+- Cheap blue-and-white school sportswear jacket (zip-up tracksuit, slightly faded), OR a casual T-shirt with a thin zip hoodie
+- Loose-fitting school sport pants (often slightly too long, hemmed at the ankle)
+- Plain canvas sneakers or cheap sport shoes (slightly dirty)
+- Optional: a worn shoulder schoolbag
+
+Pose and composition:
+- Standing in a relaxed 3/4 front view, full body visible from head to toe
+- Hands relaxed at sides, or one hand stuffed in pocket
+- Slight cocky teenage attitude in his expression — trying to look mature and cool, but still clearly a kid
+- SOLID FLAT MAGENTA BACKGROUND (exact hex #FF00FF, pure magenta, no gradient, no variation, no shadows on the background)
+- Centered character design sheet style
+
+Visual style requirements (mandatory):
+- Detailed pixel art with CRISP pixel edges, NOT blurry, NOT smooth
+- High-resolution HD-2D rendering, NOT retro 8-bit blockiness
+- Limited but rich color palette, cel-shaded with bold dark outlines
+- Painterly pixel highlights and shading on cloth and skin
+- Late-2000s rural China atmosphere (slightly nostalgic, slightly worn-out colors)
+
+Avoid: photorealism, 3D rendering, generic anime style, oil painting, blurry edges, modern fashion (no 2020s aesthetics), fantasy RPG armor, weapons, making him look like an adult or teenager (he must look 11-12).

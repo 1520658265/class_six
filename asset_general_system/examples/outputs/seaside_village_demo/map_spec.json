@@ -1,0 +1,84 @@
+{
+  "version": "0.1.0",
+  "id": "seaside_village_20260610",
+  "title": "海边渔村",
+  "theme": "seaside_village",
+  "map": {
+    "width": 64,
+    "height": 64,
+    "tile_width": 32,
+    "tile_height": 32,
+    "orientation": "orthogonal"
+  },
+  "regions": [
+    {
+      "id": "market_01",
+      "type": "market",
+      "position": "top_right",
+      "size": "medium",
+      "priority": 85
+    },
+    {
+      "id": "dock_01",
+      "type": "dock",
+      "position": "top_right",
+      "size": "medium",
+      "priority": 75
+    },
+    {
+      "id": "lighthouse_01",
+      "type": "lighthouse",
+      "position": "top_right",
+      "size": "small",
+      "priority": 75
+    }
+  ],
+  "paths": [
+    {
+      "from": "spawn_01",
+      "to": "market_01",
+      "kind": "dirt_road"
+    },
+    {
+      "from": "market_01",
+      "to": "dock_01",
+      "kind": "dirt_road"
+    },
+    {
+      "from": "dock_01",
+      "to": "lighthouse_01",
+      "kind": "dirt_road"
+    }
+  ],
+  "objects": [
+    {
+      "type": "market_stall",
+      "count": 6,
+      "placement": "near:market_01"
+    }
+  ],
+  "entities": [
+    {
+      "id": "spawn_01",
+      "type": "player_spawn",
+      "count": 1,
+      "position": "bottom_center",
+      "placement": null
+    },
+    {
+      "id": null,
+      "type": "villager",
+      "count": 6,
+      "position": null,
+      "placement": "near:market_01"
+    }
+  ],
+  "constraints": {
+    "walkable_spawn": true,
+    "connect_key_regions": true,
+    "no_blocked_doors": true,
+    "objects_require_walkable_neighbor": true
+  },
+  "seed": 20260610,
+  "tileset_id": "default_rpg_32"
+}

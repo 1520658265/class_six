@@ -1,0 +1,34 @@
+# 主角立绘 Prompt 模板
+# 使用方式：将 {变量} 替换为实际值，与 base-style.txt 拼接后作为正向 prompt
+
+# === 正向 Prompt ===
+{base-style.txt 内容},
+solo, 1boy/1girl, full body, standing pose, 3/4 front view,
+{角色描述：发色/发型/肤色/体型},
+{服装描述：具体装备组合},
+{武器描述：持剑/持弓/持杖等},
+fantasy rpg adventurer, detailed pixel character portrait,
+plain gradient background, centered composition,
+(character design sheet:1.1),
+<lora:pixel_art_hd:0.9> <lora:char_{角色名}:0.8>
+
+# === Liblib 参数 ===
+# 底模: SDXL 1.0 / Pony V6
+# 尺寸: 832x1216 或 1024x1536
+# 采样器: DPM++ 2M Karras
+# 步数: 30
+# CFG: 6-7
+# Seed: {角色固定 seed}
+# IP-Adapter: 关（主角用 LoRA）
+# ControlNet: 关
+
+# === 使用示例 ===
+# 角色: hero01（男性战士）
+# 正向: masterpiece, best quality, pixel art, HD-2D style, ...,
+#        solo, 1boy, full body, standing pose, 3/4 front view,
+#        short black hair, tan skin, lean build,
+#        light leather armor, brown cloak, belt with pouches,
+#        holding longsword in right hand,
+#        fantasy rpg adventurer, detailed pixel character portrait,
+#        plain gradient background, centered composition,
+#        <lora:pixel_art_hd:0.9> <lora:char_hero01:0.8>

@@ -1,0 +1,26 @@
+{
+  "asset_id": "leaves_7010",
+  "image": "leaves_7010.png",
+  "frame_size": [
+    128,
+    128
+  ],
+  "frames": 8,
+  "fps": 10,
+  "loop": true,
+  "blend": "normal",
+  "anchor": "center",
+  "category": "environment",
+  "tags": [
+    "leaves",
+    "autumn",
+    "ambient"
+  ],
+  "generated": {
+    "timestamp": "2026-06-06T16:31:12.050755",
+    "generator": "MockGenerator-v1",
+    "prompt": "autumn leaves falling and rotating",
+    "seed": 7010,
+    "model": "vfx_generator"
+  }
+}

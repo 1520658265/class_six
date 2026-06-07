@@ -1,0 +1,34 @@
+# ========================================
+# face-icon.txt
+# ========================================
+
+## 正向 Prompt（可直接复制）
+
+masterpiece, best quality, pixel art, HD-2D style, high resolution pixel art,
+octopath traveler style, triangle strategy style,
+(limited color palette:1.2), (crisp pixel edges:1.3), cel shading, bold outline,
+detailed pixel shading, 16-bit detailed style,
+no anti-aliasing, sharp edges, clean pixel boundaries,
+close-up portrait, head and shoulders, centered face,
+short black hair, fair skin, lean build, young adult,
+pixel art portrait icon, rpg character icon, HD-2D style,
+simple background, (square composition:1.2),
+<lora:pixel_art_hd:0.9> <lora:char_hero01:0.8>
+
+## 负向 Prompt
+
+realistic, photorealistic, photo, 3d, octane, unreal engine, cgi,
+blurry, anti-aliasing, smooth shading, soft lighting, depth of field,
+nsfw, lowres, bad anatomy, bad hands, missing fingers, extra fingers,
+watermark, signature, text, logo, jpeg artifacts,
+multiple characters, duplicate, frame inconsistency,
+oil painting, watercolor, sketch, pencil drawing,
+low resolution pixels, retro 8-bit, NES style, gameboy style
+
+## Liblib 参数
+
+# 模式: img2img（图生图）
+# 输入图: 从立绘裁切的上半身区域
+# 重绘幅度: 0.3-0.4（仅微调，保持与立绘一致）
+# 尺寸: 256x256
+# Seed: 42

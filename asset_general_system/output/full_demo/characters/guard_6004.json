@@ -1,0 +1,91 @@
+{
+  "asset_id": "guard_6004",
+  "image": "guard_6004.png",
+  "frame_size": [
+    32,
+    48
+  ],
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": {
+    "idle_down": {
+      "row": 0,
+      "frames": 4,
+      "fps": 4,
+      "loop": true,
+      "direction": "down"
+    },
+    "idle_left": {
+      "row": 1,
+      "frames": 4,
+      "fps": 4,
+      "loop": true,
+      "direction": "left"
+    },
+    "idle_right": {
+      "row": 2,
+      "frames": 4,
+      "fps": 4,
+      "loop": true,
+      "direction": "right"
+    },
+    "idle_up": {
+      "row": 3,
+      "frames": 4,
+      "fps": 4,
+      "loop": true,
+      "direction": "up"
+    },
+    "walk_down": {
+      "row": 4,
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "direction": "down"
+    },
+    "walk_left": {
+      "row": 5,
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "direction": "left"
+    },
+    "walk_right": {
+      "row": 6,
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "direction": "right"
+    },
+    "walk_up": {
+      "row": 7,
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "direction": "up"
+    }
+  },
+  "anchor": "feet_center",
+  "hitbox": [
+    8,
+    32,
+    16,
+    16
+  ],
+  "tags": [
+    "guard",
+    "armored",
+    "warrior"
+  ],
+  "generated": {
+    "timestamp": "2026-06-06T16:31:11.782575",
+    "generator": "MockGenerator-v1",
+    "prompt": "armored guard with helmet and spear",
+    "seed": 6004,
+    "model": "character_generator"
+  }
+}

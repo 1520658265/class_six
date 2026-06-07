@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "layer_count": 7,
+    "tile_layer_count": 5,
+    "object_layer_count": 2,
+    "tileset_count": 1,
+    "object_count": 18,
+    "max_gid": 32
+  }
+}

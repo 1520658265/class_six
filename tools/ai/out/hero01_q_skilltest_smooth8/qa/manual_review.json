@@ -1,0 +1,5 @@
+{
+  "status": "reject_for_final",
+  "reason": "Structural anchors are stable, but the 8-frame Gemini-only sequence is still not visually smooth enough: leg motion is too subtle in early frames and later frames show unnatural or lost lower-body details.",
+  "recommendation": "Use Gemini to create a small set of strong keyframes, then make deterministic in-between frames or manually select/repair frames before final promotion."
+}

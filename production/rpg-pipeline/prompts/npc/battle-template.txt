@@ -1,0 +1,25 @@
+# NPC 战斗图 Prompt 模板(简化版:仅 6 核心动作)
+# NPC 战斗图精简为:待机/攻击/受伤/死亡/技能/胜利
+
+# === 正向 Prompt ===
+{base-style.txt 内容},
+solo, 1boy/1girl, {NPC 外观描述},
+battle stance, {动作描述},
+side view, facing right, rpg battle scene perspective,
+single character sprite, centered in frame, full body,
+(transparent background:1.3),
+<lora:pixel_art_hd:0.9>
+
+# === NPC 战斗动作(精简 6 组 / 25 帧) ===
+# idle: 4 帧
+# attack: 6 帧
+# skill: 6 帧
+# hurt: 3 帧
+# dead: 4 帧
+# victory: 2 帧
+
+# === Liblib 参数 ===
+# IP-Adapter: Plus Face, 权重 0.5
+# ControlNet: OpenPose, 权重 0.8
+# Seed: 固定
+# 尺寸: 768x768

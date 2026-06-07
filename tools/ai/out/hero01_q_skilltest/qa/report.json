@@ -1,0 +1,441 @@
+{
+  "root": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest",
+  "strategy": "local-repair",
+  "created_at": "2026-06-03T13:48:15",
+  "ok": true,
+  "groups": {
+    "walk-down": {
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "stats": [
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-down-1.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 69.02542114257812,
+          "opaque_pct": 30.974578857421875,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            144,
+            38,
+            369,
+            500
+          ],
+          "bbox_width": 225,
+          "bbox_height": 462,
+          "bbox_center_x": 256.5,
+          "bbox_center_y": 269.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-down-2.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 69.60945129394531,
+          "opaque_pct": 30.390548706054688,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            126,
+            38,
+            386,
+            500
+          ],
+          "bbox_width": 260,
+          "bbox_height": 462,
+          "bbox_center_x": 256.0,
+          "bbox_center_y": 269.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-down-3.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 69.02542114257812,
+          "opaque_pct": 30.974578857421875,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            144,
+            38,
+            369,
+            500
+          ],
+          "bbox_width": 225,
+          "bbox_height": 462,
+          "bbox_center_x": 256.5,
+          "bbox_center_y": 269.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-down-4.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 71.26426696777344,
+          "opaque_pct": 28.735733032226562,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            134,
+            38,
+            378,
+            500
+          ],
+          "bbox_width": 244,
+          "bbox_height": 462,
+          "bbox_center_x": 256.0,
+          "bbox_center_y": 269.0,
+          "error": null
+        }
+      ],
+      "strip": "qa/strips/walk-down_strip.png",
+      "gif": "qa/animation_gifs/walk-down.gif"
+    },
+    "walk-up": {
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "stats": [
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-up-1.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 73.11477661132812,
+          "opaque_pct": 26.885223388671875,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            152,
+            36,
+            359,
+            492
+          ],
+          "bbox_width": 207,
+          "bbox_height": 456,
+          "bbox_center_x": 255.5,
+          "bbox_center_y": 264.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-up-2.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 73.90594482421875,
+          "opaque_pct": 26.09405517578125,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            147,
+            36,
+            365,
+            492
+          ],
+          "bbox_width": 218,
+          "bbox_height": 456,
+          "bbox_center_x": 256.0,
+          "bbox_center_y": 264.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-up-3.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 73.11477661132812,
+          "opaque_pct": 26.885223388671875,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            152,
+            36,
+            359,
+            492
+          ],
+          "bbox_width": 207,
+          "bbox_height": 456,
+          "bbox_center_x": 255.5,
+          "bbox_center_y": 264.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-up-4.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 74.4354248046875,
+          "opaque_pct": 25.5645751953125,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            146,
+            36,
+            367,
+            492
+          ],
+          "bbox_width": 221,
+          "bbox_height": 456,
+          "bbox_center_x": 256.5,
+          "bbox_center_y": 264.0,
+          "error": null
+        }
+      ],
+      "strip": "qa/strips/walk-up_strip.png",
+      "gif": "qa/animation_gifs/walk-up.gif"
+    },
+    "walk-right": {
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "stats": [
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-right-1.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 74.64485168457031,
+          "opaque_pct": 25.355148315429688,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            154,
+            40,
+            359,
+            492
+          ],
+          "bbox_width": 205,
+          "bbox_height": 452,
+          "bbox_center_x": 256.5,
+          "bbox_center_y": 266.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-right-2.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 75.07476806640625,
+          "opaque_pct": 24.92523193359375,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            141,
+            40,
+            371,
+            492
+          ],
+          "bbox_width": 230,
+          "bbox_height": 452,
+          "bbox_center_x": 256.0,
+          "bbox_center_y": 266.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-right-3.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 74.64485168457031,
+          "opaque_pct": 25.355148315429688,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            154,
+            40,
+            359,
+            492
+          ],
+          "bbox_width": 205,
+          "bbox_height": 452,
+          "bbox_center_x": 256.5,
+          "bbox_center_y": 266.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-right-4.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 76.43394470214844,
+          "opaque_pct": 23.566055297851562,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            148,
+            40,
+            365,
+            492
+          ],
+          "bbox_width": 217,
+          "bbox_height": 452,
+          "bbox_center_x": 256.5,
+          "bbox_center_y": 266.0,
+          "error": null
+        }
+      ],
+      "strip": "qa/strips/walk-right_strip.png",
+      "gif": "qa/animation_gifs/walk-right.gif"
+    },
+    "walk-left": {
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "stats": [
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-left-1.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 74.64485168457031,
+          "opaque_pct": 25.355148315429688,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            154,
+            40,
+            359,
+            492
+          ],
+          "bbox_width": 205,
+          "bbox_height": 452,
+          "bbox_center_x": 256.5,
+          "bbox_center_y": 266.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-left-2.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 75.07476806640625,
+          "opaque_pct": 24.92523193359375,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            141,
+            40,
+            371,
+            492
+          ],
+          "bbox_width": 230,
+          "bbox_height": 452,
+          "bbox_center_x": 256.0,
+          "bbox_center_y": 266.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-left-3.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 74.64485168457031,
+          "opaque_pct": 25.355148315429688,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            154,
+            40,
+            359,
+            492
+          ],
+          "bbox_width": 205,
+          "bbox_height": 452,
+          "bbox_center_x": 256.5,
+          "bbox_center_y": 266.0,
+          "error": null
+        },
+        {
+          "path": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest\\final\\sprites\\walk-left-4.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 76.43394470214844,
+          "opaque_pct": 23.566055297851562,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            148,
+            40,
+            365,
+            492
+          ],
+          "bbox_width": 217,
+          "bbox_height": 452,
+          "bbox_center_x": 256.5,
+          "bbox_center_y": 266.0,
+          "error": null
+        }
+      ],
+      "strip": "qa/strips/walk-left_strip.png",
+      "gif": "qa/animation_gifs/walk-left.gif"
+    }
+  },
+  "human_review_required": true,
+  "semantic_checks": [
+    "direction must match filename in all four frames",
+    "frame 3 must return cleanly to frame 1",
+    "camera angle must not change between frames",
+    "outfit, hair, scarf, backpack, and palette must not flicker"
+  ],
+  "process_findings": [
+    "The previous 2x2-sheet workflow can pass structural QA while still failing animation semantics.",
+    "Side walking directions should use one generated side and mirror the opposite side to avoid direction drift.",
+    "Frame 3 is intentionally copied from frame 1 for compact 4-frame walk loops.",
+    "A structural pass does not mean final approval; inspect GIF and strip previews before promoting assets."
+  ]
+}

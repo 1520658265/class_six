@@ -1,0 +1,26 @@
+{
+  "asset_id": "slash_7002",
+  "image": "slash_7002.png",
+  "frame_size": [
+    64,
+    64
+  ],
+  "frames": 6,
+  "fps": 15,
+  "loop": false,
+  "blend": "additive",
+  "anchor": "center",
+  "category": "combat",
+  "tags": [
+    "slash",
+    "sword",
+    "melee"
+  ],
+  "generated": {
+    "timestamp": "2026-06-06T16:31:11.976547",
+    "generator": "MockGenerator-v1",
+    "prompt": "white sword slash arc effect",
+    "seed": 7002,
+    "model": "vfx_generator"
+  }
+}

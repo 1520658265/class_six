@@ -1,0 +1,23 @@
+# NPC 行走图 Prompt 模板(简化版:固定模板 + 换脸换色)
+# NPC 行走图共用 2-3 套骨架模板,仅替换外观
+
+# === 正向 Prompt ===
+{base-style.txt 内容},
+solo, 1boy/1girl, {NPC 外观描述},
+chibi proportions, 3-head-tall, top-down 45 degree rpg view,
+walking animation frame, {方向描述}, {步态描述},
+single character sprite, centered in frame, full body,
+(transparent background:1.3),
+<lora:pixel_art_hd:0.9>
+
+# === Liblib 参数 ===
+# IP-Adapter: Plus Face, 权重 0.5(行走图小尺寸,脸部权重降低)
+# ControlNet: OpenPose, 权重 0.9(NPC 用更高权重锁姿态)
+# Seed: 固定(同一 NPC 全 16 帧同 seed)
+# 尺寸: 512x512
+
+# === 模板复用策略 ===
+# 模板 A: 普通行走(适用大部分 NPC)
+# 模板 B: 持物行走(商人、挑担等)
+# 模板 C: 老人/儿童行走(步幅小)
+# 选择模板后仅替换外观描述和 IP-Adapter 参考图

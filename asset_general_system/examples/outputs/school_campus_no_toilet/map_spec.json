@@ -1,0 +1,82 @@
+{
+  "version": "0.1.0",
+  "id": "school_campus_20260608",
+  "title": "学校建筑场景",
+  "theme": "school_campus",
+  "map": {
+    "width": 64,
+    "height": 64,
+    "tile_width": 32,
+    "tile_height": 32,
+    "orientation": "orthogonal"
+  },
+  "regions": [
+    {
+      "id": "school_01",
+      "type": "school",
+      "position": "top",
+      "size": "large",
+      "priority": 95
+    },
+    {
+      "id": "playground_01",
+      "type": "playground",
+      "position": "top",
+      "size": "large",
+      "priority": 90
+    },
+    {
+      "id": "mud_road_01",
+      "type": "mud_road",
+      "position": "bottom",
+      "size": "medium",
+      "priority": 85
+    }
+  ],
+  "paths": [
+    {
+      "from": "spawn_01",
+      "to": "school_01",
+      "kind": "dirt_road"
+    },
+    {
+      "from": "school_01",
+      "to": "playground_01",
+      "kind": "dirt_road"
+    },
+    {
+      "from": "playground_01",
+      "to": "mud_road_01",
+      "kind": "dirt_road"
+    }
+  ],
+  "objects": [
+    {
+      "type": "tree",
+      "count": 80,
+      "placement": "campus_edges"
+    },
+    {
+      "type": "mountain",
+      "count": 55,
+      "placement": "campus_mountains"
+    }
+  ],
+  "entities": [
+    {
+      "id": "spawn_01",
+      "type": "player_spawn",
+      "count": 1,
+      "position": "bottom_center",
+      "placement": null
+    }
+  ],
+  "constraints": {
+    "walkable_spawn": true,
+    "connect_key_regions": true,
+    "no_blocked_doors": true,
+    "objects_require_walkable_neighbor": true
+  },
+  "seed": 20260608,
+  "tileset_id": "default_rpg_32"
+}

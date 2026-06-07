@@ -1,0 +1,49 @@
+Create one complete smooth RPG walking sprite sheet as a single wide image.
+
+Input image roles:
+- Reference image 1 is the target character identity and style. Preserve this Q-version chibi boy: black hair, big eyes, blue-and-white school tracksuit, red scarf, backpack, white-red sneakers, rich colorful cel-shaded pixel-art look.
+- Reference image 2 is the RPG walking sheet template. Follow its direction rows and walk-cycle logic, but create a smoother 8-frame version with the character from Reference image 1.
+
+Required sheet layout:
+- One 8 columns x 4 rows sprite sheet.
+- Exactly 32 cells.
+- Wide 2:1 canvas.
+- Each cell contains exactly one full-body chibi RPG sprite.
+- All cells use the same character size, same feet baseline, same head size, same outfit, same palette, same outline thickness.
+
+Rows:
+- Row 1: facing down/front, 8 smooth walk frames.
+- Row 2: facing left, 8 smooth walk frames.
+- Row 3: facing right, 8 smooth walk frames.
+- Row 4: facing up/back, 8 smooth walk frames.
+
+Columns:
+- Columns 1-8 are the continuous walk phases.
+- Make small continuous pose changes from one column to the next.
+- The loop should return smoothly from column 8 to column 1.
+- Do not use large jumps. Do not repeat the exact same pose too often.
+
+Animation requirements:
+- This is a usable RPG walk cycle, not an action animation.
+- Body, head, backpack, and scarf should stay visually stable.
+- Arms and legs move gradually in a natural walk cycle.
+- Side rows must remain true side profiles in every cell.
+- Down row must remain front-facing in every cell.
+- Up row must remain back-facing in every cell.
+
+Style:
+- Q-version chibi pixel art.
+- Clean dark outline.
+- Rich multi-tone shading like Reference image 1.
+- Plain solid background is acceptable, but sprites must be isolated and easy to cut.
+- No text, no labels, no frame numbers, no watermark, no scene background.
+
+Avoid:
+- Do not crop any character.
+- Do not add extra characters.
+- Do not change hair, outfit, scarf, backpack, or shoes between frames.
+- Do not mix directions within a row.
+- Do not make a portrait sheet.
+- Do not create a 4x4 sheet; it must be 8 columns by 4 rows.
+
+Final output: one clean wide 8x4 RPG walking sprite sheet candidate, full body sprites, consistent character, smooth walk-cycle phases.

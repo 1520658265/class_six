@@ -1,0 +1,7 @@
+# 生成素材不入库（体积大），仅保留目录结构
+*
+!.gitignore
+!.gitkeep
+!characters/
+!characters/**/
+!characters/**/.gitkeep

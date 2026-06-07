@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VFXMetadata",
+  "description": "Metadata for a visual effect sprite sheet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["asset_id", "image", "frame_size", "frames", "fps", "loop", "anchor"],
+  "properties": {
+    "asset_id": {"type": "string"},
+    "image": {"type": "string"},
+    "frame_size": {
+      "type": "array",
+      "items": {"type": "integer"},
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "frames": {"type": "integer", "minimum": 1},
+    "fps": {"type": "integer", "minimum": 1},
+    "loop": {"type": "boolean"},
+    "blend": {
+      "type": "string",
+      "enum": ["normal", "additive", "multiply", "screen"]
+    },
+    "anchor": {
+      "type": "string",
+      "enum": ["center", "top_center", "bottom_center", "feet_center"]
+    },
+    "category": {
+      "type": "string",
+      "enum": ["combat", "magic", "environment", "ambient", "interaction"]
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "scale_range": {
+      "type": "array",
+      "items": {"type": "number"},
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "generated": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "timestamp": {"type": "string"},
+        "generator": {"type": "string"},
+        "prompt": {"type": "string"},
+        "seed": {"type": "integer"},
+        "model": {"type": "string"}
+      }
+    }
+  }
+}

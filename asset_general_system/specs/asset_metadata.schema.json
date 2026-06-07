@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AssetMetadata",
+  "description": "Metadata for a single map object or sprite asset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["asset_id", "kind", "tags", "tile_size"],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "description": "Unique identifier for this asset, e.g., 'tree_oak_01'"
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["tile", "tile_object", "sprite_sheet", "vfx"],
+      "description": "Asset type: tile (single tile), tile_object (multi-tile object), sprite_sheet (character animation), vfx (effect animation)"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Semantic tags for search and matching, e.g., ['tree', 'forest', 'blocking']"
+    },
+    "theme": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Compatible themes, e.g., ['forest', 'village', 'autumn']"
+    },
+    "tile_size": {
+      "type": "array",
+      "items": {"type": "integer"},
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Base tile size in pixels [width, height], e.g., [32, 32]"
+    },
+    "footprint": {
+      "type": "array",
+      "items": {"type": "integer"},
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Occupied tile grid size [columns, rows], e.g., [1, 2] for 1-wide, 2-tall object"
+    },
+    "collision": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {"type": "integer"},
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "description": "Collision cells in footprint coordinates, e.g., [[0, 1]] means bottom tile blocks movement"
+    },
+    "anchor": {
+      "type": "string",
+      "enum": ["top_left", "top_center", "top_right", "center_left", "center", "center_right", "bottom_left", "bottom_center", "bottom_right", "feet_center"],
+      "description": "Visual anchor point for placement"
+    },
+    "visual_bounds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "width", "height"],
+      "properties": {
+        "x": {"type": "integer"},
+        "y": {"type": "integer"},
+        "width": {"type": "integer"},
+        "height": {"type": "integer"}
+      },
+      "description": "Actual pixel bounding box within the sprite, for rendering optimization"
+    },
+    "sprite_path": {
+      "type": "string",
+      "description": "Relative path to sprite PNG file"
+    },
+    "metadata_path": {
+      "type": "string",
+      "description": "Relative path to this metadata JSON file"
+    },
+    "generated": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "timestamp": {"type": "string", "format": "date-time"},
+        "generator": {"type": "string"},
+        "prompt": {"type": "string"},
+        "seed": {"type": "integer"},
+        "model": {"type": "string"}
+      },
+      "description": "Generation metadata if this asset was AI-generated"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["generated", "uploaded", "builtin", "third_party"]
+        },
+        "attribution": {"type": "string"},
+        "license": {"type": "string"},
+        "url": {"type": "string"}
+      },
+      "description": "Source and licensing information"
+    }
+  }
+}

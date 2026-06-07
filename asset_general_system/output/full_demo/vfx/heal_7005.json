@@ -1,0 +1,26 @@
+{
+  "asset_id": "heal_7005",
+  "image": "heal_7005.png",
+  "frame_size": [
+    64,
+    64
+  ],
+  "frames": 8,
+  "fps": 10,
+  "loop": true,
+  "blend": "additive",
+  "anchor": "center",
+  "category": "magic",
+  "tags": [
+    "heal",
+    "magic",
+    "buff"
+  ],
+  "generated": {
+    "timestamp": "2026-06-06T16:31:12.006295",
+    "generator": "MockGenerator-v1",
+    "prompt": "green healing aura with sparkles rising upward",
+    "seed": 7005,
+    "model": "vfx_generator"
+  }
+}

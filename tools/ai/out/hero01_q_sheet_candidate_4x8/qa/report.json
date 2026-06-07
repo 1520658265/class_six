@@ -1,0 +1,32 @@
+{
+  "source": "raw/walksheet_4x8_candidate.png",
+  "requested_layout": {
+    "columns": 8,
+    "rows": 4,
+    "aspect": "2:1"
+  },
+  "actual_image": {
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "observed_layout": "approximately 8 columns x 5 rows"
+  },
+  "structural_ok": false,
+  "human_review": {
+    "status": "reject_for_final_import",
+    "pros": [
+      "identity and outfit are more stable than the earlier single-frame smooth8 test",
+      "side rows show clearer leg-motion phases than the single-frame pipeline",
+      "the full-sheet approach is promising for motion continuity"
+    ],
+    "issues": [
+      "Gemini ignored the requested wide 2:1 canvas and returned a square image",
+      "the sheet contains an extra side-facing row, so it is not a valid 4-direction RPG layout",
+      "the generated rows cannot be sliced as 8x4 without losing or mixing direction data",
+      "background is opaque white and needs cutout before engine use"
+    ],
+    "recommendation": "Retry with a strict 2048x1024 8x4 grid template reference and prompt language that forbids any fifth row. If Gemini still fails strict layout, use 4x4 full-sheet candidates as the reliable base and only use 8-frame generation for side-motion reference."
+  }
+}

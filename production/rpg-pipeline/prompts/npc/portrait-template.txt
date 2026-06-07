@@ -1,0 +1,26 @@
+# NPC 立绘 Prompt 模板(IP-Adapter 模式,无 LoRA)
+# 使用方式:上传 NPC 照片到 IP-Adapter Face,配合本模板生成
+
+# === 正向 Prompt ===
+{base-style.txt 内容},
+solo, 1boy/1girl, full body, standing pose, 3/4 front view,
+{NPC 职业/身份描述},
+{NPC 服装描述},
+fantasy rpg npc, detailed pixel character,
+plain gradient background, centered composition,
+<lora:pixel_art_hd:0.9>
+
+# === Liblib 参数 ===
+# 底模: SDXL 1.0 / Pony V6
+# 尺寸: 832x1216
+# IP-Adapter: Plus Face, 权重 0.6-0.7
+# LoRA: 仅像素风 LoRA,无角色 LoRA
+# Seed: 随机(每个 NPC 不同)
+# 采样器: DPM++ 2M Karras
+# 步数: 30, CFG: 6-7
+
+# === 批量技巧 ===
+# 1. 固定 base prompt,仅替换职业/服装描述
+# 2. IP-Adapter 权重 0.6 = 保留五官但允许风格化
+# 3. 每 5-10 张检查一次风格一致性
+# 4. 发现漂移立即停产,检查 LoRA 权重

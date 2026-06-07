@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>RPG Animation Skill Test</title>
+  <style>
+    body { margin: 0; font-family: Segoe UI, Arial, sans-serif; background: #202124; color: #f5f5f5; }
+    main { max-width: 1240px; margin: 0 auto; padding: 24px; }
+    h1 { font-size: 24px; margin: 0 0 8px; }
+    .summary { color: #c8c8c8; margin-bottom: 22px; }
+    .card { border: 1px solid #444; background: #2a2b2e; border-radius: 8px; padding: 16px; margin-bottom: 18px; }
+    h2 { font-size: 18px; margin: 0 0 12px; }
+    .pass { color: #7bd88f; }
+    .fail { color: #ff7b72; }
+    .strip { width: 100%; max-width: 1024px; image-rendering: pixelated; border: 1px solid #555; display: block; }
+    .frames { display: flex; gap: 16px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+    .frames img { width: 192px; height: 192px; object-fit: contain; image-rendering: pixelated; border: 1px solid #555; }
+    .note { color: #c8c8c8; font-size: 14px; }
+    a { color: #8ab4f8; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>RPG Animation Skill Test - PASS</h1>
+    <div class="summary">
+      Output follows the rpg-asset-gen animation flow: single-frame candidates, mirrored side direction, anchor normalization, GIF/strip QA.
+      Report: <a href="qa/report.json">qa/report.json</a>
+    </div>
+    
+        <section class="card">
+          <h2>walk-down <span class="pass">PASS</span></h2>
+          <img class="strip" src="qa/strips/walk-down_strip.png" alt="walk-down strip">
+          <div class="frames">
+            <img src="qa/animation_gifs/walk-down.gif" alt="walk-down gif">
+            <div class="note">Structural QA: PASS. Human continuity review is still required.</div>
+          </div>
+        </section>
+        <section class="card">
+          <h2>walk-up <span class="pass">PASS</span></h2>
+          <img class="strip" src="qa/strips/walk-up_strip.png" alt="walk-up strip">
+          <div class="frames">
+            <img src="qa/animation_gifs/walk-up.gif" alt="walk-up gif">
+            <div class="note">Structural QA: PASS. Human continuity review is still required.</div>
+          </div>
+        </section>
+        <section class="card">
+          <h2>walk-right <span class="pass">PASS</span></h2>
+          <img class="strip" src="qa/strips/walk-right_strip.png" alt="walk-right strip">
+          <div class="frames">
+            <img src="qa/animation_gifs/walk-right.gif" alt="walk-right gif">
+            <div class="note">Structural QA: PASS. Human continuity review is still required.</div>
+          </div>
+        </section>
+        <section class="card">
+          <h2>walk-left <span class="pass">PASS</span></h2>
+          <img class="strip" src="qa/strips/walk-left_strip.png" alt="walk-left strip">
+          <div class="frames">
+            <img src="qa/animation_gifs/walk-left.gif" alt="walk-left gif">
+            <div class="note">Structural QA: PASS. Human continuity review is still required.</div>
+          </div>
+        </section>
+  </main>
+</body>
+</html>

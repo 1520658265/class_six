@@ -1,0 +1,25 @@
+{
+  "asset_id": "ice_storm_v2",
+  "image": "ice_storm_v2.png",
+  "frame_size": [
+    96,
+    96
+  ],
+  "frames": 8,
+  "fps": 12,
+  "loop": false,
+  "blend": "additive",
+  "anchor": "center",
+  "category": "combat",
+  "tags": [
+    "ice_storm_v2",
+    "vfx"
+  ],
+  "generated": {
+    "timestamp": "2026-06-06T20:15:50.813826",
+    "generator": "gemini/sprite-sheet-v2",
+    "prompt": "漫天的冰锥从右上方向左下方砸击，蓝白色冰晶碎片飞溅",
+    "seed": 0,
+    "model": "gemini-3.1-flash-image-preview"
+  }
+}

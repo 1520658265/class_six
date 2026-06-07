@@ -1,0 +1,22 @@
+You are given a reference image of a Q-version (chibi) character — an 11-12 year old Chinese boy in 2008 with shamate side-bangs hairstyle and blue school tracksuit.
+
+Your task: redraw the SAME character's HEAD/FACE close-up with a specific expression.
+
+Framing:
+- Close-up portrait, head and upper shoulders visible (no full body)
+- Centered in frame
+
+Keep IDENTICAL to the reference:
+- Q-version chibi art style (big anime eyes, soft cheeks, cel-shaded pixel art)
+- Hairstyle (shamate side-bangs)
+- Skin tone
+- Tracksuit collar visible at bottom
+- All facial structural features
+
+CHANGE the expression to:
+- dizzy tired expression, eyes squeezed shut, eyebrows pulled together, small uneasy grimace, no wounds, no blood
+
+Background:
+- Solid flat magenta (#FF00FF), no gradient
+
+Final output: 1024x1024, single character face close-up, magenta background.

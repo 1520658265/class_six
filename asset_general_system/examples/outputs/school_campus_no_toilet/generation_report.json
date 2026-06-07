@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "prompt": "生成一个学校建筑，位于中间朝上，上左右是山和树木，下面是操场，操场下面是一条从左贯穿到右的泥巴路。",
+  "seed": 20260608,
+  "theme": "school_campus",
+  "map_size": [
+    64,
+    64
+  ],
+  "tile_size": [
+    32,
+    32
+  ],
+  "tileset_id": "default_rpg_32",
+  "elapsed_ms": 99,
+  "output_files": [
+    "map_spec.json",
+    "map_data.json",
+    "map.tiled.json",
+    "preview.png",
+    "validation_report.json",
+    "generation_report.json",
+    "tilesets/default_rpg_32.png",
+    "preview_debug.png"
+  ],
+  "validation_passed": true,
+  "retries": []
+}

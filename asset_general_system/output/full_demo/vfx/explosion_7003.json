@@ -1,0 +1,26 @@
+{
+  "asset_id": "explosion_7003",
+  "image": "explosion_7003.png",
+  "frame_size": [
+    96,
+    96
+  ],
+  "frames": 10,
+  "fps": 15,
+  "loop": false,
+  "blend": "additive",
+  "anchor": "center",
+  "category": "combat",
+  "tags": [
+    "explosion",
+    "boom",
+    "fire"
+  ],
+  "generated": {
+    "timestamp": "2026-06-06T16:31:11.988565",
+    "generator": "MockGenerator-v1",
+    "prompt": "big orange explosion with smoke and debris",
+    "seed": 7003,
+    "model": "vfx_generator"
+  }
+}

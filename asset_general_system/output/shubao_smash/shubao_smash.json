@@ -1,0 +1,25 @@
+{
+  "asset_id": "shubao_smash",
+  "image": "shubao_smash.png",
+  "frame_size": [
+    682,
+    682
+  ],
+  "frames": 9,
+  "fps": 12,
+  "loop": false,
+  "blend": "additive",
+  "anchor": "center",
+  "category": "combat",
+  "tags": [
+    "shubao_smash",
+    "vfx"
+  ],
+  "generated": {
+    "timestamp": "2026-06-07T12:56:42.756041",
+    "generator": "gemini/sprite-sheet-v2",
+    "prompt": "蓝色书包从上方砸下来，撞击地面时砸开拉链，弹出课本、作业本、铅笔盒、橡皮、尺子等文具碎片，配合白色冲击波震荡扩散，纸片像纸屑一样飘散",
+    "seed": 22222,
+    "model": "gemini-3.1-flash-image-preview"
+  }
+}

@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yuan Sheng Walksheet Preview</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #1f2023;
+      --panel: #2a2c31;
+      --line: #454952;
+      --text: #f4f6f8;
+      --muted: #aeb6c2;
+      --accent: #74b9ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    main {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 24px 0 32px;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 14px;
+      margin-bottom: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    input[type="range"] { width: 160px; }
+    button {
+      border: 1px solid var(--line);
+      background: #343741;
+      color: var(--text);
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .stage {
+      display: grid;
+      place-items: center;
+      min-height: 410px;
+      border: 1px solid #3e424b;
+      border-radius: 6px;
+      overflow: hidden;
+      background:
+        linear-gradient(45deg, #3a3d43 25%, transparent 25%),
+        linear-gradient(-45deg, #3a3d43 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #3a3d43 75%),
+        linear-gradient(-45deg, transparent 75%, #3a3d43 75%);
+      background-color: #2b2e34;
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+    }
+    canvas {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      max-width: 100%;
+      max-height: 70vh;
+    }
+    .meta {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .sheet {
+      margin-top: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .sheet img {
+      width: min(100%, 640px);
+      height: auto;
+      display: block;
+      image-rendering: pixelated;
+      border: 1px solid #3e424b;
+      background: #111;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Yuan Sheng Walksheet Preview</h1>
+    <div class="toolbar">
+      <button id="toggle">Pause</button>
+      <label>Frame time <input id="speed" type="range" min="80" max="320" step="10" value="160"><span id="speedText">160ms</span></label>
+      <label>Scale <input id="scale" type="range" min="0.75" max="3" step="0.25" value="1.5"><span id="scaleText">1.5x</span></label>
+    </div>
+
+    <section class="grid" id="cards"></section>
+
+    <section class="sheet">
+      <h2>Source Sheet</h2>
+      <img src="char_yuansheng_walksheet.png" alt="source 4x4 walksheet">
+    </section>
+  </main>
+
+  <script>
+    const image = new Image();
+    image.src = "char_yuansheng_walksheet.png";
+
+    const frameSize = 256;
+    const dirs = [
+      { key: "down", label: "Down", row: 0 },
+      { key: "left", label: "Left", row: 1 },
+      { key: "right", label: "Right", row: 2 },
+      { key: "up", label: "Up", row: 3 },
+    ];
+
+    const cards = document.getElementById("cards");
+    const speed = document.getElementById("speed");
+    const speedText = document.getElementById("speedText");
+    const scale = document.getElementById("scale");
+    const scaleText = document.getElementById("scaleText");
+    const toggle = document.getElementById("toggle");
+
+    let frame = 0;
+    let playing = true;
+    let last = 0;
+    const canvases = new Map();
+
+    for (const dir of dirs) {
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `
+        <h2>${dir.label}</h2>
+        <div class="stage"><canvas width="${frameSize}" height="${frameSize}"></canvas></div>
+        <div class="meta"><span>${dir.key}</span><span class="frameLabel">frame 1 / 4</span></div>
+      `;
+      cards.appendChild(card);
+      canvases.set(dir.key, {
+        dir,
+        canvas: card.querySelector("canvas"),
+        label: card.querySelector(".frameLabel"),
+      });
+    }
+
+    function resizeCanvases() {
+      const s = Number(scale.value);
+      scaleText.textContent = `${s}x`;
+      for (const item of canvases.values()) {
+        item.canvas.style.width = `${frameSize * s}px`;
+        item.canvas.style.height = `${frameSize * s}px`;
+      }
+    }
+
+    function draw() {
+      for (const item of canvases.values()) {
+        const ctx = item.canvas.getContext("2d");
+        ctx.clearRect(0, 0, frameSize, frameSize);
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(
+          image,
+          frame * frameSize,
+          item.dir.row * frameSize,
+          frameSize,
+          frameSize,
+          0,
+          0,
+          frameSize,
+          frameSize
+        );
+        item.label.textContent = `frame ${frame + 1} / 4`;
+      }
+    }
+
+    function tick(now) {
+      if (playing && now - last >= Number(speed.value)) {
+        frame = (frame + 1) % 4;
+        last = now;
+        draw();
+      }
+      requestAnimationFrame(tick);
+    }
+
+    speed.addEventListener("input", () => {
+      speedText.textContent = `${speed.value}ms`;
+    });
+    scale.addEventListener("input", resizeCanvases);
+    toggle.addEventListener("click", () => {
+      playing = !playing;
+      toggle.textContent = playing ? "Pause" : "Play";
+    });
+
+    image.onload = () => {
+      resizeCanvases();
+      draw();
+      requestAnimationFrame(tick);
+    };
+  </script>
+</body>
+</html>

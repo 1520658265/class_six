@@ -1,0 +1,20 @@
+# 头像 Prompt 模板
+# 使用方式：从立绘裁切上半身后，用 img2img 精修为正方形头像
+
+# === img2img 正向 Prompt ===
+{base-style.txt 内容},
+close-up portrait, head and shoulders, centered face,
+{角色描述：发色/发型/肤色/五官},
+pixel art portrait icon, rpg character icon, HD-2D style,
+simple background, (square composition:1.2),
+<lora:pixel_art_hd:0.9> <lora:char_{角色名}:0.8>
+
+# === Liblib 参数 ===
+# 模式: img2img（图生图）
+# 输入图: 从立绘裁切的上半身区域
+# 重绘幅度: 0.3-0.4（仅微调，保持与立绘一致）
+# 尺寸: 256x256
+# Seed: {角色固定 seed}
+
+# === 命名规范 ===
+# {角色}_face.png

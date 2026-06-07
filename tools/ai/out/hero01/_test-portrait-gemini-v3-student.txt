@@ -1,0 +1,31 @@
+You are given a reference photo of a real young man. Use ONLY his face shape, eye shape, and overall facial features as a reference for likeness. IGNORE his hairstyle and clothes — those will be completely redesigned.
+
+Redraw him as a different version of himself: an 11-to-12-year-old Chinese sixth-grade boy in 2008, in HD-2D pixel art style (think Octopath Traveler, Triangle Strategy, Square Enix HD-2D).
+
+Critical changes from the reference:
+- Make him YOUNGER: he is now an 11-12 year old boy in elementary school, NOT a young adult. Smaller, slightly slimmer body, but still keep his face's overall shape recognizable.
+- Hairstyle is the iconic Chinese "shamate" / non-mainstream youth style of 2007-2010:
+  - Long swept side-bangs (斜刘海) covering one eyebrow, possibly partly covering one eye
+  - Hair is blow-dried/styled with hair gel into a stiff, smooth, sharp shape — NOT messy, NOT natural-falling
+  - Hair color is jet black, but styled into hard, almost waxy peaks and edges
+  - The overall look is the "trying-too-hard cool kid" of 2008 rural Chinese elementary school
+- Clothing: typical 2008 rural Chinese elementary student outfit
+  - Cheap blue-and-white school sportswear jacket (zip-up tracksuit, slightly faded), or alternatively a casual T-shirt + zip hoodie
+  - Loose-fitting school sport pants
+  - Plain canvas sneakers or cheap sport shoes
+- Pose: standing in a relaxed 3/4 front view, full body visible from head to toe
+- Holding nothing, hands relaxed at sides (or one hand in pocket)
+- Plain soft gradient background, no scenery
+- Centered character design sheet style
+- Slight cocky/cool teenage attitude in his expression, faintly trying to look mature
+
+Visual style requirements (mandatory):
+- Detailed pixel art with CRISP pixel edges, NOT blurry, NOT smooth
+- High-resolution HD-2D rendering, NOT retro 8-bit blockiness
+- Limited but rich color palette, cel-shaded with bold dark outlines
+- Painterly pixel highlights and shading on cloth and skin
+- Late-2000s rural China atmosphere (slightly nostalgic, slightly worn-out colors)
+
+Avoid: photorealism, 3D rendering, generic anime style, oil painting, blurry edges, modern fashion (no 2020s aesthetics), school uniform that looks too neat or expensive, fantasy RPG armor, weapons.
+
+The face should still resemble the person in the reference, just rendered as a younger pixel-art boy with the iconic 2008 shamate hairstyle.

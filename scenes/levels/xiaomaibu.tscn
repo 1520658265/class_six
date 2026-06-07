@@ -13,6 +13,8 @@ size = Vector2(32, 768)
 
 [sub_resource type="RectangleShape2D" id="DoorShape_0"]
 size = Vector2(96, 24)
+[sub_resource type="RectangleShape2D" id="DoorShape_1"]
+size = Vector2(24, 96)
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
@@ -20,7 +22,7 @@ script = ExtResource("level_script")
 scene_id = "xiaomaibu"
 level_size = Vector2i(1376, 768)
 first_visit_event = "prologue/04_xiaomaibu_first_pass"
-ch1_events = PackedStringArray()
+ch1_events = PackedStringArray("ch1/13_xiaomaibu_first_buy")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("bg_tex")
@@ -57,6 +59,10 @@ metadata/facing = "up"
 position = Vector2(700, 600)
 metadata/facing = "up"
 
+[node name="from_dorm" type="Node2D" parent="SpawnPoints"]
+position = Vector2(120, 400)
+metadata/facing = "right"
+
 
 [node name="Door_corridor_stairs" type="Area2D" parent="."]
 position = Vector2(700, 750)
@@ -69,7 +75,23 @@ target_spawn_point = "from_xiaomaibu"
 [node name="Shape" type="CollisionShape2D" parent="Door_corridor_stairs"]
 shape = SubResource("DoorShape_0")
 
+[node name="Door_dorm" type="Area2D" parent="."]
+position = Vector2(40, 400)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("door_script")
+target_scene_id = "dorm"
+target_spawn_point = "from_xiaomaibu"
+
+[node name="Shape" type="CollisionShape2D" parent="Door_dorm"]
+shape = SubResource("DoorShape_1")
+
 [node name="Baosimu" parent="." instance=ExtResource("npc_scene")]
 position = Vector2(700, 360)
 character_id = "baosimu"
 dialogue_line_id = "ch1/13_xiaomaibu_first_buy/01"
+
+[node name="Wangyan_Shop" parent="." instance=ExtResource("npc_scene")]
+position = Vector2(560, 480)
+character_id = "wangyan"
+dialogue_line_id = ""

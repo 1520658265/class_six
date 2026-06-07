@@ -1,0 +1,269 @@
+[gd_resource type="TileSet" load_steps=59 format=3 uid="uid://b8dingbumaintset"]
+
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/ground_32/ground_r0_c0.png" id="g00"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/ground_32/ground_r0_c1.png" id="g01"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/ground_32/ground_r0_c2.png" id="g02"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/ground_32/ground_r0_c3.png" id="g03"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/ground_32/ground_r1_c0.png" id="g10"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/ground_32/ground_r1_c1.png" id="g11"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/ground_32/ground_r1_c2.png" id="g12"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/ground_32/ground_r1_c3.png" id="g13"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r0_c0.png" id="n00"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r0_c1.png" id="n01"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r0_c2.png" id="n02"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r0_c3.png" id="n03"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r1_c0.png" id="n10"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r1_c1.png" id="n11"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r1_c2.png" id="n12"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r1_c3.png" id="n13"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r2_c0.png" id="n20"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r2_c1.png" id="n21"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r2_c2.png" id="n22"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r2_c3.png" id="n23"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r3_c0.png" id="n30"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r3_c1.png" id="n31"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r3_c2.png" id="n32"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/nature_32/nature_r3_c3.png" id="n33"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/buildings_scaled/teaching.png" id="b_tch"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/buildings_scaled/dormitory.png" id="b_dor"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/buildings_scaled/shop.png" id="b_shp"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/buildings_scaled/canteen.png" id="b_cnt"]
+[ext_resource type="Texture2D" path="res://assets/tilesets/dingbu/buildings_scaled/toilet.png" id="b_tlt"]
+
+[sub_resource type="TileSetAtlasSource" id="TS_g00"]
+texture = ExtResource("g00")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_g01"]
+texture = ExtResource("g01")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_g02"]
+texture = ExtResource("g02")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_g03"]
+texture = ExtResource("g03")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_g10"]
+texture = ExtResource("g10")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_g11"]
+texture = ExtResource("g11")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_g12"]
+texture = ExtResource("g12")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_g13"]
+texture = ExtResource("g13")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n00"]
+texture = ExtResource("n00")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n01"]
+texture = ExtResource("n01")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n02"]
+texture = ExtResource("n02")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n03"]
+texture = ExtResource("n03")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n10"]
+texture = ExtResource("n10")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n11"]
+texture = ExtResource("n11")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n12"]
+texture = ExtResource("n12")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n13"]
+texture = ExtResource("n13")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n20"]
+texture = ExtResource("n20")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n21"]
+texture = ExtResource("n21")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n22"]
+texture = ExtResource("n22")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n23"]
+texture = ExtResource("n23")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n30"]
+texture = ExtResource("n30")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n31"]
+texture = ExtResource("n31")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n32"]
+texture = ExtResource("n32")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_n33"]
+texture = ExtResource("n33")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_b_tch"]
+texture = ExtResource("b_tch")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_b_dor"]
+texture = ExtResource("b_dor")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_b_shp"]
+texture = ExtResource("b_shp")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_b_cnt"]
+texture = ExtResource("b_cnt")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TS_b_tlt"]
+texture = ExtResource("b_tlt")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+custom_data_layer_0/name = "trigger_id"
+custom_data_layer_0/type = 4
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TS_g00")
+sources/1 = SubResource("TS_g01")
+sources/2 = SubResource("TS_g02")
+sources/3 = SubResource("TS_g03")
+sources/4 = SubResource("TS_g10")
+sources/5 = SubResource("TS_g11")
+sources/6 = SubResource("TS_g12")
+sources/7 = SubResource("TS_g13")
+sources/8 = SubResource("TS_n00")
+sources/9 = SubResource("TS_n01")
+sources/10 = SubResource("TS_n02")
+sources/11 = SubResource("TS_n03")
+sources/12 = SubResource("TS_n10")
+sources/13 = SubResource("TS_n11")
+sources/14 = SubResource("TS_n12")
+sources/15 = SubResource("TS_n13")
+sources/16 = SubResource("TS_n20")
+sources/17 = SubResource("TS_n21")
+sources/18 = SubResource("TS_n22")
+sources/19 = SubResource("TS_n23")
+sources/20 = SubResource("TS_n30")
+sources/21 = SubResource("TS_n31")
+sources/22 = SubResource("TS_n32")
+sources/23 = SubResource("TS_n33")
+sources/24 = SubResource("TS_b_tch")
+sources/25 = SubResource("TS_b_dor")
+sources/26 = SubResource("TS_b_shp")
+sources/27 = SubResource("TS_b_cnt")
+sources/28 = SubResource("TS_b_tlt")

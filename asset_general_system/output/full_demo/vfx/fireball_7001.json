@@ -1,0 +1,26 @@
+{
+  "asset_id": "fireball_7001",
+  "image": "fireball_7001.png",
+  "frame_size": [
+    64,
+    64
+  ],
+  "frames": 8,
+  "fps": 12,
+  "loop": false,
+  "blend": "additive",
+  "anchor": "center",
+  "category": "combat",
+  "tags": [
+    "fireball",
+    "fire",
+    "projectile"
+  ],
+  "generated": {
+    "timestamp": "2026-06-06T16:31:11.969676",
+    "generator": "MockGenerator-v1",
+    "prompt": "bright orange fireball with flames and smoke",
+    "seed": 7001,
+    "model": "vfx_generator"
+  }
+}

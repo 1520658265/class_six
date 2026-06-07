@@ -1,0 +1,89 @@
+{
+  "version": "0.1.0",
+  "id": "autumn_forest_village_20260605",
+  "title": "秋季森林村庄",
+  "theme": "autumn_forest_village",
+  "map": {
+    "width": 64,
+    "height": 64,
+    "tile_width": 32,
+    "tile_height": 32,
+    "orientation": "orthogonal"
+  },
+  "regions": [
+    {
+      "id": "river_01",
+      "type": "river",
+      "position": "top_right",
+      "size": "medium",
+      "priority": 90
+    },
+    {
+      "id": "market_01",
+      "type": "market",
+      "position": "top_right",
+      "size": "medium",
+      "priority": 85
+    },
+    {
+      "id": "temple_01",
+      "type": "temple",
+      "position": "top_right",
+      "size": "small",
+      "priority": 80
+    }
+  ],
+  "paths": [
+    {
+      "from": "spawn_01",
+      "to": "market_01",
+      "kind": "dirt_road"
+    },
+    {
+      "from": "market_01",
+      "to": "temple_01",
+      "kind": "dirt_road"
+    }
+  ],
+  "objects": [
+    {
+      "type": "tree",
+      "count": 90,
+      "placement": "forest_edges"
+    },
+    {
+      "type": "rock",
+      "count": 18,
+      "placement": "scattered"
+    },
+    {
+      "type": "market_stall",
+      "count": 6,
+      "placement": "near:market_01"
+    }
+  ],
+  "entities": [
+    {
+      "id": "spawn_01",
+      "type": "player_spawn",
+      "count": 1,
+      "position": "bottom_center",
+      "placement": null
+    },
+    {
+      "id": null,
+      "type": "villager",
+      "count": 6,
+      "position": null,
+      "placement": "near:market_01"
+    }
+  ],
+  "constraints": {
+    "walkable_spawn": true,
+    "connect_key_regions": true,
+    "no_blocked_doors": true,
+    "objects_require_walkable_neighbor": true
+  },
+  "seed": 20260605,
+  "tileset_id": "default_rpg_32"
+}

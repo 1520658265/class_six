@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero01 Sprite Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #2a2a2a;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        .section {
+            background: #3a3a3a;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid #555;
+            padding-bottom: 10px;
+        }
+        .animation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .anim-box {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .anim-box h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #9acd32;
+        }
+        .sprite-display {
+            width: 256px;
+            height: 256px;
+            margin: 0 auto 15px;
+            background: repeating-conic-gradient(#444 0% 25%, #555 0% 50%) 50% / 20px 20px;
+            border: 2px solid #555;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .sprite-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        button {
+            background: #4a9eff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #3a8eef;
+        }
+        button.playing {
+            background: #ff4a4a;
+        }
+        .speed-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .speed-control input {
+            width: 100px;
+        }
+        .frame-info {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 8px;
+        }
+        .faces-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .face-box {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .face-box img {
+            width: 128px;
+            height: 128px;
+            object-fit: contain;
+            image-rendering: pixelated;
+            background: repeating-conic-gradient(#444 0% 25%, #555 0% 50%) 50% / 20px 20px;
+            border: 2px solid #555;
+            border-radius: 4px;
+        }
+        .face-box p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #9acd32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Hero01 角色素材预览</h1>
+
+        <!-- 表情 -->
+        <div class="section">
+            <h2>😊 表情包 (7 种)</h2>
+            <div class="faces-section">
+                <div class="face-box">
+                    <img src="face-neutral.png" alt="中性">
+                    <p>中性 (neutral)</p>
+                </div>
+                <div class="face-box">
+                    <img src="face-happy.png" alt="开心">
+                    <p>开心 (happy)</p>
+                </div>
+                <div class="face-box">
+                    <img src="face-angry.png" alt="愤怒">
+                    <p>愤怒 (angry)</p>
+                </div>
+                <div class="face-box">
+                    <img src="face-sad.png" alt="悲伤">
+                    <p>悲伤 (sad)</p>
+                </div>
+                <div class="face-box">
+                    <img src="face-surprised.png" alt="惊讶">
+                    <p>惊讶 (surprised)</p>
+                </div>
+                <div class="face-box">
+                    <img src="face-shy.png" alt="害羞">
+                    <p>害羞 (shy)</p>
+                </div>
+                <div class="face-box">
+                    <img src="face-hurt.png" alt="受伤">
+                    <p>受伤 (hurt)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 行走动画 -->
+        <div class="section">
+            <h2>🚶 行走动画 (4 方向 × 4 帧)</h2>
+            <div class="animation-grid">
+                <div class="anim-box">
+                    <h3>↓ 向下 (DOWN)</h3>
+                    <div class="sprite-display" id="walk-down-display"></div>
+                    <div class="controls">
+                        <button onclick="toggleAnim('walk-down')">播放/暂停</button>
+                    </div>
+                    <div class="speed-control">
+                        <label>速度 (ms):</label>
+                        <input type="range" min="50" max="500" value="200" oninput="setSpeed('walk-down', this.value)">
+                        <span id="walk-down-speed">200</span>
+                    </div>
+                    <div class="frame-info" id="walk-down-info">帧: 1/4</div>
+                </div>
+                <div class="anim-box">
+                    <h3>↑ 向上 (UP)</h3>
+                    <div class="sprite-display" id="walk-up-display"></div>
+                    <div class="controls">
+                        <button onclick="toggleAnim('walk-up')">播放/暂停</button>
+                    </div>
+                    <div class="speed-control">
+                        <label>速度 (ms):</label>
+                        <input type="range" min="50" max="500" value="200" oninput="setSpeed('walk-up', this.value)">
+                        <span id="walk-up-speed">200</span>
+                    </div>
+                    <div class="frame-info" id="walk-up-info">帧: 1/4</div>
+                </div>
+                <div class="anim-box">
+                    <h3>← 向左 (LEFT)</h3>
+                    <div class="sprite-display" id="walk-left-display"></div>
+                    <div class="controls">
+                        <button onclick="toggleAnim('walk-left')">播放/暂停</button>
+                    </div>
+                    <div class="speed-control">
+                        <label>速度 (ms):</label>
+                        <input type="range" min="50" max="500" value="200" oninput="setSpeed('walk-left', this.value)">
+                        <span id="walk-left-speed">200</span>
+                    </div>
+                    <div class="frame-info" id="walk-left-info">帧: 1/4</div>
+                </div>
+                <div class="anim-box">
+                    <h3>→ 向右 (RIGHT)</h3>
+                    <div class="sprite-display" id="walk-right-display"></div>
+                    <div class="controls">
+                        <button onclick="toggleAnim('walk-right')">播放/暂停</button>
+                    </div>
+                    <div class="speed-control">
+                        <label>速度 (ms):</label>
+                        <input type="range" min="50" max="500" value="200" oninput="setSpeed('walk-right', this.value)">
+                        <span id="walk-right-speed">200</span>
+                    </div>
+                    <div class="frame-info" id="walk-right-info">帧: 1/4</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 战斗动画 -->
+        <div class="section">
+            <h2>⚔️ 战斗动画 (3 动作 × 4 帧)</h2>
+            <div class="animation-grid">
+                <div class="anim-box">
+                    <h3>🧘 待机 (IDLE)</h3>
+                    <div class="sprite-display" id="battle-idle-display"></div>
+                    <div class="controls">
+                        <button onclick="toggleAnim('battle-idle')">播放/暂停</button>
+                    </div>
+                    <div class="speed-control">
+                        <label>速度 (ms):</label>
+                        <input type="range" min="50" max="500" value="150" oninput="setSpeed('battle-idle', this.value)">
+                        <span id="battle-idle-speed">150</span>
+                    </div>
+                    <div class="frame-info" id="battle-idle-info">帧: 1/4</div>
+                </div>
+                <div class="anim-box">
+                    <h3>👊 攻击 (ATTACK)</h3>
+                    <div class="sprite-display" id="battle-attack-display"></div>
+                    <div class="controls">
+                        <button onclick="toggleAnim('battle-attack')">播放/暂停</button>
+                    </div>
+                    <div class="speed-control">
+                        <label>速度 (ms):</label>
+                        <input type="range" min="50" max="500" value="100" oninput="setSpeed('battle-attack', this.value)">
+                        <span id="battle-attack-speed">100</span>
+                    </div>
+                    <div class="frame-info" id="battle-attack-info">帧: 1/4</div>
+                </div>
+                <div class="anim-box">
+                    <h3>💥 受伤 (HURT)</h3>
+                    <div class="sprite-display" id="battle-hurt-display"></div>
+                    <div class="controls">
+                        <button onclick="toggleAnim('battle-hurt')">播放/暂停</button>
+                    </div>
+                    <div class="speed-control">
+                        <label>速度 (ms):</label>
+                        <input type="range" min="50" max="500" value="120" oninput="setSpeed('battle-hurt', this.value)">
+                        <span id="battle-hurt-speed">120</span>
+                    </div>
+                    <div class="frame-info" id="battle-hurt-info">帧: 1/4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const animations = {
+            'walk-down': { frames: [1,2,3,4], current: 0, interval: null, speed: 200, playing: false },
+            'walk-up': { frames: [1,2,3,4], current: 0, interval: null, speed: 200, playing: false },
+            'walk-left': { frames: [1,2,3,4], current: 0, interval: null, speed: 200, playing: false },
+            'walk-right': { frames: [1,2,3,4], current: 0, interval: null, speed: 200, playing: false },
+            'battle-idle': { frames: [1,2,3,4], current: 0, interval: null, speed: 150, playing: false },
+            'battle-attack': { frames: [1,2,3,4], current: 0, interval: null, speed: 100, playing: false },
+            'battle-hurt': { frames: [1,2,3,4], current: 0, interval: null, speed: 120, playing: false },
+        };
+
+        function updateFrame(animKey) {
+            const anim = animations[animKey];
+            const frameNum = anim.frames[anim.current];
+            const imgPath = `sprites/${animKey}-${frameNum}.png`;
+
+            const display = document.getElementById(`${animKey}-display`);
+            display.innerHTML = `<img src="${imgPath}" alt="${animKey} frame ${frameNum}">`;
+
+            const info = document.getElementById(`${animKey}-info`);
+            info.textContent = `帧: ${anim.current + 1}/${anim.frames.length}`;
+        }
+
+        function toggleAnim(animKey) {
+            const anim = animations[animKey];
+
+            if (anim.playing) {
+                clearInterval(anim.interval);
+                anim.playing = false;
+            } else {
+                anim.interval = setInterval(() => {
+                    anim.current = (anim.current + 1) % anim.frames.length;
+                    updateFrame(animKey);
+                }, anim.speed);
+                anim.playing = true;
+            }
+        }
+
+        function setSpeed(animKey, value) {
+            const anim = animations[animKey];
+            anim.speed = parseInt(value);
+            document.getElementById(`${animKey}-speed`).textContent = value;
+
+            if (anim.playing) {
+                clearInterval(anim.interval);
+                anim.interval = setInterval(() => {
+                    anim.current = (anim.current + 1) % anim.frames.length;
+                    updateFrame(animKey);
+                }, anim.speed);
+            }
+        }
+
+        // 初始化所有动画显示第一帧
+        Object.keys(animations).forEach(key => {
+            updateFrame(key);
+        });
+    </script>
+</body>
+</html>

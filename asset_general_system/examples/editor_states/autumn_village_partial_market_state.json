@@ -1,0 +1,37 @@
+{
+  "version": "0.1.0",
+  "source_file": "examples/outputs/autumn_village/map_data.json",
+  "map": {
+    "width": 64,
+    "height": 64,
+    "tile_width": 32,
+    "tile_height": 32
+  },
+  "layer_visibility": {
+    "terrain": true,
+    "path": true,
+    "building": true,
+    "decoration": true,
+    "collision": false
+  },
+  "selection": {
+    "x": 22,
+    "y": 22,
+    "width": 10,
+    "height": 10
+  },
+  "locked_regions": [
+    {
+      "id": "locked_keep_001",
+      "x": 24,
+      "y": 24,
+      "width": 2,
+      "height": 2,
+      "layers": null,
+      "reason": "phase3_acceptance_locked_patch"
+    }
+  ],
+  "metadata": {
+    "purpose": "phase3_partial_regeneration_demo"
+  }
+}

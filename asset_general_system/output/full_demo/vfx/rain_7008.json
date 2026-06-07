@@ -1,0 +1,26 @@
+{
+  "asset_id": "rain_7008",
+  "image": "rain_7008.png",
+  "frame_size": [
+    128,
+    128
+  ],
+  "frames": 4,
+  "fps": 12,
+  "loop": true,
+  "blend": "normal",
+  "anchor": "center",
+  "category": "environment",
+  "tags": [
+    "rain",
+    "weather",
+    "environment"
+  ],
+  "generated": {
+    "timestamp": "2026-06-06T16:31:12.029939",
+    "generator": "MockGenerator-v1",
+    "prompt": "white rain drops falling diagonally",
+    "seed": 7008,
+    "model": "vfx_generator"
+  }
+}

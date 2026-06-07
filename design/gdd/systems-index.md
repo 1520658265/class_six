@@ -1,8 +1,8 @@
 # Systems Index
 
-> **Project**: 《元生的六年级》— 2D 横版格斗 RPG
+> **Project**: 《元生的六年级》— 2D 俯视 4 方向 RPG
 > **Scope**: Demo 切片（序章 + 第一章）
-> **Last Updated**: 2026-05-31（stat-system GDD Round-2 revised after design-review，等待 lean re-review）
+> **Last Updated**: 2026-06-01（视角范式从横版改为俯视 4 方向，stat-system 已 Approved，等待 lean re-review）
 
 本文档列出 demo 范围内所有系统、依赖关系、优先级、设计顺序与当前状态。
 
@@ -24,7 +24,7 @@
 | # | 系统 | 描述 | 依赖 | 优先级 | 状态 |
 |---|---|---|---|---|---|
 | 4 | **Scene Routing** | 场景间切换、保持持久化 NPC / 状态、过场过渡 | Asset Loading | MVP | Not Started |
-| 7 | **Character Controller（横版）** | 横版移动、跳跃、面向、动画状态机 | Asset Loading, Input Mapping | MVP | Not Started |
+| 7 | **Character Controller（俯视 4 方向）** | 4 方向移动、面向、动画状态机；攻击/受伤/闪避能力扩展 | Asset Loading, Input Mapping | MVP | In Progress |
 | 18 | **Camera** | 跟随主角、关卡边界、cutscene 锁定 | Character Controller | MVP | Not Started |
 | 5 | **Dialogue** | JSON 驱动对白、立绘切换、选项分支 | Asset Loading, Stat System | MVP | Not Started |
 | 6 | **Cutscene Runner** | 事件流程图驱动的脚本化序列（NPC 移动、对白、属性变更）| Dialogue, Scene Routing, Stat System | MVP | Not Started |
@@ -69,7 +69,7 @@
 |---|---|---|
 | **Stat System** | 9 | 数据契约一旦改动牵一发动全身 — **最高优先级冻结接口** |
 | **Asset Loading** | 4 | ID 命名约定必须 v1 就锁，否则资产名拆迁麻烦 |
-| **Character Controller** | 5 | 横版改造的核心，影响 Camera / NPC / Combat / Interaction |
+| **Character Controller** | 5 | 已有俯视 4 方向 base_character_controller.gd，需扩展攻击/受伤/闪避，影响 Camera / NPC / Combat / Interaction |
 | **Combat Core** | 4 | 战斗 4 子系统的根，必须先于 Courage / Skill / Emotion |
 
 **无循环依赖** ✅
@@ -87,7 +87,7 @@
 | 3 | **Save / Load** | `save_manager.gd` | `/design-system retrofit` |
 | 4 | **Input Mapping** | 无 spec | `/design-system` 新写 |
 | 5 | **Scene Routing** | `scene_router.gd` / `scene_door.gd` | `/design-system retrofit` |
-| 6 | **Character Controller（横版）** | `base_character_controller.gd`（俯视，需重写）| `/design-system` 新写 — **关键改造** |
+| 6 | **Character Controller（俯视 4 方向）** | `base_character_controller.gd`（已实装俯视 4 方向）| `/design-system retrofit` — 在已有控制器上扩展攻击/受伤/闪避，**关键：不重写**，新增能力叠加 |
 | 7 | **Camera** | 无 spec | `/design-system` 新写 |
 | 8 | **Dialogue** | `dialogue.gd` / `data/dialogue/_format.md` | `/design-system retrofit` |
 | 9 | **Cutscene Runner** | `cutscene_runner.gd` | `/design-system retrofit` |
@@ -97,11 +97,11 @@
 | 13 | **Item System** | `items-spec.md` | `/design-system retrofit` |
 | 14 | **Era Marker** | `era_marker_toast.gd` | `/design-system retrofit` |
 | 15 | **Wallet & Credit** | 无 spec | `/design-system` 新写 |
-| 16 | **Combat Core** | `游戏设计适配-横版格斗RPG-spec.md` | `/design-system retrofit` |
-| 17 | **Courage Resource** | 同上 | `/design-system retrofit` |
-| 18 | **Skill Tree** | 同上 | `/design-system retrofit` |
-| 19 | **Emotion State** | 同上 | `/design-system retrofit` |
-| 20 | **Combat VFX** | `战斗特效动效实现-spec.md` | `/design-system retrofit` |
+| 16 | **Combat Core** | `docs/archive/横版格斗-archive/游戏设计适配-横版格斗RPG-spec.md` | `/design-system` 新写俯视战斗 GDD（情绪/胆量解锁机制可从 archive 复用） |
+| 17 | **Courage Resource** | 同上 archive | `/design-system` 新写俯视版 |
+| 18 | **Skill Tree** | 同上 archive | `/design-system` 新写俯视版（4 方向出招判定盒） |
+| 19 | **Emotion State** | 同上 archive | `/design-system retrofit` — archive spec 中的情绪机制与视角无关，可直接 retrofit |
+| 20 | **Combat VFX** | `docs/archive/横版格斗-archive/战斗特效动效实现-spec.md` | `/design-system` 新写俯视版（特效类型不变，触发与朝向逻辑改俯视） |
 | 21 | **Stat Panel UI** | `stat_panel.gd` | `/design-system retrofit` |
 | 22 | **Chapter Title / Toast** | `chapter_title.gd` / `era_marker_toast.gd` | `/design-system retrofit` |
 | 23 | **Main Menu** | `main_menu.gd` | `/design-system retrofit` |
@@ -114,11 +114,13 @@
 
 | 状态 | 系统数 |
 |---|---|
-| Not Started | 21 |
-| In Progress | 0 |
+| Not Started | 20 |
+| In Progress | 1 |
 | In Review | 0 |
 | Designed | 0 |
 | Approved | 1 |
+
+> Character Controller 起点：`base_character_controller.gd` 已实装俯视 4 方向 walk/idle，retrofit 阶段在其基础上加战斗能力。
 
 **下一步**：（推荐顺序）
 1. ~~`/design-review design/gdd/stat-system.md --depth lean` — lean re-review~~ ✅ APPROVED (2026-05-31)
@@ -130,7 +132,7 @@
 
 ## 五、高风险项
 
-1. **Character Controller 横版改造**：现有 `base_character_controller.gd` 是俯视 4 方向，需重写为横版（左右 + 跳跃 + 蹲）。影响 Camera / NPC / Combat / Interaction 5 个下游系统。建议先 ADR 锁定横版控制器协议，再并行改造。
+1. **Character Controller 能力扩展（俯视）**：现有 `base_character_controller.gd`（俯视 4 方向 walk/idle）已成型，需在其上扩展攻击/受伤/闪避状态。**不重写**，叠加新能力。视角范式 2026-06-01 决策定为俯视，横版方向已归档于 [docs/archive/横版格斗-archive/](../../docs/archive/横版格斗-archive/README.md)。建议先 ADR 锁定俯视战斗的状态机协议（idle/walk/attack/hurt/dodge 5 态切换），再并行加能力。
 2. **Stat System 接口冻结**：被 9 个系统依赖。GDD 完成后立刻 `/architecture-decision` 锁定数据契约（属性名、信号名、变更接口），避免后续牵一发动全身。
 3. **Combat 4 子系统耦合**：Core / Courage / Skill / Emotion 必须按顺序设计，不能并行。Skill Tree 全招点亮意味着 Emotion State 也必须 MVP（"爆发"与"那你来啊"依赖情绪状态）。
 4. **Event Flow 与 Cutscene Runner 边界**：Event Flow 是"叫什么顺序这个个 cutscene"的中层，Cutscene Runner 是"脚本化指令"运行。两者接口必须在 GDD 阶段明确，避免实现时反复重构。

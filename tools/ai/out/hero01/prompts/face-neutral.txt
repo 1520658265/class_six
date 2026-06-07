@@ -1,0 +1,38 @@
+You are given a reference photo of a real young man (around 20 years old). Your task is to redraw him as he might have looked when he was an 11-12 year old Chinese sixth-grade boy in 2008, in HD-2D pixel art style (think Octopath Traveler, Triangle Strategy, Square Enix HD-2D).
+
+This is a FACE ICON / PORTRAIT HEADSHOT version — close-up of the face and upper shoulders only, NOT full body.
+
+This is the CHILDHOOD VERSION of the person in the reference. He should look like a believable 11-12 year old boy, NOT a young adult. Children's faces are naturally rounder, with bigger eyes relative to the face, softer features, and not yet developed adult bone structure.
+
+What to preserve from the reference photo (subtle but recognizable):
+- The general eyebrow shape (calm, slightly straight)
+- The general eye shape and gentle expression
+- The fair skin tone
+- The overall calm, somewhat introverted vibe
+
+Hairstyle (the iconic Chinese "shamate" / non-mainstream style of 2007-2010, child version):
+- Long swept side-bangs (斜刘海) covering one eyebrow, possibly partly covering one eye
+- Hair is blow-dried and styled with cheap hair gel into a stiff, smooth shape
+- Hair color is jet black
+- The stiffness and styling looks slightly comical because he's a kid trying to imitate older teenagers
+
+Outfit (visible in headshot):
+- Cheap blue-and-white school sportswear jacket collar, OR a casual T-shirt + zip hoodie collar
+- Only the upper shoulders and collar are visible
+
+Expression: NEUTRAL / CALM (default resting face, slight hint of trying to look cool)
+
+Framing:
+- Close-up headshot, face fills most of the frame
+- Upper shoulders and collar visible at bottom edge
+- Face centered
+- SOLID FLAT MAGENTA BACKGROUND (exact hex #FF00FF, pure magenta, no gradient, no variation, no shadows on the background)
+
+Visual style requirements (mandatory):
+- Detailed pixel art with CRISP pixel edges, NOT blurry, NOT smooth
+- High-resolution HD-2D rendering, NOT retro 8-bit blockiness
+- Limited but rich color palette, cel-shaded with bold dark outlines
+- Painterly pixel highlights and shading on skin and hair
+- Late-2000s rural China atmosphere
+
+Avoid: photorealism, 3D rendering, generic anime style, oil painting, blurry edges, modern fashion, fantasy RPG elements, making him look like an adult.

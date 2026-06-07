@@ -1,0 +1,82 @@
+{
+  "version": "0.1.0",
+  "id": "dungeon_20260606",
+  "title": "小型地下城",
+  "theme": "dungeon",
+  "map": {
+    "width": 64,
+    "height": 64,
+    "tile_width": 32,
+    "tile_height": 32,
+    "orientation": "orthogonal"
+  },
+  "regions": [
+    {
+      "id": "entrance_01",
+      "type": "entrance",
+      "position": "top_right",
+      "size": "small",
+      "priority": 90
+    },
+    {
+      "id": "boss_room_01",
+      "type": "boss_room",
+      "position": "top_right",
+      "size": "medium",
+      "priority": 90
+    },
+    {
+      "id": "hall_01",
+      "type": "hall",
+      "position": "top_right",
+      "size": "medium",
+      "priority": 80
+    }
+  ],
+  "paths": [
+    {
+      "from": "spawn_01",
+      "to": "entrance_01",
+      "kind": "dirt_road"
+    },
+    {
+      "from": "entrance_01",
+      "to": "boss_room_01",
+      "kind": "dirt_road"
+    },
+    {
+      "from": "boss_room_01",
+      "to": "hall_01",
+      "kind": "dirt_road"
+    }
+  ],
+  "objects": [
+    {
+      "type": "rock",
+      "count": 30,
+      "placement": "scattered"
+    },
+    {
+      "type": "chest",
+      "count": 1,
+      "placement": "near:boss_room_01"
+    }
+  ],
+  "entities": [
+    {
+      "id": "spawn_01",
+      "type": "player_spawn",
+      "count": 1,
+      "position": "bottom_center",
+      "placement": null
+    }
+  ],
+  "constraints": {
+    "walkable_spawn": true,
+    "connect_key_regions": true,
+    "no_blocked_doors": true,
+    "objects_require_walkable_neighbor": true
+  },
+  "seed": 20260606,
+  "tileset_id": "default_rpg_32"
+}

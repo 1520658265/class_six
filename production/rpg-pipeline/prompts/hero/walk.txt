@@ -1,0 +1,45 @@
+# 主角行走图 Prompt 模板（单帧生成，共 16 帧）
+# 使用方式：每帧单独生成，变量替换后与 base-style.txt 拼接
+# 生成顺序：先出 4 方向中立帧（frame 1），再出迈步帧
+
+# === 正向 Prompt（单帧） ===
+{base-style.txt 内容},
+solo, 1boy/1girl, {角色描述},
+{服装描述 / "base layer, minimal clothing" 用于基础层},
+chibi proportions, 3-head-tall, top-down 45 degree rpg view,
+walking animation frame, {方向描述}, {步态描述},
+single character sprite, centered in frame, full body,
+(transparent background:1.3), (single frame:1.2),
+<lora:pixel_art_hd:0.9> <lora:char_{角色名}:0.8>
+
+# === 方向描述变量 ===
+# down:  facing viewer, front view
+# left:  facing left, side view
+# right: facing right, side view
+# up:    facing away from viewer, back view
+
+# === 步态描述变量 ===
+# frame1: standing neutral, feet together (中立帧)
+# frame2: left foot forward, mid-stride (左脚迈步)
+# frame3: standing neutral, feet together (中立帧，同 frame1)
+# frame4: right foot forward, mid-stride (右脚迈步)
+
+# === Liblib 参数 ===
+# 底模: SDXL 1.0 / Pony V6
+# 尺寸: 512x512（生成后裁切缩放至 128x128）
+# 采样器: DPM++ 2M Karras
+# 步数: 30
+# CFG: 6-7
+# Seed: {角色固定 seed}（全 16 帧同一 seed）
+# ControlNet: OpenPose, 权重 0.8-1.0
+#   - 模板图: controlnet/walk-{方向}-{帧号}.png
+# IP-Adapter: 关（主角用 LoRA）
+
+# === 图层说明 ===
+# 基础层: 服装描述改为 "base layer, minimal clothing, underwear"
+# 装备层: 服装描述改为具体装备，背景必须透明
+#          prompt 追加: (only equipment visible:1.3), (no body:1.2)
+
+# === 命名规范 ===
+# {角色}_walk_{方向}_{帧号}_base.png
+# {角色}_walk_{方向}_{帧号}_{装备名}.png

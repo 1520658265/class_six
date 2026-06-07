@@ -1,0 +1,33 @@
+You are given a reference image of a Q-version (chibi) pixel-art RPG character — an 11-12 year old Chinese boy with vibrant multi-tone shading, red scarf, school tracksuit, and backpack.
+
+Your task: produce a SINGLE 1024x1024 image containing a 2x2 GRID of 4 battle-animation frames of EXACTLY THE SAME character.
+
+Grid layout (read left-to-right, top-to-bottom):
+- Top-left  (frame 1): wind-up: stepping back with right foot, arms drawn back, preparing to punch
+- Top-right (frame 2): swing forward: right arm thrown forward in punching motion, body twisted
+- Bot-left  (frame 3): follow-through: arm fully extended forward, body weight on front foot
+- Bot-right (frame 4): recovery: arm pulled back, returning to ready stance
+
+ART STYLE — keep IDENTICAL to reference:
+- Vibrant anime pixel art with bold dark outlines
+- RICH MULTI-TONE SHADING: 衣服/头发/鞋子都有 3+ 层高光/中间调/阴影，不要单色平涂
+- High-contrast highlights on hair tips, fabric folds
+- Saturated lively palette (vivid blue tracksuit, bright red scarf, white-red sneakers)
+- Cel-shaded pixel art, glossy hand-painted feeling
+
+CRITICAL — across all 4 frames keep IDENTICAL:
+- Character size and proportions (每帧角色同样大小，2 头身 Q 版比例不变)
+- Vertical position (feet at the same y-line across all 4 frames; do not let character float or shift height)
+- Camera angle and distance (side view, character facing right, identical zoom/perspective)
+- Face, hairstyle (shamate side-bangs), outfit (tracksuit + red scarf + backpack), art style
+- All clothing details: red scarf, yellow inner collar, backpack straps, shoe laces
+
+The ONLY thing that changes between frames is the action pose.
+
+Layout rules:
+- Each frame is exactly 512x512 pixels, arranged in a 2x2 grid
+- Thin black 2-pixel borders separating frames are OK (will be cropped)
+- Solid flat magenta background (#FF00FF) inside every frame, no glow or atmospheric effects
+- Single character per frame, centered horizontally, full body visible
+
+Final output: ONE image, 1024x1024, four battle frames in 2x2 grid, pure magenta backgrounds.

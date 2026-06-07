@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Hero01 Q版素材预览</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #2a2a2a; color: #fff; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        h1 { text-align: center; margin-bottom: 30px; font-size: 28px; }
+        .section { background: #3a3a3a; border-radius: 12px; padding: 25px; margin-bottom: 30px; }
+        .section h2 { margin-bottom: 20px; font-size: 22px; border-bottom: 2px solid #555; padding-bottom: 10px; }
+        .portrait-box { text-align: center; }
+        .portrait-box img { max-width: 400px; image-rendering: pixelated; background: repeating-conic-gradient(#444 0% 25%, #555 0% 50%) 50% / 20px 20px; border: 2px solid #555; border-radius: 4px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .anim-box, .face-box { background: #2a2a2a; border-radius: 8px; padding: 18px; text-align: center; }
+        .anim-box h3 { margin-bottom: 12px; font-size: 16px; color: #9acd32; }
+        .face-box p { margin-top: 8px; font-size: 13px; color: #9acd32; }
+        .sprite-display { width: 256px; height: 256px; margin: 0 auto 12px; background: repeating-conic-gradient(#444 0% 25%, #555 0% 50%) 50% / 20px 20px; border: 2px solid #555; border-radius: 4px; overflow: hidden; }
+        .sprite-display img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
+        .face-box img { width: 128px; height: 128px; object-fit: contain; image-rendering: pixelated; background: repeating-conic-gradient(#444 0% 25%, #555 0% 50%) 50% / 20px 20px; border: 2px solid #555; border-radius: 4px; }
+        .controls { display: flex; gap: 8px; justify-content: center; align-items: center; margin-top: 8px; flex-wrap: wrap; }
+        button { background: #4a9eff; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+        button:hover { background: #3a8eef; }
+        .speed-control { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+        .speed-control input { width: 80px; }
+        .frame-info { font-size: 11px; color: #aaa; margin-top: 6px; }
+        .faces-section { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+        .global-controls { text-align: center; margin-bottom: 20px; }
+        .global-controls button { padding: 10px 20px; font-size: 14px; margin: 0 5px; background: #4caf50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Hero01 Q版角色素材预览</h1>
+
+        <div class="section">
+            <h2>🖼️ 立绘</h2>
+            <div class="portrait-box">
+                <img src="portrait-q.png" alt="Q版立绘">
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>😊 表情包 (7 种)</h2>
+            <div class="faces-section">
+                <div class="face-box"><img src="face-q-neutral.png"><p>中性</p></div>
+                <div class="face-box"><img src="face-q-happy.png"><p>开心</p></div>
+                <div class="face-box"><img src="face-q-angry.png"><p>愤怒</p></div>
+                <div class="face-box"><img src="face-q-sad.png"><p>悲伤</p></div>
+                <div class="face-box"><img src="face-q-surprised.png"><p>惊讶</p></div>
+                <div class="face-box"><img src="face-q-shy.png"><p>害羞</p></div>
+                <div class="face-box"><img src="face-q-hurt.png"><p>受伤</p></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚶 行走动画 (4方向 × 4帧)</h2>
+            <div class="global-controls">
+                <button onclick="playAll('walk')">▶️ 全部播放</button>
+                <button onclick="pauseAll('walk')">⏸️ 全部暂停</button>
+            </div>
+            <div class="grid">
+                <div class="anim-box">
+                    <h3>↓ 向下 (DOWN)</h3>
+                    <div class="sprite-display" id="walk-down-display"></div>
+                    <div class="controls"><button onclick="toggleAnim('walk-down')">播放/暂停</button></div>
+                    <div class="speed-control">速度: <input type="range" min="50" max="500" value="200" oninput="setSpeed('walk-down', this.value)"><span id="walk-down-speed">200</span>ms</div>
+                    <div class="frame-info" id="walk-down-info">帧: 1/4</div>
+                </div>
+                <div class="anim-box">
+                    <h3>↑ 向上 (UP)</h3>
+                    <div class="sprite-display" id="walk-up-display"></div>
+                    <div class="controls"><button onclick="toggleAnim('walk-up')">播放/暂停</button></div>
+                    <div class="speed-control">速度: <input type="range" min="50" max="500" value="200" oninput="setSpeed('walk-up', this.value)"><span id="walk-up-speed">200</span>ms</div>
+                    <div class="frame-info" id="walk-up-info">帧: 1/4</div>
+                </div>
+                <div class="anim-box">
+                    <h3>← 向左 (LEFT)</h3>
+                    <div class="sprite-display" id="walk-left-display"></div>
+                    <div class="controls"><button onclick="toggleAnim('walk-left')">播放/暂停</button></div>
+                    <div class="speed-control">速度: <input type="range" min="50" max="500" value="200" oninput="setSpeed('walk-left', this.value)"><span id="walk-left-speed">200</span>ms</div>
+                    <div class="frame-info" id="walk-left-info">帧: 1/4</div>
+                </div>
+                <div class="anim-box">
+                    <h3>→ 向右 (RIGHT)</h3>
+                    <div class="sprite-display" id="walk-right-display"></div>
+                    <div class="controls"><button onclick="toggleAnim('walk-right')">播放/暂停</button></div>
+                    <div class="speed-control">速度: <input type="range" min="50" max="500" value="200" oninput="setSpeed('walk-right', this.value)"><span id="walk-right-speed">200</span>ms</div>
+                    <div class="frame-info" id="walk-right-info">帧: 1/4</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚔️ 战斗动画 (3动作 × 4帧)</h2>
+            <div class="global-controls">
+                <button onclick="playAll('battle')">▶️ 全部播放</button>
+                <button onclick="pauseAll('battle')">⏸️ 全部暂停</button>
+            </div>
+            <div class="grid">
+                <div class="anim-box">
+                    <h3>🧘 待机 (IDLE)</h3>
+                    <div class="sprite-display" id="battle-idle-display"></div>
+                    <div class="controls"><button onclick="toggleAnim('battle-idle')">播放/暂停</button></div>
+                    <div class="speed-control">速度: <input type="range" min="50" max="500" value="200" oninput="setSpeed('battle-idle', this.value)"><span id="battle-idle-speed">200</span>ms</div>
+                    <div class="frame-info" id="battle-idle-info">帧: 1/4</div>
+                </div>
+                <div class="anim-box">
+                    <h3>👊 攻击 (ATTACK)</h3>
+                    <div class="sprite-display" id="battle-attack-display"></div>
+                    <div class="controls"><button onclick="toggleAnim('battle-attack')">播放/暂停</button></div>
+                    <div class="speed-control">速度: <input type="range" min="50" max="500" value="120" oninput="setSpeed('battle-attack', this.value)"><span id="battle-attack-speed">120</span>ms</div>
+                    <div class="frame-info" id="battle-attack-info">帧: 1/4</div>
+                </div>
+                <div class="anim-box">
+                    <h3>💥 受伤 (HURT)</h3>
+                    <div class="sprite-display" id="battle-hurt-display"></div>
+                    <div class="controls"><button onclick="toggleAnim('battle-hurt')">播放/暂停</button></div>
+                    <div class="speed-control">速度: <input type="range" min="50" max="500" value="150" oninput="setSpeed('battle-hurt', this.value)"><span id="battle-hurt-speed">150</span>ms</div>
+                    <div class="frame-info" id="battle-hurt-info">帧: 1/4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const animations = {
+            'walk-down': { current: 0, interval: null, speed: 200, playing: false },
+            'walk-up': { current: 0, interval: null, speed: 200, playing: false },
+            'walk-left': { current: 0, interval: null, speed: 200, playing: false },
+            'walk-right': { current: 0, interval: null, speed: 200, playing: false },
+            'battle-idle': { current: 0, interval: null, speed: 200, playing: false },
+            'battle-attack': { current: 0, interval: null, speed: 120, playing: false },
+            'battle-hurt': { current: 0, interval: null, speed: 150, playing: false },
+        };
+
+        function updateFrame(animKey) {
+            const anim = animations[animKey];
+            const frameNum = anim.current + 1;
+            const display = document.getElementById(`${animKey}-display`);
+            display.innerHTML = `<img src="sprites/${animKey}-${frameNum}.png" alt="">`;
+            document.getElementById(`${animKey}-info`).textContent = `帧: ${frameNum}/4`;
+        }
+
+        function startAnim(animKey) {
+            const anim = animations[animKey];
+            if (anim.playing) return;
+            anim.interval = setInterval(() => {
+                anim.current = (anim.current + 1) % 4;
+                updateFrame(animKey);
+            }, anim.speed);
+            anim.playing = true;
+        }
+
+        function stopAnim(animKey) {
+            const anim = animations[animKey];
+            if (anim.interval) { clearInterval(anim.interval); anim.interval = null; }
+            anim.playing = false;
+        }
+
+        function toggleAnim(animKey) {
+            if (animations[animKey].playing) stopAnim(animKey);
+            else startAnim(animKey);
+        }
+
+        function setSpeed(animKey, value) {
+            const anim = animations[animKey];
+            anim.speed = parseInt(value);
+            document.getElementById(`${animKey}-speed`).textContent = value;
+            if (anim.playing) { stopAnim(animKey); startAnim(animKey); }
+        }
+
+        function playAll(prefix) {
+            Object.keys(animations).filter(k => k.startsWith(prefix)).forEach(startAnim);
+        }
+        function pauseAll(prefix) {
+            Object.keys(animations).filter(k => k.startsWith(prefix)).forEach(stopAnim);
+        }
+
+        Object.keys(animations).forEach(updateFrame);
+    </script>
+</body>
+</html>

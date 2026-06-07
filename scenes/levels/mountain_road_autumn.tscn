@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/level/level_base.gd" id="level_script"]
 [ext_resource type="Texture2D" path="res://assets/art/scenes/p0/scene_p0_mountain_road_autumn_source.png" id="bg_tex"]
 [ext_resource type="Script" path="res://scripts/level/scene_door.gd" id="door_script"]
+[ext_resource type="PackedScene" path="res://scenes/characters/npc.tscn" id="npc_scene"]
 
 [sub_resource type="RectangleShape2D" id="WallH"]
 size = Vector2(512, 32)
@@ -84,3 +85,8 @@ target_spawn_point = "from_mountain"
 
 [node name="Shape" type="CollisionShape2D" parent="Door_home"]
 shape = SubResource("DoorShape_1")
+
+[node name="Fuqin" parent="." instance=ExtResource("npc_scene")]
+position = Vector2(220, 200)
+character_id = "fuqin"
+dialogue_line_id = ""

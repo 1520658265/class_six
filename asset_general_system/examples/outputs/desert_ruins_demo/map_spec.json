@@ -1,0 +1,77 @@
+{
+  "version": "0.1.0",
+  "id": "desert_ruins_20260609",
+  "title": "沙漠遗迹",
+  "theme": "desert_ruins",
+  "map": {
+    "width": 64,
+    "height": 64,
+    "tile_width": 32,
+    "tile_height": 32,
+    "orientation": "orthogonal"
+  },
+  "regions": [
+    {
+      "id": "entrance_01",
+      "type": "entrance",
+      "position": "top_right",
+      "size": "small",
+      "priority": 90
+    },
+    {
+      "id": "altar_01",
+      "type": "altar",
+      "position": "top_right",
+      "size": "small",
+      "priority": 80
+    },
+    {
+      "id": "ruins_01",
+      "type": "ruins",
+      "position": "top_right",
+      "size": "medium",
+      "priority": 80
+    }
+  ],
+  "paths": [
+    {
+      "from": "spawn_01",
+      "to": "entrance_01",
+      "kind": "dirt_road"
+    },
+    {
+      "from": "entrance_01",
+      "to": "altar_01",
+      "kind": "dirt_road"
+    },
+    {
+      "from": "altar_01",
+      "to": "ruins_01",
+      "kind": "dirt_road"
+    }
+  ],
+  "objects": [
+    {
+      "type": "rock",
+      "count": 25,
+      "placement": "scattered"
+    }
+  ],
+  "entities": [
+    {
+      "id": "spawn_01",
+      "type": "player_spawn",
+      "count": 1,
+      "position": "bottom_center",
+      "placement": null
+    }
+  ],
+  "constraints": {
+    "walkable_spawn": true,
+    "connect_key_regions": true,
+    "no_blocked_doors": true,
+    "objects_require_walkable_neighbor": true
+  },
+  "seed": 20260609,
+  "tileset_id": "default_rpg_32"
+}
