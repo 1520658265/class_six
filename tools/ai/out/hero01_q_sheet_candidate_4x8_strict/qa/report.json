@@ -1,0 +1,43 @@
+{
+  "source": "raw/walksheet_4x8_strict.png",
+  "prompt": "prompts/walksheet_4x8_strict.txt",
+  "reference_images": [
+    "tools/ai/out/hero01_q/portrait-q.png",
+    "raw/layout_template_8x4_2048x1024.png"
+  ],
+  "requested_layout": {
+    "columns": 8,
+    "rows": 4,
+    "size": [
+      2048,
+      1024
+    ],
+    "aspect": "2:1"
+  },
+  "actual_image": {
+    "size": [
+      2048,
+      2048
+    ],
+    "mode": "RGB",
+    "observed_layout": "8 columns x 4 rows, but cells are 256x512 because the model returned a square canvas"
+  },
+  "structural_ok": false,
+  "motion_review": {
+    "status": "reject_for_final",
+    "pros": [
+      "no fifth row this time",
+      "front and back rows have some foot-motion variation",
+      "identity and outfit are visually close to the target character"
+    ],
+    "issues": [
+      "Gemini ignored the requested 2048x1024 output and returned 2048x2048",
+      "side rows flip facing direction between columns, so they are not continuous left/right walk cycles",
+      "several frames change backpack visibility and head orientation too much for smooth animation",
+      "opaque white background still needs cutout",
+      "not suitable for final RPG import without heavy manual reconstruction"
+    ],
+    "smooth8_conclusion": "8 frames can be smoother only when each row preserves direction and phase order. This candidate proves that Gemini can add more leg poses, but it does not reliably maintain side-facing continuity in 8-frame rows."
+  },
+  "recommendation": "Do not default the skill to 4x8 final output. Default to multiple 4x4 full-sheet candidates for layout reliability. Use 4x8 Gemini output as motion reference only, or generate a single side row and mirror/rebuild it deterministically if smooth visible walking is required."
+}

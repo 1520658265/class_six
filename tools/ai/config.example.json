@@ -14,6 +14,15 @@
       "api_host": "bobdong.cn",
       "api_key": "put-your-openai-compatible-image-key-here",
       "model": "gpt-image-2"
+    },
+    "liblib": {
+      "api_host": "openapi.liblibai.cloud",
+      "access_key": "put-your-liblib-access-key-here",
+      "secret_key": "put-your-liblib-secret-key-here",
+      "checkpoint_id": "put-base-model-versionUuid-here",
+      "loras": [],
+      "template_uuid_text2img": "e10adc3949ba59abbe56e057f20f883e",
+      "template_uuid_img2img": "9c7d531dc75f476aa833b3d452b8f7ad"
     }
   }
 }

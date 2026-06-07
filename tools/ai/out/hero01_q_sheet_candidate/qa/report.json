@@ -1,0 +1,26 @@
+{
+  "source": "raw/walksheet_4x4_candidate.jpg",
+  "sheet_size": [
+    1024,
+    1024
+  ],
+  "cell_size": [
+    256,
+    256
+  ],
+  "structural_ok": true,
+  "human_review": {
+    "status": "candidate_not_final",
+    "pros": [
+      "much better identity consistency than single-frame generation",
+      "usable front and back rows",
+      "side rows have stable style and walk poses"
+    ],
+    "issues": [
+      "row 2 and row 3 both read as similar side direction; true left/right separation is weak",
+      "white background, not transparent; needs cutout if used in engine",
+      "grid is implicit rather than exact transparent cells"
+    ],
+    "recommendation": "Generate 2-4 full-sheet candidates, then choose the best sheet or mirror the better side row to fix left/right."
+  }
+}

@@ -1,0 +1,42 @@
+Create one complete RPG walking sprite sheet as a single square image.
+
+Input image roles:
+- Reference image 1 is the target character style and identity. Preserve this Q-version chibi boy: black hair, big eyes, blue-and-white school tracksuit, red scarf, backpack, white-red sneakers, rich colorful cel-shaded pixel-art look.
+- Reference image 2 is the layout and animation template. Follow its 4x4 RPG walking sheet structure and walking poses, but replace the character with Reference image 1.
+
+Required sheet layout:
+- One 4 columns x 4 rows sprite sheet.
+- Exactly 16 cells.
+- Each cell contains exactly one full-body chibi RPG sprite.
+- Rows must be directions:
+  row 1: facing down/front, four walk frames.
+  row 2: facing left, four walk frames.
+  row 3: facing right, four walk frames.
+  row 4: facing up/back, four walk frames.
+- Columns are the four animation frames for each direction.
+- Use the same character size, same anchor, same feet baseline, same head size, same outfit, same color palette across all 16 cells.
+
+Animation requirements:
+- Make it a usable RPG walk cycle.
+- Four frames per direction should read as: idle/contact, step A, passing/contact, step B.
+- The body should stay stable while arms and legs change.
+- Side directions must remain true side profiles in all four cells.
+- Down direction must remain front-facing in all four cells.
+- Up direction must remain back-facing in all four cells.
+
+Style:
+- Q-version chibi pixel art.
+- Clean dark outline.
+- Rich multi-tone shading like the target character reference.
+- Transparent-looking or solid black background is acceptable, but keep each sprite isolated and easy to cut.
+- No text, no labels, no frame numbers, no watermark, no UI, no decorative scene.
+
+Avoid:
+- Do not make a portrait sheet.
+- Do not crop the character.
+- Do not change hair, outfit, scarf, backpack, or shoes between frames.
+- Do not add extra characters.
+- Do not mix directions within a row.
+- Do not make large pose jumps or action poses; this is a walking sheet only.
+
+Final output: one clean 4x4 RPG walking sprite sheet, square image, full body sprites, consistent character, consistent grid.

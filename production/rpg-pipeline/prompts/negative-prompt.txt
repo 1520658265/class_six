@@ -1,0 +1,7 @@
+realistic, photorealistic, photo, 3d, octane, unreal engine, cgi,
+blurry, anti-aliasing, smooth shading, soft lighting, depth of field,
+nsfw, lowres, bad anatomy, bad hands, missing fingers, extra fingers,
+watermark, signature, text, logo, jpeg artifacts,
+multiple characters, duplicate, frame inconsistency,
+oil painting, watercolor, sketch, pencil drawing,
+low resolution pixels, retro 8-bit, NES style, gameboy style

@@ -1,0 +1,28 @@
+You are given a reference photo of a real person. Your task is to redraw this person as a fantasy RPG character in HD-2D pixel art style (think Octopath Traveler, Triangle Strategy, Square Enix HD-2D).
+
+Carefully preserve from the reference photo:
+- The exact face shape and proportions
+- The hairstyle (short straight black hair with bangs, neat clip cut)
+- The eye shape and gentle facial features
+- The fair skin tone
+- The lean, slim build
+- The young adult age (around 20)
+- The overall vibe and gentle expression
+
+Reimagine the rest as a fantasy RPG adventurer:
+- Outfit: light brown leather armor over a cream undershirt, dark brown traveler cloak draped over the shoulders, brown leather belt with small pouches
+- Pose: standing in a relaxed 3/4 front-view, full body visible from head to toe
+- Holding a longsword loosely in his right hand at his side
+- Plain soft gradient background, no scenery
+- Centered composition, character design sheet style
+- Neutral lighting
+
+Visual style requirements:
+- Detailed pixel art with crisp pixel edges, NOT blurry, NOT smooth
+- High-resolution HD-2D pixel rendering, NOT retro 8-bit blockiness
+- Limited but rich color palette, cel-shaded with bold dark outlines
+- Painterly pixel highlights and shading on cloth and armor
+
+Avoid: photorealism (this should not look like a photo), 3D rendering, generic anime style, oil painting, blurry edges, NES/Gameboy aesthetic.
+
+The face MUST clearly resemble the person in the reference photo, just stylized as pixel art.

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tilemap Editor Preview</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <h1>Tilemap Editor Preview</h1>
+        <span id="mapSummary">No map loaded</span>
+      </div>
+      <div class="fileActions">
+        <label class="filePicker">
+          <span>Open map_data.json</span>
+          <input id="fileInput" type="file" accept=".json,application/json">
+        </label>
+        <label class="filePicker">
+          <span>Open editor_state.json</span>
+          <input id="stateInput" type="file" accept=".json,application/json">
+        </label>
+        <button id="exportStateButton" type="button" disabled>Export state</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Layers</h2>
+          <div id="layerControls" class="controlList"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Overlays</h2>
+          <label class="checkRow">
+            <input id="objectsToggle" type="checkbox" checked>
+            <span>Objects</span>
+          </label>
+          <label class="checkRow">
+            <input id="eventsToggle" type="checkbox" checked>
+            <span>Events</span>
+          </label>
+          <label class="checkRow">
+            <input id="regionsToggle" type="checkbox" checked>
+            <span>Regions</span>
+          </label>
+        </section>
+
+        <section class="panel">
+          <h2>Selection</h2>
+          <dl id="selectionInfo" class="infoGrid">
+            <dt>Bounds</dt>
+            <dd>None</dd>
+          </dl>
+          <div class="buttonGrid">
+            <button id="lockButton" type="button" disabled>Lock</button>
+            <button id="clearButton" type="button" disabled>Clear</button>
+            <button id="undoButton" type="button" disabled>Undo</button>
+            <button id="redoButton" type="button" disabled>Redo</button>
+          </div>
+        </section>
+
+        <section class="panel grow">
+          <h2>Locked Regions</h2>
+          <div id="lockedList" class="lockedList"></div>
+        </section>
+      </aside>
+
+      <section class="mapPane">
+        <div class="mapToolbar">
+          <label class="field">
+            <span>Zoom</span>
+            <select id="zoomSelect">
+              <option value="0.25">25%</option>
+              <option value="0.5" selected>50%</option>
+              <option value="1">100%</option>
+              <option value="1.5">150%</option>
+            </select>
+          </label>
+          <div id="statusText" class="statusText">Choose a map_data.json file.</div>
+        </div>
+        <div id="canvasScroller" class="canvasScroller">
+          <canvas id="mapCanvas" width="960" height="640"></canvas>
+        </div>
+      </section>
+
+      <aside class="sidebar rightbar">
+        <section class="panel">
+          <h2>Map</h2>
+          <dl id="mapInfo" class="infoGrid">
+            <dt>Size</dt>
+            <dd>-</dd>
+            <dt>Tile</dt>
+            <dd>-</dd>
+            <dt>Layers</dt>
+            <dd>-</dd>
+            <dt>Regions</dt>
+            <dd>-</dd>
+            <dt>Objects</dt>
+            <dd>-</dd>
+            <dt>Events</dt>
+            <dd>-</dd>
+          </dl>
+        </section>
+
+        <section class="panel grow">
+          <h2>Regions</h2>
+          <div id="regionList" class="regionList"></div>
+        </section>
+      </aside>
+    </main>
+  </body>
+</html>

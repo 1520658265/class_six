@@ -71,9 +71,13 @@ func _refresh_stat(sid: String) -> void:
 	(entry["value"] as Label).text = str(v)
 	(entry["bar"] as ProgressBar).value = v
 
-func _on_stat_changed(sid: String, delta: int, _new_value: int) -> void:
-	_refresh_stat(sid)
-	_spawn_float_text(sid, delta)
+func _on_stat_changed(stat_id: String, old_value: int, new_value: int, _requested_delta: int) -> void:
+	_refresh_stat(stat_id)
+	## 飘字按"实际生效"的差值显示，而不是 caller 请求的 delta（在 clamp 边界二者会不同）。
+	var effective_delta := new_value - old_value
+	if effective_delta == 0:
+		return
+	_spawn_float_text(stat_id, effective_delta)
 
 func _spawn_float_text(sid: String, delta: int) -> void:
 	var prefix := "+" if delta >= 0 else ""

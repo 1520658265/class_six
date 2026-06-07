@@ -1,0 +1,126 @@
+{
+  "root": "D:\\PersonalProject\\class_six\\tools\\ai\\out\\hero01_q_skilltest_gemini",
+  "strategy": "gemini-single",
+  "created_at": "2026-06-03T13:48:15",
+  "ok": true,
+  "groups": {
+    "walk-right": {
+      "ok": true,
+      "errors": [],
+      "warnings": [],
+      "stats": [
+        {
+          "path": "tools\\ai\\out\\hero01_q_skilltest_gemini\\final\\sprites\\walk-right-1.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 70.47119140625,
+          "opaque_pct": 29.52880859375,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            144,
+            40,
+            368,
+            492
+          ],
+          "bbox_width": 224,
+          "bbox_height": 452,
+          "bbox_center_x": 256.0,
+          "bbox_center_y": 266.0,
+          "error": null
+        },
+        {
+          "path": "tools\\ai\\out\\hero01_q_skilltest_gemini\\final\\sprites\\walk-right-2.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 71.16432189941406,
+          "opaque_pct": 28.835678100585938,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            140,
+            40,
+            372,
+            492
+          ],
+          "bbox_width": 232,
+          "bbox_height": 452,
+          "bbox_center_x": 256.0,
+          "bbox_center_y": 266.0,
+          "error": null
+        },
+        {
+          "path": "tools\\ai\\out\\hero01_q_skilltest_gemini\\final\\sprites\\walk-right-3.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 70.47119140625,
+          "opaque_pct": 29.52880859375,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            144,
+            40,
+            368,
+            492
+          ],
+          "bbox_width": 224,
+          "bbox_height": 452,
+          "bbox_center_x": 256.0,
+          "bbox_center_y": 266.0,
+          "error": null
+        },
+        {
+          "path": "tools\\ai\\out\\hero01_q_skilltest_gemini\\final\\sprites\\walk-right-4.png",
+          "size": [
+            512,
+            512
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "transparent_pct": 71.75064086914062,
+          "opaque_pct": 28.249359130859375,
+          "edge_opaque_pct": 0.0,
+          "opaque_magenta_pct": 0.0,
+          "bbox": [
+            136,
+            40,
+            376,
+            492
+          ],
+          "bbox_width": 240,
+          "bbox_height": 452,
+          "bbox_center_x": 256.0,
+          "bbox_center_y": 266.0,
+          "error": null
+        }
+      ],
+      "strip": "qa/strips/walk-right_strip.png",
+      "gif": "qa/animation_gifs/walk-right.gif"
+    }
+  },
+  "human_review_required": true,
+  "semantic_checks": [
+    "direction must match filename in all four frames",
+    "frame 3 must return cleanly to frame 1",
+    "camera angle must not change between frames",
+    "outfit, hair, scarf, backpack, and palette must not flicker"
+  ],
+  "process_findings": [
+    "The previous 2x2-sheet workflow can pass structural QA while still failing animation semantics.",
+    "Side walking directions should use one generated side and mirror the opposite side to avoid direction drift.",
+    "Frame 3 is intentionally copied from frame 1 for compact 4-frame walk loops.",
+    "A structural pass does not mean final approval; inspect GIF and strip previews before promoting assets."
+  ]
+}

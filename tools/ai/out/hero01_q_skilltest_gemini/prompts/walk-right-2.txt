@@ -1,0 +1,13 @@
+Create one image, not a grid and not a sprite sheet.
+
+Asset type: RPG walking animation frame.
+Subject: exactly the same Q-version chibi pixel-art boy as the reference image: black shaggy side-bang hair, big eyes, blue-and-white school tracksuit, red scarf, small backpack, and white-red sneakers.
+Style lock: vibrant anime pixel art, bold dark outlines, cel-shaded pixel look, rich multi-tone shading, saturated blue tracksuit, bright red scarf, 2-head chibi proportions.
+Camera and direction lock: right-facing side profile, walking toward screen right; one eye visible; nose points right; not front-facing.
+Pose: left foot stepping forward in a small RPG walk stride; opposite arm swings forward.
+Continuity: same character, same size, same camera, same outfit, same palette, same line weight; only the arm and leg pose changes.
+Composition: full body visible, centered horizontally, feet near the same bottom line, generous padding.
+Background: perfectly flat pure #FF00FF magenta chroma key only.
+Avoid: labels, frame numbers, captions, signatures, watermarks, borders, grids, shadows, floor, extra characters, extra props, motion blur, glow, and effects.
+
+Final output: one square image containing exactly one full-body character frame on a flat magenta background.

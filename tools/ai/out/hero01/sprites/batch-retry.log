@@ -1,0 +1,35 @@
+[INFO] 27 frames to process, concurrency=3
+[INFO] reference: D:\PersonalProject\class_six\tools\ai\out\hero01\_test-portrait-v5-magenta.jpg
+[INFO] output dir: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites
+
+[OK] walk-down-3: skip (final exists)
+[OK] walk-down-2: skip (final exists)
+[OK] walk-up-2: skip (final exists)
+[OK] walk-up-3: skip (final exists)
+[OK] walk-up-4: skip (final exists)
+[OK] walk-left-1: skip (final exists)
+[OK] walk-left-2: skip (final exists)
+[OK] walk-left-3: skip (final exists)
+[OK] walk-left-4: skip (final exists)
+[OK] walk-right-1: skip (final exists)
+[OK] walk-right-2: skip (final exists)
+[OK] walk-right-3: skip (final exists)
+[OK] walk-up-1: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-up-1.png
+[OK] battle-idle-1: skip (final exists)
+[OK] battle-idle-2: skip (final exists)
+[OK] walk-down-4: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-down-4.png
+[OK] battle-idle-4: skip (final exists)
+[OK] battle-attack-1: skip (final exists)
+[OK] battle-attack-2: skip (final exists)
+[OK] battle-idle-3: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-idle-3.png
+[OK] battle-attack-4: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-attack-4.png
+[OK] battle-hurt-1: skip (final exists)
+[OK] battle-hurt-2: skip (final exists)
+[OK] battle-hurt-3: skip (final exists)
+[OK] battle-hurt-4: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-hurt-4.png
+[OK] battle-attack-3: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-attack-3.png
+[FAIL] walk-right-4: [gen] timeout
+
+[DONE] 26/27 succeeded
+[FAIL LIST]
+  walk-right-4: [gen] timeout

@@ -1,0 +1,25 @@
+{
+  "asset_id": "pencil_storm_v4",
+  "image": "pencil_storm_v4.png",
+  "frame_size": [
+    682,
+    682
+  ],
+  "frames": 9,
+  "fps": 12,
+  "loop": false,
+  "blend": "additive",
+  "anchor": "center",
+  "category": "combat",
+  "tags": [
+    "pencil_storm_v4",
+    "vfx"
+  ],
+  "generated": {
+    "timestamp": "2026-06-07T12:42:15.829167",
+    "generator": "gemini/sprite-sheet-v2",
+    "prompt": "漫天的铅笔从画面右上方向左下方砸击。深黄色木杆+黑色笔尖+粉色橡皮擦头。运动模糊拖尾。撞击地面时溅起木屑、铅笔碎片、火花、粉色橡皮擦碎屑。",
+    "seed": 11111,
+    "model": "gemini-3.1-flash-image-preview"
+  }
+}

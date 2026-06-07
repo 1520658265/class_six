@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python tests/test_phase4_standalone.py)",
+      "Bash(python tests/test_phase5_characters.py)",
+      "Bash(python generate.py \"一只穿着盔甲的兔子战士\")",
+      "Bash(python generate.py \"魔法森林中的发光蘑菇\")",
+      "Bash(python *)",
+      "Bash(pip install *)",
+      "Read(//d/PersonalProject/class_six/docs/superpowers/**)",
+      "Read(//d/PersonalProject/class_six/docs/superpowers/specs/**)"
+    ]
+  }
+}

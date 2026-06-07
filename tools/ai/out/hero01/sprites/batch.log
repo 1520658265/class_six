@@ -1,0 +1,53 @@
+[INFO] 27 frames to process, concurrency=4
+[INFO] reference: D:\PersonalProject\class_six\tools\ai\out\hero01\_test-portrait-v5-magenta.jpg
+[INFO] output dir: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites
+
+[FAIL] walk-down-4: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-down-4.jpg
+
+[FAIL] walk-up-1: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-up-1.jpg
+
+[OK] walk-up-2: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-up-2.png
+[OK] walk-up-3: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-up-3.png
+[OK] walk-down-2: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-down-2.png
+[OK] walk-up-4: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-up-4.png
+[OK] walk-down-3: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-down-3.png
+[OK] walk-left-1: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-left-1.png
+[OK] walk-left-2: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-left-2.png
+[OK] walk-left-3: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-left-3.png
+[OK] walk-right-2: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-right-2.png
+[OK] walk-right-3: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-right-3.png
+[OK] walk-right-1: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-right-1.png
+[OK] battle-idle-2: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-idle-2.png
+[OK] walk-left-4: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-left-4.png
+[OK] battle-idle-1: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-idle-1.png
+[FAIL] battle-idle-3: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-idle-3.jpg
+
+[OK] battle-attack-1: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-attack-1.png
+[OK] battle-idle-4: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-idle-4.png
+[FAIL] walk-right-4: [gen] timeout
+[FAIL] battle-attack-3: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-attack-3.jpg
+
+[OK] battle-attack-2: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-attack-2.png
+[FAIL] battle-attack-4: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-attack-4.jpg
+
+[OK] battle-hurt-3: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-hurt-3.png
+[FAIL] battle-hurt-4: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-hurt-4.jpg
+
+[OK] battle-hurt-1: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-hurt-1.png
+[OK] battle-hurt-2: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-hurt-2.png
+
+[DONE] 20/27 succeeded
+[FAIL LIST]
+  walk-down-4: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-down-4.jpg
+
+  walk-up-1: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\walk-up-1.jpg
+
+  battle-idle-3: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-idle-3.jpg
+
+  walk-right-4: [gen] timeout
+  battle-attack-3: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-attack-3.jpg
+
+  battle-attack-4: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-attack-4.jpg
+
+  battle-hurt-4: [alpha] exit 1: [ERROR] not a file: D:\PersonalProject\class_six\tools\ai\out\hero01\sprites\battle-hurt-4.jpg
+

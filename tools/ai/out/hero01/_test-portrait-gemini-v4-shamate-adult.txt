@@ -1,0 +1,39 @@
+You are given a reference photo of a real young man (around 20 years old). Your task is to redraw HIM as a fantasy RPG character in HD-2D pixel art style (think Octopath Traveler, Triangle Strategy, Square Enix HD-2D).
+
+CRITICAL: Preserve the face from the reference photo
+- Keep his exact face shape and proportions
+- Keep his eye shape and gentle facial features
+- Keep his fair skin tone
+- Keep his lean, slim build
+- Keep him as a young adult around 20 years old (NOT a child, NOT older)
+- The face MUST clearly resemble the person in the reference photo, just stylized as pixel art
+
+Redesign the hairstyle and outfit (do NOT use what's in the reference photo):
+
+Hairstyle (this is the MOST important visual change — the iconic Chinese "shamate" / non-mainstream youth style of 2007-2010):
+- Long swept side-bangs (斜刘海) covering one eyebrow, possibly partly covering one eye
+- Hair is blow-dried and styled with hair gel into a stiff, smooth, sharp shape — NOT messy, NOT natural-falling
+- Hair color is jet black, but styled into hard, almost waxy peaks and edges
+- The overall look is the 2008 "trying-too-hard cool kid" Chinese student vibe
+
+Outfit (typical late-2000s Chinese student casual wear):
+- Cheap blue-and-white school sportswear jacket (zip-up tracksuit, slightly faded), OR a casual T-shirt + zip hoodie
+- Loose-fitting school sport pants
+- Plain canvas sneakers or cheap sport shoes
+- Carrying a worn shoulder schoolbag (optional)
+
+Pose and composition:
+- Standing in a relaxed 3/4 front view, full body visible from head to toe
+- Hands relaxed at sides, or one hand in pocket
+- Plain soft gradient background, no scenery
+- Centered character design sheet style
+- Slight cocky/cool teenage attitude in his expression
+
+Visual style requirements (mandatory):
+- Detailed pixel art with CRISP pixel edges, NOT blurry, NOT smooth
+- High-resolution HD-2D rendering, NOT retro 8-bit blockiness
+- Limited but rich color palette, cel-shaded with bold dark outlines
+- Painterly pixel highlights and shading on cloth and skin
+- Late-2000s rural China atmosphere (slightly nostalgic, slightly worn-out colors)
+
+Avoid: photorealism, 3D rendering, generic anime style, oil painting, blurry edges, modern fashion (no 2020s aesthetics), fantasy RPG armor, weapons, making the face look like a child or someone different from the reference.

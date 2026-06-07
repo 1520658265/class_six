@@ -3,14 +3,18 @@ Generate an image with gemini-3.1-flash-image-preview via the bobdong.cn proxy.
 
 Usage:
     python gen_with_gemini.py <prompt_file> [-o OUT_BASENAME] [--aspect RATIO] [--size SIZE]
+        [--ref IMAGE_PATH ...]
 
     --aspect: aspect ratio, e.g. "1:1", "3:2", "7:2", "16:9". Default: model picks.
     --size:   output resolution, "1K" or "2K". Default: "1K".
+    --ref:    reference image(s) to attach as multimodal input (repeatable).
+              Used to preserve face/identity, control style, or guide pose.
 """
 
 import argparse
 import base64
 import json
+import mimetypes
 import os
 import sys
 import time
@@ -25,12 +29,24 @@ MAX_ATTEMPTS = 4
 RETRY_DELAY_SEC = 2.0
 
 
+def encode_image_part(path: str) -> dict:
+    """Read a local image and return a Gemini inlineData part."""
+    mime, _ = mimetypes.guess_type(path)
+    if not mime or not mime.startswith("image/"):
+        mime = "image/jpeg"
+    with open(path, "rb") as f:
+        b64 = base64.b64encode(f.read()).decode("ascii")
+    return {"inlineData": {"mimeType": mime, "data": b64}}
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("prompt_file")
     p.add_argument("-o", "--out", help="Output basename (no extension). Default: out/<prompt_stem>")
     p.add_argument("--aspect", help="Aspect ratio, e.g. 1:1, 3:2, 7:2. If omitted, model decides.")
     p.add_argument("--size", default="1K", choices=["1K", "2K"], help="Output resolution (default: 1K)")
+    p.add_argument("--ref", action="append", default=[], metavar="PATH",
+                   help="Path to a reference image. Repeatable; max ~5 in practice.")
     args = p.parse_args()
 
     with open(args.prompt_file, "r", encoding="utf-8") as f:
@@ -58,8 +74,16 @@ def main() -> int:
     if args.aspect:
         image_config["aspectRatio"] = args.aspect
 
+    parts = []
+    for ref_path in args.ref:
+        if not os.path.isfile(ref_path):
+            print(f"[ERROR] reference image not found: {ref_path}")
+            return 1
+        parts.append(encode_image_part(ref_path))
+    parts.append({"text": prompt})
+
     payload = {
-        "contents": [{"parts": [{"text": prompt}]}],
+        "contents": [{"parts": parts}],
         "generationConfig": {
             "responseModalities": ["TEXT", "IMAGE"],
             "imageConfig": image_config,
@@ -69,6 +93,8 @@ def main() -> int:
     print(f"[INFO] prompt: {args.prompt_file} ({len(prompt)} chars)")
     print(f"[INFO] model: {config['model']}, host: {config['api_host']}")
     print(f"[INFO] imageConfig: {image_config}")
+    if args.ref:
+        print(f"[INFO] reference images: {args.ref}")
 
     resp = None
     last_error = None

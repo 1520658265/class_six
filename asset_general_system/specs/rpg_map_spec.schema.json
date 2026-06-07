@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RPGMapSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "id", "title", "theme", "map", "regions", "paths", "objects", "entities", "constraints", "seed", "tileset_id"],
+  "properties": {
+    "version": {"type": "string"},
+    "id": {"type": "string"},
+    "title": {"type": "string"},
+    "theme": {"type": "string"},
+    "seed": {"type": "integer"},
+    "tileset_id": {"type": "string"},
+    "map": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "tile_width", "tile_height", "orientation"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 16, "maximum": 256},
+        "height": {"type": "integer", "minimum": 16, "maximum": 256},
+        "tile_width": {"type": "integer", "minimum": 8, "maximum": 128},
+        "tile_height": {"type": "integer", "minimum": 8, "maximum": 128},
+        "orientation": {"const": "orthogonal"}
+      }
+    },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "position", "size", "priority"],
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"type": "string"},
+          "position": {"type": "string"},
+          "size": {"enum": ["small", "medium", "large"]},
+          "priority": {"type": "integer"}
+        }
+      }
+    },
+    "paths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "to", "kind"],
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "kind": {"type": "string"}
+        }
+      }
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "count", "placement"],
+        "properties": {
+          "type": {"type": "string"},
+          "count": {"type": "integer", "minimum": 0},
+          "placement": {"type": "string"}
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "count"],
+        "properties": {
+          "id": {"type": ["string", "null"]},
+          "type": {"type": "string"},
+          "count": {"type": "integer", "minimum": 0},
+          "position": {"type": ["string", "null"]},
+          "placement": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["walkable_spawn", "connect_key_regions", "no_blocked_doors", "objects_require_walkable_neighbor"],
+      "properties": {
+        "walkable_spawn": {"type": "boolean"},
+        "connect_key_regions": {"type": "boolean"},
+        "no_blocked_doors": {"type": "boolean"},
+        "objects_require_walkable_neighbor": {"type": "boolean"}
+      }
+    }
+  }
+}
+

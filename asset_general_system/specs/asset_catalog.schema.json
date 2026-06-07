@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AssetCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tileset_id", "image", "tile_width", "tile_height", "columns", "tiles"],
+  "properties": {
+    "tileset_id": {"type": "string"},
+    "image": {"type": "string"},
+    "tile_width": {"type": "integer"},
+    "tile_height": {"type": "integer"},
+    "columns": {"type": "integer"},
+    "tiles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["tile_id", "name", "tags", "walkable"],
+        "properties": {
+          "tile_id": {"type": "integer"},
+          "name": {"type": "string"},
+          "tags": {"type": "array", "items": {"type": "string"}},
+          "walkable": {"type": "boolean"}
+        }
+      }
+    },
+    "objects": {
+      "type": "array",
+      "description": "Multi-tile objects with footprint and collision data",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["asset_id", "name", "tags", "sprite_path", "footprint"],
+        "properties": {
+          "asset_id": {"type": "string"},
+          "name": {"type": "string"},
+          "tags": {"type": "array", "items": {"type": "string"}},
+          "theme": {"type": "array", "items": {"type": "string"}},
+          "sprite_path": {"type": "string"},
+          "metadata_path": {"type": "string"},
+          "footprint": {
+            "type": "array",
+            "items": {"type": "integer"},
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "collision": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {"type": "integer"},
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "anchor": {"type": "string"}
+        }
+      }
+    }
+  }
+}
+

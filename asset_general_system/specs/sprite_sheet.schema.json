@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SpriteSheetMetadata",
+  "description": "Metadata for a character sprite sheet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["asset_id", "frame_size", "directions", "animations", "anchor", "image"],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "description": "Unique character identifier, e.g., 'villager_merchant_01'"
+    },
+    "image": {
+      "type": "string",
+      "description": "Relative path to sprite sheet PNG"
+    },
+    "frame_size": {
+      "type": "array",
+      "items": {"type": "integer"},
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Single frame size [width, height], e.g., [32, 48]"
+    },
+    "directions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["down", "left", "right", "up"]
+      },
+      "description": "Supported facing directions"
+    },
+    "animations": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["row", "frames", "fps", "loop"],
+        "properties": {
+          "row": {"type": "integer", "description": "Row index in sprite sheet"},
+          "frames": {"type": "integer", "minimum": 1},
+          "fps": {"type": "integer", "minimum": 1},
+          "loop": {"type": "boolean"},
+          "direction": {"type": "string"}
+        }
+      },
+      "description": "Animation definitions, keyed by name like 'walk_down', 'idle_left'"
+    },
+    "anchor": {
+      "type": "string",
+      "enum": ["feet_center", "center", "top_center", "bottom_center"],
+      "description": "Visual anchor point"
+    },
+    "hitbox": {
+      "type": "array",
+      "items": {"type": "integer"},
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "Hitbox [x, y, width, height] relative to frame"
+    },
+    "weapon_socket": {
+      "type": "array",
+      "items": {"type": "integer"},
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Weapon attachment point [x, y] relative to frame"
+    },
+    "shadow": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "offset": {
+          "type": "array",
+          "items": {"type": "integer"},
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "radius": {"type": "integer"}
+      }
+    },
+    "portrait": {
+      "type": "string",
+      "description": "Optional path to portrait image"
+    },
+    "tags": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "generated": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "timestamp": {"type": "string"},
+        "generator": {"type": "string"},
+        "prompt": {"type": "string"},
+        "seed": {"type": "integer"},
+        "model": {"type": "string"}
+      }
+    }
+  }
+}
