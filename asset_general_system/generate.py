@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 """
 真实使用场景：用户输入描述，自动生成对应素材
 

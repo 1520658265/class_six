@@ -1,4 +1,4 @@
-"""
+﻿"""
 Gemini 图像生成后端。
 
 复用上级 tools/ai/gen_with_gemini.py 的实现，使用 gemini-3.1-flash-image-preview 模型。

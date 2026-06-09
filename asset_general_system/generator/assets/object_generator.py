@@ -1,4 +1,4 @@
-"""
+﻿"""
 Object sprite generator - generates individual map objects with metadata.
 """
 

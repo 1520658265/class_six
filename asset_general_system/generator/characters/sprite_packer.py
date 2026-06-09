@@ -22,7 +22,11 @@ class SpriteSheetPacker:
     """
     Sprite sheet 打包器。
 
+<<<<<<< HEAD
     布局规则：每个动作和方向组合占一行，行顺序由传入的帧字典决定。
+=======
+    布局规则：每个动作占一行，方向按 down/left/right/up 顺序。
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
     """
 
     def __init__(
@@ -39,8 +43,11 @@ class SpriteSheetPacker:
         self,
         frames_by_animation: dict[str, list],
         output_path: Path,
+<<<<<<< HEAD
         default_fps: int | None = None,
         fps_overrides: dict[str, int] | None = None,
+=======
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
     ) -> dict[str, AnimationClip]:
         """
         把帧序列打包成 sprite sheet。
@@ -52,8 +59,11 @@ class SpriteSheetPacker:
                     "idle_down": [PIL.Image, ...],
                 }
             output_path: 输出 PNG 路径
+<<<<<<< HEAD
             default_fps: 所有动画统一使用的 fps；为空时根据动作名推断
             fps_overrides: 单个动画名到 fps 的覆盖
+=======
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
 
         Returns:
             动画名到 AnimationClip 的映射
@@ -88,9 +98,13 @@ class SpriteSheetPacker:
                 sheet.paste(frame, (col * fw, row * fh), frame if frame.mode == "RGBA" else None)
 
             # 推断 fps 和 loop
+<<<<<<< HEAD
             fps = (fps_overrides or {}).get(anim_name)
             if fps is None:
                 fps = default_fps if default_fps is not None else self._infer_fps(anim_name, len(frames))
+=======
+            fps = self._infer_fps(anim_name, len(frames))
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
             loop = self._infer_loop(anim_name)
             direction = self._infer_direction(anim_name)
 
@@ -132,9 +146,14 @@ class SpriteSheetPacker:
     def _infer_direction(self, anim_name: str) -> Direction | None:
         """从动作名提取方向。"""
         name_lower = anim_name.lower()
+<<<<<<< HEAD
         directions = sorted(Direction, key=lambda item: len(item.value), reverse=True)
         for direction in directions:
             if name_lower.endswith(f"_{direction.value}") or name_lower == direction.value:
+=======
+        for direction in Direction:
+            if direction.value in name_lower:
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
                 return direction
         return None
 
@@ -167,12 +186,18 @@ class SpriteSheetPacker:
             # 从动画名推断方向
             dirs = set()
             for anim_name in animations.keys():
+<<<<<<< HEAD
                 name_lower = anim_name.lower()
                 sorted_dirs = sorted(Direction, key=lambda item: len(item.value), reverse=True)
                 for d in sorted_dirs:
                     if name_lower.endswith(f"_{d.value}") or name_lower == d.value:
                         dirs.add(d)
                         break
+=======
+                for d in Direction:
+                    if d.value in anim_name.lower():
+                        dirs.add(d)
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
             directions = list(dirs) if dirs else [Direction.DOWN]
 
         if hitbox is None:

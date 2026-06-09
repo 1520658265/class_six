@@ -1,0 +1,26 @@
+{
+  "asset_id": "impact_7004",
+  "image": "impact_7004.png",
+  "frame_size": [
+    48,
+    48
+  ],
+  "frames": 5,
+  "fps": 20,
+  "loop": false,
+  "blend": "additive",
+  "anchor": "center",
+  "category": "combat",
+  "tags": [
+    "impact",
+    "hit",
+    "burst"
+  ],
+  "generated": {
+    "timestamp": "2026-06-06T16:31:11.997179",
+    "generator": "MockGenerator-v1",
+    "prompt": "white impact burst with radial lines",
+    "seed": 7004,
+    "model": "vfx_generator"
+  }
+}

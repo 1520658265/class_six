@@ -1,0 +1,26 @@
+{
+  "asset_id": "snow_7009",
+  "image": "snow_7009.png",
+  "frame_size": [
+    128,
+    128
+  ],
+  "frames": 6,
+  "fps": 8,
+  "loop": true,
+  "blend": "normal",
+  "anchor": "center",
+  "category": "environment",
+  "tags": [
+    "snow",
+    "weather",
+    "environment"
+  ],
+  "generated": {
+    "timestamp": "2026-06-06T16:31:12.038452",
+    "generator": "MockGenerator-v1",
+    "prompt": "soft white snow flakes drifting down",
+    "seed": 7009,
+    "model": "vfx_generator"
+  }
+}

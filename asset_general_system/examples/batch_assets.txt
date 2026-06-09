@@ -1,0 +1,36 @@
+# 批量生成示例文件
+#
+# 格式：
+#   描述                  - 自动判断类型
+#   type: 描述           - 显式指定类型 (object/character/vfx/map)
+#   # 注释                - 以 # 开头
+#
+# 用法：
+#   python generate.py --batch examples/batch_assets.txt
+#
+# 加 --gemini 切换为真实 AI 生成：
+#   python generate.py --batch examples/batch_assets.txt --gemini
+
+# === 角色 ===
+character: 穿铠甲的兔子战士
+character: 戴红帽的圣诞精灵
+character: 邪恶的骷髅法师
+character: 可爱的史莱姆怪
+character: 金发少年勇者，绿色斗篷
+
+# === 装饰对象 ===
+古老的金色宝箱
+蓝色魔法水晶
+发光的魔法蘑菇
+破旧的木桶
+神秘的传送阵石碑
+
+# === 特效 ===
+vfx: 火球术爆炸特效
+vfx: 闪电链
+vfx: 治疗光环特效
+vfx: 冰锥爆炸特效
+
+# === 地图 ===
+map: 秋季森林村庄，中间有集市
+map: 雪地营地，有篝火和木屋

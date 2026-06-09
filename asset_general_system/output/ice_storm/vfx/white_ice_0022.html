@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>动画预览 - white_ice_0022</title>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #1a1a1a;
+        color: #eee;
+        padding: 20px;
+        margin: 0;
+    }
+    h1 { color: #4af; }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .anim-card {
+        background: #2a2a2a;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 15px;
+        min-width: 280px;
+    }
+    .anim-card h3 { margin: 0 0 10px 0; color: #6f9; }
+    canvas {
+        background: #333;
+        border: 1px solid #555;
+        image-rendering: pixelated;
+        display: block;
+        margin: 10px 0;
+    }
+    .controls {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 10px;
+    }
+    button {
+        background: #4af;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    button:hover { background: #6cf; }
+    .info { font-size: 12px; color: #aaa; margin-top: 8px; }
+    label { font-size: 13px; }
+    input[type=range] { width: 120px; }
+    .sprite-sheet {
+        margin-top: 30px;
+        padding: 15px;
+        background: #2a2a2a;
+        border-radius: 8px;
+    }
+    .sprite-sheet img {
+        max-width: 100%;
+        image-rendering: pixelated;
+        border: 1px solid #555;
+    }
+</style>
+</head>
+<body>
+    <h1>🎬 white_ice_0022</h1>
+    <p style="color:#aaa">点击图像或按钮控制播放</p>
+
+    <div class="container" id="container"></div>
+
+    <div class="sprite-sheet">
+        <h3>原始 Sprite Sheet</h3>
+        <img src="white_ice_0022.png" alt="sprite sheet">
+    </div>
+
+<script>
+const SPRITE_URL = "white_ice_0022.png";
+const FRAME_W = 64;
+const FRAME_H = 64;
+const SCALE = 4;
+const ANIMATIONS = [{"name": "white_ice_0022", "row": 0, "frames": 8, "fps": 12, "loop": false}];
+
+const img = new Image();
+img.src = SPRITE_URL;
+
+img.onload = () => {
+    const container = document.getElementById('container');
+    ANIMATIONS.forEach(anim => {
+        container.appendChild(createPlayer(anim));
+    });
+};
+
+function createPlayer(anim) {
+    const card = document.createElement('div');
+    card.className = 'anim-card';
+
+    card.innerHTML = `
+        <h3>${anim.name}</h3>
+        <canvas width="${FRAME_W * SCALE}" height="${FRAME_H * SCALE}"></canvas>
+        <div class="controls">
+            <button class="play-btn">⏸ 暂停</button>
+            <button class="reset-btn">⟲ 重置</button>
+        </div>
+        <div class="controls">
+            <label>速度:</label>
+            <input type="range" min="1" max="30" value="${anim.fps}" class="fps-slider">
+            <span class="fps-label">${anim.fps}fps</span>
+        </div>
+        <div class="info">
+            ${anim.frames} 帧 ·
+            ${anim.loop ? '循环' : '一次性'} ·
+            row ${anim.row}
+        </div>
+    `;
+
+    const canvas = card.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.imageSmoothingEnabled = false;
+
+    let frameIdx = 0;
+    let playing = true;
+    let lastTime = 0;
+    let fps = anim.fps;
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#333';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const sx = frameIdx * FRAME_W;
+        const sy = anim.row * FRAME_H;
+        ctx.drawImage(
+            img,
+            sx, sy, FRAME_W, FRAME_H,
+            0, 0, canvas.width, canvas.height
+        );
+    }
+
+    function tick(now) {
+        if (playing) {
+            const elapsed = now - lastTime;
+            if (elapsed > 1000 / fps) {
+                frameIdx++;
+                if (frameIdx >= anim.frames) {
+                    if (anim.loop) {
+                        frameIdx = 0;
+                    } else {
+                        frameIdx = anim.frames - 1;
+                    }
+                }
+                draw();
+                lastTime = now;
+            }
+        }
+        requestAnimationFrame(tick);
+    }
+
+    draw();
+    requestAnimationFrame(tick);
+
+    // 事件绑定
+    card.querySelector('.play-btn').onclick = (e) => {
+        playing = !playing;
+        e.target.textContent = playing ? '⏸ 暂停' : '▶ 播放';
+    };
+    card.querySelector('.reset-btn').onclick = () => {
+        frameIdx = 0;
+        draw();
+    };
+    const slider = card.querySelector('.fps-slider');
+    const fpsLabel = card.querySelector('.fps-label');
+    slider.oninput = () => {
+        fps = parseInt(slider.value);
+        fpsLabel.textContent = fps + 'fps';
+    };
+    canvas.onclick = () => {
+        playing = !playing;
+        card.querySelector('.play-btn').textContent = playing ? '⏸ 暂停' : '▶ 播放';
+    };
+
+    return card;
+}
+</script>
+</body>
+</html>

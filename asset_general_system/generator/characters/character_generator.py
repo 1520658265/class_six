@@ -1,7 +1,11 @@
 """
 角色生成器。
 
+<<<<<<< HEAD
 生成 RPG 角色的 sprite sheet：4/8 方向 idle/walk 动画。
+=======
+生成 RPG 角色的 sprite sheet：4 方向 idle/walk 动画。
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
 """
 
 from __future__ import annotations
@@ -43,7 +47,10 @@ class CharacterGenerationRequest:
         directions: 朝向列表
         animations: 动作列表，例如 ['idle', 'walk']
         frames_per_animation: 每个动作帧数
+<<<<<<< HEAD
         fps: 播放帧率；为空时由打包器根据动作名推断
+=======
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
         seed: 随机种子
         tags: 标签
     """
@@ -56,7 +63,10 @@ class CharacterGenerationRequest:
     ])
     animations: list[str] = field(default_factory=lambda: ["idle", "walk"])
     frames_per_animation: int = 4
+<<<<<<< HEAD
     fps: int | None = None
+=======
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
     seed: int | None = None
     tags: list[str] = field(default_factory=list)
 
@@ -145,11 +155,15 @@ class CharacterGenerator:
         sheet_filename = f"{asset_id}.png"
         sheet_path = self.output_dir / sheet_filename
 
+<<<<<<< HEAD
         animations = packer.pack_frames(
             frames_by_animation,
             sheet_path,
             default_fps=request.fps,
         )
+=======
+        animations = packer.pack_frames(frames_by_animation, sheet_path)
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
 
         # 构建 metadata
         metadata = packer.build_metadata(
@@ -251,11 +265,15 @@ class CharacterGenerator:
         # 方向描述
         direction_text = {
             Direction.DOWN: "facing camera (front view)",
+<<<<<<< HEAD
             Direction.DOWN_LEFT: "three-quarter front view, facing down-left",
             Direction.DOWN_RIGHT: "three-quarter front view, facing down-right",
             Direction.UP: "back view",
             Direction.UP_LEFT: "three-quarter back view, facing up-left",
             Direction.UP_RIGHT: "three-quarter back view, facing up-right",
+=======
+            Direction.UP: "back view",
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
             Direction.LEFT: "left side view",
             Direction.RIGHT: "right side view",
         }[direction]

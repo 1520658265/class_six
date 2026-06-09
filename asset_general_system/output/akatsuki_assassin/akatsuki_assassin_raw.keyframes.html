@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>Akatsuki Assassin - Keyframes Preview</title>
+<style>
+  :root {
+    --bg: #1a1a1a;
+    --panel: #262630;
+    --border: #3a3a45;
+    --text: #eee;
+    --accent: #4af;
+    --ok: #6f9;
+    --warn: #fa6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+  }
+  h1 { color: var(--accent); margin: 0 0 8px 0; }
+  .subtitle { color: #888; margin-bottom: 20px; font-size: 14px; }
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 20px;
+  }
+  .stages {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+  .stage-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .stage-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .stage-card.main { grid-column: span 2; padding: 16px; }
+  .stage-label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .stage-label .accent { color: var(--accent); }
+  .stage-card.main .stage-label .accent { color: var(--ok); font-size: 14px; }
+  .canvas-wrap {
+    position: relative;
+    aspect-ratio: 1;
+    background:
+      repeating-conic-gradient(#2a2a30 0% 25%, #333 0% 50%) 0 0 / 24px 24px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+  }
+  .controls {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    height: fit-content;
+  }
+  h3 {
+    margin: 16px 0 10px 0;
+    color: var(--ok);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+  h3:first-child { margin-top: 0; }
+  button {
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.15s;
+  }
+  button:hover { border-color: var(--accent); color: var(--accent); }
+  button.active { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
+  .play-btn {
+    width: 100%;
+    background: var(--ok);
+    color: #000;
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .play-btn:hover { background: #8fc; }
+  .row { display: flex; gap: 8px; margin-bottom: 8px; }
+  .row button { flex: 1; }
+  label {
+    font-size: 12px;
+    color: #aaa;
+    display: block;
+    margin: 12px 0 4px;
+  }
+  input[type=range] { width: 100%; }
+  .value { float: right; color: var(--accent); }
+  .timeline {
+    margin-top: 12px;
+    padding: 8px;
+    background: #0a0a0e;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 11px;
+    color: #888;
+  }
+  .timeline .marker {
+    color: var(--accent);
+  }
+  .info {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.6;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  kbd {
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: monospace;
+    font-size: 10px;
+  }
+  .ease-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  .ease-row button { padding: 6px 4px; font-size: 11px; }
+</style>
+</head>
+<body>
+  <h1>Akatsuki Assassin — Keyframes + Crossfade</h1>
+  <p class="subtitle">
+    源图 2048×2048 · 3×3 grid = 9 关键帧 ·
+    在帧之间自动 crossfade 补帧，模拟 Godot AnimationPlayer+Tween 效果
+  </p>
+
+  <div class="layout">
+    <div class="stages">
+      <!-- 主预览（带补帧） -->
+      <div class="stage-card main">
+        <div class="stage-label">
+          <span class="accent">▶ FINAL OUTPUT (with crossfade interpolation)</span>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="main-prev" width="682" height="682"></canvas>
+          <canvas id="main-next" width="682" height="682"></canvas>
+        </div>
+        <div class="timeline" id="timeline">t=0.000s · keyframe 0 · alpha 1.00</div>
+      </div>
+
+      <!-- 关键帧缩略图 -->
+      <div class="stage-row" id="keyframe-strip"></div>
+    </div>
+
+    <div class="controls">
+      <button class="play-btn" id="play">▶ 播放 / 暂停 (空格)</button>
+
+      <h3>播放控制</h3>
+      <div class="row">
+        <button id="reset">⟲ 重置</button>
+        <button id="loop-toggle" class="active">🔁 循环</button>
+      </div>
+
+      <label>每帧停留 <span class="value" id="hold-val">0.20s</span></label>
+      <input type="range" id="hold" min="50" max="800" value="200" step="50">
+
+      <label>过渡时长 <span class="value" id="trans-val">0.15s</span></label>
+      <input type="range" id="trans" min="0" max="600" value="150" step="25">
+
+      <h3>过渡曲线</h3>
+      <div class="ease-row">
+        <button data-ease="linear">linear</button>
+        <button data-ease="ease-in" class="active">ease-in</button>
+        <button data-ease="ease-out">ease-out</button>
+        <button data-ease="ease-in-out">ease-in-out</button>
+      </div>
+
+      <label>显示倍数 <span class="value" id="zoom-val">1.0x</span></label>
+      <input type="range" id="zoom" min="50" max="200" value="100" step="10">
+
+      <h3>统计</h3>
+      <div id="stats" style="font-family:monospace;font-size:11px;color:#aaa;line-height:1.6">
+        总时长: <span id="stat-total">--</span><br>
+        关键帧: <span id="stat-frames">9</span><br>
+        模拟帧率: <span id="stat-fps">--</span> fps
+      </div>
+
+      <div class="info">
+        <kbd>Space</kbd> 播放/暂停 ·
+        <kbd>R</kbd> 重置 ·
+        <kbd>1-4</kbd> 切换缓动
+        <br><br>
+        <strong style="color:var(--warn)">注意</strong>：
+        左上是带补帧的最终效果，下方 4 个是原始关键帧（硬切）。
+        对比看哪种更接近你想要的视觉效果。
+      </div>
+    </div>
+  </div>
+
+<script>
+const SRC = 'akatsuki_assassin_raw.png';
+const ROWS = 3;
+const COLS = 3;
+const CELL_W = 682;
+const CELL_H = 682;
+const FRAME_COUNT = ROWS * COLS;
+
+const mainPrev = document.getElementById('main-prev');
+const mainNext = document.getElementById('main-next');
+const ctxPrev = mainPrev.getContext('2d');
+const ctxNext = mainNext.getContext('2d');
+const timeline = document.getElementById('timeline');
+const playBtn = document.getElementById('play');
+const stripEl = document.getElementById('keyframe-strip');
+
+let img = new Image();
+let playing = false;
+let loop = true;
+let holdMs = 200;
+let transMs = 150;
+let easeFn = (t) => t * t;  // ease-in default
+let zoom = 1.0;
+let startTime = 0;
+let pausedAt = 0;
+
+const easings = {
+  'linear': t => t,
+  'ease-in': t => t * t,
+  'ease-out': t => 1 - (1 - t) * (1 - t),
+  'ease-in-out': t => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2,
+};
+
+img.onload = () => {
+  buildKeyframeStrip();
+  drawAt(0);
+  updateStats();
+  start();
+};
+img.src = SRC;
+
+function getCellRect(idx) {
+  const r = Math.floor(idx / COLS);
+  const c = idx % COLS;
+  return { sx: c * CELL_W, sy: r * CELL_H };
+}
+
+function buildKeyframeStrip() {
+  // 创建 N 个 stage card，按 ROWS 分行
+  for (let row = 0; row < ROWS; row++) {
+    const rowEl = document.createElement('div');
+    rowEl.className = 'stage-row';
+    for (let col = 0; col < COLS; col++) {
+      const idx = row * COLS + col;
+      const card = document.createElement('div');
+      card.className = 'stage-card';
+      card.innerHTML =
+        '<div class="stage-label">关键帧 <span class="accent">' + idx + '</span> · row ' +
+        row + ', col ' + col + '</div>' +
+        '<div class="canvas-wrap"><canvas width="' + CELL_W + '" height="' + CELL_H + '"></canvas></div>';
+      stripEl.appendChild(card);
+      const cnv = card.querySelector('canvas');
+      const cctx = cnv.getContext('2d');
+      const { sx, sy } = getCellRect(idx);
+      cctx.drawImage(img, sx, sy, CELL_W, CELL_H, 0, 0, CELL_W, CELL_H);
+    }
+  }
+}
+
+function drawAt(timeMs) {
+  const cycleMs = FRAME_COUNT * holdMs;
+  const t = loop ? (timeMs % cycleMs) : Math.min(timeMs, cycleMs);
+
+  const slot = t / holdMs;
+  const idx = Math.floor(slot) % FRAME_COUNT;
+  const localT = slot - Math.floor(slot);
+
+  // 在每个 holdMs 内：前 (holdMs - transMs) 显示当前帧；最后 transMs 内 crossfade 到下一帧
+  const transStart = (holdMs - transMs) / holdMs;
+  let alpha = 1.0;
+  let nextIdx = (idx + 1) % FRAME_COUNT;
+
+  if (localT > transStart && transMs > 0) {
+    const fadeT = (localT - transStart) / (1 - transStart);
+    alpha = 1 - easeFn(fadeT);
+  }
+
+  const cur = getCellRect(idx);
+  const nxt = getCellRect(nextIdx);
+
+  ctxPrev.clearRect(0, 0, CELL_W, CELL_H);
+  ctxNext.clearRect(0, 0, CELL_W, CELL_H);
+
+  ctxPrev.globalAlpha = alpha;
+  ctxPrev.drawImage(img, cur.sx, cur.sy, CELL_W, CELL_H, 0, 0, CELL_W, CELL_H);
+  ctxPrev.globalAlpha = 1.0;
+
+  ctxNext.globalAlpha = 1 - alpha;
+  ctxNext.drawImage(img, nxt.sx, nxt.sy, CELL_W, CELL_H, 0, 0, CELL_W, CELL_H);
+  ctxNext.globalAlpha = 1.0;
+
+  timeline.innerHTML =
+    't=' + (timeMs / 1000).toFixed(3) + 's · keyframe ' +
+    '<span class="marker">' + idx + '</span>' +
+    (alpha < 1 ? ' →' + nextIdx + ' (fade ' + (1 - alpha).toFixed(2) + ')' : '') +
+    ' · alpha ' + alpha.toFixed(2);
+}
+
+function tick(now) {
+  if (!playing) return;
+  const elapsed = now - startTime;
+  drawAt(elapsed);
+  if (!loop && elapsed >= FRAME_COUNT * holdMs) {
+    pause();
+    return;
+  }
+  requestAnimationFrame(tick);
+}
+
+function start() {
+  if (playing) return;
+  playing = true;
+  playBtn.textContent = '⏸ 暂停 (空格)';
+  startTime = performance.now() - pausedAt;
+  requestAnimationFrame(tick);
+}
+
+function pause() {
+  if (!playing) return;
+  playing = false;
+  pausedAt = performance.now() - startTime;
+  playBtn.textContent = '▶ 播放 (空格)';
+}
+
+function reset() {
+  pausedAt = 0;
+  startTime = performance.now();
+  drawAt(0);
+}
+
+function updateStats() {
+  const total = FRAME_COUNT * holdMs / 1000;
+  document.getElementById('stat-total').textContent = total.toFixed(2) + 's';
+  document.getElementById('stat-fps').textContent =
+    'visual ~' + Math.round(1000 / Math.max(16, transMs / 4));
+}
+
+playBtn.addEventListener('click', () => playing ? pause() : start());
+document.getElementById('reset').addEventListener('click', () => { pause(); reset(); start(); });
+
+const loopBtn = document.getElementById('loop-toggle');
+loopBtn.addEventListener('click', () => {
+  loop = !loop;
+  loopBtn.classList.toggle('active', loop);
+  loopBtn.textContent = loop ? '🔁 循环' : '↪ 单次';
+});
+
+document.querySelectorAll('[data-ease]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-ease]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    easeFn = easings[btn.dataset.ease];
+  });
+});
+
+const holdRng = document.getElementById('hold');
+const transRng = document.getElementById('trans');
+const zoomRng = document.getElementById('zoom');
+holdRng.addEventListener('input', () => {
+  holdMs = parseInt(holdRng.value);
+  document.getElementById('hold-val').textContent = (holdMs / 1000).toFixed(2) + 's';
+  updateStats();
+});
+transRng.addEventListener('input', () => {
+  transMs = parseInt(transRng.value);
+  document.getElementById('trans-val').textContent = (transMs / 1000).toFixed(2) + 's';
+  updateStats();
+});
+zoomRng.addEventListener('input', () => {
+  zoom = parseInt(zoomRng.value) / 100;
+  const wrap = document.querySelector('.stage-card.main .canvas-wrap');
+  wrap.style.maxWidth = (CELL_W * zoom) + 'px';
+  document.getElementById('zoom-val').textContent = zoom.toFixed(1) + 'x';
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Space') { e.preventDefault(); playing ? pause() : start(); }
+  else if (e.key === 'r' || e.key === 'R') { pause(); reset(); start(); }
+  else if (e.key >= '1' && e.key <= '4') {
+    const map = ['linear', 'ease-in', 'ease-out', 'ease-in-out'];
+    const target = document.querySelector('[data-ease="' + map[parseInt(e.key) - 1] + '"]');
+    if (target) target.click();
+  }
+});
+</script>
+</body>
+</html>

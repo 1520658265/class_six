@@ -11,11 +11,14 @@ from generator.assets.object_generator import (
     ObjectGenerator,
     generate_standard_objects,
 )
+<<<<<<< HEAD
 from generator.assets.sprite_cleanup import (
     clean_object_sprite_background,
     fit_object_sprite_to_runtime_canvas,
     validate_rpg_sprite_usability,
 )
+=======
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
 from generator.models.asset_metadata import AssetKind
 
 
@@ -67,12 +70,20 @@ def test_generate_standard_objects():
 
         results = generate_standard_objects(generator, seed_offset=2000)
 
+<<<<<<< HEAD
         assert len(results) == 20
+=======
+        assert len(results) == 5
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
         assert all(r.success for r in results)
 
         # Check variety
         asset_ids = [r.asset_id for r in results if r.asset_id]
+<<<<<<< HEAD
         assert len(set(asset_ids)) == 20  # All unique
+=======
+        assert len(set(asset_ids)) == 5  # All unique
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
 
         # Check specific objects
         tree_results = [r for r in results if r.metadata and "tree" in r.metadata.tags]
@@ -116,6 +127,7 @@ def test_collision_inference():
         assert len(small_result.metadata.collision) > 0
 
 
+<<<<<<< HEAD
 def test_object_sprite_cleanup_removes_fake_checker_background(tmp_path):
     from PIL import Image, ImageDraw
 
@@ -216,6 +228,8 @@ def test_object_generator_prompt_keeps_structured_asset_contract():
     assert "No 8-bit micro-icon style" in prompt or "Do not use 8-bit micro-icon style" in prompt
 
 
+=======
+>>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
 if __name__ == "__main__":
     test_object_generator_basic()
     test_generate_standard_objects()

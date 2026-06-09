@@ -1,4 +1,4 @@
-"""
+﻿"""
 Image generation interface and protocol for AI-generated assets.
 """
 
