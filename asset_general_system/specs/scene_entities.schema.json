@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SceneEntities",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "scene", "entities"],
+  "properties": {
+    "version": {"type": "string"},
+    "scene": {"type": "string"},
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["target_id", "display_name", "category", "footprint", "source_canvas"],
+        "properties": {
+          "target_id": {"type": "string"},
+          "object_key": {"type": "string"},
+          "display_name": {"type": "string"},
+          "category": {"type": "string"},
+          "region_id": {"type": ["string", "null"]},
+          "footprint": {"type": "array", "items": {"type": "integer"}, "minItems": 2, "maxItems": 2},
+          "source_canvas": {"type": "array", "items": {"type": "integer"}, "minItems": 2, "maxItems": 2},
+          "attached_to": {"type": "string"},
+          "text": {"type": ["string", "null"]},
+          "facing": {"type": "string"},
+          "context": {"type": "string"},
+          "source_clause": {"type": "string"},
+          "style_tags": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}
+

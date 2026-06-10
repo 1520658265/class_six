@@ -1,0 +1,36 @@
+{
+  "target_id": "scarecrow_01",
+  "asset_id": "scarecrow_01",
+  "sprite_path": "scarecrow_01.png",
+  "category": "thin_prop",
+  "footprint": [
+    1,
+    2
+  ],
+  "source_canvas": [
+    128,
+    192
+  ],
+  "prompt": {
+    "target_id": "scarecrow_01",
+    "body": "Slim scarecrow sprite standing beside a track in a golden wheat field, bamboo pole frame, straw body, old cloth shirt and simple straw hat, clear silhouette for 32px tile RPG map.",
+    "emphasis": [
+      "scarecrow",
+      "straw",
+      "bamboo_pole",
+      "rural_field"
+    ],
+    "negative": [
+      "text",
+      "watermark",
+      "background",
+      "photorealistic",
+      "white background"
+    ]
+  },
+  "full_prompt": "TASK: Create one isolated transparent PNG sprite asset for an RPG map object.\nSlim scarecrow sprite standing beside a track in a golden wheat field, bamboo pole frame, straw body, old cloth shirt and simple straw hat, clear silhouette for 32px tile RPG map.\n\nAsset contract:\n- Target id: scarecrow_01\n- Category: thin_prop\n- Source canvas: 128x192 px\n- Footprint in map: 1x2 tiles\n- Runtime size: 64x128 px\n- Tile size: 64x64 px\n- Anchor: bottom_center\n\nOutput requirements:\n- Pixel art, top-down 3/4 RPG view.\n- Transparent background only; no terrain, no floor, no scene background.\n- Draw exactly this object, centered and readable.",
+  "variants_requested": 1,
+  "generator": "mock",
+  "actual_seed": 202607136,
+  "response_metadata": {}
+}

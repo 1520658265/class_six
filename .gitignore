@@ -12,6 +12,12 @@ __pycache__/
 *.pyc
 *.py[cod]
 
+# Local test outputs
+asset_general_system/tmp/
+asset_general_system/tmp_*/
+asset_general_system/.pytest_cache/
+asset_general_system/pytest-cache-files-*/
+
 # OS
 .DS_Store
 Thumbs.db

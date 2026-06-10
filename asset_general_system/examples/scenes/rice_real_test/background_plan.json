@@ -1,0 +1,757 @@
+{
+  "version": "1.0",
+  "kind": "background_plan",
+  "scene_id": "rice_real_test",
+  "concept_image": "concept/gemini_check_concept.jpg",
+  "tile_size": [
+    64,
+    64
+  ],
+  "map_size": [
+    64,
+    64
+  ],
+  "image_size": [
+    1024,
+    1024
+  ],
+  "review_items": [
+    {
+      "id": "wheat_field_01",
+      "asset_id": "wheat_field_01",
+      "kind": "base_terrain",
+      "display_name": "金色麦田",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Large uniform terrain is often a good extraction candidate if the concept image has a clean patch."
+    },
+    {
+      "id": "road_cross_01:road_center",
+      "asset_id": "road_cross_01_road_center",
+      "kind": "composite_part",
+      "composite_id": "road_cross_01",
+      "part_key": "road_center",
+      "display_name": "道路中心",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+    },
+    {
+      "id": "road_cross_01:road_edge_top",
+      "asset_id": "road_cross_01_road_edge_top",
+      "kind": "composite_part",
+      "composite_id": "road_cross_01",
+      "part_key": "road_edge_top",
+      "display_name": "道路上边缘",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+    },
+    {
+      "id": "road_cross_01:road_edge_bottom",
+      "asset_id": "road_cross_01_road_edge_bottom",
+      "kind": "composite_part",
+      "composite_id": "road_cross_01",
+      "part_key": "road_edge_bottom",
+      "display_name": "道路下边缘",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+    },
+    {
+      "id": "road_cross_01:road_edge_left",
+      "asset_id": "road_cross_01_road_edge_left",
+      "kind": "composite_part",
+      "composite_id": "road_cross_01",
+      "part_key": "road_edge_left",
+      "display_name": "道路左边缘",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+    },
+    {
+      "id": "road_cross_01:road_edge_right",
+      "asset_id": "road_cross_01_road_edge_right",
+      "kind": "composite_part",
+      "composite_id": "road_cross_01",
+      "part_key": "road_edge_right",
+      "display_name": "道路右边缘",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+    },
+    {
+      "id": "oval_track_01:track_center",
+      "asset_id": "oval_track_01_track_center",
+      "kind": "composite_part",
+      "composite_id": "oval_track_01",
+      "part_key": "track_center",
+      "display_name": "跑道中心段",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+    },
+    {
+      "id": "oval_track_01:track_curve_top_left",
+      "asset_id": "oval_track_01_track_curve_top_left",
+      "kind": "composite_part",
+      "composite_id": "oval_track_01",
+      "part_key": "track_curve_top_left",
+      "display_name": "跑道左上弧形",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+    },
+    {
+      "id": "oval_track_01:track_curve_top_right",
+      "asset_id": "oval_track_01_track_curve_top_right",
+      "kind": "composite_part",
+      "composite_id": "oval_track_01",
+      "part_key": "track_curve_top_right",
+      "display_name": "跑道右上弧形",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+    },
+    {
+      "id": "oval_track_01:track_curve_bottom_left",
+      "asset_id": "oval_track_01_track_curve_bottom_left",
+      "kind": "composite_part",
+      "composite_id": "oval_track_01",
+      "part_key": "track_curve_bottom_left",
+      "display_name": "跑道左下弧形",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+    },
+    {
+      "id": "oval_track_01:track_curve_bottom_right",
+      "asset_id": "oval_track_01_track_curve_bottom_right",
+      "kind": "composite_part",
+      "composite_id": "oval_track_01",
+      "part_key": "track_curve_bottom_right",
+      "display_name": "跑道右下弧形",
+      "method": "extract_or_regenerate",
+      "status": "pending_review",
+      "crop_rect": null,
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+    }
+  ],
+  "background_entities": [
+    {
+      "id": "road_cross_01",
+      "source_target_id": "road_cross_01_source",
+      "type": "road_cross",
+      "display_name": "十字道路",
+      "footprint": [
+        9,
+        9
+      ],
+      "layout": [
+        {
+          "part": "road_edge_top",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "part": "road_edge_top",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "part": "road_edge_bottom",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "part": "road_edge_bottom",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 8
+        }
+      ],
+      "parts": [
+        {
+          "id": "road_cross_01:road_center",
+          "asset_id": "road_cross_01_road_center",
+          "kind": "composite_part",
+          "composite_id": "road_cross_01",
+          "part_key": "road_center",
+          "display_name": "道路中心",
+          "method": "extract_or_regenerate",
+          "status": "pending_review",
+          "crop_rect": null,
+          "target_size": [
+            64,
+            64
+          ],
+          "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+        },
+        {
+          "id": "road_cross_01:road_edge_top",
+          "asset_id": "road_cross_01_road_edge_top",
+          "kind": "composite_part",
+          "composite_id": "road_cross_01",
+          "part_key": "road_edge_top",
+          "display_name": "道路上边缘",
+          "method": "extract_or_regenerate",
+          "status": "pending_review",
+          "crop_rect": null,
+          "target_size": [
+            64,
+            64
+          ],
+          "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+        },
+        {
+          "id": "road_cross_01:road_edge_bottom",
+          "asset_id": "road_cross_01_road_edge_bottom",
+          "kind": "composite_part",
+          "composite_id": "road_cross_01",
+          "part_key": "road_edge_bottom",
+          "display_name": "道路下边缘",
+          "method": "extract_or_regenerate",
+          "status": "pending_review",
+          "crop_rect": null,
+          "target_size": [
+            64,
+            64
+          ],
+          "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+        },
+        {
+          "id": "road_cross_01:road_edge_left",
+          "asset_id": "road_cross_01_road_edge_left",
+          "kind": "composite_part",
+          "composite_id": "road_cross_01",
+          "part_key": "road_edge_left",
+          "display_name": "道路左边缘",
+          "method": "extract_or_regenerate",
+          "status": "pending_review",
+          "crop_rect": null,
+          "target_size": [
+            64,
+            64
+          ],
+          "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+        },
+        {
+          "id": "road_cross_01:road_edge_right",
+          "asset_id": "road_cross_01_road_edge_right",
+          "kind": "composite_part",
+          "composite_id": "road_cross_01",
+          "part_key": "road_edge_right",
+          "display_name": "道路右边缘",
+          "method": "extract_or_regenerate",
+          "status": "pending_review",
+          "crop_rect": null,
+          "target_size": [
+            64,
+            64
+          ],
+          "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+        }
+      ]
+    },
+    {
+      "id": "oval_track_01",
+      "source_target_id": "oval_track_01_source",
+      "type": "oval_track",
+      "display_name": "环形跑道",
+      "footprint": [
+        9,
+        7
+      ],
+      "layout": [
+        {
+          "part": "track_curve_top_left",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "part": "track_curve_top_right",
+          "x": 8,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "part": "track_center",
+          "x": 8,
+          "y": 1
+        },
+        {
+          "part": "track_center",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "part": "track_center",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "part": "track_center",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "part": "track_center",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "part": "track_center",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "part": "track_center",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "part": "track_center",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "part": "track_center",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "part": "track_curve_bottom_left",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 6,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "part": "track_curve_bottom_right",
+          "x": 8,
+          "y": 6
+        }
+      ],
+      "parts": [
+        {
+          "id": "oval_track_01:track_center",
+          "asset_id": "oval_track_01_track_center",
+          "kind": "composite_part",
+          "composite_id": "oval_track_01",
+          "part_key": "track_center",
+          "display_name": "跑道中心段",
+          "method": "extract_or_regenerate",
+          "status": "pending_review",
+          "crop_rect": null,
+          "target_size": [
+            64,
+            64
+          ],
+          "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+        },
+        {
+          "id": "oval_track_01:track_curve_top_left",
+          "asset_id": "oval_track_01_track_curve_top_left",
+          "kind": "composite_part",
+          "composite_id": "oval_track_01",
+          "part_key": "track_curve_top_left",
+          "display_name": "跑道左上弧形",
+          "method": "extract_or_regenerate",
+          "status": "pending_review",
+          "crop_rect": null,
+          "target_size": [
+            64,
+            64
+          ],
+          "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+        },
+        {
+          "id": "oval_track_01:track_curve_top_right",
+          "asset_id": "oval_track_01_track_curve_top_right",
+          "kind": "composite_part",
+          "composite_id": "oval_track_01",
+          "part_key": "track_curve_top_right",
+          "display_name": "跑道右上弧形",
+          "method": "extract_or_regenerate",
+          "status": "pending_review",
+          "crop_rect": null,
+          "target_size": [
+            64,
+            64
+          ],
+          "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+        },
+        {
+          "id": "oval_track_01:track_curve_bottom_left",
+          "asset_id": "oval_track_01_track_curve_bottom_left",
+          "kind": "composite_part",
+          "composite_id": "oval_track_01",
+          "part_key": "track_curve_bottom_left",
+          "display_name": "跑道左下弧形",
+          "method": "extract_or_regenerate",
+          "status": "pending_review",
+          "crop_rect": null,
+          "target_size": [
+            64,
+            64
+          ],
+          "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+        },
+        {
+          "id": "oval_track_01:track_curve_bottom_right",
+          "asset_id": "oval_track_01_track_curve_bottom_right",
+          "kind": "composite_part",
+          "composite_id": "oval_track_01",
+          "part_key": "track_curve_bottom_right",
+          "display_name": "跑道右下弧形",
+          "method": "extract_or_regenerate",
+          "status": "pending_review",
+          "crop_rect": null,
+          "target_size": [
+            64,
+            64
+          ],
+          "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."
+        }
+      ]
+    }
+  ],
+  "foreground_objects": [
+    {
+      "id": "scarecrow_01",
+      "category": "thin_prop",
+      "display_name": "稻草人",
+      "placement_zone": "track_01"
+    }
+  ]
+}

@@ -20,6 +20,19 @@ from typing import Callable
 sys.path.insert(0, str(Path(__file__).parent))
 
 
+SCENE_COMMANDS = {
+    "scene-background-assets",
+    "scene-background-plan",
+    "scene-background-review",
+    "scene-concept",
+    "scene-map-build",
+    "scene-images",
+    "scene-pack",
+    "scene-status",
+    "scene-validate",
+}
+
+
 ASSET_TYPES = ("object", "character", "vfx", "map")
 STYLE_VALUES = ("pixel_art", "hand_drawn", "low_poly", "realistic")
 FOUR_DIRECTIONS = ["down", "left", "right", "up"]
@@ -2024,6 +2037,11 @@ def resolve_cli_description(args: argparse.Namespace) -> str | None:
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] in SCENE_COMMANDS:
+        from generator.scene.cli import main as scene_main
+
+        sys.exit(scene_main(sys.argv[1:]))
+
     parser = argparse.ArgumentParser(
         description="AI RPG 素材生成器 - 输入描述，生成素材",
         formatter_class=argparse.RawDescriptionHelpFormatter,

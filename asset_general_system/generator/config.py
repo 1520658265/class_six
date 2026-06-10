@@ -52,6 +52,7 @@ TILES: dict[str, TileDef] = {
     "wild_grass": TileDef(30, "wild_grass", (73, 132, 61), True, ("ground_detail", "grass", "walkable")),
     "wild_flower": TileDef(31, "wild_flower", (218, 177, 91), True, ("ground_detail", "flower", "walkable")),
     "worn_playground": TileDef(32, "worn_playground", (139, 74, 48), True, ("ground_detail", "playground", "worn", "walkable")),
+    "wheat_field": TileDef(33, "wheat_field", (218, 183, 67), True, ("terrain", "wheat", "field", "walkable")),
 }
 
 TILE_ID_BY_NAME = {tile.name: tile.tile_id for tile in TILES.values()}
@@ -68,4 +69,5 @@ THEME_DEFAULT_TERRAIN = {
     "desert_ruins": "sand",
     "seaside_village": "grass",
     "school_campus": "grass",
+    "golden_rice_field": "wheat_field",
 }

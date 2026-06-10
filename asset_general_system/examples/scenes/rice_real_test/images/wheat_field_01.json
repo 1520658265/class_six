@@ -1,0 +1,51 @@
+{
+  "target_id": "wheat_field_01",
+  "asset_id": "wheat_field_01",
+  "sprite_path": "wheat_field_01.png",
+  "category": "terrain_tile",
+  "footprint": [
+    1,
+    1
+  ],
+  "source_canvas": [
+    64,
+    64
+  ],
+  "prompt": {
+    "target_id": "wheat_field_01",
+    "body": "Seamless 64x64 golden wheat field terrain tile for a top-down 3/4 RPG tilemap, mature harvest wheat filling the whole tile, no other ground type.",
+    "emphasis": [
+      "golden_wheat",
+      "seamless_tile",
+      "base_terrain"
+    ],
+    "negative": [
+      "text",
+      "watermark",
+      "background",
+      "photorealistic",
+      "white background"
+    ]
+  },
+  "full_prompt": "TASK: Create one opaque seamless terrain tile for an RPG tilemap.\nSeamless 64x64 golden wheat field terrain tile for a top-down 3/4 RPG tilemap, mature harvest wheat filling the whole tile, no other ground type.\n\nAsset contract:\n- Target id: wheat_field_01\n- Category: terrain_tile\n- Source canvas: 64x64 px\n- Tile size: 64x64 px\n\nOutput requirements:\n- Pixel art, top-down 3/4 RPG view.\n- Fill the entire canvas edge-to-edge with the terrain texture.\n- Seamless/tileable on all four sides.\n- Opaque PNG only; no alpha, no empty margin, no cutout, no object silhouette.\n- Draw only the requested base terrain; no roads, tracks, props, buildings, text, sky, or UI frame.",
+  "variants_requested": 1,
+  "generator": "pixai/pixellab-v2-pixen",
+  "actual_seed": 202612303,
+  "response_metadata": {
+    "script_path": "D:\\PersonalProject\\class_six\\tools\\ai\\pixellab_v2_client.py",
+    "api": "create_pixen",
+    "requested_size": [
+      64,
+      64
+    ],
+    "generation_size": [
+      64,
+      64
+    ],
+    "resized": false,
+    "usage": {
+      "type": "generations",
+      "generations": 1.0
+    }
+  }
+}

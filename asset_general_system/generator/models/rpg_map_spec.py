@@ -46,6 +46,42 @@ class EntitySpec(StrictModel):
     placement: str | None = None
 
 
+class BaseTerrainSpec(StrictModel):
+    object_key: str
+    display_name: str
+    tile: str = "grass"
+    source_clause: str | None = None
+    source_canvas: list[int] = Field(default_factory=lambda: [32, 32])
+    properties: dict[str, Any] = Field(default_factory=dict)
+
+
+class CompositePartSpec(StrictModel):
+    key: str
+    display_name: str
+    source_clause: str | None = None
+    source_canvas: list[int] = Field(default_factory=lambda: [32, 32])
+    blocking: bool = False
+    properties: dict[str, Any] = Field(default_factory=dict)
+
+
+class CompositeLayoutCellSpec(StrictModel):
+    part: str
+    x: int = Field(ge=0)
+    y: int = Field(ge=0)
+
+
+class CompositeSpec(StrictModel):
+    id: str
+    type: str
+    placement: str
+    display_name: str
+    footprint: list[int]
+    source_clause: str | None = None
+    parts: list[CompositePartSpec]
+    layout: list[CompositeLayoutCellSpec]
+    properties: dict[str, Any] = Field(default_factory=dict)
+
+
 class ConstraintsSpec(StrictModel):
     walkable_spawn: bool = True
     connect_key_regions: bool = True
@@ -58,10 +94,13 @@ class RPGMapSpec(StrictModel):
     id: str
     title: str
     theme: str
+    art_tile_size: int | None = Field(default=None, ge=8, le=256)
     map: MapConfig
     regions: list[RegionSpec] = Field(default_factory=list)
     paths: list[PathSpec] = Field(default_factory=list)
     objects: list[ObjectSpec] = Field(default_factory=list)
+    base_terrain: BaseTerrainSpec | None = None
+    composites: list[CompositeSpec] = Field(default_factory=list)
     entities: list[EntitySpec] = Field(default_factory=list)
     constraints: ConstraintsSpec = Field(default_factory=ConstraintsSpec)
     seed: int

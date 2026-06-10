@@ -154,7 +154,10 @@ class MockImageGenerator(ImageGenerator):
             )
 
         # Create placeholder image
-        img = Image.new("RGBA", request.size, (0, 0, 0, 0))
+        if request.transparency == TransparencyMode.OPAQUE:
+            img = Image.new("RGBA", request.size, (130, 140, 120, 255))
+        else:
+            img = Image.new("RGBA", request.size, (0, 0, 0, 0))
         draw = ImageDraw.Draw(img)
 
         # Draw a simple shape based on prompt
@@ -167,9 +170,9 @@ class MockImageGenerator(ImageGenerator):
             color = (139, 69, 19, 255)
 
         # Draw a simple rectangle
-        margin = max(1, min(request.size) // 4)
+        margin = 0 if request.transparency == TransparencyMode.OPAQUE else max(1, min(request.size) // 4)
         draw.rectangle(
-            [margin, margin, request.size[0] - margin, request.size[1] - margin],
+            [margin, margin, request.size[0] - margin - 1, request.size[1] - margin - 1],
             fill=color
         )
 

@@ -1,0 +1,18 @@
+{
+  "target_id": "oval_track_01_track_center_23",
+  "asset_id": "oval_track_01_track_center_23",
+  "sprite_path": "oval_track_01_track_center_23.png",
+  "category": "composite_slice",
+  "source_generation_id": "oval_track_01_source",
+  "part": "track_center",
+  "grid_position": [
+    6,
+    6
+  ],
+  "source_rect": [
+    384,
+    384,
+    64,
+    64
+  ]
+}

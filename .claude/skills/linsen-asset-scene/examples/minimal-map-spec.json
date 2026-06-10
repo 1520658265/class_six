@@ -1,0 +1,181 @@
+{
+  "version": "1.0.0",
+  "id": "minimal_tilemap_scene",
+  "title": "Minimal Tilemap Scene",
+  "theme": "golden_rice_field",
+  "map": {
+    "width": 32,
+    "height": 32,
+    "tile_width": 32,
+    "tile_height": 32,
+    "orientation": "orthogonal"
+  },
+  "regions": [
+    {
+      "id": "crossroad_01",
+      "type": "crossroad",
+      "position": "bottom_left",
+      "size": "medium",
+      "priority": 90
+    },
+    {
+      "id": "track_01",
+      "type": "track",
+      "position": "top_right",
+      "size": "medium",
+      "priority": 85
+    }
+  ],
+  "paths": [],
+  "objects": [
+    {
+      "type": "thin_prop",
+      "count": 1,
+      "placement": "track_01",
+      "label": "Scarecrow",
+      "properties": {
+        "object_key": "scarecrow",
+        "display_name": "Scarecrow",
+        "source_clause": "A scarecrow stands beside the track.",
+        "facing": "faces_south",
+        "footprint": "1x2",
+        "source_canvas": [64, 96],
+        "blocking": true
+      }
+    }
+  ],
+  "base_terrain": {
+    "object_key": "wheat_field",
+    "display_name": "Golden Wheat Field",
+    "tile": "wheat_field",
+    "source_clause": "The whole scene background is a golden wheat field.",
+    "source_canvas": [32, 32],
+    "properties": {
+      "appearance": "seamless golden wheat field terrain tile"
+    }
+  },
+  "composites": [
+    {
+      "id": "road_cross_01",
+      "type": "road_cross",
+      "placement": "crossroad_01",
+      "display_name": "Crossroad",
+      "footprint": [5, 5],
+      "source_clause": "A cross-shaped road in the lower-left corner.",
+      "parts": [
+        {
+          "key": "road_center",
+          "display_name": "Road Center",
+          "source_clause": "Road center tile without edge.",
+          "source_canvas": [32, 32],
+          "blocking": false
+        },
+        {
+          "key": "road_edge_top",
+          "display_name": "Road Top Edge",
+          "source_clause": "Road tile with wheat edge on top.",
+          "source_canvas": [32, 32],
+          "blocking": false
+        },
+        {
+          "key": "road_edge_bottom",
+          "display_name": "Road Bottom Edge",
+          "source_clause": "Road tile with wheat edge on bottom.",
+          "source_canvas": [32, 32],
+          "blocking": false
+        },
+        {
+          "key": "road_edge_left",
+          "display_name": "Road Left Edge",
+          "source_clause": "Road tile with wheat edge on left.",
+          "source_canvas": [32, 32],
+          "blocking": false
+        },
+        {
+          "key": "road_edge_right",
+          "display_name": "Road Right Edge",
+          "source_clause": "Road tile with wheat edge on right.",
+          "source_canvas": [32, 32],
+          "blocking": false
+        }
+      ],
+      "layout": [
+        {"part": "road_edge_left", "x": 2, "y": 0},
+        {"part": "road_center", "x": 2, "y": 1},
+        {"part": "road_center", "x": 0, "y": 2},
+        {"part": "road_center", "x": 1, "y": 2},
+        {"part": "road_center", "x": 2, "y": 2},
+        {"part": "road_center", "x": 3, "y": 2},
+        {"part": "road_center", "x": 4, "y": 2},
+        {"part": "road_center", "x": 2, "y": 3},
+        {"part": "road_edge_right", "x": 2, "y": 4}
+      ]
+    },
+    {
+      "id": "oval_track_01",
+      "type": "oval_track",
+      "placement": "track_01",
+      "display_name": "Oval Track",
+      "footprint": [5, 3],
+      "source_clause": "A small oval track in the upper-right corner.",
+      "parts": [
+        {
+          "key": "track_center",
+          "display_name": "Track Center",
+          "source_clause": "Track center tile.",
+          "source_canvas": [32, 32],
+          "blocking": false
+        },
+        {
+          "key": "track_curve_top_left",
+          "display_name": "Track Top Left Curve",
+          "source_clause": "Top-left curved track tile.",
+          "source_canvas": [32, 32],
+          "blocking": false
+        },
+        {
+          "key": "track_curve_top_right",
+          "display_name": "Track Top Right Curve",
+          "source_clause": "Top-right curved track tile.",
+          "source_canvas": [32, 32],
+          "blocking": false
+        },
+        {
+          "key": "track_curve_bottom_left",
+          "display_name": "Track Bottom Left Curve",
+          "source_clause": "Bottom-left curved track tile.",
+          "source_canvas": [32, 32],
+          "blocking": false
+        },
+        {
+          "key": "track_curve_bottom_right",
+          "display_name": "Track Bottom Right Curve",
+          "source_clause": "Bottom-right curved track tile.",
+          "source_canvas": [32, 32],
+          "blocking": false
+        }
+      ],
+      "layout": [
+        {"part": "track_curve_top_left", "x": 0, "y": 0},
+        {"part": "track_center", "x": 1, "y": 0},
+        {"part": "track_center", "x": 2, "y": 0},
+        {"part": "track_center", "x": 3, "y": 0},
+        {"part": "track_curve_top_right", "x": 4, "y": 0},
+        {"part": "track_curve_bottom_left", "x": 0, "y": 2},
+        {"part": "track_center", "x": 1, "y": 2},
+        {"part": "track_center", "x": 2, "y": 2},
+        {"part": "track_center", "x": 3, "y": 2},
+        {"part": "track_curve_bottom_right", "x": 4, "y": 2}
+      ]
+    }
+  ],
+  "entities": [],
+  "constraints": {
+    "walkable_spawn": true,
+    "connect_key_regions": true,
+    "no_blocked_doors": true,
+    "objects_require_walkable_neighbor": true
+  },
+  "seed": 20260609,
+  "tileset_id": "default_rpg_32"
+}

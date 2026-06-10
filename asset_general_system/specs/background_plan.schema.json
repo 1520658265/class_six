@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Scene Background Plan",
+  "type": "object",
+  "required": ["version", "kind", "concept_image", "tile_size", "map_size", "review_items"],
+  "properties": {
+    "version": {"type": "string"},
+    "kind": {"const": "background_plan"},
+    "scene_id": {"type": "string"},
+    "concept_image": {"type": "string"},
+    "tile_size": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"type": "integer", "minimum": 1}
+    },
+    "map_size": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"type": "integer", "minimum": 1}
+    },
+    "image_size": {
+      "type": ["array", "null"],
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {"type": "integer", "minimum": 1}
+    },
+    "review_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "method", "status"],
+        "properties": {
+          "id": {"type": "string"},
+          "asset_id": {"type": "string"},
+          "kind": {"type": "string"},
+          "display_name": {"type": ["string", "null"]},
+          "method": {
+            "enum": ["extract_or_regenerate", "extract_from_concept", "extract_and_cleanup", "regenerate", "ignore"]
+          },
+          "status": {"type": "string"},
+          "crop_rect": {
+            "type": ["array", "null"],
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {"type": "number", "minimum": 0}
+          },
+          "target_size": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {"type": "integer", "minimum": 1}
+          },
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "background_entities": {"type": "array"},
+    "foreground_objects": {"type": "array"}
+  },
+  "additionalProperties": true
+}

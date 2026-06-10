@@ -10,6 +10,7 @@ from __future__ import annotations
 import base64
 import json
 import os
+import re
 import sys
 import tempfile
 import time
@@ -84,8 +85,9 @@ class GeminiImageGenerator(ImageGenerator):
             )
 
         self.config = config
-        self.max_attempts = 4
-        self.retry_delay = 2.0
+        self.max_attempts = int(os.getenv("GEMINI_IMAGE_MAX_ATTEMPTS", "4"))
+        self.retry_delay = float(os.getenv("GEMINI_IMAGE_RETRY_DELAY", "2.0"))
+        self.timeout = float(os.getenv("GEMINI_IMAGE_TIMEOUT", "300"))
 
     def generate(self, request: ImageGenerationRequest) -> ImageGenerationResponse:
         """
@@ -129,11 +131,11 @@ class GeminiImageGenerator(ImageGenerator):
                     endpoint,
                     data=json.dumps(payload).encode("utf-8"),
                     headers={"Content-Type": "application/json"},
-                    timeout=300,
+                    timeout=self.timeout,
                 )
 
                 if resp.status_code != 200:
-                    last_error = f"HTTP {resp.status_code}: {resp.text[:500]}"
+                    last_error = self._redact_sensitive(f"HTTP {resp.status_code}: {resp.text[:500]}")
                     if attempt < self.max_attempts:
                         time.sleep(self.retry_delay * attempt)
                         continue
@@ -156,9 +158,7 @@ class GeminiImageGenerator(ImageGenerator):
                         img_data = base64.b64decode(inline.get("data", ""))
                         output_path.write_bytes(img_data)
 
-                        # 后处理：透明背景
-                        if request.transparency == TransparencyMode.REQUIRED:
-                            output_path = self._ensure_transparency(output_path, request.size, request.style)
+                        output_path = self._normalize_output(output_path, request.size, request.style, request.transparency)
 
                         return ImageGenerationResponse(
                             success=True,
@@ -170,19 +170,25 @@ class GeminiImageGenerator(ImageGenerator):
                 # 没有图像
                 return ImageGenerationResponse(
                     success=False,
-                    error=f"Gemini 未返回图像: {json.dumps(data, ensure_ascii=False)[:500]}",
+                    error=self._redact_sensitive(f"Gemini 未返回图像: {json.dumps(data, ensure_ascii=False)[:500]}"),
                 )
 
             except requests.exceptions.RequestException as e:
-                last_error = str(e)
+                last_error = self._redact_sensitive(str(e))
                 if attempt < self.max_attempts:
                     time.sleep(self.retry_delay * attempt)
                     continue
 
         return ImageGenerationResponse(
             success=False,
-            error=f"Gemini 请求失败（{self.max_attempts} 次尝试）: {last_error}",
+            error=self._redact_sensitive(f"Gemini 请求失败（{self.max_attempts} 次尝试）: {last_error}"),
         )
+
+    def _redact_sensitive(self, text: str) -> str:
+        """Remove API credentials from errors before they are persisted."""
+        redacted = text.replace(str(self.config.get("api_key", "")), "[REDACTED]") if self.config.get("api_key") else text
+        redacted = re.sub(r"([?&]key=)[^&\s)]+", r"\1[REDACTED]", redacted)
+        return redacted
 
     def _build_prompt(self, request: ImageGenerationRequest) -> str:
         """构建 Gemini 友好的 prompt。"""
@@ -204,9 +210,9 @@ class GeminiImageGenerator(ImageGenerator):
         # 透明背景
         if request.transparency == TransparencyMode.REQUIRED:
             parts.append(
-                "Output must use real PNG alpha transparency outside the object. No white, gray, black, checkerboard, or fake transparent background."
+                "Use a perfectly flat solid #ff00ff chroma-key background outside the object for post-processing removal. The background must be one uniform color with no shadows, gradients, texture, floor plane, reflection, or lighting variation."
             )
-            parts.append("Generate an isolated object sprite only; no background elements.")
+            parts.append("Do not use #ff00ff anywhere in the object. Generate an isolated object sprite only; no background elements, no contact shadow, no cast shadow.")
         elif request.transparency == TransparencyMode.OPAQUE:
             parts.append("Output should be opaque and fill the requested image area.")
 
@@ -246,16 +252,18 @@ class GeminiImageGenerator(ImageGenerator):
         else:
             return "16:9"
 
-    def _ensure_transparency(
+    def _normalize_output(
         self,
         image_path: Path,
         target_size: tuple[int, int],
         style: ImageStyle | None = None,
+        transparency: TransparencyMode = TransparencyMode.REQUIRED,
     ) -> Path:
         """
-        后处理：确保透明背景。
+        后处理：确保透明背景要求并缩放到目标尺寸。
 
-        Gemini 不保证生成透明背景，需要后处理。
+        Gemini 通常返回 1K 图。无论是否要求透明，都必须归一到
+        scene art_request 里的 source_canvas 尺寸。
         """
         try:
             from PIL import Image
@@ -265,14 +273,18 @@ class GeminiImageGenerator(ImageGenerator):
 
         img = Image.open(image_path)
 
-        # 如果已经是 RGBA，检查是否有真正的透明像素
-        if img.mode == "RGBA":
-            # 简单检查：如果大部分边缘是白色/纯色，移除它
-            img = self._remove_background(img)
+        if transparency == TransparencyMode.REQUIRED:
+            if img.mode == "RGBA":
+                # 简单检查：如果大部分边缘是白色/纯色，移除它
+                img = self._remove_chroma_key(img, (255, 0, 255))
+                img = self._remove_background(img)
+            else:
+                # 转换为 RGBA 并移除背景
+                img = img.convert("RGBA")
+                img = self._remove_chroma_key(img, (255, 0, 255))
+                img = self._remove_background(img)
         else:
-            # 转换为 RGBA 并移除背景
             img = img.convert("RGBA")
-            img = self._remove_background(img)
 
         # 缩放到目标尺寸
         if img.size != target_size:
@@ -282,6 +294,20 @@ class GeminiImageGenerator(ImageGenerator):
         # 保存
         img.save(image_path, "PNG")
         return image_path
+
+    def _remove_chroma_key(self, img, key_rgb: tuple[int, int, int], threshold: int = 70):
+        from PIL import Image
+        import numpy as np
+
+        if img.mode != "RGBA":
+            img = img.convert("RGBA")
+        data = np.array(img)
+        key = np.array(key_rgb, dtype=np.int16)
+        diff = np.abs(data[:, :, :3].astype(np.int16) - key)
+        distance = np.sum(diff, axis=2)
+        mask = distance < threshold
+        data[mask, 3] = 0
+        return Image.fromarray(data, mode="RGBA")
 
     def _remove_background(self, img):
         """

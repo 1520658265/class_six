@@ -181,7 +181,6 @@ def test_sprite_sheet_dimensions():
         print(f"  [OK] sprite sheet 尺寸: {sheet_size}")
 
 
-<<<<<<< HEAD
 def test_character_generator_8_direction_walk_sheet():
     """测试 8 方向行走图会写入正确 metadata 和 sheet 尺寸。"""
     print("\n测试 8 方向行走图...")
@@ -230,9 +229,6 @@ def test_character_generator_8_direction_walk_sheet():
 
         print(f"  [OK] 8 方向行走图: {result.asset_id}, sheet={sheet_size}")
 
-
-=======
->>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
 if __name__ == "__main__":
     try:
         print("\n" + "="*60)
@@ -244,10 +240,7 @@ if __name__ == "__main__":
         test_generate_10_characters()
         test_animation_inference()
         test_sprite_sheet_dimensions()
-<<<<<<< HEAD
         test_character_generator_8_direction_walk_sheet()
-=======
->>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
 
         print("\n" + "="*60)
         print("[全部通过] Phase 5 测试通过!")

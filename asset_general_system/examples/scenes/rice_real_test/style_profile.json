@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "inherits": "../../style_defaults.json",
+  "view": "top_down_3_4",
+  "art_style": "pixel_art_32",
+  "palette_mood": "golden_harvest_field",
+  "lighting": "warm_late_afternoon",
+  "weather_tags": ["clear_sky", "dry_harvest_season"],
+  "era_tags": ["rural", "harvest_time"],
+  "atmosphere": "quiet_warm_field",
+  "forbidden": ["text_in_image", "watermark", "extra_scene_elements"]
+}

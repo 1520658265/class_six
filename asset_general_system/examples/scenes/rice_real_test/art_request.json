@@ -1,0 +1,1694 @@
+{
+  "version": "1.0",
+  "kind": "logical_map_art_request",
+  "description": "# rice_real_test\n\n一片金色的稻田，左下角是横穿的十字道路，右上角是一个环形跑道，跑道旁边有一个稻草人。\n",
+  "theme": "golden_rice_field",
+  "seed": 202606091,
+  "map_size": [
+    64,
+    64
+  ],
+  "tile_size": [
+    64,
+    64
+  ],
+  "art_tile_size": [
+    64,
+    64
+  ],
+  "canvas_size": [
+    4096,
+    4096
+  ],
+  "tileset": {
+    "id": "default_rpg_32",
+    "image": "tilesets/default_rpg_32.png",
+    "columns": 16,
+    "tile_count": 33
+  },
+  "layers": {
+    "terrain": {
+      "semantic": "terrain",
+      "width": 64,
+      "height": 64,
+      "visible_by_default": true
+    },
+    "path": {
+      "semantic": "path",
+      "width": 64,
+      "height": 64,
+      "visible_by_default": true
+    },
+    "building": {
+      "semantic": "building",
+      "width": 64,
+      "height": 64,
+      "visible_by_default": true
+    },
+    "decoration": {
+      "semantic": "decoration",
+      "width": 64,
+      "height": 64,
+      "visible_by_default": true
+    },
+    "collision": {
+      "semantic": "collision",
+      "width": 64,
+      "height": 64,
+      "visible_by_default": false
+    }
+  },
+  "generation_targets": [
+    {
+      "id": "road_cross_01_source",
+      "asset_role": "composite_source",
+      "category": "composite_source",
+      "composite_id": "road_cross_01",
+      "composite_type": "road_cross",
+      "display_name": "十字道路",
+      "source_clause": "左下角是横穿的十字道路",
+      "footprint": [
+        9,
+        9
+      ],
+      "source_canvas": [
+        576,
+        576
+      ],
+      "runtime_size": [
+        576,
+        576
+      ],
+      "tile_size": [
+        64,
+        64
+      ],
+      "art_tile_size": [
+        64,
+        64
+      ],
+      "layout": [
+        {
+          "part": "road_edge_top",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 1,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 2,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 3,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 5,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 7,
+          "y": 3
+        },
+        {
+          "part": "road_edge_top",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "part": "road_center",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 1,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 3,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "part": "road_center",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "part": "road_edge_bottom",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 2,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 3,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "part": "road_center",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "part": "road_edge_bottom",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 1
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 1
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 1
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "part": "road_center",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 8
+        }
+      ],
+      "parts": [
+        {
+          "key": "road_center",
+          "display_name": "道路中心",
+          "source_clause": "十字道路的中心铺面，没有边缘",
+          "source_canvas": [
+            32,
+            32
+          ],
+          "blocking": false,
+          "properties": {
+            "appearance": "packed dirt road center tile without grass edge"
+          }
+        },
+        {
+          "key": "road_edge_top",
+          "display_name": "道路上边缘",
+          "source_clause": "道路上边缘，顶部接麦田",
+          "source_canvas": [
+            32,
+            32
+          ],
+          "blocking": false,
+          "properties": {
+            "appearance": "packed dirt road tile with wheat field edge on top"
+          }
+        },
+        {
+          "key": "road_edge_bottom",
+          "display_name": "道路下边缘",
+          "source_clause": "道路下边缘，底部接麦田",
+          "source_canvas": [
+            32,
+            32
+          ],
+          "blocking": false,
+          "properties": {
+            "appearance": "packed dirt road tile with wheat field edge on bottom"
+          }
+        },
+        {
+          "key": "road_edge_left",
+          "display_name": "道路左边缘",
+          "source_clause": "道路左边缘，左侧接麦田",
+          "source_canvas": [
+            32,
+            32
+          ],
+          "blocking": false,
+          "properties": {
+            "appearance": "packed dirt road tile with wheat field edge on left"
+          }
+        },
+        {
+          "key": "road_edge_right",
+          "display_name": "道路右边缘",
+          "source_clause": "道路右边缘，右侧接麦田",
+          "source_canvas": [
+            32,
+            32
+          ],
+          "blocking": false,
+          "properties": {
+            "appearance": "packed dirt road tile with wheat field edge on right"
+          }
+        }
+      ],
+      "slice_outputs": [
+        {
+          "id": "road_cross_01_road_edge_top_01",
+          "part": "road_edge_top",
+          "x": 0,
+          "y": 3,
+          "source_rect": [
+            0,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_01",
+          "part": "road_center",
+          "x": 1,
+          "y": 3,
+          "source_rect": [
+            64,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_02",
+          "part": "road_center",
+          "x": 2,
+          "y": 3,
+          "source_rect": [
+            128,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_03",
+          "part": "road_center",
+          "x": 3,
+          "y": 3,
+          "source_rect": [
+            192,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_04",
+          "part": "road_center",
+          "x": 4,
+          "y": 3,
+          "source_rect": [
+            256,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_05",
+          "part": "road_center",
+          "x": 5,
+          "y": 3,
+          "source_rect": [
+            320,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_06",
+          "part": "road_center",
+          "x": 6,
+          "y": 3,
+          "source_rect": [
+            384,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_07",
+          "part": "road_center",
+          "x": 7,
+          "y": 3,
+          "source_rect": [
+            448,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_top_02",
+          "part": "road_edge_top",
+          "x": 8,
+          "y": 3,
+          "source_rect": [
+            512,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_08",
+          "part": "road_center",
+          "x": 0,
+          "y": 4,
+          "source_rect": [
+            0,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_09",
+          "part": "road_center",
+          "x": 1,
+          "y": 4,
+          "source_rect": [
+            64,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_10",
+          "part": "road_center",
+          "x": 2,
+          "y": 4,
+          "source_rect": [
+            128,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_11",
+          "part": "road_center",
+          "x": 3,
+          "y": 4,
+          "source_rect": [
+            192,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_12",
+          "part": "road_center",
+          "x": 4,
+          "y": 4,
+          "source_rect": [
+            256,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_13",
+          "part": "road_center",
+          "x": 5,
+          "y": 4,
+          "source_rect": [
+            320,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_14",
+          "part": "road_center",
+          "x": 6,
+          "y": 4,
+          "source_rect": [
+            384,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_15",
+          "part": "road_center",
+          "x": 7,
+          "y": 4,
+          "source_rect": [
+            448,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_16",
+          "part": "road_center",
+          "x": 8,
+          "y": 4,
+          "source_rect": [
+            512,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_bottom_01",
+          "part": "road_edge_bottom",
+          "x": 0,
+          "y": 5,
+          "source_rect": [
+            0,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_17",
+          "part": "road_center",
+          "x": 1,
+          "y": 5,
+          "source_rect": [
+            64,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_18",
+          "part": "road_center",
+          "x": 2,
+          "y": 5,
+          "source_rect": [
+            128,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_19",
+          "part": "road_center",
+          "x": 3,
+          "y": 5,
+          "source_rect": [
+            192,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_20",
+          "part": "road_center",
+          "x": 4,
+          "y": 5,
+          "source_rect": [
+            256,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_21",
+          "part": "road_center",
+          "x": 5,
+          "y": 5,
+          "source_rect": [
+            320,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_22",
+          "part": "road_center",
+          "x": 6,
+          "y": 5,
+          "source_rect": [
+            384,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_23",
+          "part": "road_center",
+          "x": 7,
+          "y": 5,
+          "source_rect": [
+            448,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_bottom_02",
+          "part": "road_edge_bottom",
+          "x": 8,
+          "y": 5,
+          "source_rect": [
+            512,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_left_01",
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 0,
+          "source_rect": [
+            192,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_24",
+          "part": "road_center",
+          "x": 4,
+          "y": 0,
+          "source_rect": [
+            256,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_right_01",
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 0,
+          "source_rect": [
+            320,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_left_02",
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 1,
+          "source_rect": [
+            192,
+            64,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_25",
+          "part": "road_center",
+          "x": 4,
+          "y": 1,
+          "source_rect": [
+            256,
+            64,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_right_02",
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 1,
+          "source_rect": [
+            320,
+            64,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_left_03",
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 2,
+          "source_rect": [
+            192,
+            128,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_26",
+          "part": "road_center",
+          "x": 4,
+          "y": 2,
+          "source_rect": [
+            256,
+            128,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_right_03",
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 2,
+          "source_rect": [
+            320,
+            128,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_left_04",
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 6,
+          "source_rect": [
+            192,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_27",
+          "part": "road_center",
+          "x": 4,
+          "y": 6,
+          "source_rect": [
+            256,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_right_04",
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 6,
+          "source_rect": [
+            320,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_left_05",
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 7,
+          "source_rect": [
+            192,
+            448,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_28",
+          "part": "road_center",
+          "x": 4,
+          "y": 7,
+          "source_rect": [
+            256,
+            448,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_right_05",
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 7,
+          "source_rect": [
+            320,
+            448,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_left_06",
+          "part": "road_edge_left",
+          "x": 3,
+          "y": 8,
+          "source_rect": [
+            192,
+            512,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_center_29",
+          "part": "road_center",
+          "x": 4,
+          "y": 8,
+          "source_rect": [
+            256,
+            512,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "road_cross_01_road_edge_right_06",
+          "part": "road_edge_right",
+          "x": 5,
+          "y": 8,
+          "source_rect": [
+            320,
+            512,
+            64,
+            64
+          ]
+        }
+      ],
+      "properties": {
+        "shape": "cross",
+        "tilemap_rule": "center plus four directional edge tile assets"
+      }
+    },
+    {
+      "id": "oval_track_01_source",
+      "asset_role": "composite_source",
+      "category": "composite_source",
+      "composite_id": "oval_track_01",
+      "composite_type": "oval_track",
+      "display_name": "环形跑道",
+      "source_clause": "右上角是一个环形跑道",
+      "footprint": [
+        9,
+        7
+      ],
+      "source_canvas": [
+        576,
+        448
+      ],
+      "runtime_size": [
+        576,
+        448
+      ],
+      "tile_size": [
+        64,
+        64
+      ],
+      "art_tile_size": [
+        64,
+        64
+      ],
+      "layout": [
+        {
+          "part": "track_curve_top_left",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 1,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 2,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 3,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 4,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 5,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 6,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 7,
+          "y": 0
+        },
+        {
+          "part": "track_curve_top_right",
+          "x": 8,
+          "y": 0
+        },
+        {
+          "part": "track_center",
+          "x": 0,
+          "y": 1
+        },
+        {
+          "part": "track_center",
+          "x": 8,
+          "y": 1
+        },
+        {
+          "part": "track_center",
+          "x": 0,
+          "y": 2
+        },
+        {
+          "part": "track_center",
+          "x": 8,
+          "y": 2
+        },
+        {
+          "part": "track_center",
+          "x": 0,
+          "y": 3
+        },
+        {
+          "part": "track_center",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "part": "track_center",
+          "x": 0,
+          "y": 4
+        },
+        {
+          "part": "track_center",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "part": "track_center",
+          "x": 0,
+          "y": 5
+        },
+        {
+          "part": "track_center",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "part": "track_curve_bottom_left",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 2,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 4,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 5,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 6,
+          "y": 6
+        },
+        {
+          "part": "track_center",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "part": "track_curve_bottom_right",
+          "x": 8,
+          "y": 6
+        }
+      ],
+      "parts": [
+        {
+          "key": "track_center",
+          "display_name": "跑道中心段",
+          "source_clause": "环形跑道的直线或中段泥土跑道，没有外边缘",
+          "source_canvas": [
+            32,
+            32
+          ],
+          "blocking": false,
+          "properties": {
+            "appearance": "reddish packed earth track center tile"
+          }
+        },
+        {
+          "key": "track_curve_top_left",
+          "display_name": "跑道左上弧形",
+          "source_clause": "环形跑道左上角弧形跑道块",
+          "source_canvas": [
+            32,
+            32
+          ],
+          "blocking": false,
+          "properties": {
+            "appearance": "top-left curved reddish running track tile"
+          }
+        },
+        {
+          "key": "track_curve_top_right",
+          "display_name": "跑道右上弧形",
+          "source_clause": "环形跑道右上角弧形跑道块",
+          "source_canvas": [
+            32,
+            32
+          ],
+          "blocking": false,
+          "properties": {
+            "appearance": "top-right curved reddish running track tile"
+          }
+        },
+        {
+          "key": "track_curve_bottom_left",
+          "display_name": "跑道左下弧形",
+          "source_clause": "环形跑道左下角弧形跑道块",
+          "source_canvas": [
+            32,
+            32
+          ],
+          "blocking": false,
+          "properties": {
+            "appearance": "bottom-left curved reddish running track tile"
+          }
+        },
+        {
+          "key": "track_curve_bottom_right",
+          "display_name": "跑道右下弧形",
+          "source_clause": "环形跑道右下角弧形跑道块",
+          "source_canvas": [
+            32,
+            32
+          ],
+          "blocking": false,
+          "properties": {
+            "appearance": "bottom-right curved reddish running track tile"
+          }
+        }
+      ],
+      "slice_outputs": [
+        {
+          "id": "oval_track_01_track_curve_top_left_01",
+          "part": "track_curve_top_left",
+          "x": 0,
+          "y": 0,
+          "source_rect": [
+            0,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_01",
+          "part": "track_center",
+          "x": 1,
+          "y": 0,
+          "source_rect": [
+            64,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_02",
+          "part": "track_center",
+          "x": 2,
+          "y": 0,
+          "source_rect": [
+            128,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_03",
+          "part": "track_center",
+          "x": 3,
+          "y": 0,
+          "source_rect": [
+            192,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_04",
+          "part": "track_center",
+          "x": 4,
+          "y": 0,
+          "source_rect": [
+            256,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_05",
+          "part": "track_center",
+          "x": 5,
+          "y": 0,
+          "source_rect": [
+            320,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_06",
+          "part": "track_center",
+          "x": 6,
+          "y": 0,
+          "source_rect": [
+            384,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_07",
+          "part": "track_center",
+          "x": 7,
+          "y": 0,
+          "source_rect": [
+            448,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_curve_top_right_01",
+          "part": "track_curve_top_right",
+          "x": 8,
+          "y": 0,
+          "source_rect": [
+            512,
+            0,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_08",
+          "part": "track_center",
+          "x": 0,
+          "y": 1,
+          "source_rect": [
+            0,
+            64,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_09",
+          "part": "track_center",
+          "x": 8,
+          "y": 1,
+          "source_rect": [
+            512,
+            64,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_10",
+          "part": "track_center",
+          "x": 0,
+          "y": 2,
+          "source_rect": [
+            0,
+            128,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_11",
+          "part": "track_center",
+          "x": 8,
+          "y": 2,
+          "source_rect": [
+            512,
+            128,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_12",
+          "part": "track_center",
+          "x": 0,
+          "y": 3,
+          "source_rect": [
+            0,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_13",
+          "part": "track_center",
+          "x": 8,
+          "y": 3,
+          "source_rect": [
+            512,
+            192,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_14",
+          "part": "track_center",
+          "x": 0,
+          "y": 4,
+          "source_rect": [
+            0,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_15",
+          "part": "track_center",
+          "x": 8,
+          "y": 4,
+          "source_rect": [
+            512,
+            256,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_16",
+          "part": "track_center",
+          "x": 0,
+          "y": 5,
+          "source_rect": [
+            0,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_17",
+          "part": "track_center",
+          "x": 8,
+          "y": 5,
+          "source_rect": [
+            512,
+            320,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_curve_bottom_left_01",
+          "part": "track_curve_bottom_left",
+          "x": 0,
+          "y": 6,
+          "source_rect": [
+            0,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_18",
+          "part": "track_center",
+          "x": 1,
+          "y": 6,
+          "source_rect": [
+            64,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_19",
+          "part": "track_center",
+          "x": 2,
+          "y": 6,
+          "source_rect": [
+            128,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_20",
+          "part": "track_center",
+          "x": 3,
+          "y": 6,
+          "source_rect": [
+            192,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_21",
+          "part": "track_center",
+          "x": 4,
+          "y": 6,
+          "source_rect": [
+            256,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_22",
+          "part": "track_center",
+          "x": 5,
+          "y": 6,
+          "source_rect": [
+            320,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_23",
+          "part": "track_center",
+          "x": 6,
+          "y": 6,
+          "source_rect": [
+            384,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_center_24",
+          "part": "track_center",
+          "x": 7,
+          "y": 6,
+          "source_rect": [
+            448,
+            384,
+            64,
+            64
+          ]
+        },
+        {
+          "id": "oval_track_01_track_curve_bottom_right_01",
+          "part": "track_curve_bottom_right",
+          "x": 8,
+          "y": 6,
+          "source_rect": [
+            512,
+            384,
+            64,
+            64
+          ]
+        }
+      ],
+      "properties": {
+        "shape": "oval",
+        "tilemap_rule": "track center plus four corner curve tile assets"
+      }
+    }
+  ],
+  "regions": [
+    {
+      "id": "crossroad_01",
+      "type": "crossroad",
+      "bounds": [
+        6,
+        46,
+        12,
+        12
+      ],
+      "pixel_bounds": [
+        384,
+        2944,
+        768,
+        768
+      ],
+      "center": [
+        12,
+        52
+      ],
+      "access": [
+        12,
+        58
+      ],
+      "priority": 90
+    },
+    {
+      "id": "track_01",
+      "type": "track",
+      "bounds": [
+        46,
+        6,
+        12,
+        12
+      ],
+      "pixel_bounds": [
+        2944,
+        384,
+        768,
+        768
+      ],
+      "center": [
+        52,
+        12
+      ],
+      "access": [
+        52,
+        18
+      ],
+      "priority": 85
+    }
+  ],
+  "objects": [
+    {
+      "id": "wheat_field_01",
+      "asset_id": "wheat_field_01",
+      "asset_role": "base_terrain",
+      "type": "terrain_tile",
+      "display_name": "金色麦田",
+      "object_key": "wheat_field",
+      "category": "terrain_tile",
+      "x": 0,
+      "y": 0,
+      "footprint": [
+        1,
+        1
+      ],
+      "pixel_bounds": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "runtime_size": [
+        64,
+        64
+      ],
+      "source_canvas": [
+        64,
+        64
+      ],
+      "placement_zone": "full_map",
+      "relative_position": "一片金色的麦田，整张地图背景都是麦田",
+      "facing": "east_west",
+      "anchor": "center",
+      "blocking": false,
+      "attached_to": null,
+      "text": null,
+      "activity": null,
+      "source_clause": "一片金色的麦田，整张地图背景都是麦田",
+      "properties": {
+        "appearance": "golden wheat field tile, harvest season, seamless tileable background",
+        "object_key": "wheat_field",
+        "display_name": "金色麦田",
+        "category": "terrain_tile",
+        "facing": "east_west",
+        "footprint": "1x1",
+        "source_canvas": [
+          64,
+          64
+        ],
+        "blocking": false,
+        "anchor": "center",
+        "placement": "full_map",
+        "source_clause": "一片金色的麦田，整张地图背景都是麦田",
+        "asset_role": "base_terrain",
+        "asset_id": "wheat_field_01",
+        "is_asset_target": true,
+        "is_map_instance": false
+      }
+    },
+    {
+      "id": "scarecrow_01",
+      "asset_id": "scarecrow_01",
+      "asset_role": null,
+      "type": "thin_prop",
+      "display_name": "稻草人",
+      "object_key": "scarecrow",
+      "category": "thin_prop",
+      "x": 48,
+      "y": 6,
+      "footprint": [
+        1,
+        2
+      ],
+      "pixel_bounds": [
+        3072,
+        384,
+        64,
+        128
+      ],
+      "runtime_size": [
+        64,
+        128
+      ],
+      "source_canvas": [
+        128,
+        192
+      ],
+      "placement_zone": "track_01",
+      "relative_position": "跑道旁边有一个稻草人",
+      "facing": "faces_south",
+      "anchor": "bottom_center",
+      "blocking": true,
+      "attached_to": null,
+      "text": null,
+      "activity": null,
+      "source_clause": "跑道旁边有一个稻草人",
+      "properties": {
+        "object_key": "scarecrow",
+        "display_name": "稻草人",
+        "source_clause": "跑道旁边有一个稻草人",
+        "facing": "faces_south",
+        "footprint": "1x2",
+        "source_canvas": [
+          128,
+          192
+        ],
+        "blocking": true,
+        "appearance": "straw scarecrow with bamboo pole, old cloth hat, standing beside the track",
+        "label": "稻草人",
+        "category": "thin_prop",
+        "anchor": "bottom_center",
+        "placement": "track_01"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "spawn_01",
+      "type": "player_spawn",
+      "x": 32,
+      "y": 60,
+      "pixel_position": [
+        2048,
+        3840
+      ],
+      "properties": {
+        "direction": "up"
+      }
+    }
+  ]
+}

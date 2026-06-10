@@ -111,7 +111,6 @@ def test_gemini_vfx():
         print(f"  [OK] VFX 生成: {Path(response.image_path).name}")
 
 
-<<<<<<< HEAD
 def test_gemini_prompt_preserves_asset_contract_and_negative_prompt():
     generator = object.__new__(GeminiImageGenerator)
     request = ImageGenerationRequest(
@@ -138,8 +137,6 @@ def test_gemini_prompt_preserves_asset_contract_and_negative_prompt():
     assert "seamless edges" not in prompt
 
 
-=======
->>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
 if __name__ == "__main__":
     print("="*60)
     print("Gemini Imagen 集成测试")

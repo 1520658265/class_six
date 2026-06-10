@@ -1,0 +1,35 @@
+{
+  "target_id": "golden_rice_patch_03",
+  "asset_id": "golden_rice_patch_03",
+  "sprite_path": "golden_rice_patch_03.png",
+  "category": "large_prop",
+  "footprint": [
+    6,
+    4
+  ],
+  "source_canvas": [
+    192,
+    128
+  ],
+  "prompt": {
+    "target_id": "golden_rice_patch_03",
+    "body": "Dense golden rice plants forming a compact field block, harvest-season yellow palette, readable clustered rice silhouette at 32px tile scale.",
+    "emphasis": [
+      "dense_rice",
+      "golden_harvest",
+      "tile_aligned"
+    ],
+    "negative": [
+      "text",
+      "watermark",
+      "background",
+      "photorealistic",
+      "white background"
+    ]
+  },
+  "full_prompt": "TASK: Create one isolated transparent PNG sprite asset for an RPG map object.\nDense golden rice plants forming a compact field block, harvest-season yellow palette, readable clustered rice silhouette at 32px tile scale.\n\nAsset contract:\n- Target id: golden_rice_patch_03\n- Category: large_prop\n- Source canvas: 192x128 px\n- Footprint in map: 6x4 tiles\n- Runtime size: 192x128 px\n- Tile size: 32x32 px\n- Anchor: center\n\nOutput requirements:\n- Pixel art, top-down 3/4 RPG view.\n- Transparent background only; no terrain, no floor, no scene background.\n- Draw exactly this object, centered and readable.",
+  "variants_requested": 1,
+  "generator": "mock",
+  "actual_seed": 202613161,
+  "response_metadata": {}
+}

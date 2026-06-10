@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "scene": "Minimal Tilemap Scene",
+  "entities": [
+    {
+      "target_id": "wheat_field_01",
+      "object_key": "wheat_field",
+      "display_name": "Golden Wheat Field",
+      "category": "terrain_tile",
+      "footprint": [1, 1],
+      "source_canvas": [32, 32],
+      "context": "Base terrain tile filling the whole map.",
+      "source_clause": "The whole scene background is a golden wheat field.",
+      "style_tags": ["golden_wheat", "seamless_tile"]
+    },
+    {
+      "target_id": "road_center_01",
+      "object_key": "road_center",
+      "display_name": "Road Center",
+      "category": "composite_tile",
+      "footprint": [1, 1],
+      "source_canvas": [32, 32],
+      "context": "Reusable road center tile.",
+      "source_clause": "Road center tile without edge.",
+      "style_tags": ["dirt_road", "center_tile"]
+    },
+    {
+      "target_id": "track_curve_top_left_01",
+      "object_key": "track_curve_top_left",
+      "display_name": "Track Top Left Curve",
+      "category": "composite_tile",
+      "footprint": [1, 1],
+      "source_canvas": [32, 32],
+      "context": "Reusable top-left track curve tile.",
+      "source_clause": "Top-left curved track tile.",
+      "style_tags": ["running_track", "curve_tile"]
+    },
+    {
+      "target_id": "scarecrow_01",
+      "object_key": "scarecrow",
+      "display_name": "Scarecrow",
+      "category": "thin_prop",
+      "footprint": [1, 2],
+      "source_canvas": [64, 96],
+      "context": "A slim scarecrow beside the track.",
+      "source_clause": "A scarecrow stands beside the track.",
+      "style_tags": ["scarecrow", "straw"]
+    }
+  ]
+}

@@ -15,7 +15,6 @@ from typing import Any
 class Direction(str, Enum):
     """角色朝向。"""
     DOWN = "down"
-<<<<<<< HEAD
     DOWN_LEFT = "down_left"
     DOWN_RIGHT = "down_right"
     LEFT = "left"
@@ -23,11 +22,6 @@ class Direction(str, Enum):
     UP = "up"
     UP_LEFT = "up_left"
     UP_RIGHT = "up_right"
-=======
-    LEFT = "left"
-    RIGHT = "right"
-    UP = "up"
->>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
 
 
 class AnimationName(str, Enum):

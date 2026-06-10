@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SceneStyleProfile",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "view", "art_style", "forbidden"],
+  "properties": {
+    "version": {"type": "string"},
+    "inherits": {"type": "string"},
+    "view": {"type": "string"},
+    "art_style": {"type": "string"},
+    "palette_mood": {"type": "string"},
+    "lighting": {"type": "string"},
+    "weather_tags": {"type": "array", "items": {"type": "string"}},
+    "era_tags": {"type": "array", "items": {"type": "string"}},
+    "atmosphere": {"type": "string"},
+    "forbidden": {"type": "array", "items": {"type": "string"}}
+  }
+}
+

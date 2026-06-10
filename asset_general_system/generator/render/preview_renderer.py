@@ -46,6 +46,10 @@ class PreviewRenderer:
                         draw.rectangle(rect, outline=(34, 34, 34, 90))
 
         for obj in tilemap.objects:
+            if str((obj.properties or {}).get("render_mode") or "") == "tile_layer":
+                continue
+            if bool((obj.properties or {}).get("is_asset_target")):
+                continue
             rendered = False
             # 优先使用 sprite 图片渲染对象
             if obj.sprite_path:
@@ -67,7 +71,7 @@ class PreviewRenderer:
                     rendered = True
             # 没有 sprite 时使用调试占位渲染
             if not rendered:
-                color = self._placeholder_color(obj.type)
+                color = self._placeholder_color_for_object(obj)
                 rect = [
                     obj.x * tile_width + 3,
                     obj.y * tile_height + 3,
@@ -99,14 +103,21 @@ class PreviewRenderer:
             tileset.close()
         return image
 
-    def ensure_tileset_png(self, path: str | Path) -> None:
+    def ensure_tileset_png(self, path: str | Path, tile_width: int = 32, tile_height: int = 32) -> None:
         path = Path(path)
-        if path.exists():
-            return
-        tile_width = 32
-        tile_height = 32
         columns = 16
-        rows = 2
+        max_tile_id = max(TILES.values(), key=lambda item: item.tile_id).tile_id
+        rows = max(1, ((max_tile_id - 1) // columns) + 1)
+        if path.exists():
+            try:
+                with Image.open(path) as existing:
+                    enough_width = existing.width >= columns * tile_width
+                    enough_height = existing.height >= rows * tile_height
+                    aligned = existing.width % tile_width == 0 and existing.height % tile_height == 0
+                    if enough_width and enough_height and aligned:
+                        return
+            except Exception:
+                pass
         image = Image.new("RGBA", (columns * tile_width, rows * tile_height), (0, 0, 0, 0))
         draw = ImageDraw.Draw(image, "RGBA")
         for tile in TILES.values():
@@ -166,6 +177,17 @@ class PreviewRenderer:
                 except Exception:
                     return None
         return None
+
+    def _placeholder_color_for_object(self, obj) -> tuple[int, int, int, int]:
+        object_key = str((obj.properties or {}).get("object_key") or "")
+        composite_type = str((obj.properties or {}).get("composite_type") or "")
+        if object_key.startswith("road_") or composite_type == "road_cross":
+            return (168, 117, 64, 230)
+        if object_key.startswith("track_") or composite_type == "oval_track":
+            return (178, 82, 54, 230)
+        if object_key.startswith("wheat_") or object_key.startswith("golden_"):
+            return (226, 190, 66, 225)
+        return self._placeholder_color(obj.type)
 
     def _placeholder_color(self, object_type: str) -> tuple[int, int, int, int]:
         colors = {

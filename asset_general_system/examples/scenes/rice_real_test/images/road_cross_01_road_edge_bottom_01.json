@@ -1,0 +1,18 @@
+{
+  "target_id": "road_cross_01_road_edge_bottom_01",
+  "asset_id": "road_cross_01_road_edge_bottom_01",
+  "sprite_path": "road_cross_01_road_edge_bottom_01.png",
+  "category": "composite_slice",
+  "source_generation_id": "road_cross_01_source",
+  "part": "road_edge_bottom",
+  "grid_position": [
+    0,
+    5
+  ],
+  "source_rect": [
+    0,
+    320,
+    64,
+    64
+  ]
+}

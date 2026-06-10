@@ -1,6 +1,18 @@
 from .request import GenerateRequest
 from .reports import GenerationReport, ValidationIssue, ValidationReport
-from .rpg_map_spec import ConstraintsSpec, EntitySpec, MapConfig, ObjectSpec, PathSpec, RegionSpec, RPGMapSpec
+from .rpg_map_spec import (
+    BaseTerrainSpec,
+    CompositeLayoutCellSpec,
+    CompositePartSpec,
+    CompositeSpec,
+    ConstraintsSpec,
+    EntitySpec,
+    MapConfig,
+    ObjectSpec,
+    PathSpec,
+    RegionSpec,
+    RPGMapSpec,
+)
 from .tilemap_data import MapInfo, ObjectData, RegionData, TilemapData, TilesetInfo
 from .asset_metadata import AssetMetadata, AssetKind, AnchorPoint, AssetSourceType, GenerationMetadata, SourceMetadata, VisualBounds
 from .sprite_sheet import (
@@ -28,8 +40,12 @@ __all__ = [
     "AssetKind",
     "AssetMetadata",
     "AssetSourceType",
+    "BaseTerrainSpec",
     "BlendMode",
     "CharacterAnchor",
+    "CompositeLayoutCellSpec",
+    "CompositePartSpec",
+    "CompositeSpec",
     "ConstraintsSpec",
     "Direction",
     "EntitySpec",

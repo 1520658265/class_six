@@ -1,0 +1,34 @@
+{
+  "target_id": "ping_pong_table_01",
+  "asset_id": "ping_pong_table_01",
+  "sprite_path": "ping_pong_table_01.png",
+  "category": "large_prop",
+  "footprint": [
+    3,
+    2
+  ],
+  "source_canvas": [
+    128,
+    96
+  ],
+  "prompt": {
+    "target_id": "ping_pong_table_01",
+    "body": "1998 年县城小学操场里的水泥乒乓球台，绿色边框已经褪色，台面有细裂纹和灰尘，整体厚重结实，适合 32px tile 网格的 RPG 地图物件。",
+    "emphasis": [
+      "weathered_concrete",
+      "faded_green_paint",
+      "school_playground"
+    ],
+    "negative": [
+      "text",
+      "watermark",
+      "background",
+      "photorealistic"
+    ]
+  },
+  "full_prompt": "TASK: Create one isolated transparent PNG sprite asset for an RPG map object.\n1998 年县城小学操场里的水泥乒乓球台，绿色边框已经褪色，台面有细裂纹和灰尘，整体厚重结实，适合 32px tile 网格的 RPG 地图物件。\n\nAsset contract:\n- Target id: ping_pong_table_01\n- Category: large_prop\n- Source canvas: 128x96 px\n- Footprint in map: 3x2 tiles\n- Runtime size: 96x64 px\n- Tile size: 32x32 px\n- Anchor: center\n\nOutput requirements:\n- Pixel art, top-down 3/4 RPG view.\n- Transparent background only; no terrain, no floor, no scene background.\n- Draw exactly this object, centered and readable.",
+  "variants_requested": 1,
+  "generator": "mock",
+  "actual_seed": 20265918,
+  "response_metadata": {}
+}

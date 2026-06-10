@@ -1,0 +1,117 @@
+{
+  "version": "1.0.0",
+  "id": "dingbu_primary_school_1998",
+  "title": "鼎埠县中心小学操场 1998",
+  "theme": "school_campus",
+  "map": {
+    "width": 64,
+    "height": 64,
+    "tile_width": 32,
+    "tile_height": 32,
+    "orientation": "orthogonal"
+  },
+  "regions": [
+    {
+      "id": "school_01",
+      "type": "school",
+      "position": "top",
+      "size": "large",
+      "priority": 95
+    },
+    {
+      "id": "playground_01",
+      "type": "playground",
+      "position": "center",
+      "size": "large",
+      "priority": 90
+    }
+  ],
+  "paths": [
+    {
+      "from": "school_01",
+      "to": "playground_01",
+      "kind": "dirt_road"
+    }
+  ],
+  "objects": [
+    {
+      "type": "building",
+      "count": 1,
+      "placement": "top",
+      "label": "教学楼",
+      "properties": {
+        "object_key": "school_building",
+        "display_name": "教学楼",
+        "source_clause": "教学楼在操场北侧",
+        "facing": "faces_south",
+        "footprint": "10x5",
+        "source_canvas": [320, 160],
+        "blocking": true,
+        "material": "aged brick"
+      }
+    },
+    {
+      "type": "large_prop",
+      "count": 2,
+      "placement": "playground",
+      "label": "水泥乒乓球台",
+      "properties": {
+        "object_key": "ping_pong_table",
+        "display_name": "水泥乒乓球台",
+        "source_clause": "操场东侧有两张水泥乒乓球台",
+        "facing": "east_west",
+        "footprint": "3x2",
+        "source_canvas": [128, 96],
+        "blocking": true,
+        "material": "weathered concrete",
+        "appearance": "faded green painted edge, cracked tabletop"
+      }
+    },
+    {
+      "type": "text_sign",
+      "count": 1,
+      "placement": "school_front",
+      "label": "木质通知栏",
+      "properties": {
+        "object_key": "notice_board",
+        "display_name": "木质通知栏",
+        "source_clause": "教学楼门口挂着一块旧木质通知栏",
+        "facing": "faces_south",
+        "footprint": "2x1",
+        "source_canvas": [96, 64],
+        "attached_to": "school_01",
+        "text": "通知",
+        "blocking": false,
+        "material": "weathered wood",
+        "appearance": "faded red frame, blank paper notices without readable text"
+      }
+    },
+    {
+      "type": "thin_prop",
+      "count": 2,
+      "placement": "playground",
+      "label": "铁篮球架",
+      "properties": {
+        "object_key": "basketball_hoop",
+        "display_name": "铁篮球架",
+        "source_clause": "操场北侧有两个生锈的铁篮球架",
+        "facing": "faces_south",
+        "footprint": "1x2",
+        "source_canvas": [64, 96],
+        "blocking": true,
+        "material": "rusted steel",
+        "appearance": "rusted frame, wooden backboard"
+      }
+    }
+  ],
+  "entities": [],
+  "constraints": {
+    "walkable_spawn": true,
+    "connect_key_regions": true,
+    "no_blocked_doors": true,
+    "objects_require_walkable_neighbor": true
+  },
+  "seed": 20260609,
+  "tileset_id": "default_rpg_32"
+}
+

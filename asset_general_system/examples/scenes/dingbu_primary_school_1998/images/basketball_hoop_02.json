@@ -1,0 +1,34 @@
+{
+  "target_id": "basketball_hoop_02",
+  "asset_id": "basketball_hoop_02",
+  "sprite_path": "basketball_hoop_02.png",
+  "category": "thin_prop",
+  "footprint": [
+    1,
+    2
+  ],
+  "source_canvas": [
+    64,
+    96
+  ],
+  "prompt": {
+    "target_id": "basketball_hoop_02",
+    "body": "另一座生锈铁篮球架，旧木质篮板，铁管支架略歪，轮廓清晰，适合 32px tile 网格的 RPG 地图瘦高物件。",
+    "emphasis": [
+      "rusted_steel",
+      "wooden_backboard",
+      "school_playground"
+    ],
+    "negative": [
+      "text",
+      "watermark",
+      "background",
+      "photorealistic"
+    ]
+  },
+  "full_prompt": "TASK: Create one isolated transparent PNG sprite asset for an RPG map object.\n另一座生锈铁篮球架，旧木质篮板，铁管支架略歪，轮廓清晰，适合 32px tile 网格的 RPG 地图瘦高物件。\n\nAsset contract:\n- Target id: basketball_hoop_02\n- Category: thin_prop\n- Source canvas: 64x96 px\n- Footprint in map: 1x2 tiles\n- Runtime size: 32x64 px\n- Tile size: 32x32 px\n- Anchor: bottom_center\n\nOutput requirements:\n- Pixel art, top-down 3/4 RPG view.\n- Transparent background only; no terrain, no floor, no scene background.\n- Draw exactly this object, centered and readable.",
+  "variants_requested": 1,
+  "generator": "mock",
+  "actual_seed": 20266996,
+  "response_metadata": {}
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SceneProgress",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["current_stage", "completed", "last_updated", "errors"],
+  "properties": {
+    "current_stage": {"type": "string"},
+    "completed": {"type": "array", "items": {"type": "string"}},
+    "in_progress": {"type": ["object", "null"]},
+    "last_updated": {"type": "string"},
+    "errors": {"type": "array", "items": {"type": "object"}}
+  }
+}
+

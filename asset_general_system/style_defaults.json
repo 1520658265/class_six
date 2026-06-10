@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "view": "top_down_3_4",
+  "art_style": "pixel_art_32",
+  "forbidden": [
+    "text_in_image",
+    "watermark",
+    "white_background",
+    "scene_background"
+  ]
+}

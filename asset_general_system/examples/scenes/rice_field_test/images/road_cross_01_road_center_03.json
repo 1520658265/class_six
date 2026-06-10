@@ -1,0 +1,18 @@
+{
+  "target_id": "road_cross_01_road_center_03",
+  "asset_id": "road_cross_01_road_center_03",
+  "sprite_path": "road_cross_01_road_center_03.png",
+  "category": "composite_slice",
+  "source_generation_id": "road_cross_01_source",
+  "part": "road_center",
+  "grid_position": [
+    3,
+    3
+  ],
+  "source_rect": [
+    192,
+    192,
+    64,
+    64
+  ]
+}

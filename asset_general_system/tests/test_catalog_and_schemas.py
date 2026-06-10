@@ -15,7 +15,19 @@ def test_default_asset_catalog_loads_tiles():
 def test_protocol_schema_files_exist_and_are_json():
     root = Path(__file__).resolve().parents[1]
 
-    for filename in ["rpg_map_spec.schema.json", "tilemap_data.schema.json", "asset_catalog.schema.json", "editor_state.schema.json"]:
+    for filename in [
+        "rpg_map_spec.schema.json",
+        "tilemap_data.schema.json",
+        "asset_catalog.schema.json",
+        "editor_state.schema.json",
+        "scene_map_spec.schema.json",
+        "scene_style_profile.schema.json",
+        "scene_entities.schema.json",
+        "scene_prompts.schema.json",
+        "background_plan.schema.json",
+        "art_manifest.schema.json",
+        "progress.schema.json",
+    ]:
         data = json.loads((root / "specs" / filename).read_text(encoding="utf-8"))
         assert data["$schema"].startswith("https://json-schema.org/")
         assert data["type"] == "object"

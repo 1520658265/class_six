@@ -1,0 +1,4 @@
+interface:
+  display_name: "Linsen Asset Scene"
+  short_description: "Generate scene-driven RPG map assets."
+  default_prompt: "Generate a linsen asset scene pipeline from scene.md."

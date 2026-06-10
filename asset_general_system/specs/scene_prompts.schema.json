@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ScenePrompts",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "prompts"],
+  "properties": {
+    "version": {"type": "string"},
+    "prompts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["target_id", "body"],
+        "properties": {
+          "target_id": {"type": "string"},
+          "body": {"type": "string"},
+          "emphasis": {"type": "array", "items": {"type": "string"}},
+          "negative": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}
+

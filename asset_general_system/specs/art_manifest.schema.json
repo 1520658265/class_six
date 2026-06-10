@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ArtManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "scene", "generated_at", "mappings", "metadata"],
+  "properties": {
+    "version": {"type": "string"},
+    "scene": {"type": "string"},
+    "generated_at": {"type": "string"},
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["target_id", "sprite_path", "final_sprite_path", "footprint", "anchor", "category", "status"],
+        "properties": {
+          "target_id": {"type": "string"},
+          "sprite_path": {"type": "string"},
+          "final_sprite_path": {"type": "string"},
+          "footprint": {"type": "array", "items": {"type": "integer"}, "minItems": 2, "maxItems": 2},
+          "source_canvas": {"type": "array", "items": {"type": "integer"}, "minItems": 2, "maxItems": 2},
+          "anchor": {"type": "string"},
+          "category": {"type": "string"},
+          "status": {"type": "string"}
+        }
+      }
+    },
+    "metadata": {"type": "object", "additionalProperties": true}
+  }
+}
+

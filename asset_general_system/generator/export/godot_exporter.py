@@ -119,6 +119,20 @@ class GodotExporter:
         ext_resources = [
             f'[ext_resource type="TileSet" path="res://{tileset_relative_path}" id="tileset_1"]',
         ]
+        sprite_resource_ids: dict[str, str] = {}
+        for obj in tilemap.objects:
+            if str((obj.properties or {}).get("render_mode") or "") == "tile_layer":
+                continue
+            if bool((obj.properties or {}).get("is_asset_target")):
+                continue
+            if not obj.sprite_path or obj.sprite_path in sprite_resource_ids:
+                continue
+            resource_id = f"sprite_{len(sprite_resource_ids) + 1}"
+            sprite_resource_ids[obj.sprite_path] = resource_id
+            sprite_path = obj.sprite_path if obj.sprite_path.startswith("res://") else f"res://{obj.sprite_path}"
+            ext_resources.append(
+                f'[ext_resource type="Texture2D" path="{self._gd_string(sprite_path)}" id="{resource_id}"]'
+            )
 
         # 场景头
         load_steps = len(ext_resources) + 1
@@ -155,17 +169,50 @@ class GodotExporter:
         lines.append("")
 
         for obj in tilemap.objects:
-            px = obj.x * tilemap.map.tile_width + tilemap.map.tile_width // 2
-            py = obj.y * tilemap.map.tile_height + tilemap.map.tile_height // 2
+            if str((obj.properties or {}).get("render_mode") or "") == "tile_layer":
+                continue
+            if bool((obj.properties or {}).get("is_asset_target")):
+                continue
+            anchor = str((obj.properties or {}).get("anchor") or "center")
+            runtime_w = obj.width * tilemap.map.tile_width
+            runtime_h = obj.height * tilemap.map.tile_height
+            if anchor == "bottom_center":
+                px = obj.x * tilemap.map.tile_width + runtime_w / 2
+                py = obj.y * tilemap.map.tile_height + runtime_h
+                sprite_offset = f"Vector2(0, {-runtime_h / 2:g})"
+            else:
+                px = obj.x * tilemap.map.tile_width + runtime_w / 2
+                py = obj.y * tilemap.map.tile_height + runtime_h / 2
+                sprite_offset = "Vector2(0, 0)"
             safe_id = obj.id.replace("-", "_")
             lines.append(f'[node name="{safe_id}" type="Node2D" parent="Objects"]')
-            lines.append(f'position = Vector2({px}, {py})')
-            lines.append(f'metadata/object_type = "{obj.type}"')
+            lines.append(f'position = Vector2({px:g}, {py:g})')
+            lines.append(f'metadata/object_type = "{self._gd_string(obj.type)}"')
             if obj.sprite_ref:
-                lines.append(f'metadata/sprite_ref = "{obj.sprite_ref}"')
+                lines.append(f'metadata/sprite_ref = "{self._gd_string(obj.sprite_ref)}"')
             if obj.sprite_path:
-                lines.append(f'metadata/sprite_path = "{obj.sprite_path}"')
+                lines.append(f'metadata/sprite_path = "{self._gd_string(obj.sprite_path)}"')
+            text = (obj.properties or {}).get("text")
+            if text is not None:
+                lines.append(f'metadata/text = "{self._gd_string(str(text))}"')
             lines.append("")
+            if obj.sprite_path:
+                resource_id = sprite_resource_ids.get(obj.sprite_path)
+                if resource_id:
+                    lines.append(f'[node name="Sprite" type="Sprite2D" parent="Objects/{safe_id}"]')
+                    lines.append(f'texture = ExtResource("{resource_id}")')
+                    lines.append(f'position = {sprite_offset}')
+                    lines.append(f'z_index = {self._z_index_for_object(obj)}')
+                    lines.append("")
+            if text is not None:
+                lines.append(f'[node name="TextLabel" type="Label" parent="Objects/{safe_id}"]')
+                lines.append(f'text = "{self._gd_string(str(text))}"')
+                lines.append("horizontal_alignment = 1")
+                lines.append("vertical_alignment = 1")
+                lines.append(f'position = Vector2({-runtime_w / 2:g}, {-runtime_h / 2:g})')
+                lines.append(f'size = Vector2({runtime_w:g}, {runtime_h:g})')
+                lines.append("z_index = 100")
+                lines.append("")
 
         # events 父节点
         lines.append('[node name="Events" type="Node2D" parent="."]')
@@ -180,6 +227,19 @@ class GodotExporter:
             lines.append("")
 
         path.write_text("\n".join(lines), encoding="utf-8")
+
+    def _gd_string(self, value: str) -> str:
+        return value.replace("\\", "\\\\").replace('"', '\\"')
+
+    def _z_index_for_object(self, obj) -> int:
+        category = str((obj.properties or {}).get("category") or obj.type)
+        if category == "building":
+            return 10
+        if category in {"facade_overlay", "text_sign"}:
+            return 40
+        if category == "npc":
+            return 60
+        return 30
 
     def _encode_tile_data(self, data: list[int], width: int, height: int) -> str:
         """
@@ -197,8 +257,10 @@ class GodotExporter:
                 # 简化为: position_packed, source_id, atlas_coords_packed
                 pos_packed = (x & 0xFFFF) | ((y & 0xFFFF) << 16)
                 # source_id = 0 (默认 atlas)
-                # atlas_coords: 用 tile_id 作为 x，0 作为 y
-                atlas_packed = ((tile_id - 1) & 0xFFFF) | (0 << 16)
+                # atlas_coords: tile id uses row-major atlas coordinates.
+                atlas_x = (tile_id - 1) % 16
+                atlas_y = (tile_id - 1) // 16
+                atlas_packed = (atlas_x & 0xFFFF) | ((atlas_y & 0xFFFF) << 16)
                 items.extend([str(pos_packed), "0", str(atlas_packed)])
         return ", ".join(items)
 
@@ -206,6 +268,10 @@ class GodotExporter:
         """把对象层导出为 JSON（运行时加载更灵活）。"""
         objects = []
         for obj in tilemap.objects:
+            if str((obj.properties or {}).get("render_mode") or "") == "tile_layer":
+                continue
+            if bool((obj.properties or {}).get("is_asset_target")):
+                continue
             entry = {
                 "id": obj.id,
                 "type": obj.type,

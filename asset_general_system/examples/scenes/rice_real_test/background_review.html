@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Background Tile Review</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f1e7;
+      --panel: #fffdf8;
+      --ink: #241f1a;
+      --muted: #6f665c;
+      --line: #d6c8b5;
+      --accent: #256f5d;
+      --warn: #9a5c10;
+      --bad: #9b2f2f;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Segoe UI, system-ui, sans-serif; background: var(--bg); color: var(--ink); }
+    header { height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; border-bottom: 1px solid var(--line); background: var(--panel); }
+    h1 { font-size: 16px; margin: 0; font-weight: 650; }
+    button, select { font: inherit; }
+    button { min-height: 32px; border: 1px solid var(--line); background: #fff; color: var(--ink); padding: 6px 10px; cursor: pointer; }
+    button:hover { border-color: var(--accent); }
+    button.active { background: var(--accent); border-color: var(--accent); color: white; }
+    main { display: grid; grid-template-columns: minmax(420px, 1fr) 360px; height: calc(100vh - 48px); }
+    .stage { min-width: 0; overflow: auto; padding: 16px; }
+    .canvas-wrap { width: min(100%, 1024px); position: relative; border: 1px solid var(--line); background: #d8c28a; }
+    canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+    aside { border-left: 1px solid var(--line); background: var(--panel); overflow: auto; padding: 12px; }
+    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+    .hint { color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .items { display: grid; gap: 8px; margin-top: 10px; }
+    .item { border: 1px solid var(--line); background: white; padding: 8px; cursor: pointer; }
+    .item.selected { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+    .item-title { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; font-weight: 650; }
+    .item-meta { margin-top: 4px; color: var(--muted); font-size: 12px; }
+    .method { color: var(--warn); }
+    .method.extract_from_concept, .method.extract_and_cleanup { color: var(--accent); }
+    .method.ignore { color: var(--bad); }
+    textarea { width: 100%; min-height: 180px; resize: vertical; font-family: Consolas, monospace; font-size: 12px; }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; height: auto; }
+      aside { border-left: 0; border-top: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Background Tile Review</h1>
+    <div class="row" style="margin:0">
+      <button id="exportBtn">导出 JSON</button>
+      <button id="copyBtn">复制 JSON</button>
+    </div>
+  </header>
+  <main>
+    <section class="stage">
+      <div class="canvas-wrap">
+        <canvas id="canvas"></canvas>
+      </div>
+      <p class="hint">拖拽框选当前条目的 crop rect。开启网格吸附时，选择会吸附到概念图对应的地图格。</p>
+    </section>
+    <aside>
+      <div class="row">
+        <button data-method="extract_from_concept">可直接裁</button>
+        <button data-method="extract_and_cleanup">裁后修整</button>
+        <button data-method="regenerate">重生成</button>
+        <button data-method="ignore">忽略</button>
+      </div>
+      <label class="row"><input type="checkbox" id="snap" checked> 网格吸附</label>
+      <div class="hint" id="selectionInfo"></div>
+      <div class="items" id="items"></div>
+      <h2 style="font-size:14px;margin:16px 0 8px">导出内容</h2>
+      <textarea id="jsonOut" spellcheck="false"></textarea>
+    </aside>
+  </main>
+  <script>
+    const plan = {"version": "1.0", "kind": "background_plan", "scene_id": "rice_real_test", "concept_image": "concept/gemini_check_concept.jpg", "tile_size": [64, 64], "map_size": [64, 64], "image_size": [1024, 1024], "review_items": [{"id": "wheat_field_01", "asset_id": "wheat_field_01", "kind": "base_terrain", "display_name": "金色麦田", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Large uniform terrain is often a good extraction candidate if the concept image has a clean patch."}, {"id": "road_cross_01:road_center", "asset_id": "road_cross_01_road_center", "kind": "composite_part", "composite_id": "road_cross_01", "part_key": "road_center", "display_name": "道路中心", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "road_cross_01:road_edge_top", "asset_id": "road_cross_01_road_edge_top", "kind": "composite_part", "composite_id": "road_cross_01", "part_key": "road_edge_top", "display_name": "道路上边缘", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "road_cross_01:road_edge_bottom", "asset_id": "road_cross_01_road_edge_bottom", "kind": "composite_part", "composite_id": "road_cross_01", "part_key": "road_edge_bottom", "display_name": "道路下边缘", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "road_cross_01:road_edge_left", "asset_id": "road_cross_01_road_edge_left", "kind": "composite_part", "composite_id": "road_cross_01", "part_key": "road_edge_left", "display_name": "道路左边缘", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "road_cross_01:road_edge_right", "asset_id": "road_cross_01_road_edge_right", "kind": "composite_part", "composite_id": "road_cross_01", "part_key": "road_edge_right", "display_name": "道路右边缘", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "oval_track_01:track_center", "asset_id": "oval_track_01_track_center", "kind": "composite_part", "composite_id": "oval_track_01", "part_key": "track_center", "display_name": "跑道中心段", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "oval_track_01:track_curve_top_left", "asset_id": "oval_track_01_track_curve_top_left", "kind": "composite_part", "composite_id": "oval_track_01", "part_key": "track_curve_top_left", "display_name": "跑道左上弧形", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "oval_track_01:track_curve_top_right", "asset_id": "oval_track_01_track_curve_top_right", "kind": "composite_part", "composite_id": "oval_track_01", "part_key": "track_curve_top_right", "display_name": "跑道右上弧形", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "oval_track_01:track_curve_bottom_left", "asset_id": "oval_track_01_track_curve_bottom_left", "kind": "composite_part", "composite_id": "oval_track_01", "part_key": "track_curve_bottom_left", "display_name": "跑道左下弧形", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "oval_track_01:track_curve_bottom_right", "asset_id": "oval_track_01_track_curve_bottom_right", "kind": "composite_part", "composite_id": "oval_track_01", "part_key": "track_curve_bottom_right", "display_name": "跑道右下弧形", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}], "background_entities": [{"id": "road_cross_01", "source_target_id": "road_cross_01_source", "type": "road_cross", "display_name": "十字道路", "footprint": [9, 9], "layout": [{"part": "road_edge_top", "x": 0, "y": 3}, {"part": "road_center", "x": 1, "y": 3}, {"part": "road_center", "x": 2, "y": 3}, {"part": "road_center", "x": 3, "y": 3}, {"part": "road_center", "x": 4, "y": 3}, {"part": "road_center", "x": 5, "y": 3}, {"part": "road_center", "x": 6, "y": 3}, {"part": "road_center", "x": 7, "y": 3}, {"part": "road_edge_top", "x": 8, "y": 3}, {"part": "road_center", "x": 0, "y": 4}, {"part": "road_center", "x": 1, "y": 4}, {"part": "road_center", "x": 2, "y": 4}, {"part": "road_center", "x": 3, "y": 4}, {"part": "road_center", "x": 4, "y": 4}, {"part": "road_center", "x": 5, "y": 4}, {"part": "road_center", "x": 6, "y": 4}, {"part": "road_center", "x": 7, "y": 4}, {"part": "road_center", "x": 8, "y": 4}, {"part": "road_edge_bottom", "x": 0, "y": 5}, {"part": "road_center", "x": 1, "y": 5}, {"part": "road_center", "x": 2, "y": 5}, {"part": "road_center", "x": 3, "y": 5}, {"part": "road_center", "x": 4, "y": 5}, {"part": "road_center", "x": 5, "y": 5}, {"part": "road_center", "x": 6, "y": 5}, {"part": "road_center", "x": 7, "y": 5}, {"part": "road_edge_bottom", "x": 8, "y": 5}, {"part": "road_edge_left", "x": 3, "y": 0}, {"part": "road_center", "x": 4, "y": 0}, {"part": "road_edge_right", "x": 5, "y": 0}, {"part": "road_edge_left", "x": 3, "y": 1}, {"part": "road_center", "x": 4, "y": 1}, {"part": "road_edge_right", "x": 5, "y": 1}, {"part": "road_edge_left", "x": 3, "y": 2}, {"part": "road_center", "x": 4, "y": 2}, {"part": "road_edge_right", "x": 5, "y": 2}, {"part": "road_edge_left", "x": 3, "y": 6}, {"part": "road_center", "x": 4, "y": 6}, {"part": "road_edge_right", "x": 5, "y": 6}, {"part": "road_edge_left", "x": 3, "y": 7}, {"part": "road_center", "x": 4, "y": 7}, {"part": "road_edge_right", "x": 5, "y": 7}, {"part": "road_edge_left", "x": 3, "y": 8}, {"part": "road_center", "x": 4, "y": 8}, {"part": "road_edge_right", "x": 5, "y": 8}], "parts": [{"id": "road_cross_01:road_center", "asset_id": "road_cross_01_road_center", "kind": "composite_part", "composite_id": "road_cross_01", "part_key": "road_center", "display_name": "道路中心", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "road_cross_01:road_edge_top", "asset_id": "road_cross_01_road_edge_top", "kind": "composite_part", "composite_id": "road_cross_01", "part_key": "road_edge_top", "display_name": "道路上边缘", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "road_cross_01:road_edge_bottom", "asset_id": "road_cross_01_road_edge_bottom", "kind": "composite_part", "composite_id": "road_cross_01", "part_key": "road_edge_bottom", "display_name": "道路下边缘", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "road_cross_01:road_edge_left", "asset_id": "road_cross_01_road_edge_left", "kind": "composite_part", "composite_id": "road_cross_01", "part_key": "road_edge_left", "display_name": "道路左边缘", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "road_cross_01:road_edge_right", "asset_id": "road_cross_01_road_edge_right", "kind": "composite_part", "composite_id": "road_cross_01", "part_key": "road_edge_right", "display_name": "道路右边缘", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}]}, {"id": "oval_track_01", "source_target_id": "oval_track_01_source", "type": "oval_track", "display_name": "环形跑道", "footprint": [9, 7], "layout": [{"part": "track_curve_top_left", "x": 0, "y": 0}, {"part": "track_center", "x": 1, "y": 0}, {"part": "track_center", "x": 2, "y": 0}, {"part": "track_center", "x": 3, "y": 0}, {"part": "track_center", "x": 4, "y": 0}, {"part": "track_center", "x": 5, "y": 0}, {"part": "track_center", "x": 6, "y": 0}, {"part": "track_center", "x": 7, "y": 0}, {"part": "track_curve_top_right", "x": 8, "y": 0}, {"part": "track_center", "x": 0, "y": 1}, {"part": "track_center", "x": 8, "y": 1}, {"part": "track_center", "x": 0, "y": 2}, {"part": "track_center", "x": 8, "y": 2}, {"part": "track_center", "x": 0, "y": 3}, {"part": "track_center", "x": 8, "y": 3}, {"part": "track_center", "x": 0, "y": 4}, {"part": "track_center", "x": 8, "y": 4}, {"part": "track_center", "x": 0, "y": 5}, {"part": "track_center", "x": 8, "y": 5}, {"part": "track_curve_bottom_left", "x": 0, "y": 6}, {"part": "track_center", "x": 1, "y": 6}, {"part": "track_center", "x": 2, "y": 6}, {"part": "track_center", "x": 3, "y": 6}, {"part": "track_center", "x": 4, "y": 6}, {"part": "track_center", "x": 5, "y": 6}, {"part": "track_center", "x": 6, "y": 6}, {"part": "track_center", "x": 7, "y": 6}, {"part": "track_curve_bottom_right", "x": 8, "y": 6}], "parts": [{"id": "oval_track_01:track_center", "asset_id": "oval_track_01_track_center", "kind": "composite_part", "composite_id": "oval_track_01", "part_key": "track_center", "display_name": "跑道中心段", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "oval_track_01:track_curve_top_left", "asset_id": "oval_track_01_track_curve_top_left", "kind": "composite_part", "composite_id": "oval_track_01", "part_key": "track_curve_top_left", "display_name": "跑道左上弧形", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "oval_track_01:track_curve_top_right", "asset_id": "oval_track_01_track_curve_top_right", "kind": "composite_part", "composite_id": "oval_track_01", "part_key": "track_curve_top_right", "display_name": "跑道右上弧形", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "oval_track_01:track_curve_bottom_left", "asset_id": "oval_track_01_track_curve_bottom_left", "kind": "composite_part", "composite_id": "oval_track_01", "part_key": "track_curve_bottom_left", "display_name": "跑道左下弧形", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}, {"id": "oval_track_01:track_curve_bottom_right", "asset_id": "oval_track_01_track_curve_bottom_right", "kind": "composite_part", "composite_id": "oval_track_01", "part_key": "track_curve_bottom_right", "display_name": "跑道右下弧形", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "target_size": [64, 64], "notes": "Use extraction only when this part is clean, grid-aligned, and reusable."}]}], "foreground_objects": [{"id": "scarecrow_01", "category": "thin_prop", "display_name": "稻草人", "placement_zone": "track_01"}]};
+    const items = plan.review_items || [];
+    let selected = items[0] || null;
+    let image = new Image();
+    let dragging = false;
+    let dragStart = null;
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const itemList = document.getElementById('items');
+    const jsonOut = document.getElementById('jsonOut');
+    const snap = document.getElementById('snap');
+    const selectionInfo = document.getElementById('selectionInfo');
+
+    image.onload = () => {
+      canvas.width = image.naturalWidth;
+      canvas.height = image.naturalHeight;
+      plan.image_size = [canvas.width, canvas.height];
+      render();
+    };
+    image.src = plan.concept_image;
+
+    function gridStep() {
+      const map = plan.map_size || [64, 64];
+      return [canvas.width / map[0], canvas.height / map[1]];
+    }
+    function snapPoint(p) {
+      if (!snap.checked) return p;
+      const [gx, gy] = gridStep();
+      return [Math.round(p[0] / gx) * gx, Math.round(p[1] / gy) * gy];
+    }
+    function canvasPoint(evt) {
+      const rect = canvas.getBoundingClientRect();
+      return [
+        (evt.clientX - rect.left) * canvas.width / rect.width,
+        (evt.clientY - rect.top) * canvas.height / rect.height,
+      ];
+    }
+    function rectFromPoints(a, b) {
+      const x1 = Math.max(0, Math.min(a[0], b[0]));
+      const y1 = Math.max(0, Math.min(a[1], b[1]));
+      const x2 = Math.min(canvas.width, Math.max(a[0], b[0]));
+      const y2 = Math.min(canvas.height, Math.max(a[1], b[1]));
+      return [Math.round(x1), Math.round(y1), Math.round(x2 - x1), Math.round(y2 - y1)];
+    }
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(image, 0, 0);
+      drawGrid();
+      for (const item of items) {
+        if (!item.crop_rect) continue;
+        const r = item.crop_rect;
+        ctx.strokeStyle = item === selected ? '#256f5d' : 'rgba(40,40,40,.6)';
+        ctx.lineWidth = item === selected ? 4 : 2;
+        ctx.strokeRect(r[0], r[1], r[2], r[3]);
+      }
+      renderItems();
+      updateJson();
+    }
+    function drawGrid() {
+      const [gx, gy] = gridStep();
+      ctx.strokeStyle = 'rgba(255,255,255,.22)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= canvas.width; x += gx) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+      }
+      for (let y = 0; y <= canvas.height; y += gy) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+      }
+    }
+    function renderItems() {
+      itemList.innerHTML = '';
+      items.forEach((item) => {
+        const el = document.createElement('button');
+        el.className = 'item' + (item === selected ? ' selected' : '');
+        el.innerHTML = `<div class="item-title"><span>${item.display_name || item.id}</span><span class="method ${item.method}">${item.method}</span></div><div class="item-meta">${item.kind} | ${item.id}<br>${item.crop_rect ? item.crop_rect.join(', ') : 'no crop rect'}</div>`;
+        el.onclick = () => { selected = item; render(); };
+        itemList.appendChild(el);
+      });
+      selectionInfo.textContent = selected ? `当前: ${selected.id}` : '没有 review item';
+    }
+    function updateJson() {
+      jsonOut.value = JSON.stringify(plan, null, 2);
+    }
+    canvas.addEventListener('pointerdown', (evt) => {
+      if (!selected) return;
+      dragging = true;
+      dragStart = snapPoint(canvasPoint(evt));
+    });
+    canvas.addEventListener('pointermove', (evt) => {
+      if (!dragging || !selected) return;
+      const current = snapPoint(canvasPoint(evt));
+      selected.crop_rect = rectFromPoints(dragStart, current);
+      render();
+    });
+    window.addEventListener('pointerup', () => { dragging = false; });
+    document.querySelectorAll('[data-method]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!selected) return;
+        selected.method = button.dataset.method;
+        selected.status = 'reviewed';
+        render();
+      });
+    });
+    document.getElementById('exportBtn').onclick = () => {
+      const blob = new Blob([jsonOut.value + '\n'], {type: 'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'background_plan.reviewed.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    };
+    document.getElementById('copyBtn').onclick = async () => {
+      await navigator.clipboard.writeText(jsonOut.value);
+    };
+  </script>
+</body>
+</html>

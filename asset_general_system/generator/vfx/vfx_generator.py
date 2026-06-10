@@ -36,10 +36,7 @@ class VFXGenerationRequest:
         vfx_type: 特效类型，例如 'fireball', 'slash', 'heal'
         description: 详细描述
         frame_size: 单帧尺寸
-<<<<<<< HEAD
         style: 视觉风格
-=======
->>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
         frames: 总帧数
         fps: 帧率
         loop: 是否循环
@@ -52,10 +49,7 @@ class VFXGenerationRequest:
     vfx_type: str
     description: str
     frame_size: tuple[int, int] = (64, 64)
-<<<<<<< HEAD
     style: ImageStyle = ImageStyle.PIXEL_ART
-=======
->>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
     frames: int = 8
     fps: int = 12
     loop: bool = False
@@ -123,11 +117,7 @@ class VFXGenerator:
 
             img_request = ImageGenerationRequest(
                 prompt=prompt,
-<<<<<<< HEAD
                 style=request.style,
-=======
-                style=ImageStyle.PIXEL_ART,
->>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
                 size=request.frame_size,
                 seed=(request.seed or 0) + frame_idx,
                 transparency=TransparencyMode.REQUIRED,
@@ -216,7 +206,6 @@ class VFXGenerator:
         progress = (frame_idx + 1) / request.frames
 
         parts = [request.description]
-<<<<<<< HEAD
         if request.style == ImageStyle.PIXEL_ART:
             parts.append("pixel art")
         elif request.style == ImageStyle.HAND_DRAWN:
@@ -225,9 +214,6 @@ class VFXGenerator:
             parts.append("low-poly stylized game effect")
         elif request.style == ImageStyle.REALISTIC:
             parts.append("realistic 2D game effect")
-=======
-        parts.append("pixel art")
->>>>>>> 8b590ee9c80c53c98742d31415f0cb7c10bc58d0
         parts.append("VFX sprite")
         parts.append("transparent background")
         parts.append(f"animation frame {frame_idx + 1} of {request.frames}")

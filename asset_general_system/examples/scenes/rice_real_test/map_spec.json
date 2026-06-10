@@ -1,0 +1,255 @@
+{
+  "version": "1.0.0",
+  "id": "rice_real_test",
+  "title": "rice_real_test",
+  "theme": "golden_rice_field",
+  "art_tile_size": 64,
+  "map": {
+    "width": 64,
+    "height": 64,
+    "tile_width": 64,
+    "tile_height": 64,
+    "orientation": "orthogonal"
+  },
+  "regions": [
+    {
+      "id": "crossroad_01",
+      "type": "crossroad",
+      "position": "bottom_left",
+      "size": "medium",
+      "priority": 90
+    },
+    {
+      "id": "track_01",
+      "type": "track",
+      "position": "top_right",
+      "size": "medium",
+      "priority": 85
+    }
+  ],
+  "paths": [],
+  "objects": [
+    {
+      "type": "thin_prop",
+      "count": 1,
+      "placement": "track_01",
+      "label": "稻草人",
+      "properties": {
+        "object_key": "scarecrow",
+        "display_name": "稻草人",
+        "source_clause": "跑道旁边有一个稻草人",
+        "facing": "faces_south",
+        "footprint": "1x2",
+        "source_canvas": [128, 192],
+        "blocking": true,
+        "appearance": "straw scarecrow with bamboo pole, old cloth hat, standing beside the track"
+      }
+    }
+  ],
+  "base_terrain": {
+    "object_key": "wheat_field",
+    "display_name": "金色麦田",
+    "tile": "wheat_field",
+    "source_clause": "一片金色的麦田，整张地图背景都是麦田",
+    "source_canvas": [64, 64],
+    "properties": {
+      "appearance": "golden wheat field tile, harvest season, seamless tileable background"
+    }
+  },
+  "composites": [
+    {
+      "id": "road_cross_01",
+      "type": "road_cross",
+      "placement": "crossroad_01",
+      "display_name": "十字道路",
+      "footprint": [9, 9],
+      "source_clause": "左下角是横穿的十字道路",
+      "parts": [
+        {
+          "key": "road_center",
+          "display_name": "道路中心",
+          "source_clause": "十字道路的中心铺面，没有边缘",
+          "source_canvas": [32, 32],
+          "blocking": false,
+          "properties": {"appearance": "packed dirt road center tile without grass edge"}
+        },
+        {
+          "key": "road_edge_top",
+          "display_name": "道路上边缘",
+          "source_clause": "道路上边缘，顶部接麦田",
+          "source_canvas": [32, 32],
+          "blocking": false,
+          "properties": {"appearance": "packed dirt road tile with wheat field edge on top"}
+        },
+        {
+          "key": "road_edge_bottom",
+          "display_name": "道路下边缘",
+          "source_clause": "道路下边缘，底部接麦田",
+          "source_canvas": [32, 32],
+          "blocking": false,
+          "properties": {"appearance": "packed dirt road tile with wheat field edge on bottom"}
+        },
+        {
+          "key": "road_edge_left",
+          "display_name": "道路左边缘",
+          "source_clause": "道路左边缘，左侧接麦田",
+          "source_canvas": [32, 32],
+          "blocking": false,
+          "properties": {"appearance": "packed dirt road tile with wheat field edge on left"}
+        },
+        {
+          "key": "road_edge_right",
+          "display_name": "道路右边缘",
+          "source_clause": "道路右边缘，右侧接麦田",
+          "source_canvas": [32, 32],
+          "blocking": false,
+          "properties": {"appearance": "packed dirt road tile with wheat field edge on right"}
+        }
+      ],
+      "layout": [
+        {"part": "road_edge_top", "x": 0, "y": 3},
+        {"part": "road_center", "x": 1, "y": 3},
+        {"part": "road_center", "x": 2, "y": 3},
+        {"part": "road_center", "x": 3, "y": 3},
+        {"part": "road_center", "x": 4, "y": 3},
+        {"part": "road_center", "x": 5, "y": 3},
+        {"part": "road_center", "x": 6, "y": 3},
+        {"part": "road_center", "x": 7, "y": 3},
+        {"part": "road_edge_top", "x": 8, "y": 3},
+        {"part": "road_center", "x": 0, "y": 4},
+        {"part": "road_center", "x": 1, "y": 4},
+        {"part": "road_center", "x": 2, "y": 4},
+        {"part": "road_center", "x": 3, "y": 4},
+        {"part": "road_center", "x": 4, "y": 4},
+        {"part": "road_center", "x": 5, "y": 4},
+        {"part": "road_center", "x": 6, "y": 4},
+        {"part": "road_center", "x": 7, "y": 4},
+        {"part": "road_center", "x": 8, "y": 4},
+        {"part": "road_edge_bottom", "x": 0, "y": 5},
+        {"part": "road_center", "x": 1, "y": 5},
+        {"part": "road_center", "x": 2, "y": 5},
+        {"part": "road_center", "x": 3, "y": 5},
+        {"part": "road_center", "x": 4, "y": 5},
+        {"part": "road_center", "x": 5, "y": 5},
+        {"part": "road_center", "x": 6, "y": 5},
+        {"part": "road_center", "x": 7, "y": 5},
+        {"part": "road_edge_bottom", "x": 8, "y": 5},
+        {"part": "road_edge_left", "x": 3, "y": 0},
+        {"part": "road_center", "x": 4, "y": 0},
+        {"part": "road_edge_right", "x": 5, "y": 0},
+        {"part": "road_edge_left", "x": 3, "y": 1},
+        {"part": "road_center", "x": 4, "y": 1},
+        {"part": "road_edge_right", "x": 5, "y": 1},
+        {"part": "road_edge_left", "x": 3, "y": 2},
+        {"part": "road_center", "x": 4, "y": 2},
+        {"part": "road_edge_right", "x": 5, "y": 2},
+        {"part": "road_edge_left", "x": 3, "y": 6},
+        {"part": "road_center", "x": 4, "y": 6},
+        {"part": "road_edge_right", "x": 5, "y": 6},
+        {"part": "road_edge_left", "x": 3, "y": 7},
+        {"part": "road_center", "x": 4, "y": 7},
+        {"part": "road_edge_right", "x": 5, "y": 7},
+        {"part": "road_edge_left", "x": 3, "y": 8},
+        {"part": "road_center", "x": 4, "y": 8},
+        {"part": "road_edge_right", "x": 5, "y": 8}
+      ],
+      "properties": {
+        "shape": "cross",
+        "tilemap_rule": "center plus four directional edge tile assets"
+      }
+    },
+    {
+      "id": "oval_track_01",
+      "type": "oval_track",
+      "placement": "track_01",
+      "display_name": "环形跑道",
+      "footprint": [9, 7],
+      "source_clause": "右上角是一个环形跑道",
+      "parts": [
+        {
+          "key": "track_center",
+          "display_name": "跑道中心段",
+          "source_clause": "环形跑道的直线或中段泥土跑道，没有外边缘",
+          "source_canvas": [32, 32],
+          "blocking": false,
+          "properties": {"appearance": "reddish packed earth track center tile"}
+        },
+        {
+          "key": "track_curve_top_left",
+          "display_name": "跑道左上弧形",
+          "source_clause": "环形跑道左上角弧形跑道块",
+          "source_canvas": [32, 32],
+          "blocking": false,
+          "properties": {"appearance": "top-left curved reddish running track tile"}
+        },
+        {
+          "key": "track_curve_top_right",
+          "display_name": "跑道右上弧形",
+          "source_clause": "环形跑道右上角弧形跑道块",
+          "source_canvas": [32, 32],
+          "blocking": false,
+          "properties": {"appearance": "top-right curved reddish running track tile"}
+        },
+        {
+          "key": "track_curve_bottom_left",
+          "display_name": "跑道左下弧形",
+          "source_clause": "环形跑道左下角弧形跑道块",
+          "source_canvas": [32, 32],
+          "blocking": false,
+          "properties": {"appearance": "bottom-left curved reddish running track tile"}
+        },
+        {
+          "key": "track_curve_bottom_right",
+          "display_name": "跑道右下弧形",
+          "source_clause": "环形跑道右下角弧形跑道块",
+          "source_canvas": [32, 32],
+          "blocking": false,
+          "properties": {"appearance": "bottom-right curved reddish running track tile"}
+        }
+      ],
+      "layout": [
+        {"part": "track_curve_top_left", "x": 0, "y": 0},
+        {"part": "track_center", "x": 1, "y": 0},
+        {"part": "track_center", "x": 2, "y": 0},
+        {"part": "track_center", "x": 3, "y": 0},
+        {"part": "track_center", "x": 4, "y": 0},
+        {"part": "track_center", "x": 5, "y": 0},
+        {"part": "track_center", "x": 6, "y": 0},
+        {"part": "track_center", "x": 7, "y": 0},
+        {"part": "track_curve_top_right", "x": 8, "y": 0},
+        {"part": "track_center", "x": 0, "y": 1},
+        {"part": "track_center", "x": 8, "y": 1},
+        {"part": "track_center", "x": 0, "y": 2},
+        {"part": "track_center", "x": 8, "y": 2},
+        {"part": "track_center", "x": 0, "y": 3},
+        {"part": "track_center", "x": 8, "y": 3},
+        {"part": "track_center", "x": 0, "y": 4},
+        {"part": "track_center", "x": 8, "y": 4},
+        {"part": "track_center", "x": 0, "y": 5},
+        {"part": "track_center", "x": 8, "y": 5},
+        {"part": "track_curve_bottom_left", "x": 0, "y": 6},
+        {"part": "track_center", "x": 1, "y": 6},
+        {"part": "track_center", "x": 2, "y": 6},
+        {"part": "track_center", "x": 3, "y": 6},
+        {"part": "track_center", "x": 4, "y": 6},
+        {"part": "track_center", "x": 5, "y": 6},
+        {"part": "track_center", "x": 6, "y": 6},
+        {"part": "track_center", "x": 7, "y": 6},
+        {"part": "track_curve_bottom_right", "x": 8, "y": 6}
+      ],
+      "properties": {
+        "shape": "oval",
+        "tilemap_rule": "track center plus four corner curve tile assets"
+      }
+    }
+  ],
+  "entities": [],
+  "constraints": {
+    "walkable_spawn": true,
+    "connect_key_regions": true,
+    "no_blocked_doors": true,
+    "objects_require_walkable_neighbor": true
+  },
+  "seed": 202606091,
+  "tileset_id": "default_rpg_32"
+}

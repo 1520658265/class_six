@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SceneMapSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "id", "title", "theme", "map", "regions", "paths", "objects", "entities", "constraints", "seed", "tileset_id"],
+  "properties": {
+    "version": {"type": "string"},
+    "id": {"type": "string"},
+    "title": {"type": "string"},
+    "theme": {"type": "string"},
+    "art_tile_size": {"type": "integer", "minimum": 8, "maximum": 256},
+    "seed": {"type": "integer"},
+    "tileset_id": {"type": "string"},
+    "map": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "tile_width", "tile_height", "orientation"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 16, "maximum": 256},
+        "height": {"type": "integer", "minimum": 16, "maximum": 256},
+        "tile_width": {"type": "integer", "minimum": 8, "maximum": 128},
+        "tile_height": {"type": "integer", "minimum": 8, "maximum": 128},
+        "orientation": {"const": "orthogonal"}
+      }
+    },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "position", "size", "priority"],
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"type": "string"},
+          "position": {"type": "string"},
+          "size": {"enum": ["small", "medium", "large"]},
+          "priority": {"type": "integer"}
+        }
+      }
+    },
+    "paths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "to", "kind"],
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "kind": {"type": "string"}
+        }
+      }
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "count", "placement", "label", "properties"],
+        "properties": {
+          "type": {"enum": ["building", "large_prop", "small_prop", "thin_prop", "npc", "facade_overlay", "text_sign"]},
+          "count": {"type": "integer", "minimum": 0},
+          "placement": {"type": "string"},
+          "label": {"type": ["string", "null"]},
+          "properties": {
+            "type": "object",
+            "required": ["object_key"],
+            "properties": {
+              "object_key": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+              "display_name": {"type": "string"},
+              "source_clause": {"type": "string"},
+              "facing": {"enum": ["east_west", "north_south", "faces_south", "faces_player"]},
+              "footprint": {"type": "string", "pattern": "^[1-9][0-9]*x[1-9][0-9]*$"},
+              "blocking": {"type": "boolean"},
+              "placement": {"type": "string"},
+              "source_canvas": {
+                "type": "array",
+                "prefixItems": [
+                  {"type": "integer", "minimum": 1},
+                  {"type": "integer", "minimum": 1}
+                ],
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "attached_to": {"type": "string"},
+              "text": {"type": ["string", "null"]}
+            },
+            "additionalProperties": true
+          }
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"type": {"enum": ["facade_overlay", "text_sign"]}}},
+            "then": {
+              "properties": {
+                "properties": {"required": ["object_key", "attached_to"]}
+              }
+            }
+          }
+        ]
+      }
+    },
+    "base_terrain": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["object_key", "display_name", "tile", "source_canvas"],
+      "properties": {
+        "object_key": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+        "display_name": {"type": "string"},
+        "tile": {"type": "string"},
+        "source_clause": {"type": ["string", "null"]},
+        "source_canvas": {
+          "type": "array",
+          "prefixItems": [
+            {"type": "integer", "minimum": 1},
+            {"type": "integer", "minimum": 1}
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "properties": {"type": "object", "additionalProperties": true}
+      }
+    },
+    "composites": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "placement", "display_name", "footprint", "parts", "layout"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*_[0-9][0-9]$"},
+          "type": {"type": "string"},
+          "placement": {"type": "string"},
+          "display_name": {"type": "string"},
+          "source_clause": {"type": ["string", "null"]},
+          "footprint": {
+            "type": "array",
+            "prefixItems": [
+              {"type": "integer", "minimum": 1},
+              {"type": "integer", "minimum": 1}
+            ],
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "parts": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["key", "display_name", "source_canvas"],
+              "properties": {
+                "key": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+                "display_name": {"type": "string"},
+                "source_clause": {"type": ["string", "null"]},
+                "source_canvas": {
+                  "type": "array",
+                  "prefixItems": [
+                    {"type": "integer", "minimum": 1},
+                    {"type": "integer", "minimum": 1}
+                  ],
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "blocking": {"type": "boolean"},
+                "properties": {"type": "object", "additionalProperties": true}
+              }
+            }
+          },
+          "layout": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["part", "x", "y"],
+              "properties": {
+                "part": {"type": "string"},
+                "x": {"type": "integer", "minimum": 0},
+                "y": {"type": "integer", "minimum": 0}
+              }
+            }
+          },
+          "properties": {"type": "object", "additionalProperties": true}
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "count"],
+        "properties": {
+          "id": {"type": ["string", "null"]},
+          "type": {"type": "string"},
+          "count": {"type": "integer", "minimum": 0},
+          "position": {"type": ["string", "null"]},
+          "placement": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["walkable_spawn", "connect_key_regions", "no_blocked_doors", "objects_require_walkable_neighbor"],
+      "properties": {
+        "walkable_spawn": {"type": "boolean"},
+        "connect_key_regions": {"type": "boolean"},
+        "no_blocked_doors": {"type": "boolean"},
+        "objects_require_walkable_neighbor": {"type": "boolean"}
+      }
+    }
+  }
+}

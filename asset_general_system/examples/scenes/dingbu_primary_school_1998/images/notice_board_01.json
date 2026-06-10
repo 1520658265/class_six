@@ -1,0 +1,36 @@
+{
+  "target_id": "notice_board_01",
+  "asset_id": "notice_board_01",
+  "sprite_path": "notice_board_01.png",
+  "category": "text_sign",
+  "footprint": [
+    2,
+    1
+  ],
+  "source_canvas": [
+    96,
+    64
+  ],
+  "prompt": {
+    "target_id": "notice_board_01",
+    "body": "1998 年县城小学教学楼门口的旧木质通知栏，褪色红色木框，几张泛黄空白纸和抽象色块贴在板面上，适合 RPG 地图正面贴附物件。",
+    "emphasis": [
+      "weathered_wood",
+      "blank_notice_papers",
+      "school_facade"
+    ],
+    "negative": [
+      "readable text",
+      "Chinese characters",
+      "letters",
+      "watermark",
+      "background",
+      "photorealistic"
+    ]
+  },
+  "full_prompt": "TASK: Create one isolated transparent PNG sprite asset for an RPG map object.\n1998 年县城小学教学楼门口的旧木质通知栏，褪色红色木框，几张泛黄空白纸和抽象色块贴在板面上，适合 RPG 地图正面贴附物件。\n\nAsset contract:\n- Target id: notice_board_01\n- Category: text_sign\n- Source canvas: 96x64 px\n- Footprint in map: 2x1 tiles\n- Runtime size: 64x32 px\n- Tile size: 32x32 px\n- Anchor: center\n\nOutput requirements:\n- Pixel art, top-down 3/4 RPG view.\n- Transparent background only; no terrain, no floor, no scene background.\n- Draw exactly this object, centered and readable.\n- This is a blank sign or notice board sprite only.\n- Do not render readable text, Chinese characters, Latin letters, handwriting, slogans, or labels.",
+  "variants_requested": 1,
+  "generator": "mock",
+  "actual_seed": 20267423,
+  "response_metadata": {}
+}

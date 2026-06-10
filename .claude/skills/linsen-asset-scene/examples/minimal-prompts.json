@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "prompts": [
+    {
+      "target_id": "wheat_field_01",
+      "body": "Seamless 32x32 golden wheat field terrain tile for a top-down 3/4 RPG tilemap.",
+      "emphasis": ["golden_wheat", "seamless_tile"],
+      "negative": ["text", "watermark", "photorealistic"]
+    },
+    {
+      "target_id": "road_center_01",
+      "body": "32x32 packed dirt road center tile, no edge, tileable for a crossroad.",
+      "emphasis": ["dirt_road", "center_tile"],
+      "negative": ["text", "watermark", "photorealistic"]
+    },
+    {
+      "target_id": "track_curve_top_left_01",
+      "body": "32x32 top-left curved reddish dirt running-track tile for composing an oval track.",
+      "emphasis": ["running_track", "top_left_curve"],
+      "negative": ["text", "watermark", "photorealistic"]
+    },
+    {
+      "target_id": "scarecrow_01",
+      "body": "Slim scarecrow sprite with bamboo pole frame, straw body, old cloth shirt, clear RPG tilemap silhouette.",
+      "emphasis": ["scarecrow", "straw", "bamboo_pole"],
+      "negative": ["text", "watermark", "photorealistic"]
+    }
+  ]
+}
