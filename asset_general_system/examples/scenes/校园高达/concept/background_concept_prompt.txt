@@ -1,0 +1,34 @@
+Create one top-down 3/4 RPG pixel art background concept image.
+This is a layout and mood preview for the background layer only, not final tile assets.
+
+Base environment:
+- Fill the whole scene with 温馨校园地面.
+
+Ground/background entities to include:
+- No additional ground composites.
+
+Do not include foreground entities:
+- 校园喷泉
+- 阿狸雕塑
+- 悬浮机甲
+
+Composition requirements:
+- Keep the scene readable as a tilemap-like top-down composition.
+- Keep ground features coherent and spatially clear.
+- Do not draw separate asset icons, labels, text, watermark, UI frame, or visible sprite-sheet cells.
+
+Tile extraction requirements:
+- The image must be suitable for extracting reusable 64x64px tile assets.
+- Use an invisible 64x64px crop grid; do not draw the grid lines.
+- Align road edges, track edges, curves, terrain borders, and repeated surface modules to this crop grid.
+- Do not place important boundaries halfway through a crop cell.
+- Keep texture scale, outline thickness, palette, and lighting consistent across repeated modules.
+- Leave clean, unobstructed sample areas for every reusable material or composite part.
+- Base terrain should have several clean repeated patches with no foreground objects.
+- Avoid diagonal, noisy, or painterly borders unless the corresponding reusable part is explicitly a diagonal or curved tile.
+
+Style requirements:
+- Art style: pixel_art_64.
+- View: top_down_3_4.
+- Palette/mood: warm_school_campus_with_soft_sci_fi_accents.
+- Lighting: soft_clear_afternoon.

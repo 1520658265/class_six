@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
 from dataclasses import dataclass
 from pathlib import Path
@@ -42,13 +43,19 @@ def pack_scene(scene_dir: str | Path, force: bool = False, resource_base: str | 
 
     objects_by_id = {obj.id: obj for obj in tilemap.objects}
     slice_assets = _collect_composite_slice_assets(tilemap)
+    uses_full_background = _uses_full_background(paths)
     generated_assets: set[str] = set()
     for request_obj in art_request.get("objects", []):
         target_id = request_obj["id"]
-        source = _asset_source(paths, target_id)
+        if _is_base_terrain_covered_by_full_background(uses_full_background, request_obj):
+            source = None
+            covered_by_full_background = True
+        else:
+            source = _asset_source(paths, target_id)
+            covered_by_full_background = False
         final_name = f"{target_id}.png"
         final_png = sprites_dir / final_name
-        status = "missing"
+        status = "covered_by_full_background" if covered_by_full_background else "missing"
         if source:
             shutil.copyfile(source.path, final_png)
             status = "generated"
@@ -75,10 +82,11 @@ def pack_scene(scene_dir: str | Path, force: bool = False, resource_base: str | 
         )
 
     for asset_id, obj in slice_assets.items():
-        source = _asset_source(paths, asset_id)
+        covered_by_full_background = uses_full_background
+        source = None if covered_by_full_background else _asset_source(paths, asset_id)
         final_name = f"{asset_id}.png"
         final_png = sprites_dir / final_name
-        status = "missing"
+        status = "covered_by_full_background" if covered_by_full_background else "missing"
         if source:
             shutil.copyfile(source.path, final_png)
             status = "generated"
@@ -115,6 +123,7 @@ def pack_scene(scene_dir: str | Path, force: bool = False, resource_base: str | 
 
     _apply_generated_base_terrain_tile(paths, tilemap)
     _apply_composite_slices_to_tileset(paths, tilemap, generated_assets)
+    background_source = _apply_full_background_image(paths, tilemap)
 
     manifest = {
         "version": "1.0",
@@ -124,8 +133,10 @@ def pack_scene(scene_dir: str | Path, force: bool = False, resource_base: str | 
         "metadata": {
             "total_objects": len(mappings),
             "generated_count": sum(1 for item in mappings if item["status"] == "generated"),
-            "failed_count": sum(1 for item in mappings if item["status"] != "generated"),
+            "fulfilled_count": sum(1 for item in mappings if _is_fulfilled_mapping(item)),
+            "failed_count": sum(1 for item in mappings if not _is_fulfilled_mapping(item)),
             "map_instance_count": sum(1 for obj in tilemap.objects if not bool(obj.properties.get("is_asset_target"))),
+            "background_source": background_source,
         },
     }
     write_json(paths.manifest, manifest)
@@ -137,16 +148,98 @@ def pack_scene(scene_dir: str | Path, force: bool = False, resource_base: str | 
 
 
 def _asset_source(paths, asset_id: str) -> AssetSource | None:
-    reviewed = paths.background_tiles_dir / f"{asset_id}.png"
-    if reviewed.exists():
-        return AssetSource(reviewed, "background_tiles")
-    generated = paths.images_dir / f"{asset_id}.png"
-    if generated.exists():
-        return AssetSource(generated, "images")
+    candidates = _asset_source_candidates(asset_id)
+    for candidate_id in candidates:
+        reviewed = paths.background_tiles_dir / f"{candidate_id}.png"
+        if reviewed.exists():
+            return AssetSource(reviewed, "background_tiles")
+    for candidate_id in candidates:
+        generated = paths.images_dir / f"{candidate_id}.png"
+        if generated.exists():
+            return AssetSource(generated, "images")
     return None
 
 
+def _asset_source_candidates(asset_id: str) -> list[str]:
+    candidates = [asset_id]
+    generic_part_id = re.sub(r"_\d{2}$", "", asset_id)
+    if generic_part_id != asset_id:
+        candidates.append(generic_part_id)
+    return candidates
+
+
+def _is_fulfilled_mapping(item: dict[str, Any]) -> bool:
+    return item.get("status") in {"generated", "covered_by_full_background"}
+
+
+def _is_base_terrain_covered_by_full_background(uses_full_background: bool, request_obj: dict[str, Any]) -> bool:
+    if request_obj.get("asset_role") != "base_terrain":
+        return False
+    return uses_full_background
+
+
+def _uses_full_background(paths) -> bool:
+    plan_path = paths.background_plan
+    if not plan_path.exists():
+        return False
+    try:
+        plan = read_json(plan_path)
+    except Exception:
+        return False
+    background = plan.get("background_image")
+    return isinstance(background, dict) and background.get("method") == "use_full_concept"
+
+
+def _relative_to_scene(scene_dir: Path, path: Path) -> str:
+    try:
+        return str(path.relative_to(scene_dir)).replace("\\", "/")
+    except ValueError:
+        return str(path).replace("\\", "/")
+
+
+def _apply_full_background_image(paths, tilemap: TilemapData) -> str | None:
+    background_plan = paths.background_plan
+    if not background_plan.exists():
+        return None
+    plan = read_json(background_plan)
+    background = plan.get("background_image")
+    if not isinstance(background, dict) or background.get("method") != "use_full_concept":
+        return None
+    source = paths.root / str(background.get("output_path") or "background/background.png")
+    if not source.exists():
+        return None
+    final_rel = "background/background.png"
+    final_path = paths.final_dir / final_rel
+    final_path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(source, final_path)
+    tilemap.metadata["background_image"] = {
+        "path": final_rel,
+        "source": _relative_to_scene(paths.root, source),
+        "mode": "full_image",
+        "source_size": _image_size(source),
+        "target_size": [tilemap.map.width * tilemap.map.tile_width, tilemap.map.height * tilemap.map.tile_height],
+    }
+    for layer_name in ("terrain", "path", "building", "decoration"):
+        if layer_name in tilemap.layers:
+            tilemap.layers[layer_name] = [0] * (tilemap.map.width * tilemap.map.height)
+    return "background_image"
+
+
+def _image_size(path: Path) -> list[int] | None:
+    try:
+        from PIL import Image
+    except ImportError:
+        return None
+    try:
+        with Image.open(path) as image:
+            return [int(image.width), int(image.height)]
+    except Exception:
+        return None
+
+
 def _apply_generated_base_terrain_tile(paths, tilemap: TilemapData) -> None:
+    if _uses_full_background(paths):
+        return
     base_terrain = tilemap.metadata.get("base_terrain")
     if not isinstance(base_terrain, dict):
         return

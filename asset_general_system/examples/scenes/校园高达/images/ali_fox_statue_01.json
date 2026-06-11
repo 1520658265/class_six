@@ -1,0 +1,63 @@
+{
+  "target_id": "ali_fox_statue_01",
+  "asset_id": "ali_fox_statue_01",
+  "sprite_path": "ali_fox_statue_01.png",
+  "category": "large_prop",
+  "footprint": [
+    2,
+    2
+  ],
+  "source_canvas": [
+    128,
+    160
+  ],
+  "prompt": {
+    "target_id": "ali_fox_statue_01",
+    "body": "Create an isolated pixel art sprite of a campus sculpture of Ali, the Chinese anime fox character 阿狸. Top-down 3/4 RPG view, 128x160 source canvas, 2x2 tile footprint. The statue must face directly south/front toward the viewer, with a centered symmetrical front view suitable for a top-down RPG map. It should be recognizable as 阿狸: a cute red fox character with a large rounded head, short rounded snout, white face and belly patch, small black eyes, triangular fox ears, small childlike body proportions, gentle warm expression, and a simple polished statue base. It should feel like a cheerful school landmark near a plaza fountain, not a realistic fox. Center the statue and make it large enough to occupy most of the useful canvas without touching the edges. Final processed asset must be transparent outside the statue.",
+    "emphasis": [
+      "transparent_png",
+      "top_down_3_4",
+      "ali_anime_fox_character",
+      "recognizable_cartoon_fox_statue",
+      "small_stone_base"
+    ],
+    "negative": [
+      "background",
+      "terrain",
+      "floor tiles",
+      "sky",
+      "text",
+      "logo",
+      "brand mark",
+      "ordinary realistic fox",
+      "generic fox mascot",
+      "four-legged animal pose",
+      "wild animal",
+      "watermark",
+      "photorealistic",
+      "white background",
+      "checkerboard",
+      "transparency grid",
+      "gray checker pattern",
+      "mock transparent background",
+      "colored rectangle behind the object",
+      "background panel",
+      "sprite sheet frame",
+      "visible grid"
+    ]
+  },
+  "full_prompt": "TASK: Create one isolated transparent PNG sprite asset for an RPG map object.\nCreate an isolated pixel art sprite of a campus sculpture of Ali, the Chinese anime fox character 阿狸. Top-down 3/4 RPG view, 128x160 source canvas, 2x2 tile footprint. The statue must face directly south/front toward the viewer, with a centered symmetrical front view suitable for a top-down RPG map. It should be recognizable as 阿狸: a cute red fox character with a large rounded head, short rounded snout, white face and belly patch, small black eyes, triangular fox ears, small childlike body proportions, gentle warm expression, and a simple polished statue base. It should feel like a cheerful school landmark near a plaza fountain, not a realistic fox. Center the statue and make it large enough to occupy most of the useful canvas without touching the edges. Final processed asset must be transparent outside the statue.\n\nAsset contract:\n- Target id: ali_fox_statue_01\n- Category: large_prop\n- Source canvas: 128x160 px\n- Footprint in map: 2x2 tiles\n- Runtime size: 128x128 px\n- Tile size: 64x64 px\n- Anchor: center\n- Facing: faces_south\n\nShared style requirements:\n- Use a cute, charming visual style with rounded, friendly shapes.\n- Use rich, colorful, bright-but-harmonious colors; avoid dull, muddy, monochrome, or overly desaturated palettes.\n- Art style: pixel_art_64.\n- Palette/mood: warm_school_campus_with_soft_sci_fi_accents_cute_and_colorful.\n- Lighting: soft_clear_afternoon.\n- Atmosphere: warm, clean, cute, colorful, friendly campus scene with two non-threatening hovering mecha.\n- Visual traits: cute_style, rich_colors, bright_but_harmonious_palette, charming_rounded_shapes.\n\nOutput requirements:\n- Pixel art, top-down 3/4 RPG view.\n- Orientation: must face directly toward the viewer / south side of the map, with the front of the object centered and symmetrical in a top-down 3/4 RPG view.\n- Final processed asset must have transparent alpha outside the object.\n- Do not draw checkerboard, transparency preview grid, gray squares, colored backdrop, terrain, floor, sky, or scene content behind it.\n- Use a tight transparent margin: keep the object fully visible but large enough to occupy roughly 70-85% of the useful canvas.\n- Avoid tiny icon composition; the asset must remain readable at the final map runtime size.\n- Draw exactly this object, centered and readable.",
+  "variants_requested": 1,
+  "generator": "gemini-3.1-flash-image-preview",
+  "actual_seed": 2026069111,
+  "response_metadata": {},
+  "validation": {
+    "passed": true,
+    "has_transparency": true,
+    "has_clean_edges": true,
+    "size_correct": true,
+    "tile_aligned": false,
+    "errors": [],
+    "warnings": []
+  }
+}

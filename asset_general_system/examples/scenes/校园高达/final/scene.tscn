@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="TileSet" path="res://tileset.tres" id="tileset_1"]
+[ext_resource type="Texture2D" path="res://background/background.png" id="background_1"]
+[ext_resource type="Texture2D" path="res://sprites/campus_fountain_01.png" id="sprite_1"]
+[ext_resource type="Texture2D" path="res://sprites/ali_fox_statue_01.png" id="sprite_2"]
+[ext_resource type="Texture2D" path="res://sprites/floating_mecha_01.png" id="sprite_3"]
+[ext_resource type="Texture2D" path="res://sprites/floating_mecha_02.png" id="sprite_4"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("background_1")
+position = Vector2(2048, 2048)
+scale = Vector2(4, 4)
+z_index = -100
+
+[node name="Terrain" type="TileMap" parent="."]
+tile_set = ExtResource("tileset_1")
+format = 2
+
+[node name="Path" type="TileMap" parent="."]
+tile_set = ExtResource("tileset_1")
+format = 2
+
+[node name="Building" type="TileMap" parent="."]
+tile_set = ExtResource("tileset_1")
+format = 2
+
+[node name="Decoration" type="TileMap" parent="."]
+tile_set = ExtResource("tileset_1")
+format = 2
+
+[node name="Collision" type="TileMap" parent="."]
+tile_set = ExtResource("tileset_1")
+format = 2
+visible = false
+layer_0/tile_data = PackedInt32Array(1638423, 0, 0, 1638424, 0, 0, 1638425, 0, 0, 1638426, 0, 0, 1703959, 0, 0, 1703960, 0, 0, 1703961, 0, 0, 1703962, 0, 0, 1769495, 0, 0, 1769496, 0, 0, 1769497, 0, 0, 1769498, 0, 0, 1769519, 0, 0, 1769520, 0, 0, 1835031, 0, 0, 1835032, 0, 0, 1835033, 0, 0, 1835034, 0, 0, 1835055, 0, 0, 1835056, 0, 0)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="campus_fountain_01" type="Node2D" parent="Objects"]
+position = Vector2(1600, 1728)
+metadata/object_type = "large_prop"
+metadata/sprite_ref = "campus_fountain_01"
+metadata/sprite_path = "sprites/campus_fountain_01.png"
+
+[node name="Sprite" type="Sprite2D" parent="Objects/campus_fountain_01"]
+texture = ExtResource("sprite_1")
+position = Vector2(0, 0)
+z_index = 30
+
+[node name="ali_fox_statue_01" type="Node2D" parent="Objects"]
+position = Vector2(3072, 1792)
+metadata/object_type = "large_prop"
+metadata/sprite_ref = "ali_fox_statue_01"
+metadata/sprite_path = "sprites/ali_fox_statue_01.png"
+
+[node name="Sprite" type="Sprite2D" parent="Objects/ali_fox_statue_01"]
+texture = ExtResource("sprite_2")
+position = Vector2(0, 0)
+z_index = 30
+
+[node name="floating_mecha_01" type="Node2D" parent="Objects"]
+position = Vector2(2112, 736)
+metadata/object_type = "npc"
+metadata/sprite_ref = "floating_mecha_01"
+metadata/sprite_path = "sprites/floating_mecha_01.png"
+
+[node name="Sprite" type="Sprite2D" parent="Objects/floating_mecha_01"]
+texture = ExtResource("sprite_3")
+position = Vector2(0, 0)
+z_index = 60
+
+[node name="floating_mecha_02" type="Node2D" parent="Objects"]
+position = Vector2(2240, 672)
+metadata/object_type = "npc"
+metadata/sprite_ref = "floating_mecha_02"
+metadata/sprite_path = "sprites/floating_mecha_02.png"
+
+[node name="Sprite" type="Sprite2D" parent="Objects/floating_mecha_02"]
+texture = ExtResource("sprite_4")
+position = Vector2(0, 0)
+z_index = 60
+
+[node name="Events" type="Node2D" parent="."]
+
+[node name="spawn_01" type="Marker2D" parent="Events"]
+position = Vector2(2080, 3872)
+metadata/event_type = "player_spawn"

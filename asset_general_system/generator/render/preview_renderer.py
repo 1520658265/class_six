@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from pathlib import Path
 
@@ -23,7 +23,8 @@ class PreviewRenderer:
         height = tilemap.map.height
         tile_width = tilemap.map.tile_width
         tile_height = tilemap.map.tile_height
-        image = Image.new("RGB", (width * tile_width, height * tile_height), (0, 0, 0))
+        canvas_size = (width * tile_width, height * tile_height)
+        image = self._load_background_image(tilemap, canvas_size) or Image.new("RGB", canvas_size, (0, 0, 0))
         draw = ImageDraw.Draw(image, "RGBA")
         tileset = self._load_tileset(tilemap)
 
@@ -102,6 +103,29 @@ class PreviewRenderer:
         if tileset is not None:
             tileset.close()
         return image
+
+    def _load_background_image(self, tilemap: TilemapData, canvas_size: tuple[int, int]) -> Image.Image | None:
+        background = tilemap.metadata.get("background_image")
+        if not isinstance(background, dict):
+            return None
+        image_path = background.get("path")
+        if not image_path:
+            return None
+        path = Path(str(image_path))
+        candidates = [path] if path.is_absolute() else [path, Path.cwd() / path]
+        for candidate in candidates:
+            if not candidate.exists():
+                continue
+            try:
+                image = Image.open(candidate).convert("RGB")
+                if image.size != canvas_size:
+                    resized = image.resize(canvas_size, Image.Resampling.BICUBIC)
+                    image.close()
+                    return resized
+                return image
+            except Exception:
+                return None
+        return None
 
     def ensure_tileset_png(self, path: str | Path, tile_width: int = 32, tile_height: int = 32) -> None:
         path = Path(path)

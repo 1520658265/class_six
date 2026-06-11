@@ -19,7 +19,45 @@
           "negative": {"type": "array", "items": {"type": "string"}}
         }
       }
+    },
+    "generation_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["group_id", "mode", "slot_size", "targets"],
+        "properties": {
+          "group_id": {"type": "string"},
+          "mode": {"const": "sprite_sheet"},
+          "slot_size": {
+            "type": "array",
+            "prefixItems": [{"type": "integer", "minimum": 1}, {"type": "integer", "minimum": 1}],
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "gutter": {"type": "integer", "minimum": 0, "default": 0},
+          "direction": {"enum": ["horizontal", "vertical"], "default": "horizontal"},
+          "same_visual_size": {"type": "boolean", "default": true},
+          "bbox_width_tolerance": {"type": "integer", "minimum": 0, "default": 12},
+          "bbox_height_tolerance": {"type": "integer", "minimum": 0, "default": 12},
+          "targets": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["target_id"],
+              "properties": {
+                "target_id": {"type": "string"},
+                "slot_label": {"type": "string"},
+                "variant_notes": {"type": "string"}
+              }
+            }
+          },
+          "prompt": {"type": "string"},
+          "negative": {"type": "array", "items": {"type": "string"}}
+        }
+      }
     }
   }
 }
-

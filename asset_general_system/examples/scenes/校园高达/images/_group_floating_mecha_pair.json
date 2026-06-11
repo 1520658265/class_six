@@ -1,0 +1,18 @@
+{
+  "group_id": "floating_mecha_pair",
+  "mode": "sprite_sheet",
+  "sprite_path": "_group_floating_mecha_pair.png",
+  "targets": [
+    "floating_mecha_01",
+    "floating_mecha_02"
+  ],
+  "slot_size": [
+    192,
+    256
+  ],
+  "gutter": 32,
+  "direction": "horizontal",
+  "full_prompt": "TASK: Create one sprite sheet containing multiple related transparent RPG map sprites.\nCreate two separate friendly hovering sci-fi mecha sprites as one horizontal sprite sheet for a cozy school campus RPG map. Both mecha belong to the same pair and must share the same visual body scale, same camera angle, same outline thickness, same head size, same torso size, and same pixel density. Both must face directly south/front toward the viewer in a top-down 3/4 RPG view. They should look protective, peaceful, cute, colorful, and non-threatening, with rounded school-safe armor, soft white and light gray panels, subtle warm accents, and gentle blue thruster glow. The two slots should differ only in relaxed hover pose, small accent details, and minor silhouette variation.\n\nSprite sheet contract:\n- Group id: floating_mecha_pair\n- Sheet canvas: 416x256 px\n- Layout direction: horizontal\n- Each slot size: 192x256 px\n- Gutter between slots: 32 px; keep gutters completely empty technical background.\n- Do not draw borders, labels, dividers, frames, grid lines, or text.\n\nSlot definitions:\n- Slot 1 (floating_mecha_01) rectangle x=0..191, y=0..255: First friendly hovering campus mecha, calm balanced hover pose, front-facing torso, readable limbs, gentle blue thruster glow.\n- Slot 2 (floating_mecha_02) rectangle x=224..415, y=0..255: Second friendly hovering campus mecha companion, same visual body size as the first, slightly different relaxed hover pose and small accent details, front-facing torso, gentle blue thruster glow.\n\nShared style requirements:\n- Use a cute, charming visual style with rounded, friendly shapes.\n- Use rich, colorful, bright-but-harmonious colors; avoid dull, muddy, monochrome, or overly desaturated palettes.\n- Art style: pixel_art_64.\n- Palette/mood: warm_school_campus_with_soft_sci_fi_accents_cute_and_colorful.\n- Lighting: soft_clear_afternoon.\n- Atmosphere: warm, clean, cute, colorful, friendly campus scene with two non-threatening hovering mecha.\n- Visual traits: cute_style, rich_colors, bright_but_harmonious_palette, charming_rounded_shapes.\n\nConsistency requirements:\n- All listed sprites must share the same visual body scale inside their own 192x256 px slots.\n- Their visible alpha silhouette widths should differ by no more than 12 px.\n- Their visible alpha silhouette heights should differ by no more than 12 px.\n- Keep head size, torso size, outline thickness, camera angle, and pixel density consistent across all slots.\n- Only pose, accent details, and small design differences may vary.\n- Orientation: must face directly toward the viewer / south side of the map, with the front of the object centered and symmetrical in a top-down 3/4 RPG view.\n- Center each sprite inside its own slot with transparent alpha outside the object after processing.\n- Use a tight transparent margin in each slot without touching slot edges.\n- Draw each target as a separate sprite inside its own slot; do not let sprites overlap across slots.",
+  "generator": "gemini-3.1-flash-image-preview",
+  "actual_seed": 2026068988
+}

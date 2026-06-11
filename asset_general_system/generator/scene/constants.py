@@ -27,6 +27,35 @@ FACING_VALUES = {"east_west", "north_south", "faces_south", "faces_player"}
 ATTACHED_CATEGORIES = {"facade_overlay", "text_sign"}
 OBJECT_KEY_RE = re.compile(r"^[a-z][a-z0-9_]*$")
 FOOTPRINT_RE = re.compile(r"^([1-9][0-9]*)x([1-9][0-9]*)$")
+TILE_GROUP_KINDS = {"material_group", "transition_group"}
+TILE_GROUP_MODES = {"sprite_sheet"}
+TILE_GROUP_MEMBER_ROLES = {
+    "center",
+    "center_variant",
+    "edge_top",
+    "edge_bottom",
+    "edge_left",
+    "edge_right",
+    "corner_top_left",
+    "corner_top_right",
+    "corner_bottom_left",
+    "corner_bottom_right",
+    "curve_top_left",
+    "curve_top_right",
+    "curve_bottom_left",
+    "curve_bottom_right",
+    "straight_horizontal",
+    "straight_vertical",
+    "decor_variant",
+    "transition_edge_top",
+    "transition_edge_bottom",
+    "transition_edge_left",
+    "transition_edge_right",
+    "transition_corner_top_left",
+    "transition_corner_top_right",
+    "transition_corner_bottom_left",
+    "transition_corner_bottom_right",
+}
 
 STAGES = (
     "1_spec",
@@ -38,4 +67,3 @@ STAGES = (
     "7_pack",
     "8_status",
 )
-

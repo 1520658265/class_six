@@ -12,6 +12,8 @@ from .rpg_map_spec import (
     PathSpec,
     RegionSpec,
     RPGMapSpec,
+    TileGroupMemberSpec,
+    TileGroupSpec,
 )
 from .tilemap_data import MapInfo, ObjectData, RegionData, TilemapData, TilesetInfo
 from .asset_metadata import AssetMetadata, AssetKind, AnchorPoint, AssetSourceType, GenerationMetadata, SourceMetadata, VisualBounds
@@ -67,6 +69,8 @@ __all__ = [
     "SpriteSheetMetadata",
     "TilemapData",
     "TilesetInfo",
+    "TileGroupMemberSpec",
+    "TileGroupSpec",
     "ValidationIssue",
     "ValidationReport",
     "VFXAnchor",

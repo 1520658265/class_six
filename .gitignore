@@ -17,6 +17,9 @@ asset_general_system/tmp/
 asset_general_system/tmp_*/
 asset_general_system/.pytest_cache/
 asset_general_system/pytest-cache-files-*/
+.pytest_tmp/
+asset_general_system/examples/scenes/rice_test/
+asset_general_system/examples/scenes/rice_real_test/
 
 # OS
 .DS_Store

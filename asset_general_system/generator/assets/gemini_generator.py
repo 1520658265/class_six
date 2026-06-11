@@ -88,6 +88,11 @@ class GeminiImageGenerator(ImageGenerator):
         self.max_attempts = int(os.getenv("GEMINI_IMAGE_MAX_ATTEMPTS", "4"))
         self.retry_delay = float(os.getenv("GEMINI_IMAGE_RETRY_DELAY", "2.0"))
         self.timeout = float(os.getenv("GEMINI_IMAGE_TIMEOUT", "300"))
+        self.session = requests.Session()
+        # The sandbox may inject HTTP_PROXY/HTTPS_PROXY to block network access.
+        # AI service routing should come from tools/ai/config.local.json or
+        # GEMINI_IMAGE_* settings, not ambient process proxy variables.
+        self.session.trust_env = False
 
     def generate(self, request: ImageGenerationRequest) -> ImageGenerationResponse:
         """
@@ -127,7 +132,7 @@ class GeminiImageGenerator(ImageGenerator):
         last_error = None
         for attempt in range(1, self.max_attempts + 1):
             try:
-                resp = requests.post(
+                resp = self.session.post(
                     endpoint,
                     data=json.dumps(payload).encode("utf-8"),
                     headers={"Content-Type": "application/json"},
@@ -209,10 +214,20 @@ class GeminiImageGenerator(ImageGenerator):
 
         # 透明背景
         if request.transparency == TransparencyMode.REQUIRED:
+            target_id = str((request.metadata or {}).get("target_id") or "sprite")
             parts.append(
-                "Use a perfectly flat solid #ff00ff chroma-key background outside the object for post-processing removal. The background must be one uniform color with no shadows, gradients, texture, floor plane, reflection, or lighting variation."
+                "Transparency workflow: output the object on a perfectly flat solid #ff00ff chroma-key field so the pipeline can remove that field after generation."
             )
-            parts.append("Do not use #ff00ff anywhere in the object. Generate an isolated object sprite only; no background elements, no contact shadow, no cast shadow.")
+            parts.append(
+                "The #ff00ff field is a temporary technical mask only, not part of the object. It must be perfectly uniform edge-to-edge wherever there is no object."
+            )
+            parts.append(
+                f"The asset object for {target_id} must occupy roughly 70-85% of the useful canvas, centered, not a small icon floating in empty space."
+            )
+            parts.append(
+                "Do not use #ff00ff anywhere inside the object. Do not use checkerboard, transparency grid, gray squares, white background, colored rectangle, floor plane, shadow backdrop, lighting variation, or any other background."
+            )
+            parts.append("Generate an isolated object sprite only. Contact glow/shadow is allowed only if it belongs to the object and does not require a background plane.")
         elif request.transparency == TransparencyMode.OPAQUE:
             parts.append("Output should be opaque and fill the requested image area.")
 
@@ -271,28 +286,29 @@ class GeminiImageGenerator(ImageGenerator):
             # 没有 PIL，跳过后处理
             return image_path
 
-        img = Image.open(image_path)
+        with Image.open(image_path) as source:
+            img = source.convert("RGBA")
 
         if transparency == TransparencyMode.REQUIRED:
-            if img.mode == "RGBA":
-                # 简单检查：如果大部分边缘是白色/纯色，移除它
-                img = self._remove_chroma_key(img, (255, 0, 255))
-                img = self._remove_background(img)
-            else:
-                # 转换为 RGBA 并移除背景
-                img = img.convert("RGBA")
-                img = self._remove_chroma_key(img, (255, 0, 255))
-                img = self._remove_background(img)
-        else:
-            img = img.convert("RGBA")
+            img = self._remove_chroma_key(img, (255, 0, 255))
+            img = self._remove_chroma_background_panels(img)
+            img = self._remove_background(img)
+            img = self._remove_checkerboard_background(img)
+            img = self._clear_transparent_rgb(img)
 
         # 缩放到目标尺寸
         if img.size != target_size:
             resample = Image.NEAREST if style == ImageStyle.PIXEL_ART else Image.LANCZOS
-            img = img.resize(target_size, resample)
+            resized = img.resize(target_size, resample)
+            img.close()
+            img = resized
+            if transparency == TransparencyMode.REQUIRED:
+                img = self._remove_chroma_background_panels(img)
+                img = self._clear_transparent_rgb(img)
 
         # 保存
         img.save(image_path, "PNG")
+        img.close()
         return image_path
 
     def _remove_chroma_key(self, img, key_rgb: tuple[int, int, int], threshold: int = 70):
@@ -306,7 +322,122 @@ class GeminiImageGenerator(ImageGenerator):
         diff = np.abs(data[:, :, :3].astype(np.int16) - key)
         distance = np.sum(diff, axis=2)
         mask = distance < threshold
-        data[mask, 3] = 0
+        data[mask] = [0, 0, 0, 0]
+        return Image.fromarray(data, mode="RGBA")
+
+    def _remove_chroma_background_panels(self, img):
+        """Remove large generated magenta/purple chroma panels that are not exact #ff00ff."""
+        from collections import deque
+
+        from PIL import Image
+        import numpy as np
+
+        if img.mode != "RGBA":
+            img = img.convert("RGBA")
+        data = np.array(img)
+        h, w = data.shape[:2]
+        if h == 0 or w == 0:
+            return img
+
+        rgb = data[:, :, :3].astype(np.int16)
+        alpha = data[:, :, 3]
+        r = rgb[:, :, 0]
+        g = rgb[:, :, 1]
+        b = rgb[:, :, 2]
+
+        visible = alpha > 0
+        key_seed = (
+            visible
+            & (r >= 145)
+            & (b >= 145)
+            & (g <= 135)
+            & ((r - g) >= 45)
+            & ((b - g) >= 35)
+        )
+        key_soft = (
+            visible
+            & (r >= 115)
+            & (b >= 110)
+            & (g <= 165)
+            & ((r - g) >= 25)
+            & ((b - g) >= 22)
+        )
+        if not key_seed.any():
+            return img
+
+        visited = np.zeros((h, w), dtype=bool)
+        remove = np.zeros((h, w), dtype=bool)
+        canvas_area = h * w
+        min_panel_area = max(96, int(canvas_area * 0.006))
+        min_seed_area = max(32, int(canvas_area * 0.0015))
+
+        for start_y, start_x in np.argwhere(key_soft):
+            if visited[start_y, start_x]:
+                continue
+            queue = deque([(int(start_y), int(start_x))])
+            visited[start_y, start_x] = True
+            coords: list[tuple[int, int]] = []
+            seed_count = 0
+
+            while queue:
+                y, x = queue.popleft()
+                coords.append((y, x))
+                if key_seed[y, x]:
+                    seed_count += 1
+                for ny, nx in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
+                    if 0 <= ny < h and 0 <= nx < w and not visited[ny, nx] and key_soft[ny, nx]:
+                        visited[ny, nx] = True
+                        queue.append((ny, nx))
+
+            if not coords or seed_count < min_seed_area:
+                continue
+            area = len(coords)
+            if area < min_panel_area:
+                continue
+
+            ys = np.fromiter((p[0] for p in coords), dtype=np.int32, count=area)
+            xs = np.fromiter((p[1] for p in coords), dtype=np.int32, count=area)
+            bbox_area = int((ys.max() - ys.min() + 1) * (xs.max() - xs.min() + 1))
+            fill_ratio = area / float(max(1, bbox_area))
+            seed_ratio = seed_count / float(area)
+            colors = rgb[ys, xs, :]
+            color_std = float(colors.std(axis=0).max())
+
+            # Generated backdrop panels are large, contiguous, fairly uniform,
+            # and usually rectangular with object-shaped holes in them.
+            if fill_ratio >= 0.16 and seed_ratio >= 0.45 and color_std <= 55.0:
+                remove[ys, xs] = True
+
+        if not remove.any():
+            return img
+
+        remove = self._expand_mask(remove, key_soft, iterations=1)
+        data[remove] = [0, 0, 0, 0]
+        return Image.fromarray(data, mode="RGBA")
+
+    def _expand_mask(self, mask, allowed, iterations: int = 1):
+        import numpy as np
+
+        expanded = mask
+        for _ in range(iterations):
+            grown = expanded.copy()
+            grown[1:, :] |= expanded[:-1, :]
+            grown[:-1, :] |= expanded[1:, :]
+            grown[:, 1:] |= expanded[:, :-1]
+            grown[:, :-1] |= expanded[:, 1:]
+            expanded = grown & allowed
+        return expanded
+
+    def _clear_transparent_rgb(self, img):
+        from PIL import Image
+        import numpy as np
+
+        if img.mode != "RGBA":
+            img = img.convert("RGBA")
+        data = np.array(img)
+        transparent = data[:, :, 3] == 0
+        if transparent.any():
+            data[transparent] = [0, 0, 0, 0]
         return Image.fromarray(data, mode="RGBA")
 
     def _remove_background(self, img):
@@ -329,9 +460,12 @@ class GeminiImageGenerator(ImageGenerator):
             data[h-1, 0],
             data[h-1, w-1],
         ]
+        opaque_corners = [corner for corner in corners if len(corner) < 4 or corner[3] > 0]
+        if not opaque_corners:
+            return img
 
         # 取平均作为背景色
-        bg_color = np.mean(corners, axis=0).astype(np.uint8)
+        bg_color = np.mean(opaque_corners, axis=0).astype(np.uint8)
 
         # 如果是 RGB，加 alpha 通道
         if data.shape[2] == 3:
@@ -345,8 +479,30 @@ class GeminiImageGenerator(ImageGenerator):
         # 距离小于阈值的设为透明
         threshold = 100
         mask = distance < threshold
-        data[mask, 3] = 0
+        data[mask] = [0, 0, 0, 0]
 
+        return Image.fromarray(data, mode="RGBA")
+
+    def _remove_checkerboard_background(self, img):
+        """Remove common fake transparency checkerboard panels from generated sprites."""
+        from PIL import Image
+        import numpy as np
+
+        if img.mode != "RGBA":
+            img = img.convert("RGBA")
+        data = np.array(img)
+        rgb = data[:, :, :3].astype(np.int16)
+        alpha = data[:, :, 3]
+        gray = (
+            (alpha > 0)
+            & (np.abs(rgb[:, :, 0] - rgb[:, :, 1]) <= 4)
+            & (np.abs(rgb[:, :, 1] - rgb[:, :, 2]) <= 4)
+            & (rgb[:, :, 0] >= 120)
+            & (rgb[:, :, 0] <= 230)
+        )
+        if gray.mean() < 0.10:
+            return img
+        data[gray] = [0, 0, 0, 0]
         return Image.fromarray(data, mode="RGBA")
 
     def get_model_name(self) -> str:

@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "inherits": "../../style_defaults.json",
+  "view": "top_down_3_4",
+  "art_style": "pixel_art_64",
+  "palette_mood": "warm_school_campus_with_soft_sci_fi_accents_cute_and_colorful",
+  "lighting": "soft_clear_afternoon",
+  "weather_tags": [
+    "clear_sky",
+    "gentle_daylight"
+  ],
+  "era_tags": [
+    "modern_school_campus",
+    "friendly_sci_fi",
+    "cozy_public_space",
+    "cute_style",
+    "rich_colors"
+  ],
+  "atmosphere": "warm, clean, cute, colorful, friendly campus scene with two non-threatening hovering mecha",
+  "visual_traits": [
+    "cute_style",
+    "rich_colors",
+    "bright_but_harmonious_palette",
+    "charming_rounded_shapes"
+  ],
+  "forbidden": [
+    "text_in_image",
+    "watermark",
+    "logo",
+    "white_background",
+    "photorealistic",
+    "dark_war_scene",
+    "battle_damage",
+    "weapons_firing",
+    "explosions",
+    "crowded_scene",
+    "visible_grid",
+    "sprite_sheet_frame"
+  ]
+}

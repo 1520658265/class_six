@@ -1,0 +1,100 @@
+{
+  "version": "1.0",
+  "scene": "校园高达\n\n温馨的校园内，有喷泉和阿狸的雕塑，两台机甲悬浮在空中。\n",
+  "generated_at": "2026-06-11T03:15:40Z",
+  "mappings": [
+    {
+      "target_id": "campus_ground_01",
+      "sprite_path": "images/campus_ground_01.png",
+      "final_sprite_path": "sprites/campus_ground_01.png",
+      "footprint": [
+        1,
+        1
+      ],
+      "source_canvas": [
+        64,
+        64
+      ],
+      "anchor": "center",
+      "category": "terrain_tile",
+      "status": "covered_by_full_background",
+      "asset_source": null
+    },
+    {
+      "target_id": "campus_fountain_01",
+      "sprite_path": "images/campus_fountain_01.png",
+      "final_sprite_path": "sprites/campus_fountain_01.png",
+      "footprint": [
+        4,
+        4
+      ],
+      "source_canvas": [
+        256,
+        256
+      ],
+      "anchor": "center",
+      "category": "large_prop",
+      "status": "generated",
+      "asset_source": "images"
+    },
+    {
+      "target_id": "ali_fox_statue_01",
+      "sprite_path": "images/ali_fox_statue_01.png",
+      "final_sprite_path": "sprites/ali_fox_statue_01.png",
+      "footprint": [
+        2,
+        2
+      ],
+      "source_canvas": [
+        128,
+        160
+      ],
+      "anchor": "center",
+      "category": "large_prop",
+      "status": "generated",
+      "asset_source": "images"
+    },
+    {
+      "target_id": "floating_mecha_01",
+      "sprite_path": "images/floating_mecha_01.png",
+      "final_sprite_path": "sprites/floating_mecha_01.png",
+      "footprint": [
+        2,
+        3
+      ],
+      "source_canvas": [
+        192,
+        256
+      ],
+      "anchor": "center",
+      "category": "npc",
+      "status": "generated",
+      "asset_source": "images"
+    },
+    {
+      "target_id": "floating_mecha_02",
+      "sprite_path": "images/floating_mecha_02.png",
+      "final_sprite_path": "sprites/floating_mecha_02.png",
+      "footprint": [
+        2,
+        3
+      ],
+      "source_canvas": [
+        192,
+        256
+      ],
+      "anchor": "center",
+      "category": "npc",
+      "status": "generated",
+      "asset_source": "images"
+    }
+  ],
+  "metadata": {
+    "total_objects": 5,
+    "generated_count": 4,
+    "fulfilled_count": 5,
+    "failed_count": 0,
+    "map_instance_count": 4,
+    "background_source": "background_image"
+  }
+}

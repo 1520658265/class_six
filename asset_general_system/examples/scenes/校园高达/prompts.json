@@ -1,0 +1,185 @@
+{
+  "version": "1.0",
+  "prompts": [
+    {
+      "target_id": "campus_fountain_01",
+      "body": "Create an isolated pixel art sprite of a round pale-stone campus fountain for a warm modern school plaza. Top-down 3/4 RPG view, 256x256 source canvas, 4x4 tile footprint. The fountain should have a circular stone basin, clear blue water, small gentle water spray, soft highlights, readable silhouette, and a cozy non-luxury school-campus feeling. Center the object and make it large enough to occupy most of the useful canvas without touching the edges. Final processed asset must be transparent outside the fountain.",
+      "emphasis": [
+        "transparent_png",
+        "top_down_3_4",
+        "round_stone_fountain",
+        "clear_water",
+        "warm_school_campus"
+      ],
+      "negative": [
+        "background",
+        "terrain",
+        "floor tiles",
+        "grass",
+        "sky",
+        "people",
+        "text",
+        "logo",
+        "watermark",
+        "photorealistic",
+        "white background",
+        "checkerboard",
+        "transparency grid",
+        "gray checker pattern",
+        "colored rectangle behind the object",
+        "background panel",
+        "sprite sheet frame",
+        "visible grid"
+      ]
+    },
+    {
+      "target_id": "ali_fox_statue_01",
+      "body": "Create an isolated pixel art sprite of a campus sculpture of Ali, the Chinese anime fox character 阿狸. Top-down 3/4 RPG view, 128x160 source canvas, 2x2 tile footprint. The statue must face directly south/front toward the viewer, with a centered symmetrical front view suitable for a top-down RPG map. It should be recognizable as 阿狸: a cute red fox character with a large rounded head, short rounded snout, white face and belly patch, small black eyes, triangular fox ears, small childlike body proportions, gentle warm expression, and a simple polished statue base. It should feel like a cheerful school landmark near a plaza fountain, not a realistic fox. Center the statue and make it large enough to occupy most of the useful canvas without touching the edges. Final processed asset must be transparent outside the statue.",
+      "emphasis": [
+        "transparent_png",
+        "top_down_3_4",
+        "ali_anime_fox_character",
+        "recognizable_cartoon_fox_statue",
+        "small_stone_base"
+      ],
+      "negative": [
+        "background",
+        "terrain",
+        "floor tiles",
+        "sky",
+        "text",
+        "logo",
+        "brand mark",
+        "ordinary realistic fox",
+        "generic fox mascot",
+        "four-legged animal pose",
+        "wild animal",
+        "watermark",
+        "photorealistic",
+        "white background",
+        "checkerboard",
+        "transparency grid",
+        "gray checker pattern",
+        "mock transparent background",
+        "colored rectangle behind the object",
+        "background panel",
+        "sprite sheet frame",
+        "visible grid"
+      ]
+    },
+    {
+      "target_id": "floating_mecha_01",
+      "body": "Create an isolated pixel art sprite of one friendly hovering sci-fi mecha for a cozy school campus scene. Top-down 3/4 RPG view, 192x256 source canvas, 2x3 tile footprint. The mecha must face directly south/front toward the viewer, with the torso front centered and readable in a top-down RPG map. It should float upright with a calm balanced pose, rounded school-safe armor forms, soft white and light gray body panels, subtle warm accent colors, and gentle blue thruster glow beneath the feet or backpack. It should look protective and non-threatening, not like a battle unit. Make the mecha large enough to occupy most of the useful canvas, with clear readable limbs and torso at runtime size. Include a small soft hover glow only if it belongs to the object. Final processed asset must be transparent outside the mecha and glow.",
+      "emphasis": [
+        "transparent_png",
+        "top_down_3_4",
+        "friendly_hovering_mecha",
+        "soft_blue_thruster_glow",
+        "non_combat_pose"
+      ],
+      "negative": [
+        "background",
+        "terrain",
+        "floor tiles",
+        "sky",
+        "weapons firing",
+        "explosions",
+        "battle damage",
+        "dark war scene",
+        "aggressive pose",
+        "text",
+        "logo",
+        "watermark",
+        "photorealistic",
+        "white background",
+        "checkerboard",
+        "transparency grid",
+        "gray checker pattern",
+        "pink rectangle",
+        "colored rectangle behind the object",
+        "background panel",
+        "tiny icon",
+        "small distant character",
+        "sprite sheet frame",
+        "visible grid"
+      ]
+    },
+    {
+      "target_id": "floating_mecha_02",
+      "body": "Create an isolated pixel art sprite of one friendly hovering sci-fi mecha companion for a cozy school campus scene. Top-down 3/4 RPG view, 192x256 source canvas, 2x3 tile footprint. The mecha must face directly south/front toward the viewer, with the torso front centered and readable in a top-down RPG map. It should match floating_mecha_01 in palette and design language but use a slightly different relaxed hover pose while keeping the torso front-facing. Use rounded school-safe armor, light gray and soft white panels, subtle warm accents, and gentle blue thruster glow. It should feel peaceful and curious, not armed or threatening. Make the mecha large enough to occupy most of the useful canvas, with clear readable limbs and torso at runtime size. Final processed asset must be transparent outside the mecha and glow.",
+      "emphasis": [
+        "transparent_png",
+        "top_down_3_4",
+        "friendly_hovering_mecha",
+        "paired_variant",
+        "soft_blue_thruster_glow"
+      ],
+      "negative": [
+        "background",
+        "terrain",
+        "floor tiles",
+        "sky",
+        "weapons firing",
+        "explosions",
+        "battle damage",
+        "dark war scene",
+        "aggressive pose",
+        "text",
+        "logo",
+        "watermark",
+        "photorealistic",
+        "white background",
+        "checkerboard",
+        "transparency grid",
+        "gray checker pattern",
+        "pink rectangle",
+        "colored rectangle behind the object",
+        "background panel",
+        "tiny icon",
+        "small distant character",
+        "sprite sheet frame",
+        "visible grid"
+      ]
+    }
+  ],
+  "generation_groups": [
+    {
+      "group_id": "floating_mecha_pair",
+      "mode": "sprite_sheet",
+      "slot_size": [
+        192,
+        256
+      ],
+      "gutter": 32,
+      "direction": "horizontal",
+      "same_visual_size": true,
+      "bbox_width_tolerance": 12,
+      "bbox_height_tolerance": 12,
+      "prompt": "Create two separate friendly hovering sci-fi mecha sprites as one horizontal sprite sheet for a cozy school campus RPG map. Both mecha belong to the same pair and must share the same visual body scale, same camera angle, same outline thickness, same head size, same torso size, and same pixel density. Both must face directly south/front toward the viewer in a top-down 3/4 RPG view. They should look protective, peaceful, cute, colorful, and non-threatening, with rounded school-safe armor, soft white and light gray panels, subtle warm accents, and gentle blue thruster glow. The two slots should differ only in relaxed hover pose, small accent details, and minor silhouette variation.",
+      "targets": [
+        {
+          "target_id": "floating_mecha_01",
+          "slot_label": "left",
+          "variant_notes": "First friendly hovering campus mecha, calm balanced hover pose, front-facing torso, readable limbs, gentle blue thruster glow."
+        },
+        {
+          "target_id": "floating_mecha_02",
+          "slot_label": "right",
+          "variant_notes": "Second friendly hovering campus mecha companion, same visual body size as the first, slightly different relaxed hover pose and small accent details, front-facing torso, gentle blue thruster glow."
+        }
+      ],
+      "negative": [
+        "different body scale",
+        "one mecha much larger",
+        "one mecha much smaller",
+        "different camera angle",
+        "borders",
+        "dividers",
+        "labels",
+        "sprite sheet frame",
+        "visible grid",
+        "background panel"
+      ]
+    }
+  ]
+}

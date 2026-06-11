@@ -1,0 +1,59 @@
+{
+  "target_id": "campus_fountain_01",
+  "asset_id": "campus_fountain_01",
+  "sprite_path": "campus_fountain_01.png",
+  "category": "large_prop",
+  "footprint": [
+    4,
+    4
+  ],
+  "source_canvas": [
+    256,
+    256
+  ],
+  "prompt": {
+    "target_id": "campus_fountain_01",
+    "body": "Create an isolated pixel art sprite of a round pale-stone campus fountain for a warm modern school plaza. Top-down 3/4 RPG view, 256x256 source canvas, 4x4 tile footprint. The fountain should have a circular stone basin, clear blue water, small gentle water spray, soft highlights, readable silhouette, and a cozy non-luxury school-campus feeling. Center the object and make it large enough to occupy most of the useful canvas without touching the edges. Final processed asset must be transparent outside the fountain.",
+    "emphasis": [
+      "transparent_png",
+      "top_down_3_4",
+      "round_stone_fountain",
+      "clear_water",
+      "warm_school_campus"
+    ],
+    "negative": [
+      "background",
+      "terrain",
+      "floor tiles",
+      "grass",
+      "sky",
+      "people",
+      "text",
+      "logo",
+      "watermark",
+      "photorealistic",
+      "white background",
+      "checkerboard",
+      "transparency grid",
+      "gray checker pattern",
+      "colored rectangle behind the object",
+      "background panel",
+      "sprite sheet frame",
+      "visible grid"
+    ]
+  },
+  "full_prompt": "TASK: Create one isolated transparent PNG sprite asset for an RPG map object.\nCreate an isolated pixel art sprite of a round pale-stone campus fountain for a warm modern school plaza. Top-down 3/4 RPG view, 256x256 source canvas, 4x4 tile footprint. The fountain should have a circular stone basin, clear blue water, small gentle water spray, soft highlights, readable silhouette, and a cozy non-luxury school-campus feeling. Center the object and make it large enough to occupy most of the useful canvas without touching the edges. Final processed asset must be transparent outside the fountain.\n\nAsset contract:\n- Target id: campus_fountain_01\n- Category: large_prop\n- Source canvas: 256x256 px\n- Footprint in map: 4x4 tiles\n- Runtime size: 256x256 px\n- Tile size: 64x64 px\n- Anchor: center\n- Facing: east_west\n\nShared style requirements:\n- Use a cute, charming visual style with rounded, friendly shapes.\n- Use rich, colorful, bright-but-harmonious colors; avoid dull, muddy, monochrome, or overly desaturated palettes.\n- Art style: pixel_art_64.\n- Palette/mood: warm_school_campus_with_soft_sci_fi_accents_cute_and_colorful.\n- Lighting: soft_clear_afternoon.\n- Atmosphere: warm, clean, cute, colorful, friendly campus scene with two non-threatening hovering mecha.\n- Visual traits: cute_style, rich_colors, bright_but_harmonious_palette, charming_rounded_shapes.\n\nOutput requirements:\n- Pixel art, top-down 3/4 RPG view.\n- Orientation: must use an east-west neutral or symmetrical presentation, appropriate for the object's footprint.\n- Final processed asset must have transparent alpha outside the object.\n- Do not draw checkerboard, transparency preview grid, gray squares, colored backdrop, terrain, floor, sky, or scene content behind it.\n- Use a tight transparent margin: keep the object fully visible but large enough to occupy roughly 70-85% of the useful canvas.\n- Avoid tiny icon composition; the asset must remain readable at the final map runtime size.\n- Draw exactly this object, centered and readable.",
+  "variants_requested": 1,
+  "generator": "gemini-3.1-flash-image-preview",
+  "actual_seed": 2026067040,
+  "response_metadata": {},
+  "validation": {
+    "passed": true,
+    "has_transparency": true,
+    "has_clean_edges": true,
+    "size_correct": true,
+    "tile_aligned": true,
+    "errors": [],
+    "warnings": []
+  }
+}

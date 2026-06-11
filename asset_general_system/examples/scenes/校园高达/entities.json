@@ -1,0 +1,110 @@
+{
+  "version": "1.0",
+  "scene": "校园高达",
+  "entities": [
+    {
+      "target_id": "campus_fountain_01",
+      "object_key": "campus_fountain",
+      "display_name": "校园喷泉",
+      "category": "large_prop",
+      "region_id": "campus_plaza_01",
+      "footprint": [
+        4,
+        4
+      ],
+      "source_canvas": [
+        256,
+        256
+      ],
+      "text": null,
+      "facing": "east_west",
+      "context": "A warm modern school campus background with soft afternoon light; this sprite sits as the central plaza focal prop.",
+      "source_clause": "温馨校园中心有一座圆形石质喷泉，清澈水面和柔和水花，适合作为校园广场核心物件",
+      "style_tags": [
+        "pixel_art_64",
+        "top_down_3_4",
+        "warm_school_campus",
+        "soft_clear_afternoon",
+        "transparent_png"
+      ]
+    },
+    {
+      "target_id": "ali_fox_statue_01",
+      "object_key": "ali_fox_statue",
+      "display_name": "阿狸雕塑",
+      "category": "large_prop",
+      "region_id": "sculpture_corner_01",
+      "footprint": [
+        2,
+        2
+      ],
+      "source_canvas": [
+        128,
+        160
+      ],
+      "text": null,
+      "facing": "faces_south",
+      "context": "A campus sculpture of Ali the anime fox character near the fountain, recognizable as the Chinese cartoon image 阿狸 with a round cute head, red fox ears, white face patch, small body, and gentle expression.",
+      "source_clause": "喷泉旁有一座温暖可爱的阿狸风格红色狐狸雕塑，像校园吉祥物一样摆放在小景观区",
+      "style_tags": [
+        "pixel_art_64",
+        "top_down_3_4",
+        "warm_school_campus",
+        "ali_anime_fox_character_statue",
+        "transparent_png"
+      ]
+    },
+    {
+      "target_id": "floating_mecha_01",
+      "object_key": "floating_mecha",
+      "display_name": "悬浮机甲",
+      "category": "npc",
+      "region_id": "mecha_airspace_01",
+      "footprint": [
+        2,
+        3
+      ],
+      "source_canvas": [
+        192,
+        256
+      ],
+      "text": null,
+      "facing": "faces_south",
+      "context": "A friendly hovering school-safe sci-fi mecha above a cozy campus, with gentle blue thruster light and no combat pose.",
+      "source_clause": "两台机甲悬浮在校园上空，带有轻微蓝色推进光，但不破坏温馨校园氛围",
+      "style_tags": [
+        "pixel_art_64",
+        "top_down_3_4",
+        "friendly_sci_fi",
+        "soft_blue_thruster_glow",
+        "transparent_png"
+      ]
+    },
+    {
+      "target_id": "floating_mecha_02",
+      "object_key": "floating_mecha",
+      "display_name": "悬浮机甲",
+      "category": "npc",
+      "region_id": "mecha_airspace_01",
+      "footprint": [
+        2,
+        3
+      ],
+      "source_canvas": [
+        192,
+        256
+      ],
+      "text": null,
+      "facing": "faces_south",
+      "context": "A second friendly hovering school-safe sci-fi mecha above a cozy campus, visually paired with floating_mecha_01 but with a slightly different pose.",
+      "source_clause": "两台机甲悬浮在校园上空，带有轻微蓝色推进光，但不破坏温馨校园氛围",
+      "style_tags": [
+        "pixel_art_64",
+        "top_down_3_4",
+        "friendly_sci_fi",
+        "soft_blue_thruster_glow",
+        "transparent_png"
+      ]
+    }
+  ]
+}

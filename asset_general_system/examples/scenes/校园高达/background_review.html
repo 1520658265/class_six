@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Background Tile Review</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ed;
+      --panel: #fffdf8;
+      --ink: #24201a;
+      --muted: #70675c;
+      --line: #d6c8b5;
+      --accent: #256f5d;
+      --accent-soft: rgba(37, 111, 93, .16);
+      --warn: #9a5c10;
+      --bad: #9b2f2f;
+      --shadow: rgba(53, 40, 24, .12);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--ink); }
+    header {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+    h1 { font-size: 16px; margin: 0; font-weight: 650; }
+    h2 { font-size: 14px; margin: 16px 0 8px; }
+    button, select { font: inherit; }
+    button {
+      min-height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); }
+    button.active { background: var(--accent); border-color: var(--accent); color: white; }
+    main { display: grid; grid-template-columns: minmax(460px, 1fr) 400px; height: calc(100vh - 52px); }
+    .stage { min-width: 0; overflow: auto; padding: 16px; }
+    .canvas-wrap {
+      width: min(100%, 1024px);
+      position: relative;
+      border: 1px solid var(--line);
+      background: #d8c28a;
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+    canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+    aside { border-left: 1px solid var(--line); background: var(--panel); overflow: auto; padding: 12px; }
+    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+    .hint { color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .status { min-width: 12em; color: var(--muted); font-size: 12px; text-align: right; }
+    .items { display: grid; gap: 8px; margin-top: 10px; }
+    .item {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: white;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .item.selected { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); background: var(--accent-soft); }
+    .item-title { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; font-weight: 650; }
+    .item-title span:first-child { overflow-wrap: anywhere; }
+    .item-meta { margin-top: 4px; color: var(--muted); font-size: 12px; line-height: 1.35; overflow-wrap: anywhere; }
+    .method { color: var(--warn); white-space: nowrap; }
+    .method.extract_from_concept, .method.extract_and_cleanup { color: var(--accent); }
+    .method.ignore { color: var(--bad); }
+    .field { display: grid; gap: 4px; margin-bottom: 10px; }
+    textarea {
+      width: 100%;
+      min-height: 220px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12px;
+      line-height: 1.45;
+      background: white;
+      color: var(--ink);
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; height: auto; }
+      aside { border-left: 0; border-top: 1px solid var(--line); }
+      .status { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Background Tile Review</h1>
+    <div class="row" style="margin:0">
+      <span class="status" id="copyStatus">复制后替换 background_plan.json</span>
+      <button id="copyBtn">复制 JSON</button>
+      <button id="exportBtn">下载 JSON</button>
+    </div>
+  </header>
+  <main>
+    <section class="stage" id="stage">
+      <div class="canvas-wrap">
+        <canvas id="canvas"></canvas>
+      </div>
+      <p class="hint">选择右侧条目后会自动显示系统建议裁剪框；直接拖拽画布可调整当前条目的 crop_rect。页面不会写回本地文件，确认后复制下方 JSON 并替换 background_plan.json。</p>
+    </section>
+    <aside>
+      <div class="row">
+        <button data-method="extract_from_concept">直接裁剪</button>
+        <button data-method="extract_and_cleanup">裁后修整</button>
+        <button data-method="regenerate">重新生成</button>
+        <button data-method="ignore">忽略</button>
+      </div>
+      <label class="row"><input type="checkbox" id="snap" checked> 吸附网格</label>
+      <label class="row">网格
+        <select id="gridMode">
+          <option value="crop" selected>裁剪格</option>
+          <option value="map">地图格</option>
+          <option value="none">隐藏</option>
+        </select>
+      </label>
+      <div class="hint" id="gridInfo"></div>
+      <div class="hint" id="selectionInfo"></div>
+      <div class="items" id="items"></div>
+      <h2>导出内容</h2>
+      <div class="field">
+        <div class="hint">file:// 页面不能稳定静默写盘；使用复制按钮，或在复制失败时手动 Ctrl+C。</div>
+        <textarea id="jsonOut" spellcheck="false"></textarea>
+      </div>
+    </aside>
+  </main>
+  <script>
+    const plan = {"version": "1.0", "kind": "background_plan", "scene_id": "校园高达", "concept_image": "concept/background_concept.png", "tile_size": [64, 64], "map_size": [64, 64], "image_size": [1024, 1024], "regions": [{"id": "campus_plaza_01", "type": "campus_plaza", "bounds": [22, 24, 21, 16], "pixel_bounds": [1408, 1536, 1344, 1024], "center": [32, 32], "access": [32, 40], "priority": 95}, {"id": "sculpture_corner_01", "type": "sculpture_corner", "bounds": [46, 26, 12, 12], "pixel_bounds": [2944, 1664, 768, 768], "center": [52, 32], "access": [52, 38], "priority": 85}, {"id": "mecha_airspace_01", "type": "airspace", "bounds": [22, 2, 21, 16], "pixel_bounds": [1408, 128, 1344, 1024], "center": [32, 10], "access": [32, 18], "priority": 80}], "review_items": [{"id": "campus_ground_01", "asset_id": "campus_ground_01", "kind": "base_terrain", "display_name": "温馨校园地面", "method": "extract_or_regenerate", "status": "pending_review", "crop_rect": null, "suggested_crop_rect": [480, 480, 64, 64], "target_size": [64, 64], "notes": "Large uniform terrain is often a good extraction candidate if the concept image has a clean patch."}], "background_entities": [], "foreground_objects": [{"id": "campus_fountain_01", "category": "large_prop", "display_name": "校园喷泉", "placement_zone": "campus_plaza_01"}, {"id": "ali_fox_statue_01", "category": "large_prop", "display_name": "阿狸雕塑", "placement_zone": "sculpture_corner_01"}, {"id": "floating_mecha_01", "category": "npc", "display_name": "悬浮机甲", "placement_zone": "mecha_airspace_01"}, {"id": "floating_mecha_02", "category": "npc", "display_name": "悬浮机甲", "placement_zone": "mecha_airspace_01"}]};
+    const items = plan.review_items || [];
+    const methodLabels = {
+      extract_or_regenerate: '待确认',
+      extract_from_concept: '直接裁剪',
+      extract_and_cleanup: '裁后修整',
+      regenerate: '重新生成',
+      ignore: '忽略',
+    };
+    let selected = null;
+    let image = new Image();
+    let dragging = false;
+    let dragStart = null;
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const stage = document.getElementById('stage');
+    const itemList = document.getElementById('items');
+    const jsonOut = document.getElementById('jsonOut');
+    const snap = document.getElementById('snap');
+    const gridMode = document.getElementById('gridMode');
+    const gridInfo = document.getElementById('gridInfo');
+    const selectionInfo = document.getElementById('selectionInfo');
+    const copyStatus = document.getElementById('copyStatus');
+
+    image.onload = () => {
+      canvas.width = image.naturalWidth;
+      canvas.height = image.naturalHeight;
+      plan.image_size = [canvas.width, canvas.height];
+      selectItem(items[0] || null, {focus: false});
+    };
+    image.onerror = () => {
+      copyStatus.textContent = '概念图加载失败，请检查 concept_image 路径';
+      updateJson();
+      renderItems();
+    };
+    image.src = plan.concept_image;
+
+    function gridStep() {
+      if (gridMode.value === 'none' || !canvas.width || !canvas.height) return null;
+      if (gridMode.value === 'map') {
+        const map = plan.map_size || [64, 64];
+        return [canvas.width / map[0], canvas.height / map[1]];
+      }
+      const tile = plan.tile_size || [64, 64];
+      return [Number(tile[0]) || 64, Number(tile[1]) || 64];
+    }
+
+    function snapPoint(p) {
+      if (!snap.checked) return p;
+      const step = gridStep();
+      if (!step) return p;
+      const [gx, gy] = step;
+      return [Math.round(p[0] / gx) * gx, Math.round(p[1] / gy) * gy];
+    }
+
+    function canvasPoint(evt) {
+      const rect = canvas.getBoundingClientRect();
+      return [
+        (evt.clientX - rect.left) * canvas.width / rect.width,
+        (evt.clientY - rect.top) * canvas.height / rect.height,
+      ];
+    }
+
+    function rectFromPoints(a, b) {
+      const x1 = Math.max(0, Math.min(a[0], b[0]));
+      const y1 = Math.max(0, Math.min(a[1], b[1]));
+      const x2 = Math.min(canvas.width, Math.max(a[0], b[0]));
+      const y2 = Math.min(canvas.height, Math.max(a[1], b[1]));
+      return [Math.round(x1), Math.round(y1), Math.round(x2 - x1), Math.round(y2 - y1)];
+    }
+
+    function validRect(value) {
+      return Array.isArray(value) && value.length === 4 && value.every((item) => Number.isFinite(Number(item))) && Number(value[2]) > 0 && Number(value[3]) > 0;
+    }
+
+    function cloneRect(value) {
+      return validRect(value) ? value.map((item) => Math.round(Number(item))) : null;
+    }
+
+    function defaultRect(item) {
+      const target = item?.target_size || plan.tile_size || [64, 64];
+      const w = Math.max(1, Math.round(Number(target[0]) || 64));
+      const h = Math.max(1, Math.round(Number(target[1]) || 64));
+      return [
+        Math.max(0, Math.round((canvas.width - w) / 2)),
+        Math.max(0, Math.round((canvas.height - h) / 2)),
+        Math.min(w, canvas.width || w),
+        Math.min(h, canvas.height || h),
+      ];
+    }
+
+    function ensureCropRect(item) {
+      if (!item || validRect(item.crop_rect)) return;
+      item.crop_rect = cloneRect(item.suggested_crop_rect) || defaultRect(item);
+    }
+
+    function selectItem(item, options = {}) {
+      selected = item || null;
+      ensureCropRect(selected);
+      render();
+      if (options.focus !== false) focusSelectedRect();
+    }
+
+    function focusSelectedRect() {
+      if (!selected || !validRect(selected.crop_rect)) return;
+      const r = selected.crop_rect;
+      const scale = canvas.clientWidth / Math.max(1, canvas.width);
+      stage.scrollTo({
+        left: Math.max(0, (r[0] + r[2] / 2) * scale - stage.clientWidth / 2),
+        top: Math.max(0, (r[1] + r[3] / 2) * scale - stage.clientHeight / 2),
+        behavior: 'smooth',
+      });
+    }
+
+    function render() {
+      if (!canvas.width || !canvas.height) {
+        renderItems();
+        updateJson();
+        return;
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(image, 0, 0);
+      drawGrid();
+      for (const item of items) {
+        if (!validRect(item.crop_rect)) continue;
+        const r = item.crop_rect;
+        ctx.save();
+        ctx.strokeStyle = item === selected ? '#256f5d' : 'rgba(36,32,26,.55)';
+        ctx.lineWidth = item === selected ? 4 : 2;
+        ctx.strokeRect(r[0], r[1], r[2], r[3]);
+        if (item === selected) {
+          ctx.fillStyle = 'rgba(37, 111, 93, .12)';
+          ctx.fillRect(r[0], r[1], r[2], r[3]);
+        }
+        ctx.restore();
+      }
+      renderItems();
+      updateJson();
+    }
+
+    function drawGrid() {
+      const step = gridStep();
+      if (!step) return;
+      const [gx, gy] = step;
+      ctx.save();
+      ctx.strokeStyle = gridMode.value === 'map' ? 'rgba(255,255,255,.16)' : 'rgba(255,255,255,.32)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= canvas.width; x += gx) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for (let y = 0; y <= canvas.height; y += gy) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function renderItems() {
+      itemList.innerHTML = '';
+      items.forEach((item) => {
+        const el = document.createElement('button');
+        el.type = 'button';
+        el.className = 'item' + (item === selected ? ' selected' : '');
+        const crop = validRect(item.crop_rect) ? item.crop_rect.join(', ') : '未设置';
+        const suggested = validRect(item.suggested_crop_rect) ? item.suggested_crop_rect.join(', ') : '无';
+        el.innerHTML = `<div class="item-title"><span>${escapeHtml(item.display_name || item.id)}</span><span class="method ${item.method}">${methodLabels[item.method] || item.method}</span></div><div class="item-meta">${escapeHtml(item.kind || '')} | ${escapeHtml(item.id || '')}<br>crop: ${escapeHtml(crop)}<br>suggested: ${escapeHtml(suggested)}</div>`;
+        el.onclick = () => selectItem(item);
+        itemList.appendChild(el);
+      });
+      selectionInfo.textContent = selected ? `当前条目: ${selected.id}` : '没有 review item';
+      const step = gridStep();
+      gridInfo.textContent = step ? `${gridMode.value === 'map' ? '地图格' : '裁剪格'}: ${round2(step[0])} x ${round2(step[1])} px` : '网格: 隐藏';
+      document.querySelectorAll('[data-method]').forEach((button) => {
+        button.classList.toggle('active', Boolean(selected && selected.method === button.dataset.method));
+      });
+    }
+
+    function updateJson() {
+      jsonOut.value = JSON.stringify(plan, null, 2);
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char]));
+    }
+
+    function round2(value) {
+      return Math.round(value * 100) / 100;
+    }
+
+    canvas.addEventListener('pointerdown', (evt) => {
+      if (!selected) return;
+      dragging = true;
+      dragStart = snapPoint(canvasPoint(evt));
+      canvas.setPointerCapture(evt.pointerId);
+    });
+    canvas.addEventListener('pointermove', (evt) => {
+      if (!dragging || !selected) return;
+      const current = snapPoint(canvasPoint(evt));
+      selected.crop_rect = rectFromPoints(dragStart, current);
+      selected.status = 'reviewed';
+      render();
+    });
+    canvas.addEventListener('pointerup', (evt) => {
+      dragging = false;
+      try { canvas.releasePointerCapture(evt.pointerId); } catch (err) {}
+    });
+    window.addEventListener('pointerup', () => { dragging = false; });
+    gridMode.addEventListener('change', render);
+    snap.addEventListener('change', render);
+    document.querySelectorAll('[data-method]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!selected) return;
+        selected.method = button.dataset.method;
+        selected.status = 'reviewed';
+        ensureCropRect(selected);
+        render();
+      });
+    });
+    document.getElementById('exportBtn').onclick = () => {
+      const blob = new Blob([jsonOut.value + '\n'], {type: 'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'background_plan.reviewed.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    };
+    document.getElementById('copyBtn').onclick = async () => {
+      updateJson();
+      try {
+        if (!navigator.clipboard) throw new Error('clipboard unavailable');
+        await navigator.clipboard.writeText(jsonOut.value);
+        copyStatus.textContent = '已复制，替换 background_plan.json';
+      } catch (err) {
+        jsonOut.focus();
+        jsonOut.select();
+        copyStatus.textContent = '浏览器限制复制，已选中 JSON，请按 Ctrl+C';
+      }
+    };
+  </script>
+</body>
+</html>

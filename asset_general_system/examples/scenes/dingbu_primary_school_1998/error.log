@@ -1,4 +1,0 @@
-[2026-06-09T12:09:12Z] 6_images school_building_01: RPG sprite usability failed: runtime silhouette is too short for its footprint (0.62 height coverage); visible silhouette aspect 2.97 does not match footprint aspect 2.00
-[2026-06-09T12:09:12Z] 6_images ping_pong_table_02: missing prompt
-[2026-06-09T12:09:12Z] 6_images basketball_hoop_01: missing prompt
-[2026-06-09T12:09:12Z] 6_images basketball_hoop_02: missing prompt

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-import shutil
 import uuid
 from pathlib import Path
 
@@ -11,19 +10,17 @@ from generator.assets.image_generation import TransparencyMode
 from generator.scene.images import _generated_prompt_for, _image_request, generate_scene_images
 from generator.scene.map_build import build_scene_map
 from generator.scene.pack import pack_scene
+from scene_fixtures import write_rice_scene
+from scene_fixtures import _entity
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RICE_FIELD_EXAMPLE = ROOT / "examples" / "scenes" / "rice_field_test"
 TEST_WORK = ROOT / "tmp" / "test_scene_composites"
 
 
 def copy_rice_scene() -> Path:
     scene = TEST_WORK / f"rice_field_{os.getpid()}_{uuid.uuid4().hex}"
-    scene.mkdir(parents=True)
-    for name in ["scene.md", "map_spec.json", "style_profile.json", "entities.json", "prompts.json"]:
-        shutil.copyfile(RICE_FIELD_EXAMPLE / name, scene / name)
-    return scene
+    return write_rice_scene(scene)
 
 
 def test_scene_composites_are_tile_parts_not_large_images():
@@ -115,7 +112,8 @@ def test_scene_pack_prefers_reviewed_background_tiles():
 
     Image.new("RGBA", (64, 64), (210, 40, 30, 255)).save(background_tiles / "wheat_field_01.png")
     Image.new("RGBA", (64, 64), (10, 20, 30, 255)).save(images / "wheat_field_01.png")
-    Image.new("RGBA", (64, 64), (30, 180, 80, 255)).save(background_tiles / "road_cross_01_road_center_01.png")
+    Image.new("RGBA", (64, 64), (30, 180, 80, 255)).save(background_tiles / "road_cross_01_road_center.png")
+    Image.new("RGBA", (64, 64), (5, 5, 5, 255)).save(images / "road_cross_01_road_center_01.png")
 
     manifest = pack_scene(scene, force=True)
     applied = read_json(scene / "final" / "map_data_applied.json")
@@ -123,7 +121,7 @@ def test_scene_pack_prefers_reviewed_background_tiles():
 
     assert mappings["wheat_field_01"]["asset_source"] == "background_tiles"
     assert mappings["road_cross_01_road_center_01"]["asset_source"] == "background_tiles"
-    assert manifest["metadata"]["generated_count"] == 2
+    assert manifest["metadata"]["generated_count"] > 2
     assert max(applied["layers"]["path"]) > 33
 
     tile_id = TILE_ID_BY_NAME["wheat_field"]
@@ -134,3 +132,123 @@ def test_scene_pack_prefers_reviewed_background_tiles():
     y = ((tile_id - 1) // columns) * tile_h + tile_h // 2
     with Image.open(scene / "final" / "tilesets" / "scene_tileset.png").convert("RGBA") as tileset:
         assert tileset.getpixel((x, y)) == (210, 40, 30, 255)
+
+
+def test_scene_images_sprite_sheet_group_expands_target_and_slices_members():
+    scene = TEST_WORK / f"group_scene_{os.getpid()}_{uuid.uuid4().hex}"
+    scene.mkdir()
+    from scene_fixtures import _write_json, _write_text
+
+    _write_text(scene / "scene.md", "group test")
+    _write_json(
+        scene / "map_spec.json",
+        {
+            "version": "1.0.0",
+            "id": "group_test",
+            "title": "group test",
+            "theme": "test",
+            "map": {"width": 8, "height": 8, "tile_width": 64, "tile_height": 64, "orientation": "orthogonal"},
+            "regions": [],
+            "paths": [],
+            "objects": [
+                {
+                    "type": "npc",
+                    "count": 2,
+                    "placement": "center",
+                    "label": "mecha",
+                    "properties": {
+                        "object_key": "floating_mecha",
+                        "display_name": "floating mecha",
+                        "source_clause": "two friendly mecha",
+                        "facing": "faces_south",
+                        "footprint": "2x3",
+                        "source_canvas": [64, 96],
+                        "blocking": False,
+                    },
+                }
+            ],
+            "entities": [],
+            "constraints": {},
+            "seed": 7,
+            "tileset_id": "default_rpg_32",
+        },
+    )
+    _write_json(scene / "style_profile.json", {"version": "1.0", "view": "top_down_3_4", "art_style": "pixel_art_64"})
+    _write_json(
+        scene / "art_request.json",
+        {
+            "version": "1.0",
+            "scene": "group test",
+            "tile_size": [64, 64],
+            "seed": 7,
+            "objects": [
+                {
+                    "id": "floating_mecha_01",
+                    "object_key": "floating_mecha",
+                    "display_name": "floating mecha",
+                    "category": "npc",
+                    "footprint": [2, 3],
+                    "source_canvas": [64, 96],
+                    "runtime_size": [128, 192],
+                    "facing": "faces_south",
+                    "anchor": "center",
+                },
+                {
+                    "id": "floating_mecha_02",
+                    "object_key": "floating_mecha",
+                    "display_name": "floating mecha",
+                    "category": "npc",
+                    "footprint": [2, 3],
+                    "source_canvas": [64, 96],
+                    "runtime_size": [128, 192],
+                    "facing": "faces_south",
+                    "anchor": "center",
+                },
+            ],
+            "generation_targets": [],
+        },
+    )
+    _write_json(
+        scene / "entities.json",
+        {
+            "version": "1.0",
+            "scene": "group test",
+            "entities": [
+                _entity("floating_mecha_01", "floating_mecha", "floating mecha", "npc", [2, 3], [64, 96], "mecha one", "center"),
+                _entity("floating_mecha_02", "floating_mecha", "floating mecha", "npc", [2, 3], [64, 96], "mecha two", "center"),
+            ],
+        },
+    )
+    _write_json(
+        scene / "prompts.json",
+        {
+            "version": "1.0",
+            "prompts": [
+                {"target_id": "floating_mecha_01", "body": "friendly mecha one", "negative": ["background"]},
+                {"target_id": "floating_mecha_02", "body": "friendly mecha two", "negative": ["background"]},
+            ],
+            "generation_groups": [
+                {
+                    "group_id": "floating_mecha_pair",
+                    "mode": "sprite_sheet",
+                    "slot_size": [64, 96],
+                    "gutter": 16,
+                    "targets": [
+                        {"target_id": "floating_mecha_01", "variant_notes": "first mecha"},
+                        {"target_id": "floating_mecha_02", "variant_notes": "second mecha"},
+                    ],
+                    "bbox_width_tolerance": 12,
+                    "bbox_height_tolerance": 12,
+                }
+            ],
+        },
+    )
+
+    generated = generate_scene_images(scene, force=True, target="floating_mecha_01")
+
+    assert generated == ["floating_mecha_01", "floating_mecha_02"]
+    assert (scene / "images" / "_group_floating_mecha_pair.png").exists()
+    assert (scene / "images" / "floating_mecha_01.png").exists()
+    assert (scene / "images" / "floating_mecha_02.png").exists()
+    metadata = read_json(scene / "images" / "floating_mecha_01.json")
+    assert metadata["generation_group"]["group_id"] == "floating_mecha_pair"

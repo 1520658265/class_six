@@ -1,0 +1,83 @@
+{
+  "target_id": "floating_mecha_02",
+  "asset_id": "floating_mecha_02",
+  "sprite_path": "floating_mecha_02.png",
+  "category": "npc",
+  "footprint": [
+    2,
+    3
+  ],
+  "source_canvas": [
+    192,
+    256
+  ],
+  "prompt": {
+    "target_id": "floating_mecha_02",
+    "body": "Create an isolated pixel art sprite of one friendly hovering sci-fi mecha companion for a cozy school campus scene. Top-down 3/4 RPG view, 192x256 source canvas, 2x3 tile footprint. The mecha must face directly south/front toward the viewer, with the torso front centered and readable in a top-down RPG map. It should match floating_mecha_01 in palette and design language but use a slightly different relaxed hover pose while keeping the torso front-facing. Use rounded school-safe armor, light gray and soft white panels, subtle warm accents, and gentle blue thruster glow. It should feel peaceful and curious, not armed or threatening. Make the mecha large enough to occupy most of the useful canvas, with clear readable limbs and torso at runtime size. Final processed asset must be transparent outside the mecha and glow.",
+    "emphasis": [
+      "transparent_png",
+      "top_down_3_4",
+      "friendly_hovering_mecha",
+      "paired_variant",
+      "soft_blue_thruster_glow"
+    ],
+    "negative": [
+      "background",
+      "terrain",
+      "floor tiles",
+      "sky",
+      "weapons firing",
+      "explosions",
+      "battle damage",
+      "dark war scene",
+      "aggressive pose",
+      "text",
+      "logo",
+      "watermark",
+      "photorealistic",
+      "white background",
+      "checkerboard",
+      "transparency grid",
+      "gray checker pattern",
+      "pink rectangle",
+      "colored rectangle behind the object",
+      "background panel",
+      "tiny icon",
+      "small distant character",
+      "sprite sheet frame",
+      "visible grid"
+    ]
+  },
+  "full_prompt": "TASK: Create one isolated transparent PNG sprite asset for an RPG map object.\nCreate an isolated pixel art sprite of one friendly hovering sci-fi mecha companion for a cozy school campus scene. Top-down 3/4 RPG view, 192x256 source canvas, 2x3 tile footprint. The mecha must face directly south/front toward the viewer, with the torso front centered and readable in a top-down RPG map. It should match floating_mecha_01 in palette and design language but use a slightly different relaxed hover pose while keeping the torso front-facing. Use rounded school-safe armor, light gray and soft white panels, subtle warm accents, and gentle blue thruster glow. It should feel peaceful and curious, not armed or threatening. Make the mecha large enough to occupy most of the useful canvas, with clear readable limbs and torso at runtime size. Final processed asset must be transparent outside the mecha and glow.\n\nAsset contract:\n- Target id: floating_mecha_02\n- Category: npc\n- Source canvas: 192x256 px\n- Footprint in map: 2x3 tiles\n- Runtime size: 128x192 px\n- Tile size: 64x64 px\n- Anchor: center\n- Facing: faces_south\n\nShared style requirements:\n- Use a cute, charming visual style with rounded, friendly shapes.\n- Use rich, colorful, bright-but-harmonious colors; avoid dull, muddy, monochrome, or overly desaturated palettes.\n- Art style: pixel_art_64.\n- Palette/mood: warm_school_campus_with_soft_sci_fi_accents_cute_and_colorful.\n- Lighting: soft_clear_afternoon.\n- Atmosphere: warm, clean, cute, colorful, friendly campus scene with two non-threatening hovering mecha.\n- Visual traits: cute_style, rich_colors, bright_but_harmonious_palette, charming_rounded_shapes.\n\nOutput requirements:\n- Pixel art, top-down 3/4 RPG view.\n- Orientation: must face directly toward the viewer / south side of the map, with the front of the object centered and symmetrical in a top-down 3/4 RPG view.\n- Final processed asset must have transparent alpha outside the object.\n- Do not draw checkerboard, transparency preview grid, gray squares, colored backdrop, terrain, floor, sky, or scene content behind it.\n- Use a tight transparent margin: keep the object fully visible but large enough to occupy roughly 70-85% of the useful canvas.\n- Avoid tiny icon composition; the asset must remain readable at the final map runtime size.\n- Draw exactly this object, centered and readable.",
+  "variants_requested": 1,
+  "generator": "gemini-3.1-flash-image-preview",
+  "actual_seed": 2026068988,
+  "response_metadata": {},
+  "generation_group": {
+    "group_id": "floating_mecha_pair",
+    "mode": "sprite_sheet",
+    "group_sprite_path": "_group_floating_mecha_pair.png",
+    "source_rect": [
+      224,
+      0,
+      192,
+      256
+    ],
+    "alpha_bbox": [
+      17,
+      26,
+      161,
+      234
+    ],
+    "group_full_prompt": "TASK: Create one sprite sheet containing multiple related transparent RPG map sprites.\nCreate two separate friendly hovering sci-fi mecha sprites as one horizontal sprite sheet for a cozy school campus RPG map. Both mecha belong to the same pair and must share the same visual body scale, same camera angle, same outline thickness, same head size, same torso size, and same pixel density. Both must face directly south/front toward the viewer in a top-down 3/4 RPG view. They should look protective, peaceful, cute, colorful, and non-threatening, with rounded school-safe armor, soft white and light gray panels, subtle warm accents, and gentle blue thruster glow. The two slots should differ only in relaxed hover pose, small accent details, and minor silhouette variation.\n\nSprite sheet contract:\n- Group id: floating_mecha_pair\n- Sheet canvas: 416x256 px\n- Layout direction: horizontal\n- Each slot size: 192x256 px\n- Gutter between slots: 32 px; keep gutters completely empty technical background.\n- Do not draw borders, labels, dividers, frames, grid lines, or text.\n\nSlot definitions:\n- Slot 1 (floating_mecha_01) rectangle x=0..191, y=0..255: First friendly hovering campus mecha, calm balanced hover pose, front-facing torso, readable limbs, gentle blue thruster glow.\n- Slot 2 (floating_mecha_02) rectangle x=224..415, y=0..255: Second friendly hovering campus mecha companion, same visual body size as the first, slightly different relaxed hover pose and small accent details, front-facing torso, gentle blue thruster glow.\n\nShared style requirements:\n- Use a cute, charming visual style with rounded, friendly shapes.\n- Use rich, colorful, bright-but-harmonious colors; avoid dull, muddy, monochrome, or overly desaturated palettes.\n- Art style: pixel_art_64.\n- Palette/mood: warm_school_campus_with_soft_sci_fi_accents_cute_and_colorful.\n- Lighting: soft_clear_afternoon.\n- Atmosphere: warm, clean, cute, colorful, friendly campus scene with two non-threatening hovering mecha.\n- Visual traits: cute_style, rich_colors, bright_but_harmonious_palette, charming_rounded_shapes.\n\nConsistency requirements:\n- All listed sprites must share the same visual body scale inside their own 192x256 px slots.\n- Their visible alpha silhouette widths should differ by no more than 12 px.\n- Their visible alpha silhouette heights should differ by no more than 12 px.\n- Keep head size, torso size, outline thickness, camera angle, and pixel density consistent across all slots.\n- Only pose, accent details, and small design differences may vary.\n- Orientation: must face directly toward the viewer / south side of the map, with the front of the object centered and symmetrical in a top-down 3/4 RPG view.\n- Center each sprite inside its own slot with transparent alpha outside the object after processing.\n- Use a tight transparent margin in each slot without touching slot edges.\n- Draw each target as a separate sprite inside its own slot; do not let sprites overlap across slots."
+  },
+  "validation": {
+    "passed": true,
+    "has_transparency": true,
+    "has_clean_edges": true,
+    "size_correct": true,
+    "tile_aligned": true,
+    "errors": [],
+    "warnings": []
+  }
+}

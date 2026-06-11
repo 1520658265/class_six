@@ -37,12 +37,11 @@ def main(argv: list[str] | None = None) -> int:
     background_assets = subparsers.add_parser("scene-background-assets")
     background_assets.add_argument("scene_dir", type=Path)
     background_assets.add_argument("--force", action="store_true")
+    background_assets.add_argument("--gemini", action="store_true")
 
     images = subparsers.add_parser("scene-images")
     images.add_argument("scene_dir", type=Path)
-    backend = images.add_mutually_exclusive_group()
-    backend.add_argument("--gemini", action="store_true")
-    backend.add_argument("--pixai", action="store_true")
+    images.add_argument("--gemini", action="store_true")
     images.add_argument("--force", action="store_true")
     images.add_argument("--variants", type=int, default=1)
     images.add_argument("--target")
@@ -78,14 +77,13 @@ def main(argv: list[str] | None = None) -> int:
         print(f"[ok] scene-background-review: {html_path}")
         return 0
     if args.command == "scene-background-assets":
-        written = extract_background_tiles(args.scene_dir, force=args.force)
-        print(f"[ok] scene-background-assets: {len(written)} tile(s)")
+        written = extract_background_tiles(args.scene_dir, force=args.force, use_gemini=args.gemini)
+        print(f"[ok] scene-background-assets: {len(written)} asset(s)")
         return 0
     if args.command == "scene-images":
         generated = generate_scene_images(
             args.scene_dir,
             use_gemini=args.gemini,
-            use_pixai=args.pixai,
             force=args.force,
             variants=args.variants,
             target=args.target,
@@ -94,7 +92,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.command == "scene-pack":
         manifest = pack_scene(args.scene_dir, force=args.force, resource_base=args.resource_base)
-        print(f"[ok] scene-pack: {manifest['metadata']['generated_count']}/{manifest['metadata']['total_objects']}")
+        metadata = manifest["metadata"]
+        print(f"[ok] scene-pack: {metadata.get('fulfilled_count', metadata['generated_count'])}/{metadata['total_objects']}")
         return 0
     if args.command == "scene-status":
         print(scene_status_text(args.scene_dir))

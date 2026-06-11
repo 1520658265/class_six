@@ -12,6 +12,9 @@ from .constants import (
     FOOTPRINT_RE,
     OBJECT_KEY_RE,
     SCENE_OBJECT_CATEGORIES,
+    TILE_GROUP_KINDS,
+    TILE_GROUP_MEMBER_ROLES,
+    TILE_GROUP_MODES,
 )
 from .contracts import scene_paths
 
@@ -40,6 +43,7 @@ def validate_scene_file(scene_dir: str | Path, stage: str | None = None) -> list
     if stage in (None, "prompts", "5_prompts") and paths.prompts.exists():
         issues.extend(validate_schema_file(paths.prompts, "scene_prompts.schema.json"))
         issues.extend(validate_prompt_targets(paths.root))
+        issues.extend(validate_generation_group_targets(paths.root))
         issues.extend(validate_text_sign_prompts(paths.root))
     if stage in (None, "manifest", "pack", "7_pack") and paths.manifest.exists():
         issues.extend(validate_schema_file(paths.manifest, "art_manifest.schema.json"))
@@ -111,6 +115,7 @@ def validate_map_spec_semantics(data: dict[str, Any]) -> list[SceneValidationIss
         if not props.get("source_clause"):
             issues.append(SceneValidationIssue(f"{path}.properties.source_clause", "source_clause is recommended", severity="warning"))
     issues.extend(validate_composites(data, regions))
+    issues.extend(validate_tile_groups(data))
     return issues
 
 
@@ -164,6 +169,72 @@ def validate_composites(data: dict[str, Any], regions: set[str]) -> list[SceneVa
                 issues.append(SceneValidationIssue(f"{path}.layout[{cell_index}]", "x and y must be non-negative integers"))
             elif width and height and (x >= width or y >= height):
                 issues.append(SceneValidationIssue(f"{path}.layout[{cell_index}]", "cell is outside composite footprint"))
+    return issues
+
+
+def validate_tile_groups(data: dict[str, Any]) -> list[SceneValidationIssue]:
+    issues: list[SceneValidationIssue] = []
+    base_refs = set()
+    base_terrain = data.get("base_terrain")
+    if isinstance(base_terrain, dict) and isinstance(base_terrain.get("object_key"), str):
+        base_refs.add(str(base_terrain["object_key"]))
+        base_refs.add(f"{base_terrain['object_key']}_01")
+
+    composite_refs = set()
+    for comp in data.get("composites", []) or []:
+        if not isinstance(comp, dict):
+            continue
+        comp_id = str(comp.get("id") or "")
+        if comp_id:
+            composite_refs.add(comp_id)
+        for part in comp.get("parts", []) or []:
+            if not isinstance(part, dict):
+                continue
+            key = str(part.get("key") or "")
+            if key:
+                composite_refs.add(key)
+                composite_refs.add(f"{comp_id}:{key}")
+                composite_refs.add(f"{comp_id}_{key}")
+
+    valid_refs = base_refs | composite_refs
+    seen_groups: set[str] = set()
+    seen_tiles: set[str] = set()
+    for group_index, group in enumerate(data.get("tile_groups", []) or []):
+        path = f"tile_groups[{group_index}]"
+        if not isinstance(group, dict):
+            issues.append(SceneValidationIssue(path, "tile group must be an object"))
+            continue
+        group_id = group.get("group_id")
+        if not isinstance(group_id, str) or not OBJECT_KEY_RE.match(group_id):
+            issues.append(SceneValidationIssue(f"{path}.group_id", "must be ASCII snake_case and start with a letter"))
+        elif group_id in seen_groups:
+            issues.append(SceneValidationIssue(f"{path}.group_id", f"duplicate group_id: {group_id}"))
+        else:
+            seen_groups.add(group_id)
+        if group.get("kind") not in TILE_GROUP_KINDS:
+            issues.append(SceneValidationIssue(f"{path}.kind", f"must be one of {sorted(TILE_GROUP_KINDS)}"))
+        if group.get("generation_mode") not in TILE_GROUP_MODES:
+            issues.append(SceneValidationIssue(f"{path}.generation_mode", "must be sprite_sheet"))
+        if not _is_pair_of_positive_ints(group.get("tile_size")):
+            issues.append(SceneValidationIssue(f"{path}.tile_size", "must be [W, H] positive integer array"))
+        for member_index, member in enumerate(group.get("members", []) or []):
+            member_path = f"{path}.members[{member_index}]"
+            if not isinstance(member, dict):
+                issues.append(SceneValidationIssue(member_path, "member must be an object"))
+                continue
+            tile_id = member.get("tile_id")
+            if not isinstance(tile_id, str) or not OBJECT_KEY_RE.match(tile_id):
+                issues.append(SceneValidationIssue(f"{member_path}.tile_id", "must be ASCII snake_case and start with a letter"))
+            elif tile_id in seen_tiles:
+                issues.append(SceneValidationIssue(f"{member_path}.tile_id", f"duplicate tile_id across tile_groups: {tile_id}"))
+            else:
+                seen_tiles.add(tile_id)
+            role = member.get("role")
+            if role not in TILE_GROUP_MEMBER_ROLES:
+                issues.append(SceneValidationIssue(f"{member_path}.role", f"unknown tile group role: {role}"))
+            source_ref = member.get("source_ref")
+            if source_ref is not None and str(source_ref) not in valid_refs:
+                issues.append(SceneValidationIssue(f"{member_path}.source_ref", f"does not reference base terrain or composite part: {source_ref}"))
     return issues
 
 
@@ -227,6 +298,29 @@ def validate_prompt_targets(scene_dir: Path) -> list[SceneValidationIssue]:
         target_id = prompt.get("target_id")
         if target_id not in target_ids:
             issues.append(SceneValidationIssue(f"prompts[{index}].target_id", f"unknown target_id: {target_id}"))
+    return issues
+
+
+def validate_generation_group_targets(scene_dir: Path) -> list[SceneValidationIssue]:
+    paths = scene_paths(scene_dir)
+    if not paths.prompts.exists() or not paths.entities.exists():
+        return []
+    prompts = read_json(paths.prompts)
+    entities = read_json(paths.entities)
+    target_ids = {entity.get("target_id") for entity in entities.get("entities", []) if isinstance(entity, dict)}
+    issues = []
+    for group_index, group in enumerate(prompts.get("generation_groups", []) or []):
+        if not isinstance(group, dict):
+            continue
+        seen = set()
+        for target_index, target in enumerate(group.get("targets", []) or []):
+            target_id = target.get("target_id") if isinstance(target, dict) else None
+            path = f"generation_groups[{group_index}].targets[{target_index}].target_id"
+            if target_id not in target_ids:
+                issues.append(SceneValidationIssue(path, f"unknown target_id: {target_id}"))
+            if target_id in seen:
+                issues.append(SceneValidationIssue(path, f"duplicate target_id in group: {target_id}"))
+            seen.add(target_id)
     return issues
 
 

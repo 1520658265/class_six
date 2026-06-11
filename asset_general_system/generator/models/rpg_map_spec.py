@@ -82,6 +82,28 @@ class CompositeSpec(StrictModel):
     properties: dict[str, Any] = Field(default_factory=dict)
 
 
+class TileGroupMemberSpec(StrictModel):
+    tile_id: str
+    role: str
+    source_ref: str | None = None
+    display_name: str | None = None
+    notes: str | None = None
+    properties: dict[str, Any] = Field(default_factory=dict)
+
+
+class TileGroupSpec(StrictModel):
+    group_id: str
+    kind: str
+    generation_mode: str = "sprite_sheet"
+    tile_size: list[int] = Field(default_factory=lambda: [64, 64])
+    from_material: str | None = Field(default=None, alias="from")
+    to: str | None = None
+    display_name: str | None = None
+    prompt: str | None = None
+    members: list[TileGroupMemberSpec] = Field(default_factory=list)
+    properties: dict[str, Any] = Field(default_factory=dict)
+
+
 class ConstraintsSpec(StrictModel):
     walkable_spawn: bool = True
     connect_key_regions: bool = True
@@ -101,6 +123,7 @@ class RPGMapSpec(StrictModel):
     objects: list[ObjectSpec] = Field(default_factory=list)
     base_terrain: BaseTerrainSpec | None = None
     composites: list[CompositeSpec] = Field(default_factory=list)
+    tile_groups: list[TileGroupSpec] = Field(default_factory=list)
     entities: list[EntitySpec] = Field(default_factory=list)
     constraints: ConstraintsSpec = Field(default_factory=ConstraintsSpec)
     seed: int

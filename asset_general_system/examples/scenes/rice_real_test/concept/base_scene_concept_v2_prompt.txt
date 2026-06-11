@@ -1,9 +1,0 @@
-Top-down 3/4 RPG pixel art environmental concept image of a quiet golden rice field in harvest season.
-The whole canvas is a mature golden rice paddy environment with warm late-afternoon rural colors.
-A clear cross-shaped dirt road crosses through the lower-left part of the image, with a recognizable horizontal road and vertical road intersection.
-An empty oval reddish dirt running track sits in the upper-right part of the rice field.
-The running track is unoccupied; its lanes and center contain only simple track dirt and field texture, with no centerpiece.
-The scene contains only terrain surfaces: rice plants, dirt road, running track, and subtle natural field edges.
-No characters, no humanoid figures, no props, no buildings, no animals, no signs, no vehicles, no text, no UI, no watermark.
-Single coherent scene mood preview, not separate asset icons, not a sprite sheet.
-Crisp readable 16-bit pixel art, consistent lighting, clean tilemap-like top-down composition.

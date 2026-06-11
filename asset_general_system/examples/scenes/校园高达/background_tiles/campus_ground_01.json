@@ -1,0 +1,17 @@
+{
+  "asset_id": "campus_ground_01",
+  "source": "background_plan",
+  "method": "extract_from_concept",
+  "concept_image": "concept/background_concept.png",
+  "crop_rect": [
+    480,
+    480,
+    64,
+    64
+  ],
+  "target_size": [
+    64,
+    64
+  ],
+  "review_item_id": "campus_ground_01"
+}

@@ -1,0 +1,155 @@
+{
+  "version": "1.0",
+  "kind": "background_plan",
+  "scene_id": "校园高达",
+  "concept_image": "concept/background_concept.png",
+  "tile_size": [
+    64,
+    64
+  ],
+  "map_size": [
+    64,
+    64
+  ],
+  "image_size": [
+    1024,
+    1024
+  ],
+  "background_image": {
+    "method": "use_full_concept",
+    "status": "reviewed",
+    "source_image": "concept/background_concept.png",
+    "output_path": "background/background.png",
+    "target_size": [
+      1024,
+      1024
+    ],
+    "notes": "Use the full concept image as the connected map background; do not crop a small terrain sample from this image."
+  },
+  "regions": [
+    {
+      "id": "campus_plaza_01",
+      "type": "campus_plaza",
+      "bounds": [
+        22,
+        24,
+        21,
+        16
+      ],
+      "pixel_bounds": [
+        1408,
+        1536,
+        1344,
+        1024
+      ],
+      "center": [
+        32,
+        32
+      ],
+      "access": [
+        32,
+        40
+      ],
+      "priority": 95
+    },
+    {
+      "id": "sculpture_corner_01",
+      "type": "sculpture_corner",
+      "bounds": [
+        46,
+        26,
+        12,
+        12
+      ],
+      "pixel_bounds": [
+        2944,
+        1664,
+        768,
+        768
+      ],
+      "center": [
+        52,
+        32
+      ],
+      "access": [
+        52,
+        38
+      ],
+      "priority": 85
+    },
+    {
+      "id": "mecha_airspace_01",
+      "type": "airspace",
+      "bounds": [
+        22,
+        2,
+        21,
+        16
+      ],
+      "pixel_bounds": [
+        1408,
+        128,
+        1344,
+        1024
+      ],
+      "center": [
+        32,
+        10
+      ],
+      "access": [
+        32,
+        18
+      ],
+      "priority": 80
+    }
+  ],
+  "review_items": [
+    {
+      "id": "campus_ground_01",
+      "asset_id": "campus_ground_01",
+      "kind": "base_terrain",
+      "display_name": "温馨校园地面",
+      "method": "ignore",
+      "status": "reviewed",
+      "crop_rect": null,
+      "suggested_crop_rect": [
+        480,
+        480,
+        64,
+        64
+      ],
+      "target_size": [
+        64,
+        64
+      ],
+      "notes": "Large uniform terrain is often a good extraction candidate if the concept image has a clean patch."
+    }
+  ],
+  "background_entities": [],
+  "foreground_objects": [
+    {
+      "id": "campus_fountain_01",
+      "category": "large_prop",
+      "display_name": "校园喷泉",
+      "placement_zone": "campus_plaza_01"
+    },
+    {
+      "id": "ali_fox_statue_01",
+      "category": "large_prop",
+      "display_name": "阿狸雕塑",
+      "placement_zone": "sculpture_corner_01"
+    },
+    {
+      "id": "floating_mecha_01",
+      "category": "npc",
+      "display_name": "悬浮机甲",
+      "placement_zone": "mecha_airspace_01"
+    },
+    {
+      "id": "floating_mecha_02",
+      "category": "npc",
+      "display_name": "悬浮机甲",
+      "placement_zone": "mecha_airspace_01"
+    }
+  ]
+}

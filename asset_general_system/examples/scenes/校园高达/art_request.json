@@ -1,0 +1,438 @@
+{
+  "version": "1.0",
+  "kind": "logical_map_art_request",
+  "description": "校园高达\n\n温馨的校园内，有喷泉和阿狸的雕塑，两台机甲悬浮在空中。\n",
+  "theme": "school_campus",
+  "seed": 2026061001,
+  "map_size": [
+    64,
+    64
+  ],
+  "tile_size": [
+    64,
+    64
+  ],
+  "art_tile_size": [
+    64,
+    64
+  ],
+  "canvas_size": [
+    4096,
+    4096
+  ],
+  "tileset": {
+    "id": "default_rpg_32",
+    "image": "tilesets/default_rpg_32.png",
+    "columns": 16,
+    "tile_count": 33
+  },
+  "layers": {
+    "terrain": {
+      "semantic": "terrain",
+      "width": 64,
+      "height": 64,
+      "visible_by_default": true
+    },
+    "path": {
+      "semantic": "path",
+      "width": 64,
+      "height": 64,
+      "visible_by_default": true
+    },
+    "building": {
+      "semantic": "building",
+      "width": 64,
+      "height": 64,
+      "visible_by_default": true
+    },
+    "decoration": {
+      "semantic": "decoration",
+      "width": 64,
+      "height": 64,
+      "visible_by_default": true
+    },
+    "collision": {
+      "semantic": "collision",
+      "width": 64,
+      "height": 64,
+      "visible_by_default": false
+    }
+  },
+  "generation_targets": [],
+  "regions": [
+    {
+      "id": "campus_plaza_01",
+      "type": "campus_plaza",
+      "bounds": [
+        22,
+        24,
+        21,
+        16
+      ],
+      "pixel_bounds": [
+        1408,
+        1536,
+        1344,
+        1024
+      ],
+      "center": [
+        32,
+        32
+      ],
+      "access": [
+        32,
+        40
+      ],
+      "priority": 95
+    },
+    {
+      "id": "sculpture_corner_01",
+      "type": "sculpture_corner",
+      "bounds": [
+        46,
+        26,
+        12,
+        12
+      ],
+      "pixel_bounds": [
+        2944,
+        1664,
+        768,
+        768
+      ],
+      "center": [
+        52,
+        32
+      ],
+      "access": [
+        52,
+        38
+      ],
+      "priority": 85
+    },
+    {
+      "id": "mecha_airspace_01",
+      "type": "airspace",
+      "bounds": [
+        22,
+        2,
+        21,
+        16
+      ],
+      "pixel_bounds": [
+        1408,
+        128,
+        1344,
+        1024
+      ],
+      "center": [
+        32,
+        10
+      ],
+      "access": [
+        32,
+        18
+      ],
+      "priority": 80
+    }
+  ],
+  "objects": [
+    {
+      "id": "campus_ground_01",
+      "asset_id": "campus_ground_01",
+      "asset_role": "base_terrain",
+      "type": "terrain_tile",
+      "display_name": "温馨校园地面",
+      "object_key": "campus_ground",
+      "category": "terrain_tile",
+      "x": 0,
+      "y": 0,
+      "footprint": [
+        1,
+        1
+      ],
+      "pixel_bounds": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "runtime_size": [
+        64,
+        64
+      ],
+      "source_canvas": [
+        64,
+        64
+      ],
+      "placement_zone": "full_map",
+      "relative_position": "温馨校园内的柔和草地与浅色铺装气氛，作为整张地图的基础地面",
+      "facing": "east_west",
+      "anchor": "center",
+      "blocking": false,
+      "attached_to": null,
+      "text": null,
+      "activity": null,
+      "source_clause": "温馨校园内的柔和草地与浅色铺装气氛，作为整张地图的基础地面",
+      "properties": {
+        "appearance": "warm campus lawn ground tile with subtle paving flecks, clean and cozy, seamless tileable background",
+        "object_key": "campus_ground",
+        "display_name": "温馨校园地面",
+        "category": "terrain_tile",
+        "facing": "east_west",
+        "footprint": "1x1",
+        "source_canvas": [
+          64,
+          64
+        ],
+        "blocking": false,
+        "anchor": "center",
+        "placement": "full_map",
+        "source_clause": "温馨校园内的柔和草地与浅色铺装气氛，作为整张地图的基础地面",
+        "asset_role": "base_terrain",
+        "asset_id": "campus_ground_01",
+        "is_asset_target": true,
+        "is_map_instance": false
+      }
+    },
+    {
+      "id": "campus_fountain_01",
+      "asset_id": "campus_fountain_01",
+      "asset_role": null,
+      "type": "large_prop",
+      "display_name": "校园喷泉",
+      "object_key": "campus_fountain",
+      "category": "large_prop",
+      "x": 23,
+      "y": 25,
+      "footprint": [
+        4,
+        4
+      ],
+      "pixel_bounds": [
+        1472,
+        1600,
+        256,
+        256
+      ],
+      "runtime_size": [
+        256,
+        256
+      ],
+      "source_canvas": [
+        256,
+        256
+      ],
+      "placement_zone": "campus_plaza_01",
+      "relative_position": "温馨校园中心有一座圆形石质喷泉，清澈水面和柔和水花，适合作为校园广场核心物件",
+      "facing": "east_west",
+      "anchor": "center",
+      "blocking": true,
+      "attached_to": null,
+      "text": null,
+      "activity": null,
+      "source_clause": "温馨校园中心有一座圆形石质喷泉，清澈水面和柔和水花，适合作为校园广场核心物件",
+      "properties": {
+        "object_key": "campus_fountain",
+        "display_name": "校园喷泉",
+        "source_clause": "温馨校园中心有一座圆形石质喷泉，清澈水面和柔和水花，适合作为校园广场核心物件",
+        "facing": "east_west",
+        "footprint": "4x4",
+        "source_canvas": [
+          256,
+          256
+        ],
+        "blocking": true,
+        "material": "pale stone and clear water",
+        "appearance": "round stone fountain, gentle water spray, warm campus atmosphere, readable from top-down RPG view",
+        "label": "校园喷泉",
+        "category": "large_prop",
+        "anchor": "center",
+        "placement": "campus_plaza_01"
+      }
+    },
+    {
+      "id": "ali_fox_statue_01",
+      "asset_id": "ali_fox_statue_01",
+      "asset_role": null,
+      "type": "large_prop",
+      "display_name": "阿狸雕塑",
+      "object_key": "ali_fox_statue",
+      "category": "large_prop",
+      "x": 47,
+      "y": 27,
+      "footprint": [
+        2,
+        2
+      ],
+      "pixel_bounds": [
+        3008,
+        1728,
+        128,
+        128
+      ],
+      "runtime_size": [
+        128,
+        128
+      ],
+      "source_canvas": [
+        128,
+        160
+      ],
+      "placement_zone": "sculpture_corner_01",
+      "relative_position": "喷泉旁有一座温暖可爱的阿狸风格红色狐狸雕塑，像校园吉祥物一样摆放在小景观区",
+      "facing": "faces_south",
+      "anchor": "center",
+      "blocking": true,
+      "attached_to": null,
+      "text": null,
+      "activity": null,
+      "source_clause": "喷泉旁有一座温暖可爱的阿狸风格红色狐狸雕塑，像校园吉祥物一样摆放在小景观区",
+      "properties": {
+        "object_key": "ali_fox_statue",
+        "display_name": "阿狸雕塑",
+        "source_clause": "喷泉旁有一座温暖可爱的阿狸风格红色狐狸雕塑，像校园吉祥物一样摆放在小景观区",
+        "facing": "faces_south",
+        "footprint": "2x2",
+        "source_canvas": [
+          128,
+          160
+        ],
+        "blocking": true,
+        "material": "painted resin statue",
+        "appearance": "friendly red fox mascot statue, rounded warm silhouette, small stone base, original campus sculpture interpretation",
+        "label": "阿狸雕塑",
+        "category": "large_prop",
+        "anchor": "center",
+        "placement": "sculpture_corner_01"
+      }
+    },
+    {
+      "id": "floating_mecha_01",
+      "asset_id": "floating_mecha_01",
+      "asset_role": null,
+      "type": "npc",
+      "display_name": "悬浮机甲",
+      "object_key": "floating_mecha",
+      "category": "npc",
+      "x": 32,
+      "y": 10,
+      "footprint": [
+        2,
+        3
+      ],
+      "pixel_bounds": [
+        2048,
+        640,
+        128,
+        192
+      ],
+      "runtime_size": [
+        128,
+        192
+      ],
+      "source_canvas": [
+        192,
+        256
+      ],
+      "placement_zone": "mecha_airspace_01",
+      "relative_position": "两台机甲悬浮在校园上空，带有轻微蓝色推进光，但不破坏温馨校园氛围",
+      "facing": "faces_south",
+      "anchor": "center",
+      "blocking": false,
+      "attached_to": null,
+      "text": null,
+      "activity": "hovering_above_ground",
+      "source_clause": "两台机甲悬浮在校园上空，带有轻微蓝色推进光，但不破坏温馨校园氛围",
+      "properties": {
+        "object_key": "floating_mecha",
+        "display_name": "悬浮机甲",
+        "source_clause": "两台机甲悬浮在校园上空，带有轻微蓝色推进光，但不破坏温馨校园氛围",
+        "facing": "faces_south",
+        "footprint": "2x3",
+        "source_canvas": [
+          192,
+          256
+        ],
+        "blocking": false,
+        "activity": "hovering_above_ground",
+        "appearance": "two friendly hovering sci-fi mecha, soft school-safe design, blue thruster glow, no combat pose",
+        "label": "悬浮机甲",
+        "category": "npc",
+        "anchor": "center",
+        "placement": "mecha_airspace_01"
+      }
+    },
+    {
+      "id": "floating_mecha_02",
+      "asset_id": "floating_mecha_02",
+      "asset_role": null,
+      "type": "npc",
+      "display_name": "悬浮机甲",
+      "object_key": "floating_mecha",
+      "category": "npc",
+      "x": 34,
+      "y": 9,
+      "footprint": [
+        2,
+        3
+      ],
+      "pixel_bounds": [
+        2176,
+        576,
+        128,
+        192
+      ],
+      "runtime_size": [
+        128,
+        192
+      ],
+      "source_canvas": [
+        192,
+        256
+      ],
+      "placement_zone": "mecha_airspace_01",
+      "relative_position": "两台机甲悬浮在校园上空，带有轻微蓝色推进光，但不破坏温馨校园氛围",
+      "facing": "faces_south",
+      "anchor": "center",
+      "blocking": false,
+      "attached_to": null,
+      "text": null,
+      "activity": "hovering_above_ground",
+      "source_clause": "两台机甲悬浮在校园上空，带有轻微蓝色推进光，但不破坏温馨校园氛围",
+      "properties": {
+        "object_key": "floating_mecha",
+        "display_name": "悬浮机甲",
+        "source_clause": "两台机甲悬浮在校园上空，带有轻微蓝色推进光，但不破坏温馨校园氛围",
+        "facing": "faces_south",
+        "footprint": "2x3",
+        "source_canvas": [
+          192,
+          256
+        ],
+        "blocking": false,
+        "activity": "hovering_above_ground",
+        "appearance": "two friendly hovering sci-fi mecha, soft school-safe design, blue thruster glow, no combat pose",
+        "label": "悬浮机甲",
+        "category": "npc",
+        "anchor": "center",
+        "placement": "mecha_airspace_01"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": "spawn_01",
+      "type": "player_spawn",
+      "x": 32,
+      "y": 60,
+      "pixel_position": [
+        2048,
+        3840
+      ],
+      "properties": {
+        "direction": "up"
+      }
+    }
+  ]
+}

@@ -137,6 +137,26 @@ def test_gemini_prompt_preserves_asset_contract_and_negative_prompt():
     assert "seamless edges" not in prompt
 
 
+def test_gemini_cutout_removes_large_non_exact_magenta_panel_but_keeps_sprite_details():
+    from PIL import Image, ImageDraw
+
+    generator = object.__new__(GeminiImageGenerator)
+    img = Image.new("RGBA", (64, 64), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+    draw.rectangle((18, 8, 46, 56), fill=(195, 59, 201, 255))
+    draw.rectangle((26, 18, 38, 44), fill=(210, 214, 222, 255))
+    draw.rectangle((29, 45, 35, 54), fill=(84, 206, 247, 255))
+    draw.rectangle((4, 4, 7, 7), fill=(185, 60, 195, 255))
+
+    cleaned = generator._clear_transparent_rgb(generator._remove_chroma_background_panels(img))
+
+    assert cleaned.getpixel((20, 50)) == (0, 0, 0, 0)
+    assert cleaned.getpixel((30, 30))[3] == 255
+    assert cleaned.getpixel((31, 50))[3] == 255
+    assert cleaned.getpixel((5, 5))[3] == 255
+    assert cleaned.getpixel((20, 50))[:3] == (0, 0, 0)
+
+
 if __name__ == "__main__":
     print("="*60)
     print("Gemini Imagen 集成测试")

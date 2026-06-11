@@ -32,8 +32,8 @@ scene.md
 
 ### 非目标（v1 不做）
 
-- 全图 image layer 背景生成
-- tile atlas 自动替换
+- 将全图 image layer 作为最终生产级背景方案；全图概念图只用于审美验证、布局参考或临时预览
+- 通用 Godot tile atlas 自动编辑器；v1 只输出当前场景需要的 tileset 资源
 - 多场景批处理
 - 自动选择最佳 Gemini 变体
 - 在 Godot 项目内创建完整玩法脚本
@@ -316,6 +316,67 @@ asset_general_system/
 
 - Python 读取 `map_spec.json`，用 `RPGMapSpec` Pydantic 模型校验。
 - 校验失败时停止流水线，不进入 ② map。
+
+#### 背景 tile family 设计
+
+背景不应以“单张孤立 tile”为生成单位。任何会在地图上相邻出现的地面、道路、跑道、广场、水面、边缘或过渡块，都必须先归入同一个 tile family，再通过一次 sprite sheet 生成并按固定 slot 切片。
+
+`base_terrain` 只表示主背景材质语义，例如麦田、草地、砖石广场；它不再等价于“只生成一张可无限平铺的小图”。真正的生产级背景应由 `tile_groups` 描述：
+
+- `material_group`：同一种材质或表面，例如 wheat_field、grass_lawn、brick_plaza、asphalt_road、rubber_track。成员包含 center、center_variant、edge、corner、decor_variant 等。
+- `transition_group`：两种材质的边界，例如 grass_to_brick、wheat_to_road、track_to_grass。成员包含四向边缘、内角、外角，以及必要的连接块。
+
+道路、十字路、环形跑道这类 composite 仍然需要拆成 `parts[]` 和 `layout[]`，但这些 part 的美术生成应优先落入对应 tile family。例如十字道路至少需要无边缘中心块和上下左右四种边缘；环形跑道至少需要跑道中心/直道/边缘/四角弧形块，具体成员由布局需要决定。
+
+tile family 的生成契约：
+
+- 同一 family 必须一次生成为一张 sprite sheet，不允许把相邻 tile 分别单独生成。
+- sheet 使用固定 64x64 slot；slot 内必须填满不透明地表像素，不能像物体图标一样留透明边。
+- 同一 family 内共享调色板、光照方向、纹理密度、像素密度、描边强度和材质颗粒尺度。
+- center、edge、corner、transition 之间必须能无缝衔接，边缘纹理要延续到相邻 slot。
+- 不允许可见网格线、边框、标签、文字、sprite sheet 分隔线或 UI 装饰。
+- 如果概念图上某个区域整体效果很好，可以作为审美参考或临时整图背景，但最终可扩展 tilemap 仍应回到 tile family 生成和拼接。
+
+示例结构（已进入 schema 和 Python 生成流程）：
+
+```json
+{
+  "tile_groups": [
+    {
+      "group_id": "brick_plaza",
+      "kind": "material_group",
+      "generation_mode": "sprite_sheet",
+      "tile_size": [64, 64],
+      "members": [
+        {"tile_id": "brick_center", "role": "center"},
+        {"tile_id": "brick_variant_01", "role": "center_variant"},
+        {"tile_id": "brick_edge_top", "role": "edge_top"},
+        {"tile_id": "brick_edge_bottom", "role": "edge_bottom"},
+        {"tile_id": "brick_edge_left", "role": "edge_left"},
+        {"tile_id": "brick_edge_right", "role": "edge_right"},
+        {"tile_id": "brick_corner_tl", "role": "corner_top_left"},
+        {"tile_id": "brick_corner_tr", "role": "corner_top_right"},
+        {"tile_id": "brick_corner_bl", "role": "corner_bottom_left"},
+        {"tile_id": "brick_corner_br", "role": "corner_bottom_right"}
+      ]
+    },
+    {
+      "group_id": "grass_to_brick_transition",
+      "kind": "transition_group",
+      "from": "grass_lawn",
+      "to": "brick_plaza",
+      "generation_mode": "sprite_sheet",
+      "tile_size": [64, 64],
+      "members": [
+        {"tile_id": "grass_brick_edge_top", "role": "edge_top"},
+        {"tile_id": "grass_brick_edge_bottom", "role": "edge_bottom"},
+        {"tile_id": "grass_brick_edge_left", "role": "edge_left"},
+        {"tile_id": "grass_brick_edge_right", "role": "edge_right"}
+      ]
+    }
+  ]
+}
+```
 
 ### ② map：地图生成
 
@@ -731,6 +792,7 @@ Errors:
 说明：
 
 - `scene_map_spec.schema.json` 在 `rpg_map_spec.schema.json` 基础上叠加 scene 流水线约束：7 种 category enum、必填 `properties.object_key`、`properties.source_canvas` 格式、`facade_overlay` / `text_sign` 的 `properties.attached_to` 要求、`text_sign.properties.text` 的 metadata 语义。
+- `scene_map_spec.schema.json` 已新增 `tile_groups[]` 约束，用于描述生产级背景 tile family。`tile_groups[].kind` 只允许 `material_group` 或 `transition_group`，`generation_mode` 固定为 `sprite_sheet`，`tile_size` 默认 `[64, 64]`，`members[].role` 必须使用稳定枚举，例如 `center`、`center_variant`、`edge_top`、`edge_bottom`、`edge_left`、`edge_right`、`corner_top_left`、`corner_top_right`、`corner_bottom_left`、`corner_bottom_right`、`transition_*`。
 - `rpg_map_spec.schema.json` 继续作为底层地图结构契约，不承载 scene 专属素材生成规则。
 
 校验策略：
@@ -751,6 +813,7 @@ Errors:
 
 ```text
 python generate.py scene-map-build <scene_dir> [--force]
+python generate.py scene-background-assets <scene_dir> [--gemini] [--force]
 python generate.py scene-images <scene_dir> [--gemini] [--force] [--variants N] [--target TARGET_ID]
 python generate.py scene-pack <scene_dir> [--force] [--resource-base RES_PATH]
 python generate.py scene-status <scene_dir>
@@ -904,7 +967,24 @@ skill 状态机：
 - `text_sign` prompt 不包含可读文字生成要求
 - prompt 不包含完整场景背景要求
 
-### Phase 5：images
+### Phase 5：background tile families
+
+任务：
+
+1. 从 `base_terrain`、`composites[]` 和 reviewed `background_plan.json` 汇总生产级 `tile_groups[]`
+2. 为每个 `material_group` / `transition_group` 生成一张 sprite sheet prompt
+3. Gemini 一次生成整组 tile sheet，保证同组 tile 的材质、尺度、光照、边缘连续性一致
+4. 按固定 64x64 slot 切片到 `background_tiles/{tile_id}.png`
+5. 记录 sheet 原图、slot manifest 和每个 tile 的来源，供 review 和 pack 追踪
+
+验收：
+
+- 不再为相邻地表 tile 分别孤立生成图片
+- 同一材质或过渡 family 至少有 center / edge / corner 或布局所需等价角色
+- 切片后的 tile 尺寸固定为 64x64
+- `scene-pack` 能优先使用 `background_tiles/{tile_id}.png` 组装最终预览
+
+### Phase 6：images
 
 任务：
 
@@ -921,7 +1001,7 @@ skill 状态机：
 - 指定 `--target` 时只重生一个素材
 - 失败项写入 `error.log`
 
-### Phase 6：pack + Godot sprites
+### Phase 7：pack + Godot sprites
 
 任务：
 
@@ -937,7 +1017,7 @@ skill 状态机：
 - `text_sign` 的可读文字来自 Godot 文本层，不来自 PNG 烘焙
 - `final/map_data_applied.json` 中每个成功 mapping 都有顶层 `sprite_path`
 
-### Phase 7：status 和端到端
+### Phase 8：status 和端到端
 
 任务：
 
@@ -1047,8 +1127,8 @@ skill 状态机：
 - `--add-entity`：补充实体后回到 ① spec 局部更新
 - 多场景批处理
 - 图像变体选择 UI
-- tile atlas 替换
-- image layer 背景生成
+- 通用 tile atlas 编辑和多场景 tileset 合并
+- 全图 image layer 仅作为概念参考或临时预览，不作为长期生产背景主路径
 - Godot 运行时交互脚本生成
 
 ---

@@ -1,0 +1,11 @@
+{
+  "asset_id": "background_image",
+  "source": "background_plan",
+  "method": "use_full_concept",
+  "concept_image": "concept/background_concept.png",
+  "output_path": "background/background.png",
+  "target_size": [
+    1024,
+    1024
+  ]
+}

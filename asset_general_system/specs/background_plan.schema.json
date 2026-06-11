@@ -26,6 +26,25 @@
       "maxItems": 2,
       "items": {"type": "integer", "minimum": 1}
     },
+    "background_image": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "enum": ["review_required", "use_full_concept", "ignore"]
+        },
+        "status": {"type": "string"},
+        "source_image": {"type": "string"},
+        "output_path": {"type": "string"},
+        "target_size": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {"type": "integer", "minimum": 1}
+        },
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
     "review_items": {
       "type": "array",
       "items": {
@@ -53,6 +72,57 @@
             "items": {"type": "integer", "minimum": 1}
           },
           "notes": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "tile_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["group_id", "kind", "generation_mode", "tile_size", "members"],
+        "properties": {
+          "group_id": {"type": "string"},
+          "kind": {"enum": ["material_group", "transition_group"]},
+          "generation_mode": {"const": "sprite_sheet"},
+          "tile_size": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {"type": "integer", "minimum": 1}
+          },
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "display_name": {"type": ["string", "null"]},
+          "prompt": {"type": ["string", "null"]},
+          "sheet": {
+            "type": "object",
+            "properties": {
+              "layout": {"enum": ["horizontal", "vertical", "grid"]},
+              "columns": {"type": "integer", "minimum": 1},
+              "gutter": {"type": "integer", "minimum": 0}
+            },
+            "additionalProperties": true
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["tile_id", "role"],
+              "properties": {
+                "tile_id": {"type": "string"},
+                "role": {"type": "string"},
+                "asset_id": {"type": "string"},
+                "review_item_id": {"type": "string"},
+                "source_ref": {"type": ["string", "null"]},
+                "display_name": {"type": ["string", "null"]},
+                "notes": {"type": ["string", "null"]},
+                "properties": {"type": "object"}
+              },
+              "additionalProperties": true
+            }
+          },
+          "properties": {"type": "object"}
         },
         "additionalProperties": true
       }

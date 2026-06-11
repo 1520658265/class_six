@@ -119,6 +119,15 @@ class GodotExporter:
         ext_resources = [
             f'[ext_resource type="TileSet" path="res://{tileset_relative_path}" id="tileset_1"]',
         ]
+        background_resource_id = None
+        background_image = tilemap.metadata.get("background_image")
+        if isinstance(background_image, dict) and background_image.get("path"):
+            background_resource_id = "background_1"
+            background_path = str(background_image["path"])
+            background_path = background_path if background_path.startswith("res://") else f"res://{background_path}"
+            ext_resources.append(
+                f'[ext_resource type="Texture2D" path="{self._gd_string(background_path)}" id="{background_resource_id}"]'
+            )
         sprite_resource_ids: dict[str, str] = {}
         for obj in tilemap.objects:
             if str((obj.properties or {}).get("render_mode") or "") == "tile_layer":
@@ -144,6 +153,19 @@ class GodotExporter:
             '[node name="Level" type="Node2D"]',
             "",
         ]
+
+        if background_resource_id:
+            lines.append('[node name="Background" type="Sprite2D" parent="."]')
+            lines.append(f'texture = ExtResource("{background_resource_id}")')
+            lines.append(f'position = Vector2({width * tilemap.map.tile_width / 2:g}, {height * tilemap.map.tile_height / 2:g})')
+            source_size = background_image.get("source_size") if isinstance(background_image, dict) else None
+            target_size = background_image.get("target_size") if isinstance(background_image, dict) else None
+            if self._is_size_pair(source_size) and self._is_size_pair(target_size):
+                scale_x = float(target_size[0]) / float(source_size[0])
+                scale_y = float(target_size[1]) / float(source_size[1])
+                lines.append(f"scale = Vector2({scale_x:g}, {scale_y:g})")
+            lines.append("z_index = -100")
+            lines.append("")
 
         # 为每个 tile layer 创建一个 TileMap 节点
         layer_order = ["terrain", "path", "building", "decoration", "collision"]
@@ -230,6 +252,13 @@ class GodotExporter:
 
     def _gd_string(self, value: str) -> str:
         return value.replace("\\", "\\\\").replace('"', '\\"')
+
+    def _is_size_pair(self, value: Any) -> bool:
+        return (
+            isinstance(value, list)
+            and len(value) == 2
+            and all(isinstance(item, (int, float)) and item > 0 for item in value)
+        )
 
     def _z_index_for_object(self, obj) -> int:
         category = str((obj.properties or {}).get("category") or obj.type)

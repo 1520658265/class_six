@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import shutil
+import os
 from pathlib import Path
 from typing import Any
 
@@ -47,10 +48,12 @@ def build_background_concept_prompt(scene_dir: str | Path) -> str:
     base = map_spec.get("base_terrain") or {}
     composites = [item for item in map_spec.get("composites", []) or [] if isinstance(item, dict)]
     base_text = _display(base, "display_name", "object_key", fallback="base terrain")
+    crop_tile_size = _crop_tile_size_text(map_spec)
     composite_lines = [
         f"- {_display(item, 'display_name', 'id')}: {item.get('source_clause') or item.get('placement') or item.get('type')}"
         for item in composites
     ]
+    reusable_part_lines = _reusable_part_lines(composites)
     object_lines = [
         f"- {_display(item, 'label', 'type')}"
         for item in map_spec.get("objects", []) or []
@@ -72,7 +75,17 @@ def build_background_concept_prompt(scene_dir: str | Path) -> str:
         "Composition requirements:",
         "- Keep the scene readable as a tilemap-like top-down composition.",
         "- Keep ground features coherent and spatially clear.",
-        "- Do not draw separate asset icons, labels, text, watermark, UI frame, or sprite-sheet cells.",
+        "- Do not draw separate asset icons, labels, text, watermark, UI frame, or visible sprite-sheet cells.",
+        "",
+        "Tile extraction requirements:",
+        f"- The image must be suitable for extracting reusable {crop_tile_size} tile assets.",
+        f"- Use an invisible {crop_tile_size} crop grid; do not draw the grid lines.",
+        "- Align road edges, track edges, curves, terrain borders, and repeated surface modules to this crop grid.",
+        "- Do not place important boundaries halfway through a crop cell.",
+        "- Keep texture scale, outline thickness, palette, and lighting consistent across repeated modules.",
+        "- Leave clean, unobstructed sample areas for every reusable material or composite part.",
+        *(reusable_part_lines or ["- Base terrain should have several clean repeated patches with no foreground objects."]),
+        "- Avoid diagonal, noisy, or painterly borders unless the corresponding reusable part is explicitly a diagonal or curved tile.",
         "",
         "Style requirements:",
         f"- Art style: {style.get('art_style') or 'pixel_art_32'}.",
@@ -81,6 +94,31 @@ def build_background_concept_prompt(scene_dir: str | Path) -> str:
         f"- Lighting: {style.get('lighting') or 'soft daylight'}.",
     ]
     return "\n".join(lines)
+
+
+def _crop_tile_size_text(map_spec: dict[str, Any]) -> str:
+    art_tile_size = map_spec.get("art_tile_size")
+    if isinstance(art_tile_size, int) and art_tile_size > 0:
+        return f"{art_tile_size}x{art_tile_size}px"
+    map_data = map_spec.get("map") or {}
+    tile_w = int(map_data.get("tile_width") or 64)
+    tile_h = int(map_data.get("tile_height") or tile_w)
+    return f"{tile_w}x{tile_h}px"
+
+
+def _reusable_part_lines(composites: list[dict[str, Any]]) -> list[str]:
+    lines: list[str] = []
+    for comp in composites:
+        comp_id = comp.get("id") or comp.get("type") or "composite"
+        for part in comp.get("parts", []) or []:
+            if not isinstance(part, dict):
+                continue
+            part_name = _display(part, "display_name", "key", fallback="part")
+            part_key = part.get("key") or part_name
+            appearance = dict(part.get("properties") or {}).get("appearance")
+            detail = f"; {appearance}" if appearance else ""
+            lines.append(f"- Provide a clean crop candidate for {comp_id}:{part_key} ({part_name}){detail}.")
+    return lines
 
 
 def _create_concept_generator(output_dir: Path, use_gemini: bool):
@@ -135,7 +173,14 @@ def _move_if_needed(source: str | None, target: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     if src.resolve() == target.resolve():
         return
-    shutil.move(str(src), target)
+    try:
+        shutil.move(str(src), target)
+    except PermissionError:
+        shutil.copyfile(src, target)
+        try:
+            os.unlink(src)
+        except OSError:
+            pass
 
 
 def _concept_result(image_path: Path, prompt_path: Path, generated: bool) -> dict[str, Any]:
