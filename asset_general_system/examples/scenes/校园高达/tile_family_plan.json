@@ -1,0 +1,498 @@
+{
+  "version": "1.0",
+  "kind": "tile_family_plan",
+  "scene_id": "campus_gundam",
+  "tile_size": [
+    64,
+    64
+  ],
+  "source_tile_size": [
+    32,
+    32
+  ],
+  "pixellab_defaults": {
+    "source_tile_size": [
+      32,
+      32
+    ],
+    "target_tile_size": [
+      64,
+      64
+    ],
+    "upscale": "nearest_neighbor",
+    "detail": "highly detailed",
+    "style_contract": "cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters"
+  },
+  "groups": [
+    {
+      "group_id": "campus_lawn_tiles",
+      "kind": "material_group",
+      "generation_mode": "sprite_sheet",
+      "tile_size": [
+        64,
+        64
+      ],
+      "display_name": "温馨校园草地 tile family",
+      "prompt": "Create a warm bright campus lawn tile family for a cute colorful school scene. The terrain must fill the full tile, be seamless, cheerful, and not include plaza, road, objects, characters, buildings, or shadows.",
+      "members": [
+        {
+          "tile_id": "campus_lawn_center",
+          "role": "center",
+          "source_ref": "campus_lawn_01",
+          "display_name": "校园草地中心",
+          "material": "campus_lawn",
+          "connection": {
+            "n": "campus_lawn",
+            "e": "campus_lawn",
+            "s": "campus_lawn",
+            "w": "campus_lawn"
+          }
+        }
+      ],
+      "properties": {
+        "generator": "procedural_tile_family"
+      },
+      "material": "campus_lawn"
+    },
+    {
+      "group_id": "campus_plaza_tiles",
+      "kind": "material_group",
+      "generation_mode": "sprite_sheet",
+      "tile_size": [
+        64,
+        64
+      ],
+      "display_name": "校园广场 tile family",
+      "prompt": "Create one cohesive tile family for a rounded pale stone campus plaza embedded in warm green lawn. All plaza pieces must share the same stone pattern, scale, lighting, cute colorful style, and connect seamlessly to each other and to lawn at edges. Treat each 64x64 slot as a standalone reusable tile sample in an asset catalog, not as a contiguous mini-map.",
+      "members": [
+        {
+          "tile_id": "plaza_center_tile",
+          "role": "center",
+          "source_ref": "campus_plaza_01:plaza_center",
+          "display_name": "广场中心",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "plaza_brick",
+            "s": "plaza_brick",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "plaza_variant_tile",
+          "role": "center_variant",
+          "source_ref": "campus_plaza_01:plaza_variant",
+          "display_name": "广场变化中心",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "plaza_brick",
+            "s": "plaza_brick",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "plaza_edge_top_tile",
+          "role": "edge_top",
+          "source_ref": "campus_plaza_01:plaza_edge_top",
+          "display_name": "广场上边缘",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "campus_lawn",
+            "e": "plaza_brick",
+            "s": "plaza_brick",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "plaza_edge_bottom_tile",
+          "role": "edge_bottom",
+          "source_ref": "campus_plaza_01:plaza_edge_bottom",
+          "display_name": "广场下边缘",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "plaza_brick",
+            "s": "campus_lawn",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "plaza_edge_left_tile",
+          "role": "edge_left",
+          "source_ref": "campus_plaza_01:plaza_edge_left",
+          "display_name": "广场左边缘",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "plaza_brick",
+            "s": "plaza_brick",
+            "w": "campus_lawn"
+          }
+        },
+        {
+          "tile_id": "plaza_edge_right_tile",
+          "role": "edge_right",
+          "source_ref": "campus_plaza_01:plaza_edge_right",
+          "display_name": "广场右边缘",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "campus_lawn",
+            "s": "plaza_brick",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "plaza_corner_top_left_tile",
+          "role": "corner_top_left",
+          "source_ref": "campus_plaza_01:plaza_corner_top_left",
+          "display_name": "广场左上角",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "campus_lawn",
+            "e": "plaza_brick",
+            "s": "plaza_brick",
+            "w": "campus_lawn"
+          }
+        },
+        {
+          "tile_id": "plaza_corner_top_right_tile",
+          "role": "corner_top_right",
+          "source_ref": "campus_plaza_01:plaza_corner_top_right",
+          "display_name": "广场右上角",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "campus_lawn",
+            "e": "campus_lawn",
+            "s": "plaza_brick",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "plaza_corner_bottom_left_tile",
+          "role": "corner_bottom_left",
+          "source_ref": "campus_plaza_01:plaza_corner_bottom_left",
+          "display_name": "广场左下角",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "plaza_brick",
+            "s": "campus_lawn",
+            "w": "campus_lawn"
+          }
+        },
+        {
+          "tile_id": "plaza_corner_bottom_right_tile",
+          "role": "corner_bottom_right",
+          "source_ref": "campus_plaza_01:plaza_corner_bottom_right",
+          "display_name": "广场右下角",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "campus_lawn",
+            "s": "campus_lawn",
+            "w": "plaza_brick"
+          }
+        }
+      ],
+      "sheet": {
+        "layout": "grid",
+        "columns": 4,
+        "gutter": 0
+      },
+      "properties": {
+        "generator": "procedural_tile_family"
+      },
+      "material": "plaza_brick"
+    },
+    {
+      "group_id": "campus_walkway_tiles",
+      "kind": "material_group",
+      "generation_mode": "sprite_sheet",
+      "tile_size": [
+        64,
+        64
+      ],
+      "display_name": "校园步道 tile family",
+      "prompt": "Create one cohesive tile family for warm tan campus walkway stones embedded in the same green campus lawn. Pieces must be reusable for vertical and horizontal paths, with clean seamless center and directional edge pieces. Generate both the entrance walkway and sculpture walkway members as the same material family with matching stone shape, color, and edge treatment. Treat each 64x64 slot as a standalone reusable tile sample in an asset catalog, not as a contiguous mini-map.",
+      "members": [
+        {
+          "tile_id": "walkway_center_tile",
+          "role": "center",
+          "source_ref": "campus_walkway_01:walkway_center",
+          "display_name": "步道中心",
+          "material": "campus_walkway",
+          "connection": {
+            "n": "campus_walkway",
+            "e": "campus_walkway",
+            "s": "campus_walkway",
+            "w": "campus_walkway"
+          }
+        },
+        {
+          "tile_id": "walkway_edge_top_tile",
+          "role": "edge_top",
+          "source_ref": "campus_walkway_01:walkway_edge_top",
+          "display_name": "步道上边缘",
+          "material": "campus_walkway",
+          "connection": {
+            "n": "campus_lawn",
+            "e": "campus_walkway",
+            "s": "campus_walkway",
+            "w": "campus_walkway"
+          }
+        },
+        {
+          "tile_id": "walkway_edge_bottom_tile",
+          "role": "edge_bottom",
+          "source_ref": "campus_walkway_01:walkway_edge_bottom",
+          "display_name": "步道下边缘",
+          "material": "campus_walkway",
+          "connection": {
+            "n": "campus_walkway",
+            "e": "campus_walkway",
+            "s": "campus_lawn",
+            "w": "campus_walkway"
+          }
+        },
+        {
+          "tile_id": "walkway_edge_left_tile",
+          "role": "edge_left",
+          "source_ref": "campus_walkway_01:walkway_edge_left",
+          "display_name": "步道左边缘",
+          "material": "campus_walkway",
+          "connection": {
+            "n": "campus_walkway",
+            "e": "campus_walkway",
+            "s": "campus_walkway",
+            "w": "campus_lawn"
+          }
+        },
+        {
+          "tile_id": "walkway_edge_right_tile",
+          "role": "edge_right",
+          "source_ref": "campus_walkway_01:walkway_edge_right",
+          "display_name": "步道右边缘",
+          "material": "campus_walkway",
+          "connection": {
+            "n": "campus_walkway",
+            "e": "campus_lawn",
+            "s": "campus_walkway",
+            "w": "campus_walkway"
+          }
+        },
+        {
+          "tile_id": "sculpture_walkway_center_tile",
+          "role": "center",
+          "source_ref": "sculpture_walkway_01:walkway_center",
+          "display_name": "雕塑步道中心",
+          "notes": "Same visual material as campus_walkway_01; generated in one shared sprite sheet for consistency.",
+          "material": "campus_walkway",
+          "connection": {
+            "n": "campus_walkway",
+            "e": "campus_walkway",
+            "s": "campus_walkway",
+            "w": "campus_walkway"
+          }
+        },
+        {
+          "tile_id": "sculpture_walkway_edge_top_tile",
+          "role": "edge_top",
+          "source_ref": "sculpture_walkway_01:walkway_edge_top",
+          "display_name": "雕塑步道上边缘",
+          "notes": "Same visual material as campus_walkway_01; generated in one shared sprite sheet for consistency.",
+          "material": "campus_walkway",
+          "connection": {
+            "n": "campus_lawn",
+            "e": "campus_walkway",
+            "s": "campus_walkway",
+            "w": "campus_walkway"
+          }
+        },
+        {
+          "tile_id": "sculpture_walkway_edge_bottom_tile",
+          "role": "edge_bottom",
+          "source_ref": "sculpture_walkway_01:walkway_edge_bottom",
+          "display_name": "雕塑步道下边缘",
+          "notes": "Same visual material as campus_walkway_01; generated in one shared sprite sheet for consistency.",
+          "material": "campus_walkway",
+          "connection": {
+            "n": "campus_walkway",
+            "e": "campus_walkway",
+            "s": "campus_lawn",
+            "w": "campus_walkway"
+          }
+        },
+        {
+          "tile_id": "sculpture_walkway_edge_left_tile",
+          "role": "edge_left",
+          "source_ref": "sculpture_walkway_01:walkway_edge_left",
+          "display_name": "雕塑步道左边缘",
+          "notes": "Same visual material as campus_walkway_01; generated in one shared sprite sheet for consistency.",
+          "material": "campus_walkway",
+          "connection": {
+            "n": "campus_walkway",
+            "e": "campus_walkway",
+            "s": "campus_walkway",
+            "w": "campus_lawn"
+          }
+        },
+        {
+          "tile_id": "sculpture_walkway_edge_right_tile",
+          "role": "edge_right",
+          "source_ref": "sculpture_walkway_01:walkway_edge_right",
+          "display_name": "雕塑步道右边缘",
+          "notes": "Same visual material as campus_walkway_01; generated in one shared sprite sheet for consistency.",
+          "material": "campus_walkway",
+          "connection": {
+            "n": "campus_walkway",
+            "e": "campus_lawn",
+            "s": "campus_walkway",
+            "w": "campus_walkway"
+          }
+        }
+      ],
+      "sheet": {
+        "layout": "grid",
+        "columns": 4,
+        "gutter": 0
+      },
+      "properties": {
+        "generator": "procedural_tile_family"
+      },
+      "material": "campus_walkway"
+    },
+    {
+      "group_id": "campus_lawn_to_plaza_brick",
+      "kind": "transition_group",
+      "generation_mode": "pixellab_tileset",
+      "tile_size": [
+        64,
+        64
+      ],
+      "source_tile_size": [
+        32,
+        32
+      ],
+      "target_tile_size": [
+        64,
+        64
+      ],
+      "upscale": "nearest_neighbor",
+      "from": "campus_lawn",
+      "to": "plaza_brick",
+      "members": [
+        {
+          "tile_id": "campus_lawn_to_plaza_brick_center",
+          "role": "center",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "plaza_brick",
+            "s": "plaza_brick",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "campus_lawn_to_plaza_brick_transition_edge_top",
+          "role": "transition_edge_top",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "campus_lawn",
+            "e": "plaza_brick",
+            "s": "plaza_brick",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "campus_lawn_to_plaza_brick_transition_edge_right",
+          "role": "transition_edge_right",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "campus_lawn",
+            "s": "plaza_brick",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "campus_lawn_to_plaza_brick_transition_edge_bottom",
+          "role": "transition_edge_bottom",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "plaza_brick",
+            "s": "campus_lawn",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "campus_lawn_to_plaza_brick_transition_edge_left",
+          "role": "transition_edge_left",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "plaza_brick",
+            "s": "plaza_brick",
+            "w": "campus_lawn"
+          }
+        },
+        {
+          "tile_id": "campus_lawn_to_plaza_brick_transition_corner_top_left",
+          "role": "transition_corner_top_left",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "campus_lawn",
+            "e": "plaza_brick",
+            "s": "plaza_brick",
+            "w": "campus_lawn"
+          }
+        },
+        {
+          "tile_id": "campus_lawn_to_plaza_brick_transition_corner_top_right",
+          "role": "transition_corner_top_right",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "campus_lawn",
+            "e": "campus_lawn",
+            "s": "plaza_brick",
+            "w": "plaza_brick"
+          }
+        },
+        {
+          "tile_id": "campus_lawn_to_plaza_brick_transition_corner_bottom_left",
+          "role": "transition_corner_bottom_left",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "plaza_brick",
+            "s": "campus_lawn",
+            "w": "campus_lawn"
+          }
+        },
+        {
+          "tile_id": "campus_lawn_to_plaza_brick_transition_corner_bottom_right",
+          "role": "transition_corner_bottom_right",
+          "material": "plaza_brick",
+          "connection": {
+            "n": "plaza_brick",
+            "e": "campus_lawn",
+            "s": "campus_lawn",
+            "w": "plaza_brick"
+          }
+        }
+      ],
+      "pixellab": {
+        "lower_description": "campus lawn terrain, high top-down, bright green grass with cheerful color accents and broad readable clusters, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+        "upper_description": "warm pale stone and light brick campus plaza terrain, high top-down, peach beige tan stones with subtle red brick accents, large paving shapes, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+        "transition_description": "clean campus lawn edge meeting warm stone plaza and light brick paving, readable material boundary, shared school-campus palette, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+        "transition_size": 0.5,
+        "view": "high top-down",
+        "outline": "selective outline",
+        "detail": "highly detailed"
+      }
+    }
+  ],
+  "generated_at": "2026-06-11T10:22:37Z"
+}

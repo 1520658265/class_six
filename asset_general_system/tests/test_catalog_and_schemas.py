@@ -25,6 +25,11 @@ def test_protocol_schema_files_exist_and_are_json():
         "scene_entities.schema.json",
         "scene_prompts.schema.json",
         "background_plan.schema.json",
+        "tilemap_blueprint.schema.json",
+        "tile_family_plan.schema.json",
+        "pixellab_tileset_manifest.schema.json",
+        "tile_candidates.schema.json",
+        "tilemap_mapping.schema.json",
         "art_manifest.schema.json",
         "progress.schema.json",
     ]:

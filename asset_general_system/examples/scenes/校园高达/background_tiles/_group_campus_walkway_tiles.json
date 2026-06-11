@@ -1,0 +1,134 @@
+{
+  "group_id": "campus_walkway_tiles",
+  "source": "background_tile_group",
+  "method": "regenerate",
+  "sheet_path": "_group_campus_walkway_tiles.png",
+  "tile_size": [
+    64,
+    64
+  ],
+  "sheet": {
+    "layout": "grid",
+    "columns": 4,
+    "gutter": 0,
+    "slot_size": [
+      64,
+      64
+    ]
+  },
+  "members": [
+    {
+      "asset_id": "campus_walkway_01_walkway_center",
+      "tile_id": "walkway_center_tile",
+      "role": "center",
+      "source_rect": [
+        0,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "asset_id": "campus_walkway_01_walkway_edge_top",
+      "tile_id": "walkway_edge_top_tile",
+      "role": "edge_top",
+      "source_rect": [
+        64,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "asset_id": "campus_walkway_01_walkway_edge_bottom",
+      "tile_id": "walkway_edge_bottom_tile",
+      "role": "edge_bottom",
+      "source_rect": [
+        128,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "asset_id": "campus_walkway_01_walkway_edge_left",
+      "tile_id": "walkway_edge_left_tile",
+      "role": "edge_left",
+      "source_rect": [
+        192,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "asset_id": "campus_walkway_01_walkway_edge_right",
+      "tile_id": "walkway_edge_right_tile",
+      "role": "edge_right",
+      "source_rect": [
+        0,
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "asset_id": "sculpture_walkway_01_walkway_center",
+      "tile_id": "sculpture_walkway_center_tile",
+      "role": "center",
+      "source_rect": [
+        64,
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "asset_id": "sculpture_walkway_01_walkway_edge_top",
+      "tile_id": "sculpture_walkway_edge_top_tile",
+      "role": "edge_top",
+      "source_rect": [
+        128,
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "asset_id": "sculpture_walkway_01_walkway_edge_bottom",
+      "tile_id": "sculpture_walkway_edge_bottom_tile",
+      "role": "edge_bottom",
+      "source_rect": [
+        192,
+        64,
+        64,
+        64
+      ]
+    },
+    {
+      "asset_id": "sculpture_walkway_01_walkway_edge_left",
+      "tile_id": "sculpture_walkway_edge_left_tile",
+      "role": "edge_left",
+      "source_rect": [
+        0,
+        128,
+        64,
+        64
+      ]
+    },
+    {
+      "asset_id": "sculpture_walkway_01_walkway_edge_right",
+      "tile_id": "sculpture_walkway_edge_right_tile",
+      "role": "edge_right",
+      "source_rect": [
+        64,
+        128,
+        64,
+        64
+      ]
+    }
+  ],
+  "prompt": "TASK: Create one cohesive RPG tilemap background tile family as a single sprite sheet.\nCreate one cohesive tile family for warm tan campus walkway stones embedded in the same green campus lawn. Pieces must be reusable for vertical and horizontal paths, with clean seamless center and directional edge pieces. Generate both the entrance walkway and sculpture walkway members as the same material family with matching stone shape, color, and edge treatment. Treat each 64x64 slot as a standalone reusable tile sample in an asset catalog, not as a contiguous mini-map.\n\nSprite sheet contract:\n- Group id: campus_walkway_tiles\n- Group kind: material_group\n- Sheet canvas: exactly 256x192 px\n- Grid: 4 columns x 3 rows\n- Each slot: exactly 64x64 px\n- Gutter: 0 px; if present, keep it visually empty and not part of any tile.\n- Do not draw visible borders, labels, dividers, frames, grid lines, numbers, or text.\n- This is an asset catalog sheet, not a map preview. Adjacent slots in this sheet are separate catalog samples, not neighboring map cells.\n- Do not draw one continuous road, plaza, path, field, or scene spanning across multiple slots.\n- Do not draw black separator lines, shadow seams, crop marks, frame outlines, or any visible slot boundary.\n- Every slot must remain visually correct when cropped alone and placed anywhere on a tilemap.\n\nSlot definitions:\n- Slot 1 (campus_walkway_01_walkway_center) rectangle x=0..63, y=0..63: center tile, 步道中心. \n- Slot 2 (campus_walkway_01_walkway_edge_top) rectangle x=64..127, y=0..63: edge_top tile, 步道上边缘. \n- Slot 3 (campus_walkway_01_walkway_edge_bottom) rectangle x=128..191, y=0..63: edge_bottom tile, 步道下边缘. \n- Slot 4 (campus_walkway_01_walkway_edge_left) rectangle x=192..255, y=0..63: edge_left tile, 步道左边缘. \n- Slot 5 (campus_walkway_01_walkway_edge_right) rectangle x=0..63, y=64..127: edge_right tile, 步道右边缘. \n- Slot 6 (sculpture_walkway_01_walkway_center) rectangle x=64..127, y=64..127: center tile, 雕塑步道中心. Same visual material as campus_walkway_01; generated in one shared sprite sheet for consistency.\n- Slot 7 (sculpture_walkway_01_walkway_edge_top) rectangle x=128..191, y=64..127: edge_top tile, 雕塑步道上边缘. Same visual material as campus_walkway_01; generated in one shared sprite sheet for consistency.\n- Slot 8 (sculpture_walkway_01_walkway_edge_bottom) rectangle x=192..255, y=64..127: edge_bottom tile, 雕塑步道下边缘. Same visual material as campus_walkway_01; generated in one shared sprite sheet for consistency.\n- Slot 9 (sculpture_walkway_01_walkway_edge_left) rectangle x=0..63, y=128..191: edge_left tile, 雕塑步道左边缘. Same visual material as campus_walkway_01; generated in one shared sprite sheet for consistency.\n- Slot 10 (sculpture_walkway_01_walkway_edge_right) rectangle x=64..127, y=128..191: edge_right tile, 雕塑步道右边缘. Same visual material as campus_walkway_01; generated in one shared sprite sheet for consistency.\n\nTile consistency requirements:\n- All slots must share one palette, lighting direction, pixel density, outline weight, and texture scale.\n- Fill every tile slot edge-to-edge with opaque terrain pixels; no transparent margins and no icon composition.\n- Center, edge, corner, curve, and transition pieces must connect seamlessly to neighboring slots.\n- Edge and corner details must continue cleanly into adjacent tiles without abrupt texture scale changes.\n- Edge_top means the transition lies inside that single cropped tile, with the outside material at the top edge and the main material below it.\n- Edge_bottom means the transition lies inside that single cropped tile, with the main material above and the outside material at the bottom edge.\n- Edge_left means the transition lies inside that single cropped tile, with the outside material at the left edge and the main material to the right.\n- Edge_right means the transition lies inside that single cropped tile, with the main material to the left and the outside material at the right edge.\n- Corner tiles must contain only one corner transition inside their own cropped tile, not a whole rounded rectangle or full path segment.\n- Keep top-down RPG tilemap perspective consistent across every slot.\n- Use a cute, charming, colorful but harmonious pixel-art style unless the scene style explicitly says otherwise.\n- Scene id: 校园高达",
+  "generator": "procedural_tile_family",
+  "actual_seed": 2026061001
+}

@@ -13,13 +13,32 @@ __pycache__/
 *.py[cod]
 
 # Local test outputs
+tools/ai/_experiments/
 asset_general_system/tmp/
 asset_general_system/tmp_*/
 asset_general_system/.pytest_cache/
 asset_general_system/pytest-cache-files-*/
 .pytest_tmp/
+.pytest_run_tmp/
+tmp_write_probe.txt
 asset_general_system/examples/scenes/rice_test/
 asset_general_system/examples/scenes/rice_real_test/
+asset_general_system/experiments/path_c_feasibility/raw/
+asset_general_system/experiments/path_c_feasibility/sliced/
+asset_general_system/experiments/path_c_feasibility/recomposed/
+asset_general_system/experiments/path_c_feasibility/reports/
+asset_general_system/experiments/path_c_feasibility/review.html
+asset_general_system/experiments/path_c_feasibility/raw_pixellab/
+asset_general_system/experiments/path_c_feasibility/sliced_pixellab/
+asset_general_system/experiments/path_c_feasibility/recomposed_pixellab/
+asset_general_system/experiments/path_c_feasibility/reports_pixellab/
+asset_general_system/experiments/path_c_feasibility/review_pixellab.html
+asset_general_system/experiments/pixellab_tileset_feasibility/raw/
+asset_general_system/experiments/pixellab_tileset_feasibility/decoded/
+asset_general_system/experiments/pixellab_tileset_feasibility/tiles_64/
+asset_general_system/experiments/pixellab_tileset_feasibility/previews/
+asset_general_system/experiments/pixellab_tileset_feasibility/reports/
+asset_general_system/experiments/pixellab_tileset_feasibility/review.html
 
 # OS
 .DS_Store

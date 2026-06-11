@@ -134,6 +134,132 @@ def test_scene_pack_prefers_reviewed_background_tiles():
         assert tileset.getpixel((x, y)) == (210, 40, 30, 255)
 
 
+def test_scene_composite_origin_and_nonblocking_tiles_do_not_reserve_space():
+    scene = TEST_WORK / f"origin_scene_{os.getpid()}_{uuid.uuid4().hex}"
+    scene.mkdir()
+    from scene_fixtures import _write_json, _write_text
+
+    _write_text(scene / "scene.md", "origin test")
+    _write_json(
+        scene / "map_spec.json",
+        {
+            "version": "1.0.0",
+            "id": "origin_test",
+            "title": "origin test",
+            "theme": "school_campus",
+            "art_tile_size": 64,
+            "map": {"width": 16, "height": 16, "tile_width": 64, "tile_height": 64, "orientation": "orthogonal"},
+            "regions": [{"id": "plaza_01", "type": "plaza", "position": "center", "size": "medium", "priority": 90}],
+            "paths": [],
+            "objects": [
+                {
+                    "type": "large_prop",
+                    "count": 1,
+                    "placement": "plaza_01",
+                    "label": "fountain",
+                    "properties": {
+                        "object_key": "fountain",
+                        "display_name": "fountain",
+                        "source_clause": "center fountain",
+                        "facing": "east_west",
+                        "footprint": "2x2",
+                        "source_canvas": [128, 128],
+                        "blocking": True,
+                    },
+                }
+            ],
+            "base_terrain": {
+                "object_key": "campus_lawn",
+                "display_name": "campus lawn",
+                "tile": "grass",
+                "source_canvas": [64, 64],
+            },
+            "composites": [
+                {
+                    "id": "plaza_ground_01",
+                    "type": "plaza_ground",
+                    "placement": "center",
+                    "display_name": "plaza ground",
+                    "footprint": [2, 2],
+                    "parts": [
+                        {
+                            "key": "plaza_center",
+                            "display_name": "plaza center",
+                            "source_canvas": [64, 64],
+                            "blocking": False,
+                            "properties": {"target_layer": "path"},
+                        }
+                    ],
+                    "layout": [
+                        {"part": "plaza_center", "x": 0, "y": 0},
+                        {"part": "plaza_center", "x": 1, "y": 0},
+                        {"part": "plaza_center", "x": 0, "y": 1},
+                        {"part": "plaza_center", "x": 1, "y": 1},
+                    ],
+                    "properties": {"origin": [7, 7]},
+                }
+            ],
+            "entities": [],
+            "constraints": {
+                "walkable_spawn": True,
+                "connect_key_regions": True,
+                "no_blocked_doors": True,
+                "objects_require_walkable_neighbor": True,
+            },
+            "seed": 9,
+            "tileset_id": "default_rpg_32",
+        },
+    )
+
+    build_scene_map(scene, force=True)
+    map_data = read_json(scene / "map_data.json")
+    slices = [item for item in map_data["objects"] if item["properties"].get("asset_role") == "composite_slice"]
+    fountain = next(item for item in map_data["objects"] if item["id"] == "fountain_01")
+
+    assert {(item["x"], item["y"]) for item in slices} == {(7, 7), (8, 7), (7, 8), (8, 8)}
+    assert (fountain["x"], fountain["y"]) == (5, 5)
+
+
+def test_scene_background_assets_can_generate_procedural_tile_family():
+    scene = copy_rice_scene()
+    spec = read_json(scene / "map_spec.json")
+    spec["tile_groups"] = [
+        {
+            "group_id": "procedural_road_tiles",
+            "kind": "material_group",
+            "generation_mode": "sprite_sheet",
+            "tile_size": [64, 64],
+            "members": [
+                {"tile_id": "road_center_tile", "role": "center", "source_ref": "road_cross_01:road_center"},
+                {"tile_id": "road_top_edge_tile", "role": "edge_top", "source_ref": "road_cross_01:road_edge_top"},
+            ],
+            "properties": {"generator": "procedural_tile_family"},
+        }
+    ]
+    (scene / "map_spec.json").write_text(__import__("json").dumps(spec, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    build_scene_map(scene, force=True)
+    from generator.scene.background_plan import build_background_plan, extract_background_tiles
+
+    plan = build_background_plan(scene, force=True)
+    requested_assets = {"road_cross_01_road_center", "road_cross_01_road_edge_top"}
+    for item in plan["review_items"]:
+        if item.get("asset_id") in requested_assets:
+            item["method"] = "regenerate"
+            item["status"] = "reviewed"
+        else:
+            item["method"] = "ignore"
+            item["status"] = "reviewed"
+    (scene / "background_plan.json").write_text(__import__("json").dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    written = extract_background_tiles(scene, force=True, use_gemini=True)
+
+    assert "road_cross_01_road_center" in written
+    assert (scene / "background_tiles" / "_group_procedural_road_tiles.png").exists()
+    metadata = read_json(scene / "background_tiles" / "road_cross_01_road_center.json")
+    assert metadata["generator"] == "procedural_tile_family"
+
+
 def test_scene_images_sprite_sheet_group_expands_target_and_slices_members():
     scene = TEST_WORK / f"group_scene_{os.getpid()}_{uuid.uuid4().hex}"
     scene.mkdir()

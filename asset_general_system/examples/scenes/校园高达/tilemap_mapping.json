@@ -1,0 +1,3186 @@
+{
+  "version": "1.0",
+  "kind": "tilemap_mapping",
+  "source_blueprint": "tilemap_blueprint.json",
+  "source_candidates": "tile_candidates.json",
+  "map_size": [
+    16,
+    16
+  ],
+  "tile_size": [
+    64,
+    64
+  ],
+  "tile_ids": {
+    "campus_lawn_center": 1,
+    "plaza_corner_top_left_tile": 2,
+    "plaza_edge_top_tile": 3,
+    "plaza_corner_top_right_tile": 4,
+    "plaza_edge_left_tile": 5,
+    "plaza_center_tile": 6,
+    "plaza_variant_tile": 7,
+    "plaza_edge_right_tile": 8,
+    "plaza_corner_bottom_left_tile": 9,
+    "plaza_edge_bottom_tile": 10,
+    "plaza_corner_bottom_right_tile": 11,
+    "walkway_edge_left_tile": 12,
+    "walkway_center_tile": 13,
+    "walkway_edge_right_tile": 14,
+    "walkway_edge_top_tile": 15,
+    "walkway_edge_bottom_tile": 16
+  },
+  "assignments": [
+    {
+      "x": 0,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 0,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 1,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 2,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 3,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 4,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 6,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 7,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 9,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 10,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 13,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 14,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 0,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 1,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 2,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 3,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 5,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 6,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 7,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 8,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 9,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 10,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 11,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 12,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 13,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 14,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 15,
+      "y": 15,
+      "layer": "terrain",
+      "material": "campus_lawn",
+      "role": "center",
+      "candidate_id": "campus_lawn_center",
+      "gid": 1
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "corner_top_left",
+      "candidate_id": "plaza_corner_top_left_tile",
+      "gid": 2
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_top",
+      "candidate_id": "plaza_edge_top_tile",
+      "gid": 3
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_top",
+      "candidate_id": "plaza_edge_top_tile",
+      "gid": 3
+    },
+    {
+      "x": 7,
+      "y": 5,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_top",
+      "candidate_id": "plaza_edge_top_tile",
+      "gid": 3
+    },
+    {
+      "x": 8,
+      "y": 5,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_top",
+      "candidate_id": "plaza_edge_top_tile",
+      "gid": 3
+    },
+    {
+      "x": 9,
+      "y": 5,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_top",
+      "candidate_id": "plaza_edge_top_tile",
+      "gid": 3
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_top",
+      "candidate_id": "plaza_edge_top_tile",
+      "gid": 3
+    },
+    {
+      "x": 11,
+      "y": 5,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "corner_top_right",
+      "candidate_id": "plaza_corner_top_right_tile",
+      "gid": 4
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_left",
+      "candidate_id": "plaza_edge_left_tile",
+      "gid": 5
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 6,
+      "y": 6,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 7,
+      "y": 6,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 8,
+      "y": 6,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center_variant",
+      "candidate_id": "plaza_variant_tile",
+      "gid": 7
+    },
+    {
+      "x": 9,
+      "y": 6,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 10,
+      "y": 6,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_right",
+      "candidate_id": "plaza_edge_right_tile",
+      "gid": 8
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_left",
+      "candidate_id": "plaza_edge_left_tile",
+      "gid": 5
+    },
+    {
+      "x": 5,
+      "y": 7,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 6,
+      "y": 7,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 7,
+      "y": 7,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center_variant",
+      "candidate_id": "plaza_variant_tile",
+      "gid": 7
+    },
+    {
+      "x": 8,
+      "y": 7,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 9,
+      "y": 7,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 10,
+      "y": 7,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_right",
+      "candidate_id": "plaza_edge_right_tile",
+      "gid": 8
+    },
+    {
+      "x": 4,
+      "y": 8,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_left",
+      "candidate_id": "plaza_edge_left_tile",
+      "gid": 5
+    },
+    {
+      "x": 5,
+      "y": 8,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 6,
+      "y": 8,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center_variant",
+      "candidate_id": "plaza_variant_tile",
+      "gid": 7
+    },
+    {
+      "x": 7,
+      "y": 8,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 8,
+      "y": 8,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 9,
+      "y": 8,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_right",
+      "candidate_id": "plaza_edge_right_tile",
+      "gid": 8
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_left",
+      "candidate_id": "plaza_edge_left_tile",
+      "gid": 5
+    },
+    {
+      "x": 5,
+      "y": 9,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center_variant",
+      "candidate_id": "plaza_variant_tile",
+      "gid": 7
+    },
+    {
+      "x": 6,
+      "y": 9,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 7,
+      "y": 9,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 8,
+      "y": 9,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 9,
+      "y": 9,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 10,
+      "y": 9,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center_variant",
+      "candidate_id": "plaza_variant_tile",
+      "gid": 7
+    },
+    {
+      "x": 11,
+      "y": 9,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_right",
+      "candidate_id": "plaza_edge_right_tile",
+      "gid": 8
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_left",
+      "candidate_id": "plaza_edge_left_tile",
+      "gid": 5
+    },
+    {
+      "x": 5,
+      "y": 10,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 6,
+      "y": 10,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 7,
+      "y": 10,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 8,
+      "y": 10,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 9,
+      "y": 10,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center_variant",
+      "candidate_id": "plaza_variant_tile",
+      "gid": 7
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 11,
+      "y": 10,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_right",
+      "candidate_id": "plaza_edge_right_tile",
+      "gid": 8
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_left",
+      "candidate_id": "plaza_edge_left_tile",
+      "gid": 5
+    },
+    {
+      "x": 5,
+      "y": 11,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 6,
+      "y": 11,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 8,
+      "y": 11,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center_variant",
+      "candidate_id": "plaza_variant_tile",
+      "gid": 7
+    },
+    {
+      "x": 9,
+      "y": 11,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 10,
+      "y": 11,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "center",
+      "candidate_id": "plaza_center_tile",
+      "gid": 6
+    },
+    {
+      "x": 11,
+      "y": 11,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_right",
+      "candidate_id": "plaza_edge_right_tile",
+      "gid": 8
+    },
+    {
+      "x": 4,
+      "y": 12,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "corner_bottom_left",
+      "candidate_id": "plaza_corner_bottom_left_tile",
+      "gid": 9
+    },
+    {
+      "x": 5,
+      "y": 12,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_bottom",
+      "candidate_id": "plaza_edge_bottom_tile",
+      "gid": 10
+    },
+    {
+      "x": 6,
+      "y": 12,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_bottom",
+      "candidate_id": "plaza_edge_bottom_tile",
+      "gid": 10
+    },
+    {
+      "x": 7,
+      "y": 12,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_bottom",
+      "candidate_id": "plaza_edge_bottom_tile",
+      "gid": 10
+    },
+    {
+      "x": 8,
+      "y": 12,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_bottom",
+      "candidate_id": "plaza_edge_bottom_tile",
+      "gid": 10
+    },
+    {
+      "x": 9,
+      "y": 12,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_bottom",
+      "candidate_id": "plaza_edge_bottom_tile",
+      "gid": 10
+    },
+    {
+      "x": 10,
+      "y": 12,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "edge_bottom",
+      "candidate_id": "plaza_edge_bottom_tile",
+      "gid": 10
+    },
+    {
+      "x": 11,
+      "y": 12,
+      "layer": "path",
+      "material": "plaza_brick",
+      "role": "corner_bottom_right",
+      "candidate_id": "plaza_corner_bottom_right_tile",
+      "gid": 11
+    },
+    {
+      "x": 6,
+      "y": 11,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_left",
+      "candidate_id": "walkway_edge_left_tile",
+      "gid": 12
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "center",
+      "candidate_id": "walkway_center_tile",
+      "gid": 13
+    },
+    {
+      "x": 8,
+      "y": 11,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_right",
+      "candidate_id": "walkway_edge_right_tile",
+      "gid": 14
+    },
+    {
+      "x": 6,
+      "y": 12,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_left",
+      "candidate_id": "walkway_edge_left_tile",
+      "gid": 12
+    },
+    {
+      "x": 7,
+      "y": 12,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "center",
+      "candidate_id": "walkway_center_tile",
+      "gid": 13
+    },
+    {
+      "x": 8,
+      "y": 12,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_right",
+      "candidate_id": "walkway_edge_right_tile",
+      "gid": 14
+    },
+    {
+      "x": 6,
+      "y": 13,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_left",
+      "candidate_id": "walkway_edge_left_tile",
+      "gid": 12
+    },
+    {
+      "x": 7,
+      "y": 13,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "center",
+      "candidate_id": "walkway_center_tile",
+      "gid": 13
+    },
+    {
+      "x": 8,
+      "y": 13,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_right",
+      "candidate_id": "walkway_edge_right_tile",
+      "gid": 14
+    },
+    {
+      "x": 6,
+      "y": 14,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_left",
+      "candidate_id": "walkway_edge_left_tile",
+      "gid": 12
+    },
+    {
+      "x": 7,
+      "y": 14,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "center",
+      "candidate_id": "walkway_center_tile",
+      "gid": 13
+    },
+    {
+      "x": 8,
+      "y": 14,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_right",
+      "candidate_id": "walkway_edge_right_tile",
+      "gid": 14
+    },
+    {
+      "x": 6,
+      "y": 15,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_left",
+      "candidate_id": "walkway_edge_left_tile",
+      "gid": 12
+    },
+    {
+      "x": 7,
+      "y": 15,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "center",
+      "candidate_id": "walkway_center_tile",
+      "gid": 13
+    },
+    {
+      "x": 8,
+      "y": 15,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_right",
+      "candidate_id": "walkway_edge_right_tile",
+      "gid": 14
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_top",
+      "candidate_id": "walkway_edge_top_tile",
+      "gid": 15
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "center",
+      "candidate_id": "walkway_center_tile",
+      "gid": 13
+    },
+    {
+      "x": 11,
+      "y": 9,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_bottom",
+      "candidate_id": "walkway_edge_bottom_tile",
+      "gid": 16
+    },
+    {
+      "x": 12,
+      "y": 7,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_top",
+      "candidate_id": "walkway_edge_top_tile",
+      "gid": 15
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "center",
+      "candidate_id": "walkway_center_tile",
+      "gid": 13
+    },
+    {
+      "x": 12,
+      "y": 9,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_bottom",
+      "candidate_id": "walkway_edge_bottom_tile",
+      "gid": 16
+    },
+    {
+      "x": 13,
+      "y": 7,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_top",
+      "candidate_id": "walkway_edge_top_tile",
+      "gid": 15
+    },
+    {
+      "x": 13,
+      "y": 8,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "center",
+      "candidate_id": "walkway_center_tile",
+      "gid": 13
+    },
+    {
+      "x": 13,
+      "y": 9,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_bottom",
+      "candidate_id": "walkway_edge_bottom_tile",
+      "gid": 16
+    },
+    {
+      "x": 14,
+      "y": 7,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_top",
+      "candidate_id": "walkway_edge_top_tile",
+      "gid": 15
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "center",
+      "candidate_id": "walkway_center_tile",
+      "gid": 13
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_bottom",
+      "candidate_id": "walkway_edge_bottom_tile",
+      "gid": 16
+    },
+    {
+      "x": 15,
+      "y": 7,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_top",
+      "candidate_id": "walkway_edge_top_tile",
+      "gid": 15
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "center",
+      "candidate_id": "walkway_center_tile",
+      "gid": 13
+    },
+    {
+      "x": 15,
+      "y": 9,
+      "layer": "path",
+      "material": "campus_walkway",
+      "role": "edge_bottom",
+      "candidate_id": "walkway_edge_bottom_tile",
+      "gid": 16
+    }
+  ],
+  "issues": [],
+  "generated_at": "2026-06-11T10:22:59Z"
+}

@@ -55,6 +55,34 @@ class ScenePaths:
         return self.root / "background_tiles"
 
     @property
+    def tilemap_blueprint(self) -> Path:
+        return self.root / "tilemap_blueprint.json"
+
+    @property
+    def tile_family_plan(self) -> Path:
+        return self.root / "tile_family_plan.json"
+
+    @property
+    def pixellab_tilesets_dir(self) -> Path:
+        return self.root / "pixellab_tilesets"
+
+    @property
+    def tile_candidates_dir(self) -> Path:
+        return self.root / "tile_candidates"
+
+    @property
+    def tile_candidates(self) -> Path:
+        return self.root / "tile_candidates.json"
+
+    @property
+    def tilemap_mapping(self) -> Path:
+        return self.root / "tilemap_mapping.json"
+
+    @property
+    def tiled_dir(self) -> Path:
+        return self.root / "tiled"
+
+    @property
     def style_profile(self) -> Path:
         return self.root / "style_profile.json"
 

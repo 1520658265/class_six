@@ -1,0 +1,25 @@
+{
+  "asset_id": "campus_plaza_01_plaza_center",
+  "source": "background_tile_group",
+  "method": "regenerate",
+  "group_id": "campus_plaza_tiles",
+  "group_kind": "material_group",
+  "role": "center",
+  "tile_id": "plaza_center_tile",
+  "review_item_id": "campus_plaza_01:plaza_center",
+  "source_ref": "campus_plaza_01:plaza_center",
+  "sheet_path": "_group_campus_plaza_tiles.png",
+  "source_rect": [
+    0,
+    0,
+    64,
+    64
+  ],
+  "target_size": [
+    64,
+    64
+  ],
+  "prompt": "TASK: Create one cohesive RPG tilemap background tile family as a single sprite sheet.\nCreate one cohesive tile family for a rounded pale stone campus plaza embedded in warm green lawn. All plaza pieces must share the same stone pattern, scale, lighting, cute colorful style, and connect seamlessly to each other and to lawn at edges. Treat each 64x64 slot as a standalone reusable tile sample in an asset catalog, not as a contiguous mini-map.\n\nSprite sheet contract:\n- Group id: campus_plaza_tiles\n- Group kind: material_group\n- Sheet canvas: exactly 256x192 px\n- Grid: 4 columns x 3 rows\n- Each slot: exactly 64x64 px\n- Gutter: 0 px; if present, keep it visually empty and not part of any tile.\n- Do not draw visible borders, labels, dividers, frames, grid lines, numbers, or text.\n- This is an asset catalog sheet, not a map preview. Adjacent slots in this sheet are separate catalog samples, not neighboring map cells.\n- Do not draw one continuous road, plaza, path, field, or scene spanning across multiple slots.\n- Do not draw black separator lines, shadow seams, crop marks, frame outlines, or any visible slot boundary.\n- Every slot must remain visually correct when cropped alone and placed anywhere on a tilemap.\n\nSlot definitions:\n- Slot 1 (campus_plaza_01_plaza_center) rectangle x=0..63, y=0..63: center tile, 广场中心. \n- Slot 2 (campus_plaza_01_plaza_variant) rectangle x=64..127, y=0..63: center_variant tile, 广场变化中心. \n- Slot 3 (campus_plaza_01_plaza_edge_top) rectangle x=128..191, y=0..63: edge_top tile, 广场上边缘. \n- Slot 4 (campus_plaza_01_plaza_edge_bottom) rectangle x=192..255, y=0..63: edge_bottom tile, 广场下边缘. \n- Slot 5 (campus_plaza_01_plaza_edge_left) rectangle x=0..63, y=64..127: edge_left tile, 广场左边缘. \n- Slot 6 (campus_plaza_01_plaza_edge_right) rectangle x=64..127, y=64..127: edge_right tile, 广场右边缘. \n- Slot 7 (campus_plaza_01_plaza_corner_top_left) rectangle x=128..191, y=64..127: corner_top_left tile, 广场左上角. \n- Slot 8 (campus_plaza_01_plaza_corner_top_right) rectangle x=192..255, y=64..127: corner_top_right tile, 广场右上角. \n- Slot 9 (campus_plaza_01_plaza_corner_bottom_left) rectangle x=0..63, y=128..191: corner_bottom_left tile, 广场左下角. \n- Slot 10 (campus_plaza_01_plaza_corner_bottom_right) rectangle x=64..127, y=128..191: corner_bottom_right tile, 广场右下角. \n\nTile consistency requirements:\n- All slots must share one palette, lighting direction, pixel density, outline weight, and texture scale.\n- Fill every tile slot edge-to-edge with opaque terrain pixels; no transparent margins and no icon composition.\n- Center, edge, corner, curve, and transition pieces must connect seamlessly to neighboring slots.\n- Edge and corner details must continue cleanly into adjacent tiles without abrupt texture scale changes.\n- Edge_top means the transition lies inside that single cropped tile, with the outside material at the top edge and the main material below it.\n- Edge_bottom means the transition lies inside that single cropped tile, with the main material above and the outside material at the bottom edge.\n- Edge_left means the transition lies inside that single cropped tile, with the outside material at the left edge and the main material to the right.\n- Edge_right means the transition lies inside that single cropped tile, with the main material to the left and the outside material at the right edge.\n- Corner tiles must contain only one corner transition inside their own cropped tile, not a whole rounded rectangle or full path segment.\n- Keep top-down RPG tilemap perspective consistent across every slot.\n- Use a cute, charming, colorful but harmonious pixel-art style unless the scene style explicitly says otherwise.\n- Scene id: 校园高达",
+  "generator": "procedural_tile_family",
+  "actual_seed": 2026061001
+}

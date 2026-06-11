@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "tile_size_source": 32,
+  "tile_size_target": 64,
+  "upscale": "nearest_neighbor",
+  "detail": "highly detailed",
+  "style_contract": "cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+  "cases": [
+    {
+      "case_id": "grass_to_dirt_road",
+      "lower_description": "green grass lawn terrain, high top-down, rich but readable palette, broad leaf clusters, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "upper_description": "warm brown rural dirt road terrain, high top-down, ochre and amber color variation, compact earth texture with broad readable patches, subtle gravel and compact soil color variety, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "transition_description": "natural soft grass edge blending into warm brown dirt road, clear terrain boundary, include subtle gravel and compact soil color variety, no road markings, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters"
+    },
+    {
+      "case_id": "grass_to_plaza",
+      "lower_description": "green grass lawn terrain, high top-down, rich greens, clear broad grass texture, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "upper_description": "warm light stone plaza tile terrain, high top-down, peach beige and tan stones, readable square paving shapes, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "transition_description": "clean grass border meeting warm colorful stone plaza paving, crisp material boundary, large readable stone and grass shapes, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters"
+    },
+    {
+      "case_id": "grass_to_running_track",
+      "lower_description": "green sports field grass terrain, high top-down, rich greens, broad readable texture, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "upper_description": "red-orange running track surface terrain, high top-down, saturated red clay and orange highlights, simple readable lane texture, no lane numbers, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "transition_description": "clean boundary between green grass and red-orange running track surface, colorful sports field terrain transition only, no complete oval track, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters"
+    },
+    {
+      "case_id": "grass_to_water",
+      "lower_description": "green grass bank terrain, high top-down, vivid greens and broad readable clusters, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "upper_description": "clear blue water surface terrain, high top-down, cyan and blue ripples with large readable shapes, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "transition_description": "natural shoreline transition from colorful grass bank to blue water, clean readable water edge, no bridge, no large rocks, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters"
+    },
+    {
+      "case_id": "wheat_to_dirt_road",
+      "lower_description": "golden wheat field terrain, high top-down, rich yellow and amber crop bands, broad readable wheat clusters, no scarecrow, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "upper_description": "warm brown rural dirt road terrain, high top-down, ochre and amber color variation, broad readable dirt patches, subtle gravel and straw flecks, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "transition_description": "clean edge where golden wheat field meets warm brown dirt road, colorful farm terrain transition only, no fences, no tools, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters"
+    },
+    {
+      "case_id": "wheat_to_running_track",
+      "lower_description": "golden wheat field terrain, high top-down, rich yellow and amber crop bands, broad readable wheat clusters, no scarecrow, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "upper_description": "red-orange rural running track surface, high top-down, saturated clay reds and warm ochre highlights, simple broad lane texture, no lane numbers, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "transition_description": "clean edge where golden wheat field meets red-orange running track surface, colorful readable boundary, no athletes, no props, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters"
+    },
+    {
+      "case_id": "campus_lawn_to_stone_walkway",
+      "lower_description": "campus lawn terrain, high top-down, bright green grass with tiny color accents and broad readable shapes, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "upper_description": "gray stone campus walkway terrain, high top-down, cool gray stones with blue and violet color variation, clear large paving shapes, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "transition_description": "clean campus lawn edge meeting gray stone walkway, colorful but readable terrain boundary, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters"
+    },
+    {
+      "case_id": "campus_lawn_to_brick_walkway",
+      "lower_description": "campus lawn terrain, high top-down, bright green grass with small flower color accents and broad readable shapes, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "upper_description": "warm red brick campus walkway terrain, high top-down, red orange and tan brick pattern, clear large brick shapes, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "transition_description": "clean campus lawn edge meeting warm red brick walkway, colorful readable material transition, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters"
+    },
+    {
+      "case_id": "campus_lawn_to_plaza_brick",
+      "lower_description": "campus lawn terrain, high top-down, bright green grass with cheerful color accents and broad readable clusters, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "upper_description": "warm pale stone and light brick campus plaza terrain, high top-down, peach beige tan stones with subtle red brick accents, large paving shapes, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters",
+      "transition_description": "clean campus lawn edge meeting warm stone plaza and light brick paving, readable material boundary, shared school-campus palette, cute charming RPG pixel art, rich colorful harmonious palette, bright readable colors, large clear shapes for 32px source tiles, avoid muddy colors, avoid micro-noise, opaque terrain pixels fill each tile, no labels, no text, no props, no characters"
+    }
+  ]
+}

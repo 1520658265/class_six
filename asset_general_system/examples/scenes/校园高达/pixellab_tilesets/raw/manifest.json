@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "kind": "pixellab_tileset_manifest",
+  "run_api": false,
+  "generated_at": "2026-06-11T10:22:49Z",
+  "groups": [
+    {
+      "group_id": "campus_lawn_to_plaza_brick",
+      "status": "pending_api",
+      "expected_raw_json": "pixellab_tilesets/raw/campus_lawn_to_plaza_brick.json"
+    }
+  ]
+}

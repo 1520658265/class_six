@@ -1,0 +1,399 @@
+{
+  "version": "1.0",
+  "kind": "tile_candidates",
+  "tile_size": [
+    64,
+    64
+  ],
+  "source_plan": "tile_family_plan.json",
+  "generated_at": "2026-06-11T10:22:49Z",
+  "candidates": [
+    {
+      "candidate_id": "campus_lawn_center",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_lawn_tiles",
+      "path": "tile_candidates/campus_lawn_tiles/campus_lawn_center.png",
+      "source_ref": "campus_lawn_01",
+      "source_path": "background_tiles/campus_lawn_01.png",
+      "material": "campus_lawn",
+      "role": "center",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_lawn",
+        "e": "campus_lawn",
+        "s": "campus_lawn",
+        "w": "campus_lawn"
+      }
+    },
+    {
+      "candidate_id": "plaza_center_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_plaza_tiles",
+      "path": "tile_candidates/campus_plaza_tiles/plaza_center_tile.png",
+      "source_ref": "campus_plaza_01:plaza_center",
+      "source_path": "background_tiles/campus_plaza_01_plaza_center.png",
+      "material": "plaza_brick",
+      "role": "center",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "plaza_brick",
+        "e": "plaza_brick",
+        "s": "plaza_brick",
+        "w": "plaza_brick"
+      }
+    },
+    {
+      "candidate_id": "plaza_variant_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_plaza_tiles",
+      "path": "tile_candidates/campus_plaza_tiles/plaza_variant_tile.png",
+      "source_ref": "campus_plaza_01:plaza_variant",
+      "source_path": "background_tiles/campus_plaza_01_plaza_variant.png",
+      "material": "plaza_brick",
+      "role": "center_variant",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "plaza_brick",
+        "e": "plaza_brick",
+        "s": "plaza_brick",
+        "w": "plaza_brick"
+      }
+    },
+    {
+      "candidate_id": "plaza_edge_top_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_plaza_tiles",
+      "path": "tile_candidates/campus_plaza_tiles/plaza_edge_top_tile.png",
+      "source_ref": "campus_plaza_01:plaza_edge_top",
+      "source_path": "background_tiles/campus_plaza_01_plaza_edge_top.png",
+      "material": "plaza_brick",
+      "role": "edge_top",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_lawn",
+        "e": "plaza_brick",
+        "s": "plaza_brick",
+        "w": "plaza_brick"
+      }
+    },
+    {
+      "candidate_id": "plaza_edge_bottom_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_plaza_tiles",
+      "path": "tile_candidates/campus_plaza_tiles/plaza_edge_bottom_tile.png",
+      "source_ref": "campus_plaza_01:plaza_edge_bottom",
+      "source_path": "background_tiles/campus_plaza_01_plaza_edge_bottom.png",
+      "material": "plaza_brick",
+      "role": "edge_bottom",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "plaza_brick",
+        "e": "plaza_brick",
+        "s": "campus_lawn",
+        "w": "plaza_brick"
+      }
+    },
+    {
+      "candidate_id": "plaza_edge_left_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_plaza_tiles",
+      "path": "tile_candidates/campus_plaza_tiles/plaza_edge_left_tile.png",
+      "source_ref": "campus_plaza_01:plaza_edge_left",
+      "source_path": "background_tiles/campus_plaza_01_plaza_edge_left.png",
+      "material": "plaza_brick",
+      "role": "edge_left",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "plaza_brick",
+        "e": "plaza_brick",
+        "s": "plaza_brick",
+        "w": "campus_lawn"
+      }
+    },
+    {
+      "candidate_id": "plaza_edge_right_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_plaza_tiles",
+      "path": "tile_candidates/campus_plaza_tiles/plaza_edge_right_tile.png",
+      "source_ref": "campus_plaza_01:plaza_edge_right",
+      "source_path": "background_tiles/campus_plaza_01_plaza_edge_right.png",
+      "material": "plaza_brick",
+      "role": "edge_right",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "plaza_brick",
+        "e": "campus_lawn",
+        "s": "plaza_brick",
+        "w": "plaza_brick"
+      }
+    },
+    {
+      "candidate_id": "plaza_corner_top_left_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_plaza_tiles",
+      "path": "tile_candidates/campus_plaza_tiles/plaza_corner_top_left_tile.png",
+      "source_ref": "campus_plaza_01:plaza_corner_top_left",
+      "source_path": "background_tiles/campus_plaza_01_plaza_corner_top_left.png",
+      "material": "plaza_brick",
+      "role": "corner_top_left",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_lawn",
+        "e": "plaza_brick",
+        "s": "plaza_brick",
+        "w": "campus_lawn"
+      }
+    },
+    {
+      "candidate_id": "plaza_corner_top_right_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_plaza_tiles",
+      "path": "tile_candidates/campus_plaza_tiles/plaza_corner_top_right_tile.png",
+      "source_ref": "campus_plaza_01:plaza_corner_top_right",
+      "source_path": "background_tiles/campus_plaza_01_plaza_corner_top_right.png",
+      "material": "plaza_brick",
+      "role": "corner_top_right",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_lawn",
+        "e": "campus_lawn",
+        "s": "plaza_brick",
+        "w": "plaza_brick"
+      }
+    },
+    {
+      "candidate_id": "plaza_corner_bottom_left_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_plaza_tiles",
+      "path": "tile_candidates/campus_plaza_tiles/plaza_corner_bottom_left_tile.png",
+      "source_ref": "campus_plaza_01:plaza_corner_bottom_left",
+      "source_path": "background_tiles/campus_plaza_01_plaza_corner_bottom_left.png",
+      "material": "plaza_brick",
+      "role": "corner_bottom_left",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "plaza_brick",
+        "e": "plaza_brick",
+        "s": "campus_lawn",
+        "w": "campus_lawn"
+      }
+    },
+    {
+      "candidate_id": "plaza_corner_bottom_right_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_plaza_tiles",
+      "path": "tile_candidates/campus_plaza_tiles/plaza_corner_bottom_right_tile.png",
+      "source_ref": "campus_plaza_01:plaza_corner_bottom_right",
+      "source_path": "background_tiles/campus_plaza_01_plaza_corner_bottom_right.png",
+      "material": "plaza_brick",
+      "role": "corner_bottom_right",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "plaza_brick",
+        "e": "campus_lawn",
+        "s": "campus_lawn",
+        "w": "plaza_brick"
+      }
+    },
+    {
+      "candidate_id": "walkway_center_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_walkway_tiles",
+      "path": "tile_candidates/campus_walkway_tiles/walkway_center_tile.png",
+      "source_ref": "campus_walkway_01:walkway_center",
+      "source_path": "background_tiles/campus_walkway_01_walkway_center.png",
+      "material": "campus_walkway",
+      "role": "center",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_walkway",
+        "e": "campus_walkway",
+        "s": "campus_walkway",
+        "w": "campus_walkway"
+      }
+    },
+    {
+      "candidate_id": "walkway_edge_top_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_walkway_tiles",
+      "path": "tile_candidates/campus_walkway_tiles/walkway_edge_top_tile.png",
+      "source_ref": "campus_walkway_01:walkway_edge_top",
+      "source_path": "background_tiles/campus_walkway_01_walkway_edge_top.png",
+      "material": "campus_walkway",
+      "role": "edge_top",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_lawn",
+        "e": "campus_walkway",
+        "s": "campus_walkway",
+        "w": "campus_walkway"
+      }
+    },
+    {
+      "candidate_id": "walkway_edge_bottom_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_walkway_tiles",
+      "path": "tile_candidates/campus_walkway_tiles/walkway_edge_bottom_tile.png",
+      "source_ref": "campus_walkway_01:walkway_edge_bottom",
+      "source_path": "background_tiles/campus_walkway_01_walkway_edge_bottom.png",
+      "material": "campus_walkway",
+      "role": "edge_bottom",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_walkway",
+        "e": "campus_walkway",
+        "s": "campus_lawn",
+        "w": "campus_walkway"
+      }
+    },
+    {
+      "candidate_id": "walkway_edge_left_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_walkway_tiles",
+      "path": "tile_candidates/campus_walkway_tiles/walkway_edge_left_tile.png",
+      "source_ref": "campus_walkway_01:walkway_edge_left",
+      "source_path": "background_tiles/campus_walkway_01_walkway_edge_left.png",
+      "material": "campus_walkway",
+      "role": "edge_left",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_walkway",
+        "e": "campus_walkway",
+        "s": "campus_walkway",
+        "w": "campus_lawn"
+      }
+    },
+    {
+      "candidate_id": "walkway_edge_right_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_walkway_tiles",
+      "path": "tile_candidates/campus_walkway_tiles/walkway_edge_right_tile.png",
+      "source_ref": "campus_walkway_01:walkway_edge_right",
+      "source_path": "background_tiles/campus_walkway_01_walkway_edge_right.png",
+      "material": "campus_walkway",
+      "role": "edge_right",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_walkway",
+        "e": "campus_lawn",
+        "s": "campus_walkway",
+        "w": "campus_walkway"
+      }
+    },
+    {
+      "candidate_id": "sculpture_walkway_center_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_walkway_tiles",
+      "path": "tile_candidates/campus_walkway_tiles/sculpture_walkway_center_tile.png",
+      "source_ref": "sculpture_walkway_01:walkway_center",
+      "source_path": "background_tiles/sculpture_walkway_01_walkway_center.png",
+      "material": "campus_walkway",
+      "role": "center",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_walkway",
+        "e": "campus_walkway",
+        "s": "campus_walkway",
+        "w": "campus_walkway"
+      }
+    },
+    {
+      "candidate_id": "sculpture_walkway_edge_top_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_walkway_tiles",
+      "path": "tile_candidates/campus_walkway_tiles/sculpture_walkway_edge_top_tile.png",
+      "source_ref": "sculpture_walkway_01:walkway_edge_top",
+      "source_path": "background_tiles/sculpture_walkway_01_walkway_edge_top.png",
+      "material": "campus_walkway",
+      "role": "edge_top",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_lawn",
+        "e": "campus_walkway",
+        "s": "campus_walkway",
+        "w": "campus_walkway"
+      }
+    },
+    {
+      "candidate_id": "sculpture_walkway_edge_bottom_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_walkway_tiles",
+      "path": "tile_candidates/campus_walkway_tiles/sculpture_walkway_edge_bottom_tile.png",
+      "source_ref": "sculpture_walkway_01:walkway_edge_bottom",
+      "source_path": "background_tiles/sculpture_walkway_01_walkway_edge_bottom.png",
+      "material": "campus_walkway",
+      "role": "edge_bottom",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_walkway",
+        "e": "campus_walkway",
+        "s": "campus_lawn",
+        "w": "campus_walkway"
+      }
+    },
+    {
+      "candidate_id": "sculpture_walkway_edge_left_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_walkway_tiles",
+      "path": "tile_candidates/campus_walkway_tiles/sculpture_walkway_edge_left_tile.png",
+      "source_ref": "sculpture_walkway_01:walkway_edge_left",
+      "source_path": "background_tiles/sculpture_walkway_01_walkway_edge_left.png",
+      "material": "campus_walkway",
+      "role": "edge_left",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_walkway",
+        "e": "campus_walkway",
+        "s": "campus_walkway",
+        "w": "campus_lawn"
+      }
+    },
+    {
+      "candidate_id": "sculpture_walkway_edge_right_tile",
+      "status": "ready",
+      "source": "existing_asset",
+      "group_id": "campus_walkway_tiles",
+      "path": "tile_candidates/campus_walkway_tiles/sculpture_walkway_edge_right_tile.png",
+      "source_ref": "sculpture_walkway_01:walkway_edge_right",
+      "source_path": "background_tiles/sculpture_walkway_01_walkway_edge_right.png",
+      "material": "campus_walkway",
+      "role": "edge_right",
+      "reuse": "reusable_tile",
+      "connection": {
+        "n": "campus_walkway",
+        "e": "campus_lawn",
+        "s": "campus_walkway",
+        "w": "campus_walkway"
+      }
+    },
+    {
+      "candidate_id": "campus_lawn_to_plaza_brick_pending",
+      "status": "pending_api",
+      "source": "pixellab_tileset",
+      "group_id": "campus_lawn_to_plaza_brick",
+      "material": "plaza_brick",
+      "role": "unknown",
+      "missing_raw_json": "pixellab_tilesets/raw/campus_lawn_to_plaza_brick.json"
+    }
+  ]
+}

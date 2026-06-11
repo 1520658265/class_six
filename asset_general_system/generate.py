@@ -29,6 +29,12 @@ SCENE_COMMANDS = {
     "scene-images",
     "scene-pack",
     "scene-status",
+    "scene-tilemap-blueprint",
+    "scene-tilemap-candidates",
+    "scene-tilemap-export-tiled",
+    "scene-tilemap-family-plan",
+    "scene-tilemap-mapping",
+    "scene-tileset-generate",
     "scene-validate",
 }
 

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TilemapMapping",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "kind", "source_blueprint", "source_candidates", "map_size", "tile_size", "tile_ids", "assignments", "issues"],
+  "properties": {
+    "version": {"type": "string"},
+    "kind": {"const": "tilemap_mapping"},
+    "source_blueprint": {"type": "string"},
+    "source_candidates": {"type": "string"},
+    "map_size": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 1}},
+    "tile_size": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 1}},
+    "tile_ids": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 1}},
+    "assignments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["x", "y", "layer", "material", "role", "gid"],
+        "properties": {
+          "x": {"type": "integer", "minimum": 0},
+          "y": {"type": "integer", "minimum": 0},
+          "layer": {"type": "string"},
+          "material": {"type": "string"},
+          "role": {"type": "string"},
+          "candidate_id": {"type": ["string", "null"]},
+          "gid": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": true
+      }
+    },
+    "issues": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "generated_at": {"type": "string"}
+  }
+}

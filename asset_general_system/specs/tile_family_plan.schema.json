@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TileFamilyPlan",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "kind", "scene_id", "tile_size", "source_tile_size", "groups"],
+  "properties": {
+    "version": {"type": "string"},
+    "kind": {"const": "tile_family_plan"},
+    "scene_id": {"type": "string"},
+    "tile_size": {
+      "type": "array",
+      "prefixItems": [{"type": "integer", "minimum": 1}, {"type": "integer", "minimum": 1}],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "source_tile_size": {
+      "type": "array",
+      "prefixItems": [{"type": "integer", "minimum": 1}, {"type": "integer", "minimum": 1}],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "pixellab_defaults": {
+      "type": "object",
+      "properties": {
+        "source_tile_size": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 1}},
+        "target_tile_size": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 1}},
+        "upscale": {"type": "string"},
+        "detail": {"type": "string"},
+        "style_contract": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["group_id", "kind", "generation_mode", "tile_size", "members"],
+        "properties": {
+          "group_id": {"type": "string"},
+          "kind": {"enum": ["material_group", "transition_group"]},
+          "generation_mode": {"enum": ["sprite_sheet", "existing_or_placeholder", "pixellab_tileset"]},
+          "tile_size": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 1}},
+          "source_tile_size": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 1}},
+          "target_tile_size": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "integer", "minimum": 1}},
+          "material": {"type": ["string", "null"]},
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "upscale": {"type": "string"},
+          "pixellab": {"type": "object", "additionalProperties": true},
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["tile_id", "role"],
+              "properties": {
+                "tile_id": {"type": "string"},
+                "role": {"type": "string"},
+                "material": {"type": "string"},
+                "source_ref": {"type": ["string", "null"]},
+                "connection": {"type": "object", "additionalProperties": {"type": "string"}}
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "generated_at": {"type": "string"}
+  }
+}

@@ -1,0 +1,8 @@
+[LOWER]
+green grass lawn, soft texture, tiny flowers, warm campus garden mood, cute colorful RPG pixel art, top-down view, continuous uniform surface
+
+[UPPER]
+gray concrete plaza, smooth surface, subtle tile pattern, modern campus ground, cute colorful RPG pixel art, top-down view, continuous uniform surface
+
+[TRANSITION]
+grass gradually mixing with concrete, natural edge where lawn meets plaza, soft boundary with small grass patches on concrete side, cute colorful RPG pixel art, top-down view

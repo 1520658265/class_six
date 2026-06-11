@@ -9,6 +9,14 @@ from .images import generate_scene_images
 from .map_build import build_scene_map
 from .pack import pack_scene
 from .status import scene_status_text
+from .tilemap_art import (
+    build_tile_candidates,
+    build_tile_family_plan,
+    build_tilemap_blueprint,
+    build_tilemap_mapping,
+    export_tilemap_to_tiled,
+    generate_pixellab_tilesets,
+)
 from .validation import validate_scene_file
 
 
@@ -45,6 +53,33 @@ def main(argv: list[str] | None = None) -> int:
     images.add_argument("--force", action="store_true")
     images.add_argument("--variants", type=int, default=1)
     images.add_argument("--target")
+
+    tilemap_blueprint = subparsers.add_parser("scene-tilemap-blueprint")
+    tilemap_blueprint.add_argument("scene_dir", type=Path)
+    tilemap_blueprint.add_argument("--force", action="store_true")
+
+    tile_family_plan = subparsers.add_parser("scene-tilemap-family-plan")
+    tile_family_plan.add_argument("scene_dir", type=Path)
+    tile_family_plan.add_argument("--force", action="store_true")
+
+    tileset_generate = subparsers.add_parser("scene-tileset-generate")
+    tileset_generate.add_argument("scene_dir", type=Path)
+    tileset_generate.add_argument("--pixellab", action="store_true")
+    tileset_generate.add_argument("--run-api", action="store_true")
+    tileset_generate.add_argument("--force", action="store_true")
+    tileset_generate.add_argument("--case")
+
+    tile_candidates = subparsers.add_parser("scene-tilemap-candidates")
+    tile_candidates.add_argument("scene_dir", type=Path)
+    tile_candidates.add_argument("--force", action="store_true")
+
+    tilemap_mapping = subparsers.add_parser("scene-tilemap-mapping")
+    tilemap_mapping.add_argument("scene_dir", type=Path)
+    tilemap_mapping.add_argument("--force", action="store_true")
+
+    tiled_export = subparsers.add_parser("scene-tilemap-export-tiled")
+    tiled_export.add_argument("scene_dir", type=Path)
+    tiled_export.add_argument("--force", action="store_true")
 
     pack = subparsers.add_parser("scene-pack")
     pack.add_argument("scene_dir", type=Path)
@@ -89,6 +124,32 @@ def main(argv: list[str] | None = None) -> int:
             target=args.target,
         )
         print(f"[ok] scene-images: {len(generated)} target(s)")
+        return 0
+    if args.command == "scene-tilemap-blueprint":
+        blueprint = build_tilemap_blueprint(args.scene_dir, force=args.force)
+        print(f"[ok] scene-tilemap-blueprint: {len(blueprint['layers']['cells'])} cell(s)")
+        return 0
+    if args.command == "scene-tilemap-family-plan":
+        plan = build_tile_family_plan(args.scene_dir, force=args.force)
+        print(f"[ok] scene-tilemap-family-plan: {len(plan.get('groups', []))} group(s)")
+        return 0
+    if args.command == "scene-tileset-generate":
+        if not args.pixellab:
+            parser.error("scene-tileset-generate currently requires --pixellab")
+        manifest = generate_pixellab_tilesets(args.scene_dir, run_api=args.run_api, force=args.force, case=args.case)
+        print(f"[ok] scene-tileset-generate: {len(manifest.get('groups', []))} group(s), run_api={manifest.get('run_api')}")
+        return 0
+    if args.command == "scene-tilemap-candidates":
+        candidates = build_tile_candidates(args.scene_dir, force=args.force)
+        print(f"[ok] scene-tilemap-candidates: {len(candidates.get('candidates', []))} candidate(s)")
+        return 0
+    if args.command == "scene-tilemap-mapping":
+        mapping = build_tilemap_mapping(args.scene_dir, force=args.force)
+        print(f"[ok] scene-tilemap-mapping: {len(mapping.get('assignments', []))} assignment(s), {len(mapping.get('issues', []))} issue(s)")
+        return 0
+    if args.command == "scene-tilemap-export-tiled":
+        exported = export_tilemap_to_tiled(args.scene_dir, force=args.force)
+        print(f"[ok] scene-tilemap-export-tiled: {exported['tmj']}")
         return 0
     if args.command == "scene-pack":
         manifest = pack_scene(args.scene_dir, force=args.force, resource_base=args.resource_base)

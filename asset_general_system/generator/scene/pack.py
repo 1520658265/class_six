@@ -310,7 +310,7 @@ def _apply_composite_slices_to_tileset(paths, tilemap: TilemapData, generated_as
     tile_h = tilemap.map.tile_height
     columns = tilemap.tileset.columns
     next_tile_id = _tileset_capacity(base, columns, tile_w, tile_h) + 1
-    asset_to_tile_id: dict[str, int] = {}
+    source_to_tile_id: dict[str, int] = {}
 
     for obj in tilemap.objects:
         props = obj.properties or {}
@@ -319,21 +319,22 @@ def _apply_composite_slices_to_tileset(paths, tilemap: TilemapData, generated_as
         asset_id = str(props.get("asset_id") or obj.id)
         if asset_id not in generated_assets:
             continue
-        if asset_id not in asset_to_tile_id:
-            source = _asset_source(paths, asset_id)
-            if not source:
-                continue
+        source = _asset_source(paths, asset_id)
+        if not source:
+            continue
+        source_key = str(source.path.resolve())
+        if source_key not in source_to_tile_id:
             base, tile_id = _append_tile(base, source.path, next_tile_id, columns, tile_w, tile_h)
-            asset_to_tile_id[asset_id] = tile_id
+            source_to_tile_id[source_key] = tile_id
             next_tile_id = tile_id + 1
         layer_name = str(props.get("target_layer") or "path")
         layer = tilemap.layers.get(layer_name)
         if layer is None:
             layer = [0] * (tilemap.map.width * tilemap.map.height)
             tilemap.layers[layer_name] = layer
-        layer[obj.y * tilemap.map.width + obj.x] = asset_to_tile_id[asset_id]
+        layer[obj.y * tilemap.map.width + obj.x] = source_to_tile_id[source_key]
 
-    if asset_to_tile_id:
+    if source_to_tile_id:
         base.save(scene_tileset)
         tilemap.tileset.image = "tilesets/scene_tileset.png"
         tilemap.tileset.tile_width = tile_w

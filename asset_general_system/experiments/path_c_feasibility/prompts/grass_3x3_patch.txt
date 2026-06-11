@@ -1,0 +1,20 @@
+Create a 3x3 RPG tilemap terrain patch, 192x192 pixels total, made of nine invisible 64x64 tiles.
+
+Subject:
+- cute colorful RPG top-down / three-quarter top-down pixel art grass lawn
+- warm campus garden mood
+- continuous soft green grass texture with tiny colorful flowers and leaf details
+
+Tilemap constraints:
+- The full image is one continuous grass surface.
+- There must be no visible grid lines, no borders, no labels, no text, no frames.
+- The invisible crop grid is exactly 3 columns by 3 rows, each slot 64x64 pixels.
+- Every 64x64 slot must be fully filled with opaque grass terrain.
+- Details must continue naturally across the invisible tile boundaries.
+- The center tile must be reusable as repeated grass.
+- Avoid large unique objects, characters, buildings, shadows, paths, stones, signs, icons, UI elements.
+
+Style constraints:
+- cute style, colorful palette, clean RPG game asset, consistent light from upper left
+- consistent texture density and outline weight across the whole patch
+- no perspective drift, no photorealism, no text

@@ -78,21 +78,3 @@ def get_service_config(
         "api_key": str(api_key),
         "model": str(model),
     }
-
-
-def get_service_dict(service_name: str) -> dict[str, Any]:
-    """Return the full service config dict (no required-field checks).
-
-    Used by services that need fields beyond the standard api_host/api_key/model
-    triple (e.g. Liblib's access_key + secret_key pair). Environment variables
-    are not auto-merged here — callers handle their own overrides.
-    """
-    data = _load_config()
-    services = data.get("services") or {}
-    if not isinstance(services, dict):
-        raise RuntimeError("Config field 'services' must be a JSON object")
-
-    service = services.get(service_name) or {}
-    if not isinstance(service, dict):
-        raise RuntimeError(f"Config service '{service_name}' must be a JSON object")
-    return dict(service)

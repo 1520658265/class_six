@@ -11,7 +11,7 @@
 - `assets/`：正式归档的美术资产。
   - `assets/art/`：角色、场景、道具、UI、特效等自产美术。
   - `assets/tilesets/`：第三方 tileset 资源，按来源分为 `kenney/`、`opengameart/`、`itch/`。
-- `tools/ai/`：AI 生成、透明化、网格检查和资产审计脚本。
+- `tools/ai/`：Gemini / PixelLab 生成、透明化、网格检查和资产审计脚本。
 
 ## Python 环境
 
@@ -29,6 +29,7 @@ pip install -r requirements.txt
 python tools/ai/check_grid.py <sheet.png> <rows> <cols>
 python tools/ai/jpg_to_png_alpha.py <input.jpg>
 python tools/ai/audit_art.py
+python -B asset_general_system/generate.py scene-tileset-generate <scene_dir> --pixellab
 ```
 
 ## AI 配置
@@ -48,4 +49,3 @@ copy tools\ai\config.example.json tools\ai\config.local.json
 - 提交正式资产、设计文档、脚本和可共享的示例配置。
 - 不提交真实密钥、本机配置、虚拟环境和 Python 缓存。
 - AI 原始图按资产目录归档；除非明确需要工程导入版本，不默认切图、压缩或改透明。
-

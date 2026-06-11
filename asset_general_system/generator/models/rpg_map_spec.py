@@ -100,6 +100,7 @@ class TileGroupSpec(StrictModel):
     to: str | None = None
     display_name: str | None = None
     prompt: str | None = None
+    sheet: dict[str, Any] = Field(default_factory=dict)
     members: list[TileGroupMemberSpec] = Field(default_factory=list)
     properties: dict[str, Any] = Field(default_factory=dict)
 

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PixelLabTilesetManifest",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "kind", "run_api", "groups"],
+  "properties": {
+    "version": {"type": "string"},
+    "kind": {"const": "pixellab_tileset_manifest"},
+    "run_api": {"type": "boolean"},
+    "generated_at": {"type": "string"},
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["group_id", "status"],
+        "properties": {
+          "group_id": {"type": "string"},
+          "status": {"type": "string"},
+          "expected_raw_json": {"type": "string"},
+          "raw_json": {"type": "string"},
+          "error": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}

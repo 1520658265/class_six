@@ -163,7 +163,7 @@ class SceneMapBuilder:
                 continue
             footprint = comp.get("footprint") or [1, 1]
             comp_w, comp_h = int(footprint[0]), int(footprint[1])
-            origin_x, origin_y = self._composite_origin(tilemap, str(comp.get("placement") or "center"), (comp_w, comp_h))
+            origin_x, origin_y = self._composite_origin(tilemap, comp, str(comp.get("placement") or "center"), (comp_w, comp_h))
             part_by_key = {part["key"]: part for part in comp.get("parts", []) if isinstance(part, dict) and "key" in part}
             counters: dict[str, int] = {}
             for cell in comp.get("layout", []) or []:
@@ -213,9 +213,18 @@ class SceneMapBuilder:
                         properties=props,
                     )
                 )
-                self.reserved.append((x, y, 1, 1))
+                if bool(part.get("blocking", False)):
+                    self.reserved.append((x, y, 1, 1))
 
-    def _composite_origin(self, tilemap: TilemapData, placement: str, footprint: tuple[int, int]) -> tuple[int, int]:
+    def _composite_origin(self, tilemap: TilemapData, comp: dict[str, Any], placement: str, footprint: tuple[int, int]) -> tuple[int, int]:
+        properties = dict(comp.get("properties") or {})
+        explicit_origin = properties.get("origin")
+        if (
+            isinstance(explicit_origin, list)
+            and len(explicit_origin) == 2
+            and all(isinstance(item, int) for item in explicit_origin)
+        ):
+            return self._clamp(tilemap, int(explicit_origin[0]), int(explicit_origin[1]), footprint)
         region = self._region_by_id_or_type(tilemap, placement)
         if region:
             x = region.bounds[0] + max(0, (region.bounds[2] - footprint[0]) // 2)

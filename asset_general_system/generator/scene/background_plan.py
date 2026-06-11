@@ -559,20 +559,28 @@ def _generate_tile_group_sheet(paths, plan: dict[str, Any], group: dict[str, Any
         return output_ids
 
     request, rects = _tile_group_request(plan, group)
-    response = generator.generate(request)
-    if not response.success:
-        raise RuntimeError(response.error or f"tile group generation failed: {group_id}")
-    source_path = Path(str(response.image_path))
-    if source_path.resolve() != sheet_path.resolve():
-        sheet_path.parent.mkdir(parents=True, exist_ok=True)
-        try:
-            shutil.move(str(source_path), sheet_path)
-        except PermissionError:
-            shutil.copyfile(source_path, sheet_path)
+    procedural = dict(group.get("properties") or {}).get("generator") == "procedural_tile_family"
+    if procedural:
+        _generate_procedural_tile_group_sheet(sheet_path, group, members, rects)
+        model_name = "procedural_tile_family"
+        actual_seed = plan.get("seed")
+    else:
+        response = generator.generate(request)
+        if not response.success:
+            raise RuntimeError(response.error or f"tile group generation failed: {group_id}")
+        source_path = Path(str(response.image_path))
+        if source_path.resolve() != sheet_path.resolve():
+            sheet_path.parent.mkdir(parents=True, exist_ok=True)
             try:
-                source_path.unlink()
-            except OSError:
-                pass
+                shutil.move(str(source_path), sheet_path)
+            except PermissionError:
+                shutil.copyfile(source_path, sheet_path)
+                try:
+                    source_path.unlink()
+                except OSError:
+                    pass
+        model_name = response.model
+        actual_seed = response.actual_seed
 
     records = _slice_tile_group_sheet(sheet_path, paths.background_tiles_dir, members, rects)
     for record in records:
@@ -594,8 +602,8 @@ def _generate_tile_group_sheet(paths, plan: dict[str, Any], group: dict[str, Any
                 "source_rect": record["source_rect"],
                 "target_size": group.get("tile_size") or plan.get("tile_size") or [64, 64],
                 "prompt": request.prompt,
-                "generator": response.model,
-                "actual_seed": response.actual_seed,
+                "generator": model_name,
+                "actual_seed": actual_seed,
             },
         )
     _write_json(
@@ -617,8 +625,8 @@ def _generate_tile_group_sheet(paths, plan: dict[str, Any], group: dict[str, Any
                 for record in records
             ],
             "prompt": request.prompt,
-            "generator": response.model,
-            "actual_seed": response.actual_seed,
+            "generator": model_name,
+            "actual_seed": actual_seed,
         },
     )
     return output_ids
@@ -702,6 +710,10 @@ def _tile_group_prompt(
             f"- Each slot: exactly {tile_w}x{tile_h} px",
             f"- Gutter: {gutter} px; if present, keep it visually empty and not part of any tile.",
             "- Do not draw visible borders, labels, dividers, frames, grid lines, numbers, or text.",
+            "- This is an asset catalog sheet, not a map preview. Adjacent slots in this sheet are separate catalog samples, not neighboring map cells.",
+            "- Do not draw one continuous road, plaza, path, field, or scene spanning across multiple slots.",
+            "- Do not draw black separator lines, shadow seams, crop marks, frame outlines, or any visible slot boundary.",
+            "- Every slot must remain visually correct when cropped alone and placed anywhere on a tilemap.",
             "",
             "Slot definitions:",
             *slot_lines,
@@ -711,6 +723,11 @@ def _tile_group_prompt(
             "- Fill every tile slot edge-to-edge with opaque terrain pixels; no transparent margins and no icon composition.",
             "- Center, edge, corner, curve, and transition pieces must connect seamlessly to neighboring slots.",
             "- Edge and corner details must continue cleanly into adjacent tiles without abrupt texture scale changes.",
+            "- Edge_top means the transition lies inside that single cropped tile, with the outside material at the top edge and the main material below it.",
+            "- Edge_bottom means the transition lies inside that single cropped tile, with the main material above and the outside material at the bottom edge.",
+            "- Edge_left means the transition lies inside that single cropped tile, with the outside material at the left edge and the main material to the right.",
+            "- Edge_right means the transition lies inside that single cropped tile, with the main material to the left and the outside material at the right edge.",
+            "- Corner tiles must contain only one corner transition inside their own cropped tile, not a whole rounded rectangle or full path segment.",
             "- Keep top-down RPG tilemap perspective consistent across every slot.",
             "- Use a cute, charming, colorful but harmonious pixel-art style unless the scene style explicitly says otherwise.",
             f"- Scene id: {plan.get('scene_id')}",
@@ -734,6 +751,167 @@ def _slice_tile_group_sheet(sheet_path: Path, output_dir: Path, members: list[di
             tile.close()
             records.append({"asset_id": asset_id, "member": member, "source_rect": rect})
     return records
+
+
+def _generate_procedural_tile_group_sheet(sheet_path: Path, group: dict[str, Any], members: list[dict[str, Any]], rects: dict[str, list[int]]) -> None:
+    try:
+        from PIL import Image
+    except ImportError as exc:
+        raise RuntimeError("PIL not available for procedural tile family generation") from exc
+
+    tile_size = _pair(group.get("tile_size")) or [64, 64]
+    width = max((rect[0] + rect[2] for rect in rects.values()), default=tile_size[0])
+    height = max((rect[1] + rect[3] for rect in rects.values()), default=tile_size[1])
+    family = _procedural_family(str(group.get("group_id") or ""))
+    sheet = Image.new("RGBA", (width, height), family["outside"] + (255,))
+    for member in members:
+        asset_id = str(member.get("asset_id") or member.get("tile_id"))
+        rect = rects[asset_id]
+        role = str(member.get("role") or "center")
+        tile = _procedural_tile(tile_size[0], tile_size[1], role, family, asset_id)
+        sheet.paste(tile, (rect[0], rect[1]))
+        tile.close()
+    sheet_path.parent.mkdir(parents=True, exist_ok=True)
+    sheet.save(sheet_path, "PNG")
+    sheet.close()
+
+
+def _procedural_family(group_id: str) -> dict[str, Any]:
+    if "plaza" in group_id:
+        return {
+            "inside": (236, 222, 199),
+            "inside_alt": (245, 233, 214),
+            "outside": (104, 181, 78),
+            "outside_alt": (143, 210, 87),
+            "line": (170, 139, 108),
+            "accent": (255, 200, 118),
+            "shape": "rounded_rect",
+            "pattern": "brick",
+        }
+    if "walkway" in group_id:
+        return {
+            "inside": (203, 147, 89),
+            "inside_alt": (226, 174, 108),
+            "outside": (104, 181, 78),
+            "outside_alt": (143, 210, 87),
+            "line": (139, 97, 62),
+            "accent": (241, 200, 126),
+            "shape": "straight",
+            "pattern": "cobble",
+        }
+    return {
+        "inside": (111, 188, 81),
+        "inside_alt": (149, 215, 88),
+        "outside": (111, 188, 81),
+        "outside_alt": (149, 215, 88),
+        "line": (79, 148, 70),
+        "accent": (252, 219, 94),
+        "shape": "full",
+        "pattern": "grass",
+    }
+
+
+def _procedural_tile(width: int, height: int, role: str, family: dict[str, Any], asset_id: str):
+    from PIL import Image, ImageDraw
+
+    outside = family["outside"]
+    inside = family["inside"]
+    tile = Image.new("RGBA", (width, height), outside + (255,))
+    draw = ImageDraw.Draw(tile, "RGBA")
+    _draw_texture(draw, width, height, outside, family["outside_alt"], family["line"], "grass", seed=asset_id + "_outside")
+
+    mask_box = _inside_mask_box(width, height, role)
+    radius = 14 if family.get("shape") == "rounded_rect" else 0
+    if mask_box is not None:
+        if radius and "corner" in role:
+            _draw_corner_inside(draw, width, height, role, family)
+        else:
+            draw.rounded_rectangle(mask_box, radius=radius, fill=inside + (255,))
+            _draw_inside_pattern(draw, mask_box, family, asset_id)
+    else:
+        draw.rectangle((0, 0, width, height), fill=inside + (255,))
+        _draw_inside_pattern(draw, (0, 0, width - 1, height - 1), family, asset_id)
+
+    if family.get("pattern") == "grass":
+        _draw_texture(draw, width, height, family["inside"], family["inside_alt"], family["line"], "grass", seed=asset_id)
+    return tile
+
+
+def _inside_mask_box(width: int, height: int, role: str) -> tuple[int, int, int, int] | None:
+    margin = max(8, width // 6)
+    if role in {"center", "center_variant", "straight_horizontal", "straight_vertical"}:
+        return None
+    if role in {"edge_top", "transition_edge_top"}:
+        return (0, margin, width - 1, height - 1)
+    if role in {"edge_bottom", "transition_edge_bottom"}:
+        return (0, 0, width - 1, height - margin - 1)
+    if role in {"edge_left", "transition_edge_left"}:
+        return (margin, 0, width - 1, height - 1)
+    if role in {"edge_right", "transition_edge_right"}:
+        return (0, 0, width - margin - 1, height - 1)
+    if role in {"corner_top_left", "transition_corner_top_left", "curve_top_left"}:
+        return (margin, margin, width - 1, height - 1)
+    if role in {"corner_top_right", "transition_corner_top_right", "curve_top_right"}:
+        return (0, margin, width - margin - 1, height - 1)
+    if role in {"corner_bottom_left", "transition_corner_bottom_left", "curve_bottom_left"}:
+        return (margin, 0, width - 1, height - margin - 1)
+    if role in {"corner_bottom_right", "transition_corner_bottom_right", "curve_bottom_right"}:
+        return (0, 0, width - margin - 1, height - margin - 1)
+    return None
+
+
+def _draw_corner_inside(draw, width: int, height: int, role: str, family: dict[str, Any]) -> None:
+    margin = max(8, width // 6)
+    inside = family["inside"]
+    radius = 18
+    if "top_left" in role:
+        box = (margin, margin, width + radius, height + radius)
+    elif "top_right" in role:
+        box = (-radius, margin, width - margin - 1, height + radius)
+    elif "bottom_left" in role:
+        box = (margin, -radius, width + radius, height - margin - 1)
+    else:
+        box = (-radius, -radius, width - margin - 1, height - margin - 1)
+    draw.rounded_rectangle(box, radius=radius, fill=inside + (255,))
+    _draw_inside_pattern(draw, (0, 0, width - 1, height - 1), family, f"{role}_corner")
+
+
+def _draw_inside_pattern(draw, box: tuple[int, int, int, int], family: dict[str, Any], seed: str) -> None:
+    x0, y0, x1, y1 = box
+    pattern = str(family.get("pattern") or "brick")
+    if pattern == "brick":
+        brick_w, brick_h = 16, 9
+        for y in range(y0 - (y0 % brick_h), y1 + brick_h, brick_h):
+            offset = 8 if (y // brick_h) % 2 else 0
+            for x in range(x0 - brick_w, x1 + brick_w, brick_w):
+                xx = x + offset
+                draw.rectangle((xx, y, xx + brick_w - 2, y + brick_h - 2), outline=family["line"] + (95,))
+        _draw_texture(draw, x1 - x0 + 1, y1 - y0 + 1, family["inside"], family["inside_alt"], family["accent"], "flecks", seed=seed, offset=(x0, y0))
+    elif pattern == "cobble":
+        stone_w, stone_h = 18, 13
+        for y in range(y0 - (y0 % stone_h), y1 + stone_h, stone_h):
+            offset = 9 if (y // stone_h) % 2 else 0
+            for x in range(x0 - stone_w, x1 + stone_w, stone_w):
+                xx = x + offset
+                draw.rounded_rectangle((xx + 1, y + 1, xx + stone_w - 3, y + stone_h - 3), radius=3, fill=family["inside_alt"] + (120,), outline=family["line"] + (100,))
+
+
+def _draw_texture(draw, width: int, height: int, base: tuple[int, int, int], alt: tuple[int, int, int], line: tuple[int, int, int], kind: str, seed: str, offset: tuple[int, int] = (0, 0)) -> None:
+    import hashlib
+
+    digest = hashlib.sha256(seed.encode("utf-8")).digest()
+    count = 58 if kind == "grass" else 28
+    ox, oy = offset
+    for i in range(count):
+        a = digest[i % len(digest)]
+        b = digest[(i * 7 + 3) % len(digest)]
+        x = ox + (a * 37 + i * 11) % max(1, width)
+        y = oy + (b * 29 + i * 17) % max(1, height)
+        color = alt if i % 4 else line
+        if kind == "grass":
+            draw.line((x, y, x + 2, y - 3), fill=color + (100,), width=1)
+        else:
+            draw.rectangle((x, y, x + 1, y + 1), fill=color + (115,))
 
 
 def _create_background_image_generator(output_dir: Path, use_gemini: bool):

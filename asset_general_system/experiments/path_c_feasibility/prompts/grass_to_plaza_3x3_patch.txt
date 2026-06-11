@@ -1,0 +1,21 @@
+Create a 3x3 RPG tilemap transition patch, 192x192 pixels total, made of nine invisible 64x64 tiles.
+
+Subject:
+- cute colorful RPG top-down / three-quarter top-down pixel art transition from grass lawn to warm stone plaza
+- upper-left outside area is soft green grass
+- center area and lower-right area are warm light stone plaza tiles
+- the transition edge is organic but still aligned to the 3x3 tile roles: corners, edges, and center transition pieces
+
+Tilemap constraints:
+- The image must represent a usable grass-to-plaza transition family.
+- The invisible crop grid is exactly 3 columns by 3 rows, each slot 64x64 pixels.
+- Do not draw visible grid lines, borders, labels, text, slot numbers, frames, or black separators.
+- Every 64x64 slot must be fully filled with opaque terrain pixels.
+- Terrain edges must continue naturally across invisible tile boundaries.
+- The grass side must connect cleanly to grass neighbors; the plaza side must connect cleanly to plaza neighbors.
+- Avoid characters, buildings, props, signs, UI icons, strong cast shadows, water, roads.
+
+Style constraints:
+- cute style, colorful palette, clean RPG game asset, consistent light from upper left
+- shared palette, same pixel density, same outline weight, same texture scale
+- no perspective drift, no photorealism, no text

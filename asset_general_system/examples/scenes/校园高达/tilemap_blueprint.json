@@ -1,0 +1,4031 @@
+{
+  "version": "1.0",
+  "kind": "tilemap_blueprint",
+  "scene_id": "campus_gundam",
+  "map_size": [
+    16,
+    16
+  ],
+  "tile_size": [
+    64,
+    64
+  ],
+  "layers": {
+    "cells": [
+      {
+        "x": 0,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 0,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 1,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 2,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 3,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 4,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 5,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 6,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 7,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 8,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 9,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 10,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 11,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 12,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 13,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 14,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 0,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 1,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 2,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 3,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 5,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 6,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 7,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 8,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 9,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 10,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 11,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 12,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 13,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 14,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 15,
+        "y": 15,
+        "layer": "terrain",
+        "material": "campus_lawn",
+        "role": "center",
+        "reuse": "variant_tile",
+        "source_reason": "base_terrain fill"
+      },
+      {
+        "x": 4,
+        "y": 5,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "corner_top_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_corner_top_left",
+        "object_id": "campus_plaza_01_plaza_corner_top_left_01",
+        "asset_id": "campus_plaza_01_plaza_corner_top_left_01",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 5,
+        "y": 5,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_top",
+        "object_id": "campus_plaza_01_plaza_edge_top_01",
+        "asset_id": "campus_plaza_01_plaza_edge_top_01",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 6,
+        "y": 5,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_top",
+        "object_id": "campus_plaza_01_plaza_edge_top_02",
+        "asset_id": "campus_plaza_01_plaza_edge_top_02",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 7,
+        "y": 5,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_top",
+        "object_id": "campus_plaza_01_plaza_edge_top_03",
+        "asset_id": "campus_plaza_01_plaza_edge_top_03",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 8,
+        "y": 5,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_top",
+        "object_id": "campus_plaza_01_plaza_edge_top_04",
+        "asset_id": "campus_plaza_01_plaza_edge_top_04",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 9,
+        "y": 5,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_top",
+        "object_id": "campus_plaza_01_plaza_edge_top_05",
+        "asset_id": "campus_plaza_01_plaza_edge_top_05",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 10,
+        "y": 5,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_top",
+        "object_id": "campus_plaza_01_plaza_edge_top_06",
+        "asset_id": "campus_plaza_01_plaza_edge_top_06",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 11,
+        "y": 5,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "corner_top_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_corner_top_right",
+        "object_id": "campus_plaza_01_plaza_corner_top_right_01",
+        "asset_id": "campus_plaza_01_plaza_corner_top_right_01",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "campus_lawn",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 4,
+        "y": 6,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_left",
+        "object_id": "campus_plaza_01_plaza_edge_left_01",
+        "asset_id": "campus_plaza_01_plaza_edge_left_01",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 5,
+        "y": 6,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_01",
+        "asset_id": "campus_plaza_01_plaza_center_01",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 6,
+        "y": 6,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_02",
+        "asset_id": "campus_plaza_01_plaza_center_02",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 7,
+        "y": 6,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_03",
+        "asset_id": "campus_plaza_01_plaza_center_03",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 8,
+        "y": 6,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center_variant",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_variant",
+        "object_id": "campus_plaza_01_plaza_variant_01",
+        "asset_id": "campus_plaza_01_plaza_variant_01",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 9,
+        "y": 6,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_04",
+        "asset_id": "campus_plaza_01_plaza_center_04",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 10,
+        "y": 6,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_05",
+        "asset_id": "campus_plaza_01_plaza_center_05",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 11,
+        "y": 6,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_right",
+        "object_id": "campus_plaza_01_plaza_edge_right_01",
+        "asset_id": "campus_plaza_01_plaza_edge_right_01",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "campus_lawn",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 4,
+        "y": 7,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_left",
+        "object_id": "campus_plaza_01_plaza_edge_left_02",
+        "asset_id": "campus_plaza_01_plaza_edge_left_02",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_06",
+        "asset_id": "campus_plaza_01_plaza_center_06",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_07",
+        "asset_id": "campus_plaza_01_plaza_center_07",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 7,
+        "y": 7,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center_variant",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_variant",
+        "object_id": "campus_plaza_01_plaza_variant_02",
+        "asset_id": "campus_plaza_01_plaza_variant_02",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 8,
+        "y": 7,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_08",
+        "asset_id": "campus_plaza_01_plaza_center_08",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 9,
+        "y": 7,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_09",
+        "asset_id": "campus_plaza_01_plaza_center_09",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 10,
+        "y": 7,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_10",
+        "asset_id": "campus_plaza_01_plaza_center_10",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 11,
+        "y": 7,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_right",
+        "object_id": "campus_plaza_01_plaza_edge_right_02",
+        "asset_id": "campus_plaza_01_plaza_edge_right_02",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "campus_lawn",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 4,
+        "y": 8,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_left",
+        "object_id": "campus_plaza_01_plaza_edge_left_03",
+        "asset_id": "campus_plaza_01_plaza_edge_left_03",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 5,
+        "y": 8,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_11",
+        "asset_id": "campus_plaza_01_plaza_center_11",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 6,
+        "y": 8,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center_variant",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_variant",
+        "object_id": "campus_plaza_01_plaza_variant_03",
+        "asset_id": "campus_plaza_01_plaza_variant_03",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 7,
+        "y": 8,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_12",
+        "asset_id": "campus_plaza_01_plaza_center_12",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 8,
+        "y": 8,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_13",
+        "asset_id": "campus_plaza_01_plaza_center_13",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 9,
+        "y": 8,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_14",
+        "asset_id": "campus_plaza_01_plaza_center_14",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 10,
+        "y": 8,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_15",
+        "asset_id": "campus_plaza_01_plaza_center_15",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 11,
+        "y": 8,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_right",
+        "object_id": "campus_plaza_01_plaza_edge_right_03",
+        "asset_id": "campus_plaza_01_plaza_edge_right_03",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "campus_lawn",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 4,
+        "y": 9,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_left",
+        "object_id": "campus_plaza_01_plaza_edge_left_04",
+        "asset_id": "campus_plaza_01_plaza_edge_left_04",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 5,
+        "y": 9,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center_variant",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_variant",
+        "object_id": "campus_plaza_01_plaza_variant_04",
+        "asset_id": "campus_plaza_01_plaza_variant_04",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 6,
+        "y": 9,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_16",
+        "asset_id": "campus_plaza_01_plaza_center_16",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 7,
+        "y": 9,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_17",
+        "asset_id": "campus_plaza_01_plaza_center_17",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 8,
+        "y": 9,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_18",
+        "asset_id": "campus_plaza_01_plaza_center_18",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 9,
+        "y": 9,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_19",
+        "asset_id": "campus_plaza_01_plaza_center_19",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 10,
+        "y": 9,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center_variant",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_variant",
+        "object_id": "campus_plaza_01_plaza_variant_05",
+        "asset_id": "campus_plaza_01_plaza_variant_05",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 11,
+        "y": 9,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_right",
+        "object_id": "campus_plaza_01_plaza_edge_right_04",
+        "asset_id": "campus_plaza_01_plaza_edge_right_04",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "campus_lawn",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 4,
+        "y": 10,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_left",
+        "object_id": "campus_plaza_01_plaza_edge_left_05",
+        "asset_id": "campus_plaza_01_plaza_edge_left_05",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 5,
+        "y": 10,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_20",
+        "asset_id": "campus_plaza_01_plaza_center_20",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 6,
+        "y": 10,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_21",
+        "asset_id": "campus_plaza_01_plaza_center_21",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 7,
+        "y": 10,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_22",
+        "asset_id": "campus_plaza_01_plaza_center_22",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 8,
+        "y": 10,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_23",
+        "asset_id": "campus_plaza_01_plaza_center_23",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 9,
+        "y": 10,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center_variant",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_variant",
+        "object_id": "campus_plaza_01_plaza_variant_06",
+        "asset_id": "campus_plaza_01_plaza_variant_06",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 10,
+        "y": 10,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_24",
+        "asset_id": "campus_plaza_01_plaza_center_24",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 11,
+        "y": 10,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_right",
+        "object_id": "campus_plaza_01_plaza_edge_right_05",
+        "asset_id": "campus_plaza_01_plaza_edge_right_05",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "campus_lawn",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 4,
+        "y": 11,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_left",
+        "object_id": "campus_plaza_01_plaza_edge_left_06",
+        "asset_id": "campus_plaza_01_plaza_edge_left_06",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 5,
+        "y": 11,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_25",
+        "asset_id": "campus_plaza_01_plaza_center_25",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 6,
+        "y": 11,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_26",
+        "asset_id": "campus_plaza_01_plaza_center_26",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 7,
+        "y": 11,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_27",
+        "asset_id": "campus_plaza_01_plaza_center_27",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 8,
+        "y": 11,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center_variant",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_variant",
+        "object_id": "campus_plaza_01_plaza_variant_07",
+        "asset_id": "campus_plaza_01_plaza_variant_07",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 9,
+        "y": 11,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_28",
+        "asset_id": "campus_plaza_01_plaza_center_28",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 10,
+        "y": 11,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_center",
+        "object_id": "campus_plaza_01_plaza_center_29",
+        "asset_id": "campus_plaza_01_plaza_center_29",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 11,
+        "y": 11,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_right",
+        "object_id": "campus_plaza_01_plaza_edge_right_06",
+        "asset_id": "campus_plaza_01_plaza_edge_right_06",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "campus_lawn",
+          "s": "plaza_brick",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 4,
+        "y": 12,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "corner_bottom_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_corner_bottom_left",
+        "object_id": "campus_plaza_01_plaza_corner_bottom_left_01",
+        "asset_id": "campus_plaza_01_plaza_corner_bottom_left_01",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "campus_lawn",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 5,
+        "y": 12,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_bottom",
+        "object_id": "campus_plaza_01_plaza_edge_bottom_01",
+        "asset_id": "campus_plaza_01_plaza_edge_bottom_01",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "campus_lawn",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 6,
+        "y": 12,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_bottom",
+        "object_id": "campus_plaza_01_plaza_edge_bottom_02",
+        "asset_id": "campus_plaza_01_plaza_edge_bottom_02",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "campus_lawn",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 7,
+        "y": 12,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_bottom",
+        "object_id": "campus_plaza_01_plaza_edge_bottom_03",
+        "asset_id": "campus_plaza_01_plaza_edge_bottom_03",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "campus_lawn",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 8,
+        "y": 12,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_bottom",
+        "object_id": "campus_plaza_01_plaza_edge_bottom_04",
+        "asset_id": "campus_plaza_01_plaza_edge_bottom_04",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "campus_lawn",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 9,
+        "y": 12,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_bottom",
+        "object_id": "campus_plaza_01_plaza_edge_bottom_05",
+        "asset_id": "campus_plaza_01_plaza_edge_bottom_05",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "campus_lawn",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 10,
+        "y": 12,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_edge_bottom",
+        "object_id": "campus_plaza_01_plaza_edge_bottom_06",
+        "asset_id": "campus_plaza_01_plaza_edge_bottom_06",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "plaza_brick",
+          "s": "campus_lawn",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 11,
+        "y": 12,
+        "layer": "path",
+        "material": "plaza_brick",
+        "role": "corner_bottom_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_plaza_01:plaza_corner_bottom_right",
+        "object_id": "campus_plaza_01_plaza_corner_bottom_right_01",
+        "asset_id": "campus_plaza_01_plaza_corner_bottom_right_01",
+        "source_generation_id": "campus_plaza_01_source",
+        "connection": {
+          "n": "plaza_brick",
+          "e": "campus_lawn",
+          "s": "campus_lawn",
+          "w": "plaza_brick"
+        }
+      },
+      {
+        "x": 6,
+        "y": 11,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_edge_left",
+        "object_id": "campus_walkway_01_walkway_edge_left_01",
+        "asset_id": "campus_walkway_01_walkway_edge_left_01",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 7,
+        "y": 11,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_center",
+        "object_id": "campus_walkway_01_walkway_center_01",
+        "asset_id": "campus_walkway_01_walkway_center_01",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 8,
+        "y": 11,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_edge_right",
+        "object_id": "campus_walkway_01_walkway_edge_right_01",
+        "asset_id": "campus_walkway_01_walkway_edge_right_01",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_lawn",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 6,
+        "y": 12,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_edge_left",
+        "object_id": "campus_walkway_01_walkway_edge_left_02",
+        "asset_id": "campus_walkway_01_walkway_edge_left_02",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 7,
+        "y": 12,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_center",
+        "object_id": "campus_walkway_01_walkway_center_02",
+        "asset_id": "campus_walkway_01_walkway_center_02",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 8,
+        "y": 12,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_edge_right",
+        "object_id": "campus_walkway_01_walkway_edge_right_02",
+        "asset_id": "campus_walkway_01_walkway_edge_right_02",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_lawn",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 6,
+        "y": 13,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_edge_left",
+        "object_id": "campus_walkway_01_walkway_edge_left_03",
+        "asset_id": "campus_walkway_01_walkway_edge_left_03",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 7,
+        "y": 13,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_center",
+        "object_id": "campus_walkway_01_walkway_center_03",
+        "asset_id": "campus_walkway_01_walkway_center_03",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 8,
+        "y": 13,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_edge_right",
+        "object_id": "campus_walkway_01_walkway_edge_right_03",
+        "asset_id": "campus_walkway_01_walkway_edge_right_03",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_lawn",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 6,
+        "y": 14,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_edge_left",
+        "object_id": "campus_walkway_01_walkway_edge_left_04",
+        "asset_id": "campus_walkway_01_walkway_edge_left_04",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 7,
+        "y": 14,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_center",
+        "object_id": "campus_walkway_01_walkway_center_04",
+        "asset_id": "campus_walkway_01_walkway_center_04",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 8,
+        "y": 14,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_edge_right",
+        "object_id": "campus_walkway_01_walkway_edge_right_04",
+        "asset_id": "campus_walkway_01_walkway_edge_right_04",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_lawn",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 6,
+        "y": 15,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_left",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_edge_left",
+        "object_id": "campus_walkway_01_walkway_edge_left_05",
+        "asset_id": "campus_walkway_01_walkway_edge_left_05",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_lawn"
+        }
+      },
+      {
+        "x": 7,
+        "y": 15,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_center",
+        "object_id": "campus_walkway_01_walkway_center_05",
+        "asset_id": "campus_walkway_01_walkway_center_05",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 8,
+        "y": 15,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_right",
+        "reuse": "reusable_tile",
+        "source_reason": "campus_walkway_01:walkway_edge_right",
+        "object_id": "campus_walkway_01_walkway_edge_right_05",
+        "asset_id": "campus_walkway_01_walkway_edge_right_05",
+        "source_generation_id": "campus_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_lawn",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 11,
+        "y": 7,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_edge_top",
+        "object_id": "sculpture_walkway_01_walkway_edge_top_01",
+        "asset_id": "sculpture_walkway_01_walkway_edge_top_01",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 11,
+        "y": 8,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_center",
+        "object_id": "sculpture_walkway_01_walkway_center_01",
+        "asset_id": "sculpture_walkway_01_walkway_center_01",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 11,
+        "y": 9,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_edge_bottom",
+        "object_id": "sculpture_walkway_01_walkway_edge_bottom_01",
+        "asset_id": "sculpture_walkway_01_walkway_edge_bottom_01",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_lawn",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 12,
+        "y": 7,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_edge_top",
+        "object_id": "sculpture_walkway_01_walkway_edge_top_02",
+        "asset_id": "sculpture_walkway_01_walkway_edge_top_02",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 12,
+        "y": 8,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_center",
+        "object_id": "sculpture_walkway_01_walkway_center_02",
+        "asset_id": "sculpture_walkway_01_walkway_center_02",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 12,
+        "y": 9,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_edge_bottom",
+        "object_id": "sculpture_walkway_01_walkway_edge_bottom_02",
+        "asset_id": "sculpture_walkway_01_walkway_edge_bottom_02",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_lawn",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 13,
+        "y": 7,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_edge_top",
+        "object_id": "sculpture_walkway_01_walkway_edge_top_03",
+        "asset_id": "sculpture_walkway_01_walkway_edge_top_03",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 13,
+        "y": 8,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_center",
+        "object_id": "sculpture_walkway_01_walkway_center_03",
+        "asset_id": "sculpture_walkway_01_walkway_center_03",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 13,
+        "y": 9,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_edge_bottom",
+        "object_id": "sculpture_walkway_01_walkway_edge_bottom_03",
+        "asset_id": "sculpture_walkway_01_walkway_edge_bottom_03",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_lawn",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 14,
+        "y": 7,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_edge_top",
+        "object_id": "sculpture_walkway_01_walkway_edge_top_04",
+        "asset_id": "sculpture_walkway_01_walkway_edge_top_04",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 14,
+        "y": 8,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_center",
+        "object_id": "sculpture_walkway_01_walkway_center_04",
+        "asset_id": "sculpture_walkway_01_walkway_center_04",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 14,
+        "y": 9,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_edge_bottom",
+        "object_id": "sculpture_walkway_01_walkway_edge_bottom_04",
+        "asset_id": "sculpture_walkway_01_walkway_edge_bottom_04",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_lawn",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 15,
+        "y": 7,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_top",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_edge_top",
+        "object_id": "sculpture_walkway_01_walkway_edge_top_05",
+        "asset_id": "sculpture_walkway_01_walkway_edge_top_05",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_lawn",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 15,
+        "y": 8,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "center",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_center",
+        "object_id": "sculpture_walkway_01_walkway_center_05",
+        "asset_id": "sculpture_walkway_01_walkway_center_05",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_walkway",
+          "w": "campus_walkway"
+        }
+      },
+      {
+        "x": 15,
+        "y": 9,
+        "layer": "path",
+        "material": "campus_walkway",
+        "role": "edge_bottom",
+        "reuse": "reusable_tile",
+        "source_reason": "sculpture_walkway_01:walkway_edge_bottom",
+        "object_id": "sculpture_walkway_01_walkway_edge_bottom_05",
+        "asset_id": "sculpture_walkway_01_walkway_edge_bottom_05",
+        "source_generation_id": "sculpture_walkway_01_source",
+        "connection": {
+          "n": "campus_walkway",
+          "e": "campus_walkway",
+          "s": "campus_lawn",
+          "w": "campus_walkway"
+        }
+      }
+    ]
+  },
+  "materials": [
+    "campus_lawn",
+    "campus_walkway",
+    "plaza_brick"
+  ],
+  "adjacency_rules": [
+    {
+      "from": "campus_lawn",
+      "to": "campus_walkway",
+      "transition": "campus_lawn_to_campus_walkway"
+    },
+    {
+      "from": "campus_lawn",
+      "to": "plaza_brick",
+      "transition": "campus_lawn_to_plaza_brick"
+    }
+  ],
+  "generated_at": "2026-06-11T10:20:54Z"
+}

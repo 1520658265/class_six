@@ -47,6 +47,17 @@ def validate_scene_file(scene_dir: str | Path, stage: str | None = None) -> list
         issues.extend(validate_text_sign_prompts(paths.root))
     if stage in (None, "manifest", "pack", "7_pack") and paths.manifest.exists():
         issues.extend(validate_schema_file(paths.manifest, "art_manifest.schema.json"))
+    if stage in (None, "tilemap-blueprint", "tilemap_blueprint") and paths.tilemap_blueprint.exists():
+        issues.extend(validate_schema_file(paths.tilemap_blueprint, "tilemap_blueprint.schema.json"))
+    if stage in (None, "tile-family-plan", "tile_family_plan") and paths.tile_family_plan.exists():
+        issues.extend(validate_schema_file(paths.tile_family_plan, "tile_family_plan.schema.json"))
+    pixellab_manifest = paths.pixellab_tilesets_dir / "raw" / "manifest.json"
+    if stage in (None, "pixellab-tilesets", "pixellab_tilesets", "tileset") and pixellab_manifest.exists():
+        issues.extend(validate_schema_file(pixellab_manifest, "pixellab_tileset_manifest.schema.json"))
+    if stage in (None, "tile-candidates", "tile_candidates") and paths.tile_candidates.exists():
+        issues.extend(validate_schema_file(paths.tile_candidates, "tile_candidates.schema.json"))
+    if stage in (None, "tilemap-mapping", "tilemap_mapping") and paths.tilemap_mapping.exists():
+        issues.extend(validate_schema_file(paths.tilemap_mapping, "tilemap_mapping.schema.json"))
     return issues
 
 

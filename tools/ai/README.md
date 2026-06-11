@@ -4,13 +4,13 @@
 
 - `prompts/` — AI prompt 源文件（按资产类型分中文目录）
   - `_archive/` — 2026-05-25 之前的英文版本，仅作参考
-- `out/` — 模型原始输出，按资产类型分类
-  - `models_list.json` — 模型列表临时记录
-- `_experiments/` — 一次性实验脚本与产物（grass_cliff 切片、road_tileset 自生成）
 - `gen_with_gemini.py` — 调 Gemini 生成图片，含重试逻辑
-- `gen_with_gpt_image.py` — 调 OpenAI 兼容图像接口（gpt-image-2-pro）
-- `gen_with_liblib.py` — 调 LiblibAI 自定义模型（HMAC 签名 + 任务轮询，支持 LoRA / ControlNet / img2img）
+- `pixellab_v2_client.py` — PixelLab v2 API 客户端，供 `asset_general_system` 的 tilemap 流程调用
 - `jpg_to_png_alpha.py` — 把洋红背景、白/浅灰格子底和横竖格线残留转为 PNG alpha；详细说明见 `docs/reference/jpg_to_png_alpha.md`
+- `check_grid.py` — 给 sprite sheet 叠加等分网格，辅助人工验收切片边界
+- `postprocess.py` — 洋红抠图和网格切片的轻量后处理工具
+- `audit_art.py` — 基础美术资产检查脚本
+- `batch_jpg_to_png_alpha.py`、`resize_sprite.py` — 历史资产批处理辅助工具
 
 ## 使用
 
@@ -24,37 +24,25 @@ prompt 文件用中文命名，方便和《美术资产清单-spec.md》、剧�
 首次配置时复制 `tools/ai/config.example.json` 为 `tools/ai/config.local.json`，再填写各服务的 `api_key`。也可以用环境变量覆盖：
 
 - `GEMINI_IMAGE_API_KEY`
-- `GPT_IMAGE_API_KEY`
-- `ROAD_TILESET_API_KEY`
-- `LIBLIB_ACCESS_KEY` / `LIBLIB_SECRET_KEY`（双密钥，覆盖 services.liblib.access_key/secret_key）
+- `PIXELLAB_TOKEN`
 
-## gen_with_liblib.py 用法
+## 常用命令
 
-文档：[飞书 wiki](https://resonate.feishu.cn/wiki/UAMVw67NcifQHukf8fpccgS5n6d)
-
-最简文生图（需要先在 `config.local.json` 的 `services.liblib` 里填好双密钥和 `checkpoint_id`）：
+Gemini 图片生成：
 
 ```powershell
-python gen_with_liblib.py prompts/hero01/portrait.txt --width 832 --height 1216 --steps 30 --cfg 7
+python tools/ai/gen_with_gemini.py prompts/<prompt>.txt --aspect 1:1 --size 1K -o tools/ai/out/<name>
 ```
 
-带 LoRA + ControlNet OpenPose 的行走图单帧：
+透明化与网格检查：
 
 ```powershell
-python gen_with_liblib.py prompts/hero01/walk.txt `
-  --width 512 --height 512 --seed 42 `
-  --lora <pixel_lora_uuid>:0.9 `
-  --lora <char_hero01_uuid>:0.8 `
-  --controlnet-image https://example.com/walk-down-1.png `
-  --controlnet-type openpose --controlnet-weight 0.9
+python tools/ai/jpg_to_png_alpha.py <input.jpg> -o <output.png>
+python tools/ai/check_grid.py <sheet.png> <rows> <cols>
 ```
 
-img2img（提供公网可访问的源图 URL，自动切到 img2img 模式）：
+PixelLab tilemap 生成由 `asset_general_system/generate.py scene-tileset-generate --pixellab` 调用；真实 API 需要先设置 `PIXELLAB_TOKEN`，并显式传入 `--run-api`。
 
 ```powershell
-python gen_with_liblib.py prompts/hero01/face-icon.txt `
-  --source https://example.com/portrait.png --denoise 0.4 `
-  --width 256 --height 256
+python -B asset_general_system/generate.py scene-tileset-generate <scene_dir> --pixellab --run-api
 ```
-
-`checkpoint_id` 和 LoRA 的 `versionUuid` 在模型详情页 URL 末尾的 `versionUuid=...` 里。`additionalNetwork` 最多 5 条，超出会被截断。任务提交后脚本每 3 秒轮询一次状态，最多等 10 分钟。

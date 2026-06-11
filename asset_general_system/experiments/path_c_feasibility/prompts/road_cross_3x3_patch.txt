@@ -1,0 +1,28 @@
+Create a 3x3 RPG tilemap road cross patch, 192x192 pixels total, made of nine invisible 64x64 tiles.
+
+Subject:
+- cute colorful RPG top-down / three-quarter top-down pixel art dirt road cross on grass
+- a vertical dirt road and a horizontal dirt road cross at the center tile
+- surrounding corners are grass
+- road has soft natural edges where it meets grass
+
+Tilemap structure:
+- top-middle tile: vertical road entering from top and continuing to center
+- middle-left tile: horizontal road entering from left and continuing to center
+- center tile: four-way road crossing
+- middle-right tile: horizontal road continuing to right
+- bottom-middle tile: vertical road continuing to bottom
+- four corner tiles: grass with road edge/corner transition as needed
+
+Tilemap constraints:
+- The invisible crop grid is exactly 3 columns by 3 rows, each slot 64x64 pixels.
+- Do not draw visible grid lines, borders, labels, text, slot numbers, frames, or black separators.
+- Every 64x64 slot must be fully filled with opaque terrain pixels.
+- Road edges must align across invisible tile boundaries.
+- The road width must be consistent across all road tiles.
+- Avoid characters, buildings, props, signs, UI icons, strong cast shadows, water.
+
+Style constraints:
+- cute style, colorful palette, clean RPG game asset, consistent light from upper left
+- shared palette, same pixel density, same outline weight, same texture scale
+- no perspective drift, no photorealism, no text

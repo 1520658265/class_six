@@ -1,0 +1,26 @@
+Create a 4x4 RPG tilemap running track curve patch, 256x256 pixels total, made of sixteen invisible 64x64 tiles.
+
+Subject:
+- cute colorful RPG top-down / three-quarter top-down pixel art red-orange running track curve on grass
+- this is a quarter curve of an oval running track
+- grass is outside and inside the curved track
+- the track has a consistent lane surface and simple light lane markings
+
+Tilemap structure:
+- The curved track enters from the left side of the patch and exits from the bottom side of the patch.
+- The track forms a smooth quarter-circle band.
+- Inner and outer grass areas remain visible.
+- The curve should be understandable after slicing into 64x64 tiles.
+
+Tilemap constraints:
+- The invisible crop grid is exactly 4 columns by 4 rows, each slot 64x64 pixels.
+- Do not draw visible grid lines, borders, labels, text, slot numbers, frames, or black separators.
+- Every 64x64 slot must be fully filled with opaque terrain pixels.
+- Track edges and lane markings must continue naturally across invisible tile boundaries.
+- Track width must stay consistent through the curve.
+- Avoid characters, buildings, props, signs, UI icons, strong cast shadows, water, roads.
+
+Style constraints:
+- cute style, colorful palette, clean RPG game asset, consistent light from upper left
+- shared palette, same pixel density, same outline weight, same texture scale
+- no perspective drift, no photorealism, no text

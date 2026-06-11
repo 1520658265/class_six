@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TileCandidates",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "kind", "tile_size", "source_plan", "candidates"],
+  "properties": {
+    "version": {"type": "string"},
+    "kind": {"const": "tile_candidates"},
+    "tile_size": {
+      "type": "array",
+      "prefixItems": [{"type": "integer", "minimum": 1}, {"type": "integer", "minimum": 1}],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "source_plan": {"type": "string"},
+    "generated_at": {"type": "string"},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["candidate_id", "status", "source", "group_id", "material", "role"],
+        "properties": {
+          "candidate_id": {"type": "string"},
+          "status": {"enum": ["ready", "missing_source", "pending_api", "decode_failed"]},
+          "source": {"type": "string"},
+          "group_id": {"type": "string"},
+          "path": {"type": ["string", "null"]},
+          "source_ref": {"type": ["string", "null"]},
+          "source_path": {"type": ["string", "null"]},
+          "material": {"type": ["string", "null"]},
+          "role": {"type": "string"},
+          "reuse": {"type": "string"},
+          "connection": {"type": "object", "additionalProperties": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}
